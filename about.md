@@ -4,13 +4,11 @@ title: About
 permalink: /about/
 ---
 
-### About
-
 I am a master's degree student in development policy at [KDI School](https://www.kdischool.ac.kr).
 
 ### Research interest
 
-Political economy, development economics, political and economic institutions, labour market, violence, Latin America (Nicaragua, Central America). 
+Political economy, development economics, political and economic institutions, labour market, violence, Latin America (Nicaragua, Central America).
 
 ### C
 Here is my [Current Résumé](https://rrmaximiliano.github.io/Articles/CV160523.pdf).
