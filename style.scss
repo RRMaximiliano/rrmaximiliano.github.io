@@ -164,12 +164,13 @@ img {
 }
 
 .site-avatar {
-  float: right;
+  float: left;
   width: 70px;
   height: 70px;
   margin-right: 15px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  -webkit-border-radius: 30px; /* Saf3+, Chrome */
+  	border-radius: 30px; /* Opera 10.5, IE 9 */
+  	/*-moz-border-radius: 30px;  Disabled for FF1+ */
 
   @include mobile {
     float: none;
