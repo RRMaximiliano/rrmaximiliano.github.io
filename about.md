@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink:
 ---
 
-I am a master's degree student in development policy at [KDI School](https://www.kdischool.ac.kr), South Kore. 
+I am a master's degree student in development policy at [KDI School](https://www.kdischool.ac.kr), South Kore.
 
 #### Research interest
 
