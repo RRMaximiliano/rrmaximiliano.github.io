@@ -1,10 +1,10 @@
 ---
 layout: post
-title: You're up and running!
+title: Introduction
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+#[Has the International Cooperation been Important for Development and Economic Growth? Panel Evidence on Nicaragua and Central America](http://www.uca.edu.ni/2/images/Revista-Encuentro/Revistas/e102/art-5.pdf)
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+Carol Siero, Rony Rodriguez, Sebastián Hernández
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+>International Development Aid has been presented as having the aim of promoting development and economic growth in countries. However, cooperation is based not only on the idea of economic improvement for the countries but also in the political and economic relations that countries have and how they manage their resources. This suggests that the study of cooperation should integrate contexts, policies and goals of both donors and recipients. In this paper we have developed two econometrics panel data models. First, the model of selectivity refers to the amount of money paid to strategic sectors of the economy by the donors; and, second, the model of effective cooperation evaluates the impact of aid on development and economic growth. Through these two models the current paradigm of cooperation has weaknesses establishing strategic areas of cooperation. Therefore, it is necessary to promote an active debate on the role of cooperation in the policies of both donor and recipient countries.
