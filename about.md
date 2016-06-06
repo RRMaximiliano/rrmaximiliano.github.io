@@ -4,12 +4,17 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+### About
 
-### More Information
+I am a master's degree student in development policy at [KDI School](https://www.kdischool.ac.kr).
 
-A place to include any other types of information that you'd like to include about yourself.
+### Research interest
+
+Political economy, development economics, political and economic institutions, labour market, violence, Latin America (Nicaragua, Central America). 
+
+### C
+Here is my [Current Résumé](https://rrmaximiliano.github.io/Articles/CV160523.pdf).
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[maximiliano.rod.ra@gmail.com](mailto:maximiliano.rod.ra@gmail.com)
