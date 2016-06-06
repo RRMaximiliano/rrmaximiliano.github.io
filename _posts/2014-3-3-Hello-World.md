@@ -3,7 +3,7 @@ layout: post
 title: Introduction
 ---
 
-#[Has the International Cooperation been Important for Development and Economic Growth? Panel Evidence on Nicaragua and Central America](http://www.uca.edu.ni/2/images/Revista-Encuentro/Revistas/e102/art-5.pdf)
+[Has the International Cooperation been Important for Development and Economic Growth? Panel Evidence on Nicaragua and Central America](http://www.uca.edu.ni/2/images/Revista-Encuentro/Revistas/e102/art-5.pdf)
 
 Carol Siero, Rony Rodriguez, Sebastián Hernández
 
