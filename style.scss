@@ -9,7 +9,6 @@
 @import "variables";
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
 // Syntax highlighting @import is at the bottom of this file
 
 /**************/
@@ -200,7 +199,7 @@ img {
   margin: 0;
   color: $darkGray;
   cursor: pointer;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto Condensed';
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
@@ -219,7 +218,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto Condensed';
   font-size: 18px;
 
   @include mobile {
