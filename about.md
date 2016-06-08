@@ -4,6 +4,8 @@ title: About
 permalink: /about/
 ---
 
+![Image of Yaktocat](rrmaximiliano.github.io/images/profile-pic.jpg)
+
 I am a master's degree student in development policy at [KDI School](https://www.kdischool.ac.kr), South Korea.
 
 #### Research interest
