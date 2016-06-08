@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<img src="https://rrmaximiliano.github.io/images/profile-pic.jpg" width="100" height="100" />
+<img src="https://rrmaximiliano.github.io/images/profile-pic.jpg" alt="profile" width="200" height="250" />
 
 I am a master's degree student in development policy at [KDI School](https://www.kdischool.ac.kr), South Korea.
 
