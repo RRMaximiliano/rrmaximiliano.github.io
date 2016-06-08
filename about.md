@@ -3,6 +3,26 @@ layout: page
 title: About
 permalink: /about/
 ---
+<style>
+    .round {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+    }
+    .round img {
+        display: block;
+    /* Stretch
+          height: 100%;
+          width: 100%; */
+    min-width: 100%;
+    min-height: 100%;
+    }
+</style>
+
+<div class="round">
+    <img src="https://rrmaximiliano.github.io/images/profile-pic.jpgs" />
+</div>
 
 <img src="https://rrmaximiliano.github.io/images/profile-pic.jpg" alt="profile" width="200" height="250" />
 
