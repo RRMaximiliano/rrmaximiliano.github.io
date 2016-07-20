@@ -10,7 +10,7 @@ permalink: /publications/
 ### Articles
 1. With Carol Siero & Sebastián Hernández, 2015, "[Has the International Cooperation been Important for Development and Economic Growth? Panel Evidence on Nicaragua and Central America](http://www.uca.edu.ni/2/images/Revista-Encuentro/Revistas/e102/art-5.pdf)". _Encuentro_, 102, 52-74.
 
-2. with Mario Sánchez, Douglas Castro & Jorge Guerra."Movimientos sociales y acción colectiva en Nicaragua: entre la identidad, autonomía y subordinación". _Amnis_ (Under Review).
+2. With Mario Sánchez, Douglas Castro & Jorge Guerra. "Movimientos sociales y acción colectiva en Nicaragua: entre la identidad, autonomía y subordinación". _Amnis_ (Under Review).
 
 ### Ongoing Projects
 
@@ -18,4 +18,4 @@ permalink: /publications/
 
 2. With Sebastián Hernández. "Brechas salariales de género. Entre la estructura del mercado laboral y la discriminación ocupacional: El caso de Nicaragua".
 
-3. with Mario Sánchez, Douglas Castro, Claudia Lönze & Néstor López. "Los recursos en disputa: un análisis desde la teoría de la contienda política. El caso del conflicto minero en Rancho Grande, Nicaragua".
+3. With Mario Sánchez, Douglas Castro, Claudia Lönze & Néstor López. "Los recursos en disputa: un análisis desde la teoría de la contienda política. El caso del conflicto minero en Rancho Grande, Nicaragua".
