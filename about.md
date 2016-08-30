@@ -17,4 +17,4 @@ Political economy, development economics, political and economic institutions, l
 
 #### Contact me
 
-[maximiliano.rod.ra@gmail.com](mailto:maximiliano.rod.ra@gmail.com)
+[maximiliano.rod.ra@gmail.com](mailto:maximiliano@kdis.ac.kr)
