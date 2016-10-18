@@ -10,7 +10,7 @@ permalink: /publications/
 ### Articles
 1. With Carol Siero & Sebastián Hernández, 2015, "[Has the International Cooperation been Important for Development and Economic Growth? Panel Evidence on Nicaragua and Central America](http://www.uca.edu.ni/2/images/Revista-Encuentro/Revistas/e102/art-5.pdf)". _Encuentro_, 102, 52-74.
 
-2. With Mario Sánchez, Douglas Castro & Jorge Guerra. "Movimientos sociales y acción colectiva en Nicaragua: entre la identidad, autonomía y subordinación". _Amnis_ (Under Review).
+2. With Mario Sánchez, Douglas Castro & Jorge Guerra. "[Movimientos sociales y acción colectiva en Nicaragua: entre la identidad, autonomía y subordinación](https://amnis.revues.org/2813)". _Amnis_, (15), Digital Version.
 
 ### Ongoing Projects
 
