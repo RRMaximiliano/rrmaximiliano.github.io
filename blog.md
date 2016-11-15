@@ -1,0 +1,21 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+
+
+  {% include disqus.html %}
+</article>
