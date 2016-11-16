@@ -3,6 +3,7 @@ layout: page
 title: About
 ---
 
+
 I am a master's degree student in development policy at KDI School, South Korea.
 
 <img src="/images/rounded-profile.png" alt="profile" width="200" height="202" />

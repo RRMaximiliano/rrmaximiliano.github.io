@@ -1,27 +1,18 @@
-# Plugins
-gems:             ['jekyll-paginate', 'jekyll-gist', 'jekyll-github-metadata']
-
 # Dependencies
-highlighter:      rouge
+markdown:         redcarpet
+pygments:         true
 
 # Permalinks
 permalink:        pretty
 
 # Setup
 title:            Rony Rodriguez
-tagline:          Development Policy Student
-description:      "Development Policy Student"
-url:              http://rrmaximiliano.github.io
-baseurl:          /
+tagline:          'Development Policy Student'
+description:      'Development Policy Student at <a href="https://kdischool.ac.kr"KDI School</a>.'
+url:              https://rrmaximiliano.github.io
 
 author:
-  name:           'Karlo Espiritu'
-  url:            https://twitter.com/karloespiritu
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
 
 paginate:         5
-
-# Custom vars
-version:          1.0.1
-
-github:
-  repo:           https://github.com/karloespiritu/blackdoc
