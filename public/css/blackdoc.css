@@ -30,6 +30,19 @@
  *
  * Update the foundational and global aspects of the page.
  */
+ // IMPORTS
+//
+
+@import "reset";
+@import "variables";
+@import url(https://fonts.googleapis.com/css?family=Gentium+Book+Basic);
+@import url(https://fonts.googleapis.com/css?family=Unica+One);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
+// Syntax highlighting @import is at the bottom of this file
+
+
 
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -43,6 +56,28 @@ html {
   html {
     font-size: 20px;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: $darkerGray;
+  font-weight: bold;
+
+  line-height: 1.7;
+  margin: 1em 0 15px;
+  padding: 0;
+
+  @include mobile {
+    line-height: 1.4;
+  }
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-family: 'Playfair Display', serif;
+  color: $darkerGray;
+  font-kerning: auto;
+  font-feature-settings: "kern","liga","dlig","hlig","cswh";
+  font-synthesis: weight style;
 }
 
 
