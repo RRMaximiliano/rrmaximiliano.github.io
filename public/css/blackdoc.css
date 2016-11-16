@@ -406,3 +406,15 @@ a.sidebar-nav-item:focus {
 ::-webkit-scrollbar-thumb:hover {
   background:#7d7d7d;
 }
+
+.wrapper-footer {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: $black;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+}
