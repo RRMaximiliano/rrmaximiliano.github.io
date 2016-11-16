@@ -4,8 +4,7 @@ title: About
 ---
 
 <p class="message">
-I am a master's degree student in development policy at
-<a href="https://www.kdischool.ac.kr" KDI School, South Korea </a>
+I am a master's degree student in development policy at KDI School, South Korea.
 </p>
 
 <img src="/images/rounded-profile.png" alt="profile" width="200" height="202" />
