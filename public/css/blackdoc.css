@@ -34,8 +34,8 @@ html {
 }
 
 body {
-  color: #848482;
-  background-color: #000000;
+  color: #000000;
+  background-color: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -406,4 +406,3 @@ a.sidebar-nav-item:focus {
 ::-webkit-scrollbar-thumb:hover {
   background:#7d7d7d;
 }
-
