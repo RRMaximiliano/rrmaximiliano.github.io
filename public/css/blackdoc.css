@@ -28,6 +28,16 @@ ______ _            _   ______
  *
  * Update the foundational and global aspects of the page.
  */
+ // IMPORTS
+ @import "reset";
+ @import "variables";
+ @import url(https://fonts.googleapis.com/css?family=Gentium+Book+Basic);
+ @import url(https://fonts.googleapis.com/css?family=Unica+One);
+ @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+ @import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic);
+ @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700);
+
+
 
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -39,7 +49,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Playfair Display', serif;
   color: #caad00;
 }
 
