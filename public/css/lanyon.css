@@ -13,6 +13,7 @@
  * https://github.com/poole/lanyon.
  */
 @import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 
 /*
  * Contents
@@ -37,7 +38,7 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
-  font-family: 'Droid Serif', serif;
+  font-family: 'Libre Baskerville', serif;
   overflow-x: hidden;
 }
 
