@@ -12,7 +12,7 @@
  * Designed, built, and released under MIT license by @mdo. Learn more at
  * https://github.com/poole/lanyon.
  */
-
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
 
 /*
  * Contents
@@ -37,6 +37,7 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
+  font-family: 'Droid Serif', serif;
   overflow-x: hidden;
 }
 
