@@ -12,7 +12,11 @@ description:      'Development Policy Student at <a href="https://kdischool.ac.k
 url:              https://rrmaximiliano.github.io
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           Rony Rodriguez
+  githurl:        rrmaximiliano.github.io
+  email:          maximiliano@kdis.ac.kr
 
 paginate:         5
+
+github:
+  repo:           https://github.com/rrmaximiliano
