@@ -14,7 +14,7 @@ Political economy, development economics, political and economic institutions, l
 </p>
 
 ### Curriculum vitæ
->Here is my [Current CV](https://rrmaximiliano.github.io/Articles/CV270816.pdf).
+>Here is my [Current CV](https://rrmaximiliano.github.io/Articles/CV080117.pdf).
 
 ### Contact me
 
