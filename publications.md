@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: Publications
 ---
@@ -13,8 +13,4 @@ title: Publications
 
 ### Ongoing Projects
 
-1. With Sebastián Hernández. "¿Desarrollo del autoempleo o subsidio a la informalidad? Evaluando políticas públicas para la economía familiar en Nicaragua".
-
-2. With Sebastián Hernández. "Brechas salariales de género. Entre la estructura del mercado laboral y la discriminación ocupacional: El caso de Nicaragua".
-
-3. With Mario Sánchez, Douglas Castro, Claudia Lönze & Néstor López. "Los recursos en disputa: un análisis desde la teoría de la contienda política. El caso del conflicto minero en Rancho Grande, Nicaragua".
+1. With Sebastián Hernández. "¿Desarrollo del autoempleo o subsidio a la informalidad? Evaluando políticas públicas para la economía familiar en Nicaragua."
