@@ -13,4 +13,4 @@ title: Publications
 
 ### Ongoing Projects
 
-1. With Sebastián Hernández. "¿Desarrollo del autoempleo o subsidio a la informalidad? Evaluando políticas públicas para la economía familiar en Nicaragua."
+1. "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes". 2. "Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua 2006 Abortion Ban".
