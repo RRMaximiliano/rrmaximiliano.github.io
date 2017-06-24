@@ -11,7 +11,7 @@ title: Publications
 
 2. With Mario Sánchez, Douglas Castro & Jorge Guerra, 2016, "[Movimientos sociales y acción colectiva en Nicaragua: entre la identidad, autonomía y subordinación](https://amnis.revues.org/2813)." _Amnis_, (15), Digital Version.
 
-### Ongoing Projects
+### Work in progress
 
 1. "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes." 
 
