@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Publications
 ---
@@ -13,4 +13,6 @@ title: Publications
 
 ### Ongoing Projects
 
-1. "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes."2. "Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua 2006 Abortion Ban".
+1. "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes." 
+
+2. "Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua 2006 Abortion Ban Law."
