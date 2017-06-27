@@ -1,24 +1,29 @@
 # Dependencies
-markdown:         kramdown
-pygments:         true
-highlighter:      rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Permalinks
 permalink:        pretty
 
 # Setup
 title:            Rony Rodriguez
-tagline:          'Development Policy Student'
-description:      'Development Policy Student at <a href="https://kdischool.ac.kr" target="_blank">KDI School, South Korea</a>.'
-url:              https://rrmaximiliano.github.io
-google_scholar:   https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en
+tagline:          ''
+description:      'Development Policy Student<br>KDI School<br>South Korea'
+url:              http://rrmaximiliano.github.io
 
 author:
   name:           Rony Rodriguez
-  githurl:        rrmaximiliano.github.io
+  url:            rrmaximiliano.github.io
+  giturl:         rrmaximiliano.github.io
   email:          maximiliano@kdis.ac.kr
+  google_scholar: https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en
 
-paginate:         5
+paginate:          5
+paginate_path:    '/resources/page:num/'
+
+version:          July 2016
 
 github:
   repo:           https://github.com/rrmaximiliano
