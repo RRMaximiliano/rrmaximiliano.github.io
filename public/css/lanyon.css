@@ -39,16 +39,16 @@
 /* Prevent scroll on narrow devices */
 html,
 body {
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 18px;
 }
 
 html {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: bold;
   color: #313131;
 }
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 1rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
@@ -167,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Consolas", monospace;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 2.25rem;
 }
 
@@ -206,7 +206,7 @@ a.sidebar-nav-item:focus {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
@@ -441,7 +441,7 @@ a.sidebar-nav-item:focus {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   color: #ccc;
   text-align: center;
 }

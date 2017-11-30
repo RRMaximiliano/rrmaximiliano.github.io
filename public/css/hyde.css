@@ -32,7 +32,7 @@
  */
 
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 @media (min-width: 48rem) {
   html {
@@ -79,7 +79,7 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Consolas", monospace;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 2.25rem;
 }
 
