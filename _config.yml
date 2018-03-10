@@ -23,7 +23,7 @@ author:
 paginate:          5
 paginate_path:    '/resources/page:num/'
 
-version:          Nov 2017
+version:          Mar 2018
 
 github:
   repo:           https://github.com/rrmaximiliano
