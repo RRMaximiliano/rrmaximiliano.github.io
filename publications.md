@@ -13,7 +13,9 @@ title: Publications
 
 ### Work in progress
 
-1. "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes." 
+1. "Does the Small Business Program Benefit Self-Employed Workers? Evidence from Nicaragua.” [Draft/slides available upon request] 
+
+2. "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes." 
 
 2. "Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua."
 
