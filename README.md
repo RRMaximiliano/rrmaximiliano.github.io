@@ -1,3 +1,3 @@
-# RRMaximiliano's site
+# rrmaximiliano.github.io
 
-Rony Rodriguez's academic website.
+Source code for <www.rrmaximiliano.github.io>
