@@ -2,7 +2,7 @@
 
 title: Rony Rodriguez-Ramirez
 locale: en_US
-url: http://rrmaximiliano.github.io
+url: https://rrmaximiliano.github.io
 ## To build the website locally, comment out the previous line and run
 ## in terminal: 'bundle ex jekyll serve'. The website will be hosted at
 ## 'localhost:4000'.
@@ -45,7 +45,7 @@ titlecase: true
 # Site owner
 owner:
   name: "Rony Rodriguez-Ramirez"
-  avatar: rony.jpg
+  avatar: "https://rrmaximiliano.github.io/images/rony.jpg"
   bio: "Research Assistant</br>KDI School, South Korea"
   email: maximiliano.rod.ra@gmail.com
   disqus-shortname:
@@ -55,7 +55,7 @@ owner:
   google:
     plus: #username
     analytics: UA-134175775-1
-    verify: 
+    verify:
     ad-client:
     ad-slot:
   orcid: #username
