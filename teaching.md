@@ -6,7 +6,7 @@ modified: 2019-09-10T20:17:00.523882-04:00
 comments: false
 ---
 
-I had being Teaching Assistant for the following courses:
+I have been Teaching Assistant for the following courses:
 
 ### Graduate
 
