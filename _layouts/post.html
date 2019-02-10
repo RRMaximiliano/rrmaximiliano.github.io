@@ -16,7 +16,7 @@
 {% if page.image.feature %}
   <div class="image-wrap">
   <img src=
-    {% if page.image.feature contains 'http' %}
+    {% if page.image.feature contains 'https' %}
       "{{ page.image.feature }}"
     {% else %}
       "{{ site.url }}/images/{{ page.image.feature }}"
@@ -39,7 +39,7 @@
       {% else %}
         <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
       {% endif %}
-    </div><!--/ .headline-wrap -->	
+    </div><!--/ .headline-wrap -->
     <div class="article-wrap">
       {{ content }}
       <hr />
