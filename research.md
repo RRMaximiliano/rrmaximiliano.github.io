@@ -20,8 +20,8 @@ comments: false
 
 ## Selected works in progress
 
-1. With Booyuel Kim and Hee-Seung Yang, "Does the Small Business Program Benefit Self-Employed Workers? Evidence from Nicaragua.” [Draft/slides available upon request]
+1. With [Booyuel Kim](https://sites.google.com/site/booyuelkim/home)and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/), "Does the Small Business Program Benefit Self-Employed Workers? Evidence from Nicaragua.” [Draft/slides available upon request]
 
-2. With Booyuel Kim and Hee-Seung Yang, "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes."
+2. With [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/), "In utero exposure to Civil Conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes."
 
 2. "Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua."
