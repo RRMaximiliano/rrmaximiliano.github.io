@@ -12,7 +12,6 @@ I would like to share some datasets that I have created or cleaned that might be
 To the best of my knowledge, there is no available (or open) dataset about elections in Nicaragua. Therefore, I took the statistical catalog of elections in Nicaragua (1990 - 2006) and extracted all the data from it. Unfortunately, the Supreme Electoral Council of Nicaragua website does not have information about the last two presidential elections.
 
 ### State Level
-
 * [R](/assets/data/elecciones presidenciales 1990-2006.rds)
 * [Stata](/assets/data/elecciones presidenciales 1990-2006.dta)
 * [CSV](/assets/data/eleciones presidenciales 1990-2006.csv)
