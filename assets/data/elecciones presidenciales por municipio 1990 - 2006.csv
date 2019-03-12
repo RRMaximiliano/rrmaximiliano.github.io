@@ -1,0 +1,594 @@
+﻿year,departamento,municipio ,jrv,inscritos,total_votos,total_porcentaje,nulos,nulos_porcentaje,validos,validos_porcentaje
+1990,Nueva Segovia,Jalapa,36,14257,13021,0.9133,1002,0.077,12019,0.923
+1990,Nueva Segovia,Santa María,4,1245,1087,0.8731,112,0.103,975,0.897
+1990,Nueva Segovia,Macuelizo,4,1686,1392,0.8256,135,0.097,1257,0.903
+1990,Nueva Segovia,Dipilto,5,1348,1182,0.8769,99,0.0838,1083,0.9162
+1990,Nueva Segovia,Ocotal,30,10274,9200,0.8955,420,0.0457,8780,0.9543
+1990,Nueva Segovia,Mozonte,3,1565,1361,0.8696,90,0.0661,1271,0.9339
+1990,Nueva Segovia,San Fernando,8,2346,2069,0.8819,100,0.0483,1969,0.9517
+1990,Nueva Segovia,Ciudad Antigua,4,1223,1076,0.8798,123,0.1143,953,0.8857
+1990,Nueva Segovia,El Jícaro,13,7443,6680,0.8975,545,0.0816,6135,0.9184
+1990,Nueva Segovia,Murra,4,1668,1400,0.8393,114,0.0814,1286,0.9186
+1990,Nueva Segovia,Quilalí,16,6787,5942,0.8755,548,0.0922,5394,0.9078
+1990,Madriz,Somoto,35,11819,10648,0.9009,656,0.0616,9992,0.9384
+1990,Madriz,Yalagüina,9,3264,2992,0.9167,223,0.0745,2769,0.9255
+1990,Madriz,Totogalpa,8,3605,3022,0.8383,215,0.0711,2807,0.9289
+1990,Madriz,Palacagüina,17,5556,4907,0.8832,274,0.0558,4633,0.9442
+1990,Madriz,Telpaneca,15,4986,4342,0.8708,607,0.1398,3735,0.8602
+1990,Madriz,San Juan del Río Coco,16,6672,5487,0.8224,656,0.1196,4831,0.8804
+1990,Madriz,San Lucas,14,4165,3738,0.8975,303,0.0811,3435,0.9189
+1990,Madriz,Las Sabanas,4,1211,1143,0.9438,75,0.0656,1068,0.9344
+1990,Madriz,San José de Cusmapa,4,1569,1379,0.8789,118,0.0856,1261,0.9144
+1990,Estelí,Pueblo Nuevo,25,8920,8042,0.9016,572,0.0711,7470,0.9289
+1990,Estelí,Condega,31,11050,9716,0.8793,732,0.0753,8984,0.9247
+1990,Estelí,San Juan de Limay,15,5662,4944,0.8732,359,0.0726,4585,0.9274
+1990,Estelí,Estelí,108,39857,35621,0.8937,1637,0.046,33984,0.954
+1990,Estelí,San Nicolás,7,2402,2147,0.8938,91,0.0424,2056,0.9576
+1990,Estelí,La Trinidad,26,8550,7685,0.8988,743,0.0967,6942,0.9033
+1990,Chinandega,San Pedro del Norte,3,1467,1229,0.8378,59,0.048,1170,0.952
+1990,Chinandega,Santo Tomás del Norte,8,2578,2142,0.8309,140,0.0654,2002,0.9346
+1990,Chinandega,Cinco Pinos,8,2993,2595,0.867,96,0.037,2499,0.963
+1990,Chinandega,San Francisco del Norte,7,2606,2283,0.8761,80,0.035,2203,0.965
+1990,Chinandega,El Viejo,69,28660,23265,0.8118,1375,0.0591,21890,0.9409
+1990,Chinandega,Puerto Morazán,12,4873,3846,0.7892,181,0.0471,3665,0.9529
+1990,Chinandega,Somotillo,24,9970,8809,0.8836,475,0.0539,8334,0.9461
+1990,Chinandega,Villanueva,19,8143,6813,0.8367,368,0.054,6445,0.946
+1990,Chinandega,Corinto,24,8638,7765,0.8989,179,0.0231,7586,0.9769
+1990,Chinandega,El Realejo,6,2970,2495,0.8401,165,0.0661,2330,0.9339
+1990,Chinandega,Chinandega,95,46888,39669,0.846,1514,0.0382,38155,0.9618
+1990,Chinandega,Chichigalpa,43,19806,17433,0.02,779,0.0447,16654,0.9553
+1990,Chinandega,Posoltega,15,5927,5022,0.86,321,0.0639,4701,0.9361
+1990,León,Achuapa,13,5785,5041,0.8714,223,0.0442,4818,0.9558
+1990,León,El Sauce,33,11661,10024,0.8596,522,0.0521,9502,0.9479
+1990,León,Santa Rosa del Peñón,9,3227,2806,0.8695,167,0.0595,2639,0.9405
+1990,León,Quezalguaque,10,3548,2923,0.8238,214,0.0732,2709,0.9268
+1990,León,Telica,21,9570,8353,0.8728,446,0.0534,7907,0.9466
+1990,León,Larreynaga,37,13786,11701,0.8488,576,0.0492,11125,0.9508
+1990,León,El Jicaral,13,5193,4399,0.8471,339,0.0771,4060,0.9229
+1990,León,León,159,70933,61548,0.8677,1993,0.0324,59555,0.9676
+1990,León,La Paz Centro,38,12272,10554,0.86,622,0.0589,9932,0.9411
+1990,León,Nagarote,41,13156,11599,0.8817,445,0.0384,11154,0.9616
+1990,Managua,San Francisco Libre,8,3899,3391,0.8697,285,0.084,3106,0.916
+1990,Managua,Tipitapa,73,33263,29350,0.8824,1780,0.0606,27570,0.9394
+1990,Managua,Mateare,16,6389,5618,0.8793,358,0.0637,5260,0.9363
+1990,Managua,Villa Carlos Fonseca,32,10581,9413,0.8896,733,0.0779,8680,0.9221
+1990,Managua,Managua,913,384872,339560,0.8823,12874,0.0379,326686,0.9621
+1990,Managua,Ticuantepe,19,7572,6936,0.916,387,0.0558,6549,0.9442
+1990,Managua,San Rafael del Sur,35,16195,14719,0.9089,1152,0.0783,13567,0.9217
+1990,Masaya,Nindirí,24,11694,10684,0.9136,513,0.048,10171,0.952
+1990,Masaya,Masaya,130,50694,46491,0.9171,3244,0.0698,43247,0.9302
+1990,Masaya,Tisma,14,4756,4323,0.909,206,0.0477,4117,0.9523
+1990,Masaya,La Concepción,25,11174,10319,0.9235,519,0.0503,9800,0.9497
+1990,Masaya,Masatepe,22,11130,10140,0.9111,435,0.0429,9705,0.9571
+1990,Masaya,Nandasmo,8,3298,3071,0.9312,123,0.0401,2948,0.9599
+1990,Masaya,Niquinohomo,18,5783,5265,0.9104,358,0.068,4907,0.932
+1990,Masaya,Catarina,8,2393,2258,0.9436,99,0.0438,2159,0.9562
+1990,Masaya,San Juan de Oriente,3,1372,1246,0.9082,40,0.0321,1206,0.9679
+1990,Carazo,San Marcos,28,11465,10277,0.8964,498,0.0485,9779,0.9515
+1990,Carazo,Diriamba,65,22961,20654,0.8995,1642,0.0795,19012,0.9205
+1990,Carazo,Dolores,7,2567,2342,0.9123,190,0.0811,2152,0.9189
+1990,Carazo,Jinotepe,44,15762,12650,0.8026,494,0.0391,12156,0.9609
+1990,Carazo,El Rosario,7,1806,1701,0.9419,76,0.0447,1625,0.9553
+1990,Carazo,La Paz de Carazo,5,1863,1697,0.9109,121,0.0713,1576,0.9287
+1990,Carazo,La Conquista,8,2032,1725,0.8489,111,0.0643,1614,0.9357
+1990,Carazo,Santa Teresa,26,8171,7295,0.8928,611,0.0838,6684,0.9162
+1990,Granada,Granada,129,43878,39304,0.8958,2536,0.0645,36768,0.9355
+1990,Granada,Diriá,11,2994,2815,0.9402,236,0.0838,2579,0.9162
+1990,Granada,Diriomo,25,8068,7391,0.9161,425,0.0575,6966,0.9425
+1990,Granada,Nandaime,38,13852,12504,0.9027,808,0.0646,11696,0.9354
+1990,Rivas,Belén,26,7360,6485,0.8811,305,0.047,6180,0.953
+1990,Rivas,Potosí,14,4348,3940,0.9062,241,0.0612,3699,0.9388
+1990,Rivas,Buenos Aires,9,2266,2033,0.8972,113,0.0556,1920,0.9444
+1990,Rivas,Moyogalpá,12,4149,3800,0.9159,197,0.0518,3603,0.9482
+1990,Rivas,Altagracia,24,7477,6918,0.9252,317,0.0458,6601,0.9542
+1990,Rivas,Tola,31,8476,7516,0.8867,605,0.0805,6911,0.9195
+1990,Rivas,Rivas,56,16835,15023,0.8924,770,0.0513,14253,0.9487
+1990,Rivas,San Jorge,13,3574,3286,0.9194,120,0.0365,3166,0.9635
+1990,Rivas,San Juan del Sur,25,7259,6430,0.8858,291,0.0453,6139,0.9547
+1990,Rivas,Cárdenas,5,856,715,0.8353,23,0.0322,692,0.9678
+1990,Chontales,Comalapa,11,3670,3158,0.8605,128,0.0405,3030,0.9595
+1990,Chontales,Juigalpa,59,22868,19714,0.8621,792,0.0402,18922,0.9598
+1990,Chontales,La Libertad,12,2403,2098,0.8731,88,0.0419,2010,0.9581
+1990,Chontales,Santo Domingo,16,9549,7334,0.768,460,0.0627,6874,0.9373
+1990,Chontales,San Pedro de Lóvago,12,3609,3204,0.8878,81,0.0253,3123,0.9747
+1990,Chontales,Santo Tomás,24,7621,6633,0.8704,234,0.0353,6399,0.9647
+1990,Chontales,Acoyapa,17,6807,5948,0.8738,278,0.0467,5670,0.9533
+1990,Chontales,Villa Sandino,22,9225,7842,0.8501,405,0.0516,7437,0.9484
+1990,Chontales,El Rama,38,16383,12841,0.7838,1103,0.0859,11738,0.9141
+1990,Chontales,Muelle de los Bueyes,25,10316,8631,0.8367,554,0.0642,8077,0.9358
+1990,Chontales,Nueva Guinea,61,20238,16089,0.795,1090,0.0677,14999,0.9323
+1990,Chontales,El Almendro,10,4112,3528,0.858,249,0.0706,3279,0.9294
+1990,Boaco,San José de los Remates,28,2785,2458,0.8826,109,0.0443,2349,0.9557
+1990,Boaco,Santa Lucía,28,3645,3243,0.8897,153,0.0472,3090,0.9528
+1990,Boaco,Boaco,6,17961,15775,0.8783,862,0.0546,14913,0.9454
+1990,Boaco,Camoapa,38,13606,11824,0.869,604,0.0511,11220,0.9489
+1990,Boaco,Teustepe,25,9111,8109,0.89,579,0.0714,7530,0.9286
+1990,Boaco,San Lorenzo,61,8926,7916,0.8868,517,0.0653,7399,0.9347
+1990,Matagalpa,Rancho Grande,16,8003,4296,0.5368,291,0.0677,4005,0.9323
+1990,Matagalpa,Tuma La Dalia,28,15514,12472,0.8039,1166,0.0935,11306,0.9065
+1990,Matagalpa,Río Blanco,23,16745,11285,0.6739,1114,0.0987,10171,0.9013
+1990,Matagalpa,San Isidro,13,5713,5105,0.8936,280,0.0548,4825,0.9452
+1990,Matagalpa,Sébaco,21,10534,9313,0.8841,467,0.0501,8846,0.9499
+1990,Matagalpa,Matagalpa,108,43602,37909,0.8694,2199,0.058,35710,0.942
+1990,Matagalpa,San Ramón,18,9523,8162,0.8571,644,0.0789,7518,0.9211
+1990,Matagalpa,Matiguás,27,14190,9777,0.689,845,0.0864,8932,0.9136
+1990,Matagalpa,Ciudad Darío,40,16811,14912,0.887,793,0.0532,14119,0.9468
+1990,Matagalpa,Terrabona,11,4867,4205,0.864,247,0.0587,3958,0.9413
+1990,Matagalpa,San Dionisio,14,5625,4927,0.8759,271,0.055,4656,0.945
+1990,Matagalpa,Esquipulas,12,5601,4912,0.877,284,0.0578,4628,0.9422
+1990,Matagalpa,Muy Muy,11,4315,3719,0.8619,243,0.0653,3476,0.9347
+1990,Matagalpa,Waslala,17,10218,7637,0.7474,624,0.0817,7013,0.9183
+1990,Matagalpa,Paiwas,6,1935,1522,0.7866,94,0.0618,1428,0.9382
+1990,Jinotega,Wiwilí,22,12715,10119,0.7958,1179,0.1165,8940,0.8835
+1990,Jinotega,El Cuá Bocay,19,15291,10755,0.7034,1832,0.1703,8923,0.8297
+1990,Jinotega,Santa María de Pantasma,13,7853,6130,0.7806,846,0.138,5284,0.862
+1990,Jinotega,San Sebastián de Yalí,13,6510,5255,0.8072,554,0.1054,4701,0.8946
+1990,Jinotega,La Concordia,8,2680,2430,0.9067,260,0.107,2170,0.893
+1990,Jinotega,San Rafael del Norte,14,7755,6543,0.8437,554,0.0847,5989,0.9153
+1990,Jinotega,Jinotega,65,31487,25661,0.815,2274,0.0886,23387,0.9114
+1990,R. Autónoma Atlántico Norte,Waspam,20,8894,7415,0.8337,1841,0.2483,5574,0.7517
+1990,R. Autónoma Atlántico Norte,Puerto Cabezas,50,18100,15320,0.8464,2169,0.1416,13151,0.8584
+1990,R. Autónoma Atlántico Norte,Prinzapolka,6,1673,1258,0.7519,266,0.2114,992,0.7886
+1990,R. Autónoma Atlántico Norte,Rosita,12,5507,4143,0.7523,674,0.1627,3469,0.8373
+1990,R. Autónoma Atlántico Norte,Bonanza,16,3579,2921,0.8161,256,0.0876,2665,0.9124
+1990,R. Autónoma Atlántico Norte,Siuna,33,12443,8492,0.6825,1411,0.1662,7081,0.8338
+1990,R. Autónoma Atlántico Sur,La Cruz de Río Grande,8,1809,970,0.5362,109,0.1124,861,0.8876
+1990,R. Autónoma Atlántico Sur,Laguna de Perlas,12,2651,2139,0.8069,155,0.0725,1984,0.9275
+1990,R. Autónoma Atlántico Sur,Kukra Hill,11,3058,2419,0.791,237,0.098,2182,0.902
+1990,R. Autónoma Atlántico Sur,Bluefields,48,16178,13319,0.8233,829,0.0622,12490,0.9378
+1990,R. Autónoma Atlántico Sur,Corn Island,6,2316,1787,0.7716,113,0.0632,1674,0.9368
+1990,R. Autónoma Atlántico Sur,Desembocadura de Río Grande,6,1166,1024,0.8782,184,0.1797,840,0.8203
+1990,R. Autónoma Atlántico Sur,El Tortuguero,5,2217,1676,0.756,226,0.1348,1450,0.8652
+1990,Río San Juan,Morrito,4,1820,1549,0.8511,102,0.0658,1447,0.9342
+1990,Río San Juan,San Miguelito,7,2946,2450,0.8316,149,0.0608,2301,0.9392
+1990,Río San Juan,San Carlos,25,8182,6748,0.8247,448,0.0664,6300,0.9336
+1990,Río San Juan,El Castillo,8,2363,1995,0.8443,114,0.0571,1881,0.9429
+1990,Río San Juan,San Juan del Norte,,,,,,,,
+1996,Nueva Segovia,Jalapa,89,22354,17893,0.8004,949,0.053,16944,0.947
+1996,Nueva Segovia,Santa María,8,2277,1866,0.8195,128,0.0686,1738,0.9314
+1996,Nueva Segovia,Macuelizo,10,2547,2104,0.8261,108,0.0513,1996,0.9487
+1996,Nueva Segovia,Dipilto,10,2287,1991,0.8706,168,0.0844,1823,0.9156
+1996,Nueva Segovia,Ocotal,62,15353,12852,0.8371,595,0.0463,12257,0.9537
+1996,Nueva Segovia,Mozonte,10,2870,2042,0.7115,181,0.0886,1861,0.9114
+1996,Nueva Segovia,San Fernando,14,3574,3119,0.8727,184,0.059,2935,0.941
+1996,Nueva Segovia,Ciudad Antigua,8,2144,1766,0.8237,146,0.0827,1620,0.9173
+1996,Nueva Segovia,El Jícaro,48,11932,9474,0.794,741,0.0782,8733,0.9218
+1996,Nueva Segovia,Murra,24,5988,4385,0.7323,430,0.0981,3955,0.9019
+1996,Nueva Segovia,Quilalí,39,10928,8003,0.7323,617,0.0771,7386,0.9229
+1996,Madriz,Somoto,64,16858,14152,0.8395,850,0.0601,13302,0.9399
+1996,Madriz,Yalagüina,17,4180,3623,0.8667,260,0.0718,3363,0.9282
+1996,Madriz,Totogalpa,17,4737,4097,0.8649,315,0.0769,3782,0.9231
+1996,Madriz,Palacagüina,24,6422,5689,0.8859,282,0.0496,5407,0.9504
+1996,Madriz,Telpaneca,27,7259,6251,0.8611,390,0.0624,5861,0.9376
+1996,Madriz,San Juan del Río Coco,35,9446,7824,0.8283,485,0.062,7339,0.938
+1996,Madriz,San Lucas,22,5813,5140,0.8842,336,0.0654,4804,0.9346
+1996,Madriz,Las Sabanas,8,1901,1715,0.9022,53,0.0309,1662,0.9691
+1996,Madriz,San José de Cusmapa,11,2986,2541,0.851,160,0.063,2381,0.937
+1996,Estelí,Pueblo Nuevo,40,10827,8818,0.8144,383,0.0434,8435,0.9566
+1996,Estelí,Condega,49,13856,11501,0.83,441,0.0383,11060,0.9617
+1996,Estelí,San Juan de Limay,23,6334,5335,0.8423,235,0.044,5300,0.9934
+1996,Estelí,Estelí,201,53125,44312,0.8341,1882,0.0425,42430,0.9575
+1996,Estelí,San Nicolás,12,3261,2645,0.8111,189,0.0715,2456,0.9285
+1996,Estelí,La Trinidad,40,11045,9447,0.8553,810,0.0857,8637,0.9143
+1996,Chinandega,San Pedro del Norte,8,2418,1893,0.7829,171,0.0903,1722,0.9097
+1996,Chinandega,Santo Tomás del Norte,13,3405,2676,0.7859,143,0.0534,2533,0.9466
+1996,Chinandega,Cinco Pinos,14,3387,2834,0.8367,180,0.0635,2654,0.9365
+1996,Chinandega,San Francisco del Norte,11,3218,2734,0.8496,188,0.0688,2546,0.9312
+1996,Chinandega,El Viejo,139,36023,25805,0.7163,1432,0.0555,24373,0.9445
+1996,Chinandega,Puerto Morazán,24,6183,3928,0.6353,208,0.053,3720,0.947
+1996,Chinandega,Somotillo,49,13118,11011,0.8394,414,0.0376,10597,0.9624
+1996,Chinandega,Villanueva,45,11435,8874,0.776,438,0.0494,8436,0.9506
+1996,Chinandega,Corinto,44,10506,8476,0.8068,235,0.0277,8241,0.9723
+1996,Chinandega,El Realejo,18,4643,3346,0.7207,279,0.0834,3067,0.9166
+1996,Chinandega,Chinandega,239,63292,51200,0.8089,1924,0.0376,49276,0.9624
+1996,Chinandega,Chichigalpa,104,25754,19934,0.774,1137,0.057,18797,0.943
+1996,Chinandega,Posoltega,31,8000,6078,0.7598,424,0.0698,5654,0.9302
+1996,León,Achuapa,23,6643,5368,0.8081,262,0.0488,5106,0.9512
+1996,León,El Sauce,51,14517,11205,0.7719,597,0.0533,10608,0.9467
+1996,León,Santa Rosa del Peñón,17,4869,3605,0.7404,215,0.0596,3390,0.9404
+1996,León,Quezalgüaque,16,4479,3311,0.7392,228,0.0689,3083,0.9311
+1996,León,Telica,47,13132,9665,0.736,615,0.0636,9050,0.9364
+1996,León,Larreynaga,58,15798,12468,0.7892,670,0.0537,11798,0.9463
+1996,León,El Jicaral,20,5332,4145,0.7774,214,0.0516,3931,0.9484
+1996,León,León,333,92779,77057,0.8305,2462,0.032,74595,0.968
+1996,León,La Paz Centro,50,15048,12137,0.8066,381,0.0314,11756,0.9686
+1996,León,Nagarote,62,16659,13641,0.8188,592,0.0434,13049,0.9566
+1996,Managua,San Francisco Libre,19,4699,3278,0.6976,130,0.0397,3148,0.9603
+1996,Managua,Tipitapa,171,45181,33700,0.7459,1620,0.0481,32080,0.9519
+1996,Managua,Mateare,38,9678,7608,0.7861,427,0.0561,7181,0.9439
+1996,Managua,Villa Carlos Fonseca,48,13015,8557,0.6575,576,0.0673,7981,0.9327
+1996,Managua,Managua,1869,516141,399523,0.7741,13208,0.0331,386315,0.9669
+1996,Managua,Ticuantepe,44,10823,7133,0.6591,293,0.0411,6840,0.9589
+1996,Managua,San Rafael del Sur,76,19750,15061,0.7626,1043,0.0693,14018,0.9307
+1996,Masaya,Nindirí,58,15997,13577,0.8487,791,0.0583,12786,0.9417
+1996,Masaya,Masaya,245,67482,56344,0.8349,2286,0.0406,54058,0.9594
+1996,Masaya,Tisma,20,5063,4557,0.9001,283,0.0621,4274,0.9379
+1996,Masaya,La Concepción,54,13922,11057,0.7942,802,0.0725,10255,0.9275
+1996,Masaya,Masatepe,57,15426,13405,0.869,529,0.0395,12876,0.9605
+1996,Masaya,Nandasmo,17,4551,4014,0.882,207,0.0516,3807,0.9484
+1996,Masaya,Niquinohomo,22,6948,6253,0.9,235,0.0376,6018,0.9624
+1996,Masaya,Catarina,13,3263,3004,0.9206,85,0.0283,2919,0.9717
+1996,Masaya,San Juan de Oriente,8,1906,1698,0.8909,75,0.0442,1623,0.9558
+1996,Carazo,San Marcos,50,13292,11864,0.8926,527,0.0444,11337,0.9556
+1996,Carazo,Diriamba,103,28055,22882,0.8156,1337,0.0584,21545,0.9416
+1996,Carazo,Dolores,11,3133,2766,0.8829,77,0.0278,2689,0.9722
+1996,Carazo,Jinotepe,84,21692,18277,0.8426,598,0.0327,17679,0.9673
+1996,Carazo,El Rosario,10,2544,2004,0.7877,71,0.0354,1933,0.9646
+1996,Carazo,La Paz de Carazo,10,2569,2285,0.8895,93,0.0407,2192,0.9593
+1996,Carazo,La Conquista,9,2145,1738,0.8103,73,0.042,1665,0.958
+1996,Carazo,Santa Teresa,36,9585,8044,0.8392,352,0.0438,7692,0.9562
+1996,Granada,Granada,195,52757,45992,0.8718,1970,0.0428,44022,0.9572
+1996,Granada,Diriá,12,3416,3070,0.8987,127,0.0414,2943,0.9586
+1996,Granada,Diriomo,38,10182,8997,0.8836,478,0.0531,8519,0.9469
+1996,Granada,Nandaime,63,16851,14710,0.8729,699,0.0475,14011,0.9525
+1996,Rivas,Belén,32,8919,6323,0.7089,312,0.0493,6011,0.9507
+1996,Rivas,Potosí,21,6235,5226,0.8382,262,0.0501,4964,0.9499
+1996,Rivas,Buenos Aires,11,2705,2315,0.8558,182,0.0786,2133,0.9214
+1996,Rivas,Moyogalpa,19,5196,4293,0.8262,241,0.0561,4052,0.9439
+1996,Rivas,Altagracia,34,9745,7910,0.8117,396,0.0501,7514,0.9499
+1996,Rivas,Tola,37,10062,7945,0.7896,468,0.0589,7477,0.9411
+1996,Rivas,Rivas,86,22470,17988,0.8005,819,0.0455,17169,0.9545
+1996,Rivas,San Jorge,19,4728,3901,0.8251,275,0.0705,3626,0.9295
+1996,Rivas,San Juan del Sur,31,8015,6110,0.7623,427,0.0699,5683,0.9301
+1996,Rivas,Cárdenas,12,3029,2061,0.6804,63,0.0306,1998,0.9694
+1996,Chontales,Comalapa,22,6128,4333,0.7071,223,0.0515,4110,0.9485
+1996,Chontales,Juigalpa,111,30497,24533,0.8044,1072,0.0437,23461,0.9563
+1996,Chontales,La Libertad,20,5280,4014,0.7602,267,0.0665,3747,0.9335
+1996,Chontales,Santo Domingo,24,6572,5453,0.8297,229,0.042,5224,0.958
+1996,Chontales,San Pedro de Lóvago,15,4627,3887,0.8401,85,0.0219,3802,0.9781
+1996,Chontales,Santo Tomás,36,8769,7832,0.8931,207,0.0264,7625,0.9736
+1996,Chontales,Acoyapa,36,9745,7078,0.7263,358,0.0506,6720,0.9494
+1996,Chontales,Villa Sandino,40,10395,8382,0.8063,418,0.0499,7964,0.9501
+1996,Chontales,El Rama,103,27513,19747,0.7177,1043,0.0528,18704,0.9472
+1996,Chontales,Muelle de los Bueyes,48,12022,10208,0.8491,720,0.0705,9488,0.9295
+1996,Chontales,Nueva Guinea,149,39569,29955,0.757,1837,0.0613,28118,0.9387
+1996,Chontales,El Almendro,23,5995,4669,0.7788,490,0.1049,4179,0.8951
+1996,Boaco,San José de los Remates,18,3949,3086,0.7815,303,0.0982,2783,0.9018
+1996,Boaco,Santa Lucía,21,5175,3678,0.7107,179,0.0487,3499,0.9513
+1996,Boaco,Boaco,92,25445,20238,0.7954,941,0.0465,19297,0.9535
+1996,Boaco,Camoapa,64,17599,14602,0.8297,734,0.0503,13868,0.9497
+1996,Boaco,Teustepe,50,12171,9319,0.7657,737,0.0791,8582,0.9209
+1996,Boaco,San Lorenzo,44,11221,9098,0.8108,648,0.0712,8450,0.9288
+1996,Matagalpa,Rancho Grande,33,8740,6372,0.7291,494,0.0775,5878,0.9225
+1996,Matagalpa,Tuma La Dalia,83,22444,15801,0.704,1199,0.0759,14602,0.9241
+1996,Matagalpa,Río Blanco,52,13758,10200,0.7414,648,0.0635,9552,0.9365
+1996,Matagalpa,San Isidro,31,8710,7157,0.8217,375,0.0524,6782,0.9476
+1996,Matagalpa,Sébaco,51,13548,11420,0.8429,732,0.0641,10668,0.9342
+1996,Matagalpa,Matagalpa,225,62552,41771,0.6678,2038,0.0488,39733,0.9512
+1996,Matagalpa,San Ramón,48,12717,8486,0.6673,477,0.0562,8009,0.9438
+1996,Matagalpa,Matiguás,72,19505,13197,0.6766,771,0.0584,12426,0.9416
+1996,Matagalpa,Ciudad Darío,77,19866,14340,0.7218,980,0.0683,13360,0.9317
+1996,Matagalpa,Terrabona,26,6253,3915,0.6261,433,0.1106,3482,0.8894
+1996,Matagalpa,San Dionisio,29,7641,5177,0.6775,431,0.0833,4746,0.9167
+1996,Matagalpa,Esquipulas,29,8070,5709,0.7074,407,0.0713,5302,0.9287
+1996,Matagalpa,Muy Muy,25,6517,3793,0.582,211,0.0556,3582,0.9444
+1996,Matagalpa,Waslala,70,19165,9702,0.5062,695,0.0716,9007,0.9284
+1996,Matagalpa,Paiwas,66,16383,10275,0.6272,630,0.0613,9645,0.9387
+1996,Jinotega,Wiwilí,96,25936,17212,0.6636,1297,0.0754,15915,0.9246
+1996,Jinotega,El Cuá Bocay,105,29430,15653,0.5319,1204,0.0769,14449,0.9231
+1996,Jinotega,Santa María de Pantasma,49,13877,10638,0.7666,740,0.0696,9898,0.9304
+1996,Jinotega,San Sebastián de Yalí,39,10959,9557,0.8721,597,0.0625,8960,0.9375
+1996,Jinotega,La Concordia,12,3039,2764,0.9095,143,0.0517,2621,0.9483
+1996,Jinotega,San Rafael del Norte,28,7336,6029,0.8218,341,0.0566,5688,0.9434
+1996,Jinotega,Jinotega,159,44805,31776,0.7092,1783,0.0561,29993,0.9439
+1996,R. Autónoma Atlántico Norte,Waspam,66,16536,11040,0.6676,856,0.0775,10184,0.9225
+1996,R. Autónoma Atlántico Norte,Puerto Cabezas,80,21709,14257,0.6567,1264,0.0887,12993,0.9113
+1996,R. Autónoma Atlántico Norte,Prinzapolka,16,3093,1685,0.5448,10,0.0059,1675,0.9941
+1996,R. Autónoma Atlántico Norte,Rosita,25,7225,4096,0.5669,268,0.0654,3828,0.9346
+1996,R. Autónoma Atlántico Norte,Bonanza,24,5591,3451,0.6172,135,0.0391,3316,0.9609
+1996,R. Autónoma Atlántico Norte,Siuna,133,35746,19244,0.5384,1620,0.0842,17624,0.9158
+1996,R. Autónoma Atlántico Sur,La Cruz de Río Grande,30,8062,2149,0.2666,149,0.0693,2000,0.9307
+1996,R. Autónoma Atlántico Sur,Laguna de Perlas,18,3928,2085,0.5308,189,0.0906,1896,0.9094
+1996,R. Autónoma Atlántico Sur,Kukra Hill,19,4850,2520,0.5196,158,0.0627,2362,0.9373
+1996,R. Autónoma Atlántico Sur,Bluefields,92,23400,14624,0.625,697,0.0477,13927,0.9523
+1996,R. Autónoma Atlántico Sur,Corn Island,12,3384,1987,0.5872,175,0.0881,1812,0.9119
+1996,R. Autónoma Atlántico Sur,Desembocadura de Río Grande,7,1180,879,0.7449,111,0.1263,768,0.8737
+1996,R. Autónoma Atlántico Sur,El Tortuguero,30,7625,3317,0.435,149,0.0449,3168,0.9551
+1996,Río San Juan,Morrito,12,3196,2343,0.7331,214,0.0913,2129,0.9087
+1996,Río San Juan,San Miguelito,22,6366,3886,0.6104,328,0.0844,3558,0.9156
+1996,Río San Juan,San Carlos,58,16776,10977,0.6543,673,0.0613,10304,0.9387
+1996,Río San Juan,El Castillo,19,6173,3975,0.6439,306,0.077,3669,0.923
+1996,Río San Juan,San Juan del Norte,1,192,145,0.7552,4,0.0276,141,0.9724
+2001,Nueva Segovia,Jalapa,88,29581,,,,,23663,0.7999
+2001,Nueva Segovia,Santa María,9,2761,,,,,2210,0.8004
+2001,Nueva Segovia,Macuelizo,11,3242,,,,,2787,0.8597
+2001,Nueva Segovia,Dipilto,10,2693,,,,,2233,0.8292
+2001,Nueva Segovia,Ocotal,62,20230,,,,,15856,0.7838
+2001,Nueva Segovia,Mozonte,11,3537,,,,,2820,0.7973
+2001,Nueva Segovia,San Fernando,15,4641,,,,,3971,0.8556
+2001,Nueva Segovia,Ciudad Antigua,8,2544,,,,,2075,0.8156
+2001,Nueva Segovia,El Jícaro,46,14076,,,,,11399,0.8098
+2001,Nueva Segovia,Murra,28,7470,,,,,5894,0.789
+2001,Nueva Segovia,Quilalí,48,13160,,,,,10494,0.7974
+2001,Nueva Segovia,Wiwilí de Nueva Segovia,29,8114,,,,,6641,0.818461918
+2001,Madriz,Somoto,64,20498,,,,,16557,0.8077
+2001,Madriz,Yalagüina,20,5073,,,,,4514,0.8898
+2001,Madriz,Totogalpa,18,5764,,,,,4960,0.8605
+2001,Madriz,Palacagüina,27,7866,,,,,6893,0.8763
+2001,Madriz,Telpaneca,32,9231,,,,,7670,0.8309
+2001,Madriz,San Juan del Río Coco,40,12035,,,,,9663,0.8029
+2001,Madriz,San Lucas,22,7028,,,,,6056,0.8617
+2001,Madriz,Las Sabanas,9,2469,,,,,2098,0.8497
+2001,Madriz,San José de Cusmapa,11,3602,,,,,3048,0.8462
+2001,Estelí,Pueblo Nuevo,46,13159,,,,,10322,0.7844
+2001,Estelí,Condega,60,17211,,,,,13342,0.7752
+2001,Estelí,San Juan de Limay,27,7872,,,,,6369,0.8091
+2001,Estelí,Estelí,216,69103,,,,,51300,0.7424
+2001,Estelí,San Nicolás,12,3611,,,,,2880,0.7976
+2001,Estelí,La Trinidad,41,13358,,,,,10709,0.8017
+2001,Chinandega,San Pedro del Norte,10,2970,,,,,2244,0.7556
+2001,Chinandega,Santo Tomás del Norte,14,4298,,,,,3164,0.7362
+2001,Chinandega,Cinco Pinos,14,4341,,,,,3420,0.7878
+2001,Chinandega,San Francisco del Norte,12,3785,,,,,3204,0.8465
+2001,Chinandega,El Viejo,154,45972,,,,,29860,0.6495
+2001,Chinandega,Puerto Morazán,26,7427,,,,,4944,0.6657
+2001,Chinandega,Somotillo,60,16446,,,,,12610,0.7668
+2001,Chinandega,Villanueva,45,13576,,,,,10572,0.7787
+2001,Chinandega,Corinto,42,12616,,,,,8924,0.7074
+2001,Chinandega,El Realejo,18,5521,,,,,3740,0.6774
+2001,Chinandega,Chinandega,228,79322,,,,,54277,0.6843
+2001,Chinandega,Chichigalpa,98,30884,,,,,20283,0.6567
+2001,Chinandega,Posoltega,31,9575,,,,,6131,0.6403
+2001,León,Achuapa,26,8105,,,,,6314,0.779
+2001,León,El Sauce,63,17756,,,,,12897,0.7263
+2001,León,Santa Rosa del Peñón,18,5543,,,,,4271,0.7705
+2001,León,Quezalguaque,18,5401,,,,,3773,0.6986
+2001,León,Telica,53,15523,,,,,10630,0.6848
+2001,León,Larreynaga,64,18880,,,,,13176,0.6979
+2001,León,El Jicaral,25,6718,,,,,4539,0.6756
+2001,León,León,358,115629,,,,,80135,0.693
+2001,León,La Paz Centro,57,18242,,,,,15641,0.8574
+2001,León,Nagarote,66,20036,,,,,14852,0.7413
+2001,Managua,San Francisco Libre,18,5871,,,,,4623,0.7874
+2001,Managua,Tipitapa,167,56895,,,,,43187,0.7591
+2001,Managua,Mateare,39,11876,,,,,9426,0.7937
+2001,Managua,Villa Carlos Fonseca,57,15846,,,,,12089,0.7629
+2001,Managua,Managua,1666,588275,,,,,437212,0.7432
+2001,Managua,Ticuantepe,44,13660,,,,,11285,0.8261
+2001,Managua,San Rafael del Sur,83,24041,,,,,19042,0.7921
+2001,Managua,Ciudad Sandino,125,42666,,,,,31402,0.736
+2001,Managua,El Crucero,29,8484,,,,,6484,0.7643
+2001,Masaya,Nindirí,61,20032,,,,,16095,0.8035
+2001,Masaya,Masaya,223,81497,,,,,61508,0.7547
+2001,Masaya,Tisma,22,6513,,,,,4973,0.7635
+2001,Masaya,La Concepción,54,17164,,,,,13613,0.7931
+2001,Masaya,Masatepe,54,18642,,,,,14977,0.8034
+2001,Masaya,Nandasmo,17,5713,,,,,4564,0.7989
+2001,Masaya,Niquinohomo,27,8793,,,,,7007,0.7969
+2001,Masaya,Catarina,13,4095,,,,,3436,0.8391
+2001,Masaya,San Juan de Oriente,7,2366,,,,,1937,0.8187
+2001,Carazo,San Marcos,50,16135,,,,,12796,0.7931
+2001,Carazo,Diriamba,103,32309,,,,,23757,0.7353
+2001,Carazo,Dolores,11,3898,,,,,2819,0.7232
+2001,Carazo,Jinotepe,79,26146,,,,,19244,0.736
+2001,Carazo,El RosaRío,10,3138,,,,,2391,0.762
+2001,Carazo,La Paz de Carazo,11,3225,,,,,2385,0.7395
+2001,Carazo,La Conquista,10,2626,,,,,1748,0.6657
+2001,Carazo,Santa Teresa,38,11523,,,,,8145,0.7068
+2001,Granada,Granada,205,64285,,,,,45071,0.7011
+2001,Granada,Diriá,17,4359,,,,,3297,0.7564
+2001,Granada,DiRíomo,45,12993,,,,,9791,0.7536
+2001,Granada,Nandaime,72,20798,,,,,14805,0.7118
+2001,Rivas,Belén,34,10652,,,,,7592,0.7127
+2001,Rivas,Potosí,25,7765,,,,,5586,0.7194
+2001,Rivas,Buenos Aires,12,3604,,,,,2509,0.6962
+2001,Rivas,Moyogalpa,21,6650,,,,,4641,0.6979
+2001,Rivas,Altagracia,42,12160,,,,,8801,0.7238
+2001,Rivas,Tola,46,13074,,,,,9399,0.7189
+2001,Rivas,Rivas,88,28983,,,,,20045,0.6916
+2001,Rivas,San Jorge,17,5576,,,,,3789,0.6795
+2001,Rivas,San Juan del Sur,33,9611,,,,,6487,0.675
+2001,Rivas,Cárdenas,14,4278,,,,,2799,0.6543
+2001,Chontales,Comalapa,24,6907,,,,,5174,0.7491
+2001,Chontales,Juigalpá,109,34210,,,,,24013,0.7019
+2001,Chontales,La Libertad,22,6391,,,,,4713,0.7374
+2001,Chontales,Santo Domingo,27,7470,,,,,5538,0.7414
+2001,Chontales,San Pedro de Lóvago,17,5306,,,,,4187,0.7891
+2001,Chontales,Santo Tomás,36,11032,,,,,8206,0.7438
+2001,Chontales,Acoyapa,40,11801,,,,,8163,0.6917
+2001,Chontales,Villa Sandino,26,7652,,,,,5616,0.7339
+2001,Chontales,San Francisco de Cuapa,11,3581,,,,,2751,0.7682
+2001,Chontales,El Coral,13,4230,,,,,3258,0.7702
+2001,Chontales,El Ayote,24,7253,,,,,5463,0.7532
+2001,Boaco,San José de los Remates,17,4726,,,,,3278,0.6936
+2001,Boaco,Santa Lucía,20,5268,,,,,3311,0.6285
+2001,Boaco,Boaco,98,30398,,,,,22027,0.7246
+2001,Boaco,Camoapa,68,20091,,,,,15831,0.788
+2001,Boaco,Teustepe,49,14569,,,,,10633,0.7298
+2001,Boaco,San Lorenzo,49,13736,,,,,10189,0.7418
+2001,Matagalpa,Rancho Grande,37,10710,,,,,8056,0.7522
+2001,Matagalpa,Tuma La Dalia,92,27550,,,,,20690,0.751
+2001,Matagalpa,Río Blanco,54,15744,,,,,12274,0.7796
+2001,Matagalpa,San Isidro,36,10938,,,,,8852,0.8093
+2001,Matagalpa,Sébaco,54,17671,,,,,13772,0.7794
+2001,Matagalpa,Matagalpa,227,75781,,,,,55362,0.7306
+2001,Matagalpa,San Ramón,50,15177,,,,,10877,0.7167
+2001,Matagalpa,Matiguás,84,23458,,,,,19156,0.8166
+2001,Matagalpa,Ciudad Darío,160,23772,,,,,18933,0.7964
+2001,Matagalpa,Terrabona,28,7379,,,,,5627,0.7626
+2001,Matagalpa,San Dionisio,31,8898,,,,,6720,0.7552
+2001,Matagalpa,Esquipulas,35,9559,,,,,7194,0.7526
+2001,Matagalpa,Muy Muy,29,7655,,,,,5928,0.7744
+2001,Matagalpa,Waslala,89,25636,,,,,17706,0.6907
+2001,Jinotega,Wiwilí,93,26897,,,,,19621,0.7295
+2001,Jinotega,El Cuá Bocay,139,40616,,,,,28353,0.6981
+2001,Jinotega,Santa María de Pantasma,59,17503,,,,,13729,0.7844
+2001,Jinotega,San Sebastián de Yalí,48,13997,,,,,12208,0.8722
+2001,Jinotega,La Concordia,15,3705,,,,,3239,0.8742
+2001,Jinotega,San Rafael del Norte,33,9369,,,,,7868,0.8398
+2001,Jinotega,Jinotega,181,55506,,,,,40896,0.7368
+2001,R. Autónoma Atlántico Norte,Waspam,73,19487,,,,,11989,
+2001,R. Autónoma Atlántico Norte,Puerto Cabezas,92,27280,,,,,16518,0.6055
+2001,R. Autónoma Atlántico Norte,Prinzapolka,17,3973,,,,,2323,0.5847
+2001,R. Autónoma Atlántico Norte,Rosita,39,11110,,,,,7169,0.6453
+2001,R. Autónoma Atlántico Norte,Bonanza,31,8244,,,,,5619,0.6816
+2001,R. Autónoma Atlántico Norte,Siuna,145,41346,,,,,24085,0.5825
+2001,R. Autónoma Atlántico Sur,La Cruz de Río Grande,35,8942,,,,,4964,0.5551
+2001,R. Autónoma Atlántico Sur,Laguna de Perlas,18,4547,,,,,2816,0.6193
+2001,R. Autónoma Atlántico Sur,Kukra Hill,18,5216,,,,,3067,0.588
+2001,R. Autónoma Atlántico Sur,El Rama,88,26602,,,,,18531,0.6966
+2001,R. Autónoma Atlántico Sur,Muelle de los Bueyes,46,13135,,,,,9998,0.7612
+2001,R. Autónoma Atlántico Sur,Nueva Guinea,147,44480,,,,,28264,0.6354
+2001,R. Autónoma Atlántico Sur,Bluefields,93,29005,,,,,17544,0.6049
+2001,R. Autónoma Atlántico Sur,Corn Island,12,3732,,,,,1893,0.5072
+2001,R. Autónoma Atlántico Sur,Desembocadura de Río Grande,8,1822,,,,,1255,0.6888
+2001,R. Autónoma Atlántico Sur,El Tortuguero,29,7629,,,,,4403,0.5771
+2001,R. Autónoma Atlántico Sur,Paiwas,61,18845,,,,,12500,0.6633
+2001,Río San Juan,El Almendro,25,6651,,,,,4987,0.7498
+2001,Río San Juan,Morrito,15,3957,,,,,2706,0.6839
+2001,Río San Juan,San Miguelito,26,7140,,,,,5118,0.7168
+2001,Río San Juan,San Carlos,68,21633,,,,,13889,0.642
+2001,Río San Juan,El Castillo,28,9011,,,,,5686,0.631
+2006,Nueva Segovia,Jalapa,109,36468,,,,,24061,0.66
+2006,Nueva Segovia,Santa María,11,3581,,,,,750,0.21
+2006,Nueva Segovia,Macuelizo,17,4039,,,,,1203,0.3
+2006,Nueva Segovia,Dipilto,11,3226,,,,,2468,0.77
+2006,Nueva Segovia,Ocotal,73,24713,,,,,14972,0.61
+2006,Nueva Segovia,Mozonte,14,4219,,,,,2151,0.51
+2006,Nueva Segovia,San Fernando,20,6021,,,,,2979,0.49
+2006,Nueva Segovia,Ciudad Antigua,10,3052,,,,,2205,0.72
+2006,Nueva Segovia,El Jícaro,55,16628,,,,,11388,0.68
+2006,Nueva Segovia,Murra,31,8880,,,,,6155,0.69
+2006,Nueva Segovia,Quilalí,53,16012,,,,,11678,0.73
+2006,Nueva Segovia,Wiwilí Nueva Segovia,30,9816,,,,,5460,0.56
+2006,Madriz,Somoto,77,24741,,,,,17566,0.71
+2006,Madriz,Yalagüina,21,6396,,,,,4745,0.74
+2006,Madriz,Totogalpa,20,6872,,,,,5101,0.74
+2006,Madriz,Palacagüina,29,9748,,,,,7395,0.76
+2006,Madriz,Telpaneca,37,11331,,,,,9173,0.81
+2006,Madriz,San Juan del Río Coco,47,14524,,,,,10997,0.76
+2006,Madriz,San Lucas,29,8397,,,,,6969,0.83
+2006,Madriz,Las Sabanas,9,2989,,,,,2490,0.83
+2006,Madriz,San José de Cusmapa,15,4339,,,,,3567,0.82
+2006,Estelí,Pueblo Nuevo,57,15497,,,,,11038,0.71
+2006,Estelí,Condega,71,20074,,,,,14160,0.71
+2006,Estelí,San Juan de Limay,33,9297,,,,,6917,0.74
+2006,Estelí,Estelí,256,84727,,,,,55817,0.66
+2006,Estelí,San Nicolás,19,4806,,,,,3584,0.75
+2006,Estelí,La Trinidad,55,15616,,,,,11030,0.71
+2006,Chinandega,San Pedro del Norte,13,3737,,,,,2586,0.69
+2006,Chinandega,Santo Tomás del Norte,19,5362,,,,,3557,0.66
+2006,Chinandega,Cinco Pinos,19,5294,,,,,3695,0.7
+2006,Chinandega,San Francisco del Norte,17,4695,,,,,3635,0.77
+2006,Chinandega,El Viejo,178,55327,,,,,29633,0.54
+2006,Chinandega,Puerto Morazán,36,9301,,,,,5094,0.55
+2006,Chinandega,Somotillo,67,20267,,,,,13247,0.65
+2006,Chinandega,Villanueva,53,16993,,,,,11309,0.67
+2006,Chinandega,Corinto,48,15169,,,,,9388,0.62
+2006,Chinandega,El Realejo,21,6821,,,,,4036,0.59
+2006,Chinandega,Chinandega,270,94945,,,,,58597,0.62
+2006,Chinandega,Chichigalpa,107,36451,,,,,22479,0.62
+2006,Chinandega,Posoltega,38,12018,,,,,7003,0.58
+2006,León,Achuapa,40,9511,,,,,6547,0.69
+2006,León,El Sauce,73,21316,,,,,13993,0.66
+2006,León,Santa Rosa del Peñón,22,6497,,,,,2872,0.44
+2006,León,Quezalguaque,23,6635,,,,,4101,0.62
+2006,León,Telica,63,18215,,,,,10095,0.55
+2006,León,Larreynaga,71,22613,,,,,13818,0.61
+2006,León,El Jicaral,29,8055,,,,,1603,0.2
+2006,León,León,416,136133,,,,,82130,0.6
+2006,León,La Paz Centro,72,21866,,,,,5886,0.27
+2006,León,Nagarote,76,24681,,,,,16430,0.67
+2006,Managua,San Francisco Libre,22,6953,,,,,4369,0.63
+2006,Managua,Tipitapa,207,71580,,,,,45018,0.63
+2006,Managua,Mateare,46,15964,,,,,10668,0.67
+2006,Managua,Villa El Carmen,65,19458,,,,,13562,0.7
+2006,Managua,Managua,1988,721334,,,,,455696,0.63
+2006,Managua,Ticuantepe,54,18652,,,,,14282,0.77
+2006,Managua,San Rafael del Sur,94,29402,,,,,21573,0.73
+2006,Managua,Ciudad Sandino,154,53291,,,,,32394,0.61
+2006,Managua,El Crucero,35,10703,,,,,7479,0.7
+2006,Masaya,Nindirí,73,25229,,,,,18157,0.72
+2006,Masaya,Masaya,282,100759,,,,,62047,0.62
+2006,Masaya,Tisma,27,8295,,,,,5652,0.68
+2006,Masaya,La Concepción,62,20954,,,,,15287,0.73
+2006,Masaya,Masatepe,65,22225,,,,,16736,0.75
+2006,Masaya,Nandasmo,21,6895,,,,,4999,0.73
+2006,Masaya,Niquinohomo,32,10739,,,,,7470,0.7
+2006,Masaya,Catarina,17,5032,,,,,3798,0.75
+2006,Masaya,San Juan de Oriente,8,2840,,,,,2062,0.73
+2006,Carazo,San Marcos,58,19862,,,,,13482,0.68
+2006,Carazo,Diriamba,122,39967,,,,,22835,0.57
+2006,Carazo,Dolores,14,5088,,,,,3625,0.71
+2006,Carazo,Jinotepe,94,31528,,,,,20388,0.65
+2006,Carazo,El Rosarío,13,4077,,,,,2962,0.73
+2006,Carazo,La Paz de Carazo,14,3978,,,,,2604,0.65
+2006,Carazo,La Conquista,11,3095,,,,,1895,0.61
+2006,Carazo,Santa Teresa,42,13489,,,,,8240,0.61
+2006,Granada,Granada,241,80696,,,,,50768,0.63
+2006,Granada,Diriá,20,5281,,,,,3752,0.71
+2006,Granada,Diríomo,49,16019,,,,,10721,0.67
+2006,Granada,Nandaime,82,25589,,,,,16614,0.65
+2006,Rivas,Belén,42,12749,,,,,8072,0.63
+2006,Rivas,Potosí,30,9551,,,,,6357,0.67
+2006,Rivas,Buenos Aires,15,4395,,,,,2942,0.67
+2006,Rivas,Moyogalpa,25,7952,,,,,4483,0.56
+2006,Rivas,Altagracia,49,14819,,,,,9517,0.64
+2006,Rivas,Tola,54,16279,,,,,10218,0.63
+2006,Rivas,Rivas,110,35945,,,,,21918,0.61
+2006,Rivas,San Jorge,20,7062,,,,,4339,0.61
+2006,Rivas,San Juan del Sur,40,11589,,,,,6694,0.58
+2006,Rivas,Cárdenas,19,6048,,,,,1974,0.33
+2006,Chontales,Comalapa,27,7716,,,,,4942,0.64
+2006,Chontales,Juigalpa,135,41614,,,,,25231,0.61
+2006,Chontales,La Libertad,24,7220,,,,,5031,0.7
+2006,Chontales,Santo Domingo,30,8741,,,,,4198,0.48
+2006,Chontales,San Pedro de Lóvago,21,6085,,,,,4574,0.75
+2006,Chontales,Santo Tomás,42,13438,,,,,9443,0.7
+2006,Chontales,Acoyapa,44,13887,,,,,8042,0.58
+2006,Chontales,Villa Sandino,30,9009,,,,,6100,0.68
+2006,Chontales,San Francisco de Cuapa,16,4299,,,,,3098,0.72
+2006,Chontales,El Coral,17,5395,,,,,3724,0.69
+2006,Boaco,San José de los Remates,19,5723,,,,,3564,0.62
+2006,Boaco,Santa Lucía,23,6828,,,,,2911,0.43
+2006,Boaco,Boaco,121,37277,,,,,22811,0.61
+2006,Boaco,Camoapa,78,24478,,,,,16886,0.69
+2006,Boaco,Teustepe,59,17566,,,,,6151,0.35
+2006,Boaco,San Lorenzo,58,16515,,,,,4766,0.29
+2006,Matagalpa,Rancho Grande,46,12933,,,,,5328,0.41
+2006,Matagalpa,Tuma La Dalia,116,34080,,,,,22562,0.66
+2006,Matagalpa,Río Blanco,63,18574,,,,,13163,0.71
+2006,Matagalpa,San Isidro,42,13256,,,,,8917,0.67
+2006,Matagalpa,Sébaco,69,22798,,,,,15373,0.67
+2006,Matagalpa,Matagalpa,268,91491,,,,,57621,0.63
+2006,Matagalpa,San Ramón,62,18886,,,,,11832,0.63
+2006,Matagalpa,Matiguás,92,26540,,,,,17096,0.64
+2006,Matagalpa,Ciudad Darío,91,28043,,,,,14453,0.52
+2006,Matagalpa,Terrabona,31,9039,,,,,3993,0.44
+2006,Matagalpa,San Dionisio,38,11382,,,,,2680,0.24
+2006,Matagalpa,Esquipulas,39,11190,,,,,7348,0.66
+2006,Matagalpa,Muy Muy,34,9758,,,,,6256,0.64
+2006,Jinotega,Wiwilí de Jinotega,101,32309,,,,,19681,0.61
+2006,Jinotega,El Cuá Bocay,80,25393,,,,,17656,0.7
+2006,Jinotega,Santa María de Pantasma,71,20704,,,,,14731,0.71
+2006,Jinotega,San Sebastián de Yalí,57,16661,,,,,12696,0.76
+2006,Jinotega,La Concordia,17,4761,,,,,3860,0.81
+2006,Jinotega,San Rafael del Norte,37,11131,,,,,8430,0.76
+2006,Jinotega,Jinotega,202,66163,,,,,42183,0.64
+2006,Jinotega,San José de Bocay,83,27050,,,,,14467,0.53
+2006,R. Autónoma Atlántico Norte,Waspam,78,21979,,,,,2702,0.12
+2006,R. Autónoma Atlántico Norte,Puerto Cabezas,121,37909,,,,,22846,0.6
+2006,R. Autónoma Atlántico Norte,Prinzapolka,20,5797,,,,,1715,0.3
+2006,R. Autónoma Atlántico Norte,Rosita,52,16340,,,,,10074,0.62
+2006,R. Autónoma Atlántico Norte,Bonanza,39,11037,,,,,6928,0.63
+2006,R. Autónoma Atlántico Norte,Siuna,130,40802,,,,,26267,0.64
+2006,R. Autónoma Atlántico Norte,Waslala,100,31406,,,,,5067,0.16
+2006,R. Autónoma Atlántico Norte,Mulukuku,49,16165,,,,,1489,0.09
+2006,R. Autónoma Atlántico Sur,Paiwas,60,18682,,,,,8243,0.44
+2006,R. Autónoma Atlántico Sur,La Cruz de Río Grande,40,11963,,,,,1239,0.1
+2006,R. Autónoma Atlántico Sur,Laguna de Perlas,23,6310,,,,,3230,0.51
+2006,R. Autónoma Atlántico Sur,Kukra Hill,23,6885,,,,,3554,0.52
+2006,R. Autónoma Atlántico Sur,El Rama,112,32989,,,,,17662,0.54
+2006,R. Autónoma Atlántico Sur,Muelle de los Bueyes,51,14733,,,,,9054,0.61
+2006,R. Autónoma Atlántico Sur,Nueva Guinea,172,54261,,,,,27075,0.5
+2006,R. Autónoma Atlántico Sur,Bluefields,116,38794,,,,,21684,0.56
+2006,R. Autónoma Atlántico Sur,Corn Island,15,4842,,,,,2624,0.54
+2006,R. Autónoma Atlántico Sur,Desembocadura de Río Grande,9,2417,,,,,539,0.22
+2006,R. Autónoma Atlántico Sur,El Tortuguero,41,11858,,,,,2274,0.19
+2006,R. Autónoma Atlántico Sur,El Ayote,32,9817,,,,,6399,0.65
+2006,Río San Juan,El Almendro,28,7933,,,,,5063,0.64
+2006,Río San Juan,Morrito,17,4831,,,,,2650,0.55
+2006,Río San Juan,San Miguelito,32,10304,,,,,5853,0.57
+2006,Río San Juan,San Carlos,91,31611,,,,,18248,0.58
+2006,Río San Juan,El Castillo,41,13384,,,,,7487,0.56
+2006,Río San Juan,San Juan de Nicaragua,3,885,,,,,498,0.56
