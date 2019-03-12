@@ -12,6 +12,9 @@
 - title: Teaching
   url: /teaching/
 
+- title: Data
+  url: /data/
+
 - title: CV
   url: /assets/pdfs/CV190310.pdf
   #url: /cv/ ## For the markdown version

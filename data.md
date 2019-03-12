@@ -1,0 +1,35 @@
+---
+layout: page
+title: Data
+tags: [data]
+modified: 2019-03-11
+comments: true
+---
+
+I would like to share some datasets that I have created or cleaned that might be helpful for other researchers.
+
+## Presidential Elections (1990 - 2006)
+To the best of my knowledge, there is no available (or open) dataset about elections in Nicaragua. Therefore, I took the statistical catalog of elections in Nicaragua (1990 - 2006) and extracted all the data from it. Unfortunately, the Supreme Electoral Council of Nicaragua website does not have information about the last two presidential elections.
+
+### State Level
+
+* [R](/assets/data/elecciones presidenciales 1990-2006.rds)
+* [Stata](/assets/data/elecciones presidenciales 1990-2006.dta)
+* [CSV](/assets/data/eleciones presidenciales 1990-2006.csv)
+
+### Municipality Level
+* [R](/assets/data/elecciones presidenciales por municipio 1990 - 2006.rds)
+* [Stata](/assets/data/elecciones presidenciales por municipio 1990 - 2006.dta)
+* [CSV](/assets/data/elecciones presidenciales por municipio 1990 - 2006.csv)
+
+_Notes_: The municipality level dataset does not contain information about the political parties votes share in each election.
+
+## Political Prisoners (Apr 2018 - Feb 2019)
+This dataset contains information about the political prisoners from the protest in Nicaragua since April 2018. The data comes from the ["Comité Pro Liberación de Presas y Presos Políticos"](http://presospoliticosnicaragua.com/).
+
+* [R](/assets/data/presos_politicos_15_feb_2019.rds)
+* [Stata](/assets/data/presos_politicos_15_feb_2019.dta)
+
+_Notes_: Please keep in mind the missing values in the dta file. I haven't cleaned it fully.
+
+Please let me know if you find any error or face confusion while using these datasets.
