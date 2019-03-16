@@ -29,4 +29,4 @@ This dataset contains information about the political prisoners from the protest
 * [R](/assets/data/presos_politicos_15_feb_2019.rds)
 * [Stata](/assets/data/presos_politicos_15_feb_2019.dta)
 
-> Please let me know if you find any error or face confusion while using these datasets. I would be glad to modify and fix them. Also, email me if you have to collab in making the datasets more helpful. 
+> Please let me know if you find any error or face confusion while using these datasets. I would be glad to modify and fix them. Also, email me if you have to collab in making the datasets more helpful.

@@ -10,9 +10,9 @@ I have been Teaching Assistant for the following courses:
 
 ### Graduate
 
-*Impact Evaluations Methods* for [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br>KDI School, South Korea
+*Impact Evaluations Methods* to [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br>KDI School, South Korea. ([Teaching Materials](http://bit.ly/kdi_impact_evaluation))
 
-*Foundations of Sustainable Development* for [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br> KDI School, South Korea
+*Foundations of Sustainable Development* to [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br> KDI School, South Korea
 
 ### Undergraduate
 
