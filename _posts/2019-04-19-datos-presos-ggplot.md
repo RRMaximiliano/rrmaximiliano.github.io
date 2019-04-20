@@ -63,9 +63,9 @@ animate <-  ggplot(data = na.omit(arrange_data), aes(x = fecha,
 ```
 Este código se puede desagregar en tres cosas: (1) los datos y axis; (2) diseño, etiquetas, y letra; y (3) transiciones.
 
-La primera parte del código son los datos. Tenemos que quitar todas las observaciones que no tienen datos, por lo cual utilizamos `na.omit()`. Y nuestras variables de referencia son: `x = fecha` y `y= acumulado` (i.e., la variable que creamos anteriorment).
+La primera parte del código son los datos. Tenemos que quitar todas las observaciones que no tienen datos, por lo cual utilizamos `na.omit()`. Y nuestras variables de referencia son: `x = fecha` y `y= acumulado` (i.e., la variable que creamos anteriorment). El tema que ocupo es el clásico, y con los siguientes valores de los puntos de datos `geom_point(alpha = 0.3, size = 5, colour = "steelblue")`. 
 
-El tema que ocupo es el clásico, y con los siguientes valores de los puntos de datos `geom_point(alpha = 0.3, size = 5, colour = "steelblue")`. La parte de las etiquetas es un poco más sencillo, así que lo omitiré. Solo un punto a recordar es que utillizo Myriad Pro, y para poder "cargarla" en RStudio, necesitan el paquete `extrafont`.
+La parte de las etiquetas es un poco más sencillo, así que lo omitiré. Solo un punto a recordar es que utillizo Myriad Pro, y para poder "cargarla" en RStudio, necesitan el paquete `extrafont`.
 
 Por último, las opciones de transición. La variable fecha es nuestro tiempo de transición. Ésta variable nos da nuestra punto de partida y final. Para fijar el eje _y_ utilicé `view_follow()`. Si no lo ocupo, tanto el eje _x_ y eje _y_ no serían fijos. Para darle seguimiento a los puntos, utilicé `shadow_mark()`; el cual me deja ajustar el tamaño del punto y color.  La última opción es `ease_aes()`, la cual se ocupa para definir el cambio de un valor a otro durante la interporlación. En este caso utilicé la función lineal (i.e., `linear`).
 
