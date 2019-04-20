@@ -3,6 +3,7 @@ layout: post
 title: "Gráfico sobre presas y presos políticos en Nicaragua"
 date: "2019-04-19"
 excerpt: "Datos sobre las presas y presos políticos"
+image: /assets/gifs/preso_total_190401.gif
 tags: [Nicaragua, datos, ggplot]
 comments: true
 ---
