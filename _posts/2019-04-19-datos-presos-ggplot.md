@@ -22,12 +22,13 @@ De hecho, es un gráfico sencillo de replicar en RStudio y necesitamos pocos paq
 ### Code
 Lo primero que tenemos que hacer es cargar nuestras librerías. Necesitamos tres paquetes: `ggplot`, `gganimate`, `dplyr`, y `extrafont`.
 
-```{r}
+{% highlight r %}
 library(ggplot2)
 library(gganimate)
 library(dplyr)
 library(extrafont)
-```
+{% endhighlight %}
+
 Ahora, la parte interesante sería realizar el gráfico. Sin embargo, a como mencioné anteriormente, debemos limpiar un poco la base de datos.
 
 Primero, ordenamos los datos a partir de la fecha usando `arrange`, luego vamos a crear un ID y lo utilizaremos para  crear un acumulado por día de la siguiente forma:
