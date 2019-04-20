@@ -63,7 +63,7 @@ animate <-  ggplot(data = na.omit(arrange_data), aes(x = fecha,
 ```
 Este código se puede desagregar en tres cosas: (1) los datos y axis; (2) diseño, etiquetas, y letra; y (3) transiciones.
 
-La primera parte del código son los datos. Tenemos que quitar todas las observaciones que no tienen datos, por lo cual utilizamos `na.omit()`. Y nuestras variables de referencia son: `x = fecha` y `y= acumulado` (i.e., la variable que creamos anteriorment). El tema que ocupo es el clásico, y con los siguientes valores de los puntos de datos `geom_point(alpha = 0.3, size = 5, colour = "steelblue")`. 
+La primera parte del código son los datos. Tenemos que quitar todas las observaciones que no tienen datos, por lo cual utilizamos `na.omit()`. Y nuestras variables de referencia son: `x = fecha` y `y= acumulado` (i.e., la variable que creamos anteriorment). El tema que ocupo es el clásico, y con los siguientes valores de los puntos de datos `geom_point(alpha = 0.3, size = 5, colour = "steelblue")`.
 
 La parte de las etiquetas es un poco más sencillo, así que lo omitiré. Solo un punto a recordar es que utillizo Myriad Pro, y para poder "cargarla" en RStudio, necesitan el paquete `extrafont`.
 
