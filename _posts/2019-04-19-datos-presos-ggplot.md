@@ -22,7 +22,7 @@ De hecho, es un gráfico sencillo de replicar en RStudio y necesitamos pocos paq
 ### Code
 Lo primero que tenemos que hacer es cargar nuestras librerías. Necesitamos tres paquetes: `ggplot`, `gganimate`, `dplyr`, y `extrafont`.
 
-```{r}
+```{r, echo = TRUE, message = FALSE, warning = FALSE}
 library(ggplot2)
 library(gganimate)
 library(dplyr)
