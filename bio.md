@@ -14,4 +14,4 @@ My research interests are rooted in the fields of development economics and impa
 
 On a personal note, I play [Overwatch](https://overwatchleague.com/) a lot. Nonetheless, I am still ~~silver~~ gold.
 
-![](https://media.giphy.com/media/2yqYbPakQKDFhNZbW9/source.gif)
+![overwatch](https://media.giphy.com/media/2yqYbPakQKDFhNZbW9/source.gif)
