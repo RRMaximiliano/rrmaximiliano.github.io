@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Errores comúnes en las visualizaciones: ejemplo del Nuevo Diario"
+title: "Errores comúnes en las visualizaciones del Nuevo Diario"
 author: "Rony Rodriguez-Ramirez"
 date: "2019-07-26"
 excerpt: ""
@@ -37,4 +37,7 @@ Ahora, en términos de estética (aesthetics) se presentan los siguientes errore
 
 > *Disclaimer*: Busqué en la base de datos del Banco Mundial, y ningún indicador de PIB per cápita tanto a nivel real, nominal, o ajustado por paridad de poder aquisitivo resultaba en los mismos datos que presenta el artículo del Nuevo Diario.
 
+Siguiendo la idea comparativa entre un año base y el año actual retomada en el artículo del Nuevo Diarío, podríamos graficar el PIB per cápita de la siguiente forma: 
+
+![Fig 1](/assets/post-images/pib-ca-fixed.png)
 
