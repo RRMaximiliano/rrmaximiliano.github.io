@@ -40,4 +40,4 @@ Ahora, en términos de estética (aesthetics) se presentan los siguientes errore
 
 Siguiendo la idea comparativa entre un año base y el año actual retomada en el artículo del Nuevo Diarío, podríamos graficar el PIB per cápita de la siguiente forma: 
 
-![Fig 1](/assets/post-images/pib-ca-fixed.png)
+![Fig 2](/assets/post-images/pib-ca-fixed.png)
