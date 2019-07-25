@@ -35,7 +35,7 @@ Ahora, en términos de estética (aesthetics) se presentan los siguientes errore
 3. **Escala del eje y**: La figura no tiene información sobre la dimensión del eje y. Hasta cierto punto, y con mi poca habilidad ocular, las barras no son proporcionales. Siempre es necesario identificar que es lo que los ejes nos están diciendo.
 4. **Paleta de colores**: La paleta utilizada en esta figura puede no ser la más idónea para personas con daltonismo. Para más información sobre estas el diseño universal de colores pueden visitar esta [página](https://jfly.uni-koeln.de/color/).
 
-# ¿Cómo podríamos visualizar estos datos de una mejor manera?
+# ¿Cómo podríamos visualizar mejor estos datos?
 
 > __*Disclaimer*__: Busqué en la base de datos del Banco Mundial, y ningún indicador de PIB per cápita tanto a nivel real, nominal, o ajustado por paridad de poder aquisitivo resultaba en los mismos datos que presenta el artículo del Nuevo Diario.
 
@@ -49,6 +49,20 @@ Esta figura contiene todos los elementos necesarios para poder expresar el mensa
 2. Cada eje tiene una etiqueta que describe tanto países como indicador. Además, el eje X tiene formato en dólares.
 3. Contiene información sobre la fuente y la persona realizó el gráfico.
 4. Por último, compara la evolución de PIB en dos anos 1990 y 2018, y la información se encuentra ordenada de mayor a menor PIB per cápita en el año 2018.
+
+# Otros errores: gráfica 2 y 3 en el Nuevo Diario
+
+Las últimas dos figuras del artículo presentan errores similares a los discutidos anteriormente. No hay etiqueta del eje y, no se sabe si el PIB per cápita es real o nominal, o si fue ajustado por paridad de poder adquisitivo, e inconsistencia en el puntos de la figura (sobre todo porque si existe información para cada año sobre Nicaragua). La siguiente figura sería una versión *mejorada*.
+
+![Fig 3](/assets/post-images/pib-nic.png)
+
+# Recursos de la grámatica de gráficos
+
+Existen varios recursos muy bueno sobre como visualizar datos de manera correcta. A esto se la he llamado la "grámatica de gráficos"; el cual es un sistema coherente para describir y construir gráficos. Los recurso que recomiendo son los siguientes:
+
+1. [R para Ciencia de Datos](https://es.r4ds.hadley.nz/visualizacion-de-datos.html) de Grolemund y Wickham. En específico el apartado 3 sobre visualización de datos.
+2. [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) de Wilke. Este libro es un guía para realizar visualizaciones que reflejen con precisión los datos, cuenten una historia, y se vean profesionales.
+3. Por último, esta [guía amigable](https://blog.datawrapper.de/colorguide/) de Lisa Rost sobre paletas de colores. 
 
 # Bonus
 
