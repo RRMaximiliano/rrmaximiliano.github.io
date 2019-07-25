@@ -25,7 +25,7 @@ Realmente no hay ningún problema en presentar nos figuras dentro de la misma in
    (a). No todos los años son consistentes.  La comparación que hacen es tomando como base el año en que los países tenían ingresos similares al que tiene Nicaragua ahora. Esto conlleva que países como Costa Rica tengan datos para 1992, Belize para 1989, etc. El año de referencia pudo ser 1990 para todos y así construir las diferencias.
 2. **Fuente**: Ninguna de las figuras presenta fuente. En el cuerpo del texto se da a entender que los datos fueron tomados del Banco Mundial; sin embargo, esto debe ser incluído en la gráfica.
 3. **Año base**: Un punto importante en economía es ver las diferencias en términos reales de las economía. En este caso, es necesario aislar los cambios que provienen solamente por el aumento de los precios. Lamentablemente los datos son presentan información sobre el tipo de indicador que se ocupa. Por ejemplo, si es pib per cápita real, nominal, o si está ajustado por paridad de poder adquisitivo.
-4. **Escala del eje y**: 
+4. **Escala del eje y**: La figura no tiene información sobre la dimensión del eje y. Hasta cierto punto, y con mi poca habilidad ocular, las barras no son proporcionales.
 5. **Necesidad de un mapa**: El mapa realmente no aporta mucho a la conversación sobre el PIB per cápita de Centroamérica; no es de utilidad y solamente nos quita espacio.
 
 Ahora, en términos de estética (aesthetics) se presentan los siguientes errores:
@@ -41,3 +41,10 @@ Ahora, en términos de estética (aesthetics) se presentan los siguientes errore
 Siguiendo la idea comparativa entre un año base y el año actual retomada en el artículo del Nuevo Diarío, podríamos graficar el PIB per cápita de la siguiente forma: 
 
 ![Fig 2](/assets/post-images/pib-ca-fixed.png)
+
+Esta figura contiene todos los elementos necesarios para poder expresar el mensaje del artículo del Nuevo Diario.
+
+1. Título con información sobre el indicador.
+2. Cada eje tiene una etiqueta que describe tanto países como indicador. Además, el eje X tiene formato en dólares.
+3. Contiene información sobre la fuente y la persona realizó el gráfico.
+4. Por último, compara la evolución de PIB en dos anos 1990 y 2018, y la información se encuentra ordenada de mayor a menor PIB per cápita en el año 2018.
