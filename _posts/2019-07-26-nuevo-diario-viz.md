@@ -25,7 +25,8 @@ Realmente no hay ningún problema en presentar nos figuras dentro de la misma in
    (a). No todos los años son consistentes.  La comparación que hacen es tomando como base el año en que los países tenían ingresos similares al que tiene Nicaragua ahora. Esto conlleva que países como Costa Rica tengan datos para 1992, Belize para 1989, etc. El año de referencia pudo ser 1990 para todos y así construir las diferencias.
 2. **Fuente**: Ninguna de las figuras presenta fuente. En el cuerpo del texto se da a entender que los datos fueron tomados del Banco Mundial; sin embargo, esto debe ser incluído en la gráfica.
 3. **Año base**: Un punto importante en economía es ver las diferencias en términos reales de las economía. En este caso, es necesario aislar los cambios que provienen solamente por el aumento de los precios. Lamentablemente los datos son presentan información sobre el tipo de indicador que se ocupa. Por ejemplo, si es pib per cápita real, nominal, o si está ajustado por paridad de poder adquisitivo.
-4. **Necesidad de un mapa**: El mapa realmente no aporta mucho a la conversación sobre el PIB per cápita de Centroamérica; no es de utilidad y solamente nos quita espacio.
+4. **Escala del eje y**: 
+5. **Necesidad de un mapa**: El mapa realmente no aporta mucho a la conversación sobre el PIB per cápita de Centroamérica; no es de utilidad y solamente nos quita espacio.
 
 Ahora, en términos de estética (aesthetics) se presentan los siguientes errores:
 
@@ -40,4 +41,3 @@ Ahora, en términos de estética (aesthetics) se presentan los siguientes errore
 Siguiendo la idea comparativa entre un año base y el año actual retomada en el artículo del Nuevo Diarío, podríamos graficar el PIB per cápita de la siguiente forma: 
 
 ![Fig 1](/assets/post-images/pib-ca-fixed.png)
-
