@@ -51,7 +51,7 @@
         <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
         <p class = "dateline">{{ post.date | date: "%B %d, %Y" }}</span>
 </h2>
-        <p>{{ post.description | strip_html | truncate: 500 }}</p>
+        <p>{{ post.description | strip_html | truncate: 300 }}</p>
       {% endif %}
     </article>
     {% endfor %}
