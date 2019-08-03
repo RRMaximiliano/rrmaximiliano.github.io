@@ -52,7 +52,7 @@ Esta figura contiene todos los elementos necesarios para poder expresar el mensa
 
 # Otros errores: gráfica 2 y 3 en el Nuevo Diario
 
-Las últimas dos figuras del artículo presentan errores similares a los discutidos anteriormente. No hay etiqueta del eje y, no se sabe si el PIB per cápita es real o nominal, o si fue ajustado por paridad de poder adquisitivo, e inconsistencia en el puntos de la figura (sobre todo porque *si* existe información para cada año sobre Nicaragua). La siguiente figura sería una versión *mejorada*.
+Las últimas dos figuras del artículo presentan errores similares a los discutidos anteriormente. No hay etiqueta del eje y, no se sabe si el PIB per cápita es real o nominal, si fue ajustado por paridad de poder adquisitivo, e inconsistencias en los puntos de la figura (sobre todo porque *si* existe información para cada año sobre Nicaragua). La siguiente figura sería una versión *mejorada*.
 
 ![Fig 3](/assets/post-images/pib-nic.png)
 
@@ -101,3 +101,5 @@ data %>%
 
 ggsave("./figs/pib-ca-fixed.png", dpi = 300, units = "in", device='png')
 ```
+
+![gif](https://media.giphy.com/media/8JW82ndaYfmNoYAekM/giphy.gif)
