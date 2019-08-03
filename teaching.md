@@ -8,6 +8,8 @@ comments: false
 
 ## Adjunct Professor
 
+### Undergraduate
+
 *Social and Human Economy*<br>Universidad Centroamericana, Nicaragua ([`Teaching Materials`](https://github.com/econsoc-uca))
 
 ## Teaching Assistant
@@ -18,12 +20,11 @@ I have been Teaching Assistant for the following courses:
 
 *Impact Evaluations Methods*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br>KDI School, South Korea ([`Teaching Materials`](http://bit.ly/kdi_impact_evaluation))
 
-*Foundations of Sustainable Development*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br> KDI School, South Korea
+*Foundations of Sustainable Development*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)<br>KDI School, South Korea
 
 ### Undergraduate
 
 *Macroeconomics, Econometrics, Monetary Economics, Development Economics,*<br>Universidad Centroamericana, Nicaragua
 
 ### Summer School
-*Stata Workshop*, Summer 2018
-KDI School, South Korea
+*Stata Workshop*, Summer 2018<br>KDI School, South Korea
