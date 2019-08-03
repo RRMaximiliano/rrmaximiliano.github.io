@@ -6,6 +6,12 @@ modified: 2019-09-10T20:17:00.523882-04:00
 comments: false
 ---
 
+## Adjunct Professor
+
+*Social and Human Economy*<br>Universidad Centroamericana, Nicaragua ([`Teaching Materials`](https://github.com/econsoc-uca))
+
+## Teaching Assistant
+
 I have been Teaching Assistant for the following courses:
 
 ### Graduate
