@@ -2,7 +2,7 @@
 layout: post
 title: "Gráfico sobre presas y presos políticos en Nicaragua"
 date: "2019-04-19"
-descriptions: "Datos sobre las presas y presos políticos"
+description: "Datos sobre las presas y presos políticos"
 tags: [Nicaragua, datos, ggplot]
 comments: true
 ---
