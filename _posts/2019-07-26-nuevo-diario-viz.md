@@ -3,7 +3,7 @@ layout: post
 title: "Errores en las visualizaciones del Nuevo Diario"
 author: "Rony Rodriguez-Ramirez"
 date: "2019-07-26"
-excerpt: "Este post describe un poco los errores cómunes en las visualizaciones del Nuevo Diario sobre el PIB per cápita en Centroamérica."
+description: "Este post describe un poco los errores cómunes en las visualizaciones del Nuevo Diario sobre el PIB per cápita en Centroamérica."
 tags: [Nicaragua, datos, visualizaciones]
 comments: true
 ---
