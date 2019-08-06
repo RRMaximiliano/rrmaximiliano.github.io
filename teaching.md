@@ -10,7 +10,7 @@ comments: false
 
 ### Undergraduate
 
-*Social and Human Economy*<br>Universidad Centroamericana, Nicaragua ([`Teaching Materials`](https://github.com/econsoc-uca)) - [Evaluation](/assets/pdfs/evaluation-esh.pdf)
+*Social and Human Economy*<br>Universidad Centroamericana, Nicaragua ([`Teaching Materials`](https://github.com/econsoc-uca)) - ([`Evaluation`](/assets/pdfs/evaluation-esh.pdf))
 
 ## Teaching Assistant
 
