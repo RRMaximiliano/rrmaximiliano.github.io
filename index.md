@@ -5,7 +5,7 @@ excerpt: "The personal website of Rony Rodriguez"
 tags: [Jekyll, theme, responsive, blog, template]
 ---
 
-I am a research assistant at [KDI School of Public Policy and Management](https://www.kdischool.ac.kr) in South Korea. My research interests are development economics, impact evaluations, labor market, and violence.
+I am a research assistant in quite a few places: [KDI School of Public Policy and Management](https://www.kdischool.ac.kr), [SoDa Labs @ Monash University](https://sodalabs.io/about.html), and [ITAM - IPA](https://www.itam.mx/). My research interests are development economics, impact evaluations, labor market, and violence.
 
 Please feel free to contact me at the links provided on this website.
 
