@@ -16,5 +16,7 @@ This uses only the `display` command to make pikachu's face. In order to install
 
 > You can find the folder by typing `personal` in the command prompt.
 
+And that's it. Now you pikachu reacting to your failures.
+
 In case you don't know, the original meme is this one:
 ![Fig2](https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif)
