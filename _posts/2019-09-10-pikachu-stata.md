@@ -8,7 +8,7 @@ tags: [Stata]
 comments: true
 ---
 
-While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make everything my code fails to run. By typing `pikachu` you will get the following:
+While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing `pikachu` you will get the following:
 
 ![Fig1](/assets/gifs/pikachu.gif)
 
