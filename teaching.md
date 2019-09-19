@@ -14,7 +14,7 @@ comments: false
 
 ## Teaching Assistant
 
-I have been Teaching Assistant for the following courses:
+I have served as a Teaching Assistant for the following courses:
 
 ### Graduate
 
