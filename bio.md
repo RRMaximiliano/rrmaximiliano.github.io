@@ -12,6 +12,6 @@ I spent the next years in South Korea doing my Master's degree at KDI School of 
 
 My research interests are rooted in the fields of development economics and impact evaluations. I still need to complete this part of the website with more fascinating interests.
 
-On a personal note, I play [Overwatch](https://overwatchleague.com/) a lot. Nonetheless, I am still ~~silver~~ gold.
+On a personal note, I play [Overwatch](https://overwatchleague.com/) a lot. Nonetheless, I am still mid plat.
 
 ![overwatch](https://media.giphy.com/media/2yqYbPakQKDFhNZbW9/source.gif)
