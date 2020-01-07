@@ -5,7 +5,7 @@ excerpt: "The personal website of Rony Rodriguez"
 tags: [Jekyll, theme, responsive, blog, template]
 ---
 
-I work as a research assistant at [The World Bank, Development Impact Evaluation (DIME) unit](https://www.worldbank.org/en/research/dime). Before working at the Bank, I worked also as an RA at [KDI School of Public Policy and Management](https://www.kdischool.ac.kr), [SoDa Labs @ Monash University](https://sodalabs.io/about.html), and [ITAM - IPA](https://www.itam.mx/). My research interests are development economics, impact evaluations, labor market, and violence.
+I work as a Research Assistant at [The World Bank, Development Impact Evaluation (DIME) unit](https://www.worldbank.org/en/research/dime). Before coming to DC, I worked also as an RA at [KDI School of Public Policy and Management](https://www.kdischool.ac.kr) in South Korea, [SoDa Labs @ Monash University](https://sodalabs.io/about.html), Australia, and [ITAM - IPA](https://www.itam.mx/) in Mexico City. My research interests are development economics, impact evaluations, labor market, and violence.
 
 Please feel free to contact me at the links provided on this website.
 
