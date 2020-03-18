@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="A blog by Julia Silge">
+
+
+    <meta property="twitter:site" content="@juliasilge">
+
+<meta property="twitter:title" content="Word Vectors with tidy data principles">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="/_images/illustrated_blog_avatar.png">
+
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     Julia Silge - Word Vectors with tidy data principles 
+
+</title>
+<link rel="canonical" href="/blog/tidy-word-vectors/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+section.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.header .container .logo {
+  max-width: 100px;
+  margin-left: -2em;
+}
+section.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  color: #555555;
+}
+section.header nav {
+  margin-bottom: 16px;
+}
+section.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+section.header nav ul a {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+section.header nav ul a:first-child {
+  margin-left: 0;
+}
+section.header nav ul a:last-child {
+  margin-right: 0;
+}
+section.header nav ul li {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.header nav ul li:hover {
+  color: #111111;
+}
+section.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+section.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.footer .container a:first-child {
+  margin-left: 0;
+}
+section.footer .container a:last-child {
+  margin-right: 0;
+}
+section.footer .container a:hover {
+  opacity: 0.8;
+}
+section.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+section.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+section.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+section.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+section.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+section.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+section.main .content .posts {
+  margin-bottom: 4em;
+}
+section.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+section.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+section.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+  display: none;
+}
+section.main .content .front-matter .middot {
+  font-size: 6px;
+  margin: 0 6px;
+  display: inline;
+  vertical-align: middle;
+}
+section.main .content .front-matter .middot:before {
+  content: "•";
+}
+section.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+section.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+section.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+section.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+section.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+section.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+section.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+section.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+section.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+section.header {
+  padding-top: 10px;
+}
+section.header-home {
+  padding-top: 36px;
+}
+section.main {
+  padding-top: 32px;
+}
+section.main .container .content .post-item .meta {
+    display: block;
+}
+section.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+section.main .content {
+    width: 100%;
+}
+section.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+section.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+section.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+section.main .content .markdown code,
+section.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+section.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+section.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+@media (min-width: 769px) {
+  section.main .content .markdown pre {
+    width: 110%;
+    margin-left: -4%;
+  }
+}
+section.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+section.main .content .markdown a code {
+  color: #428bca !important;
+}
+section.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+section.main .content .markdown p {
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+section.main .content .markdown ul,
+section.main .content .markdown ol,
+section.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown dt {
+  font-weight: bold;
+}
+section.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+section.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown li {
+  margin-left: 2em;
+}
+section.main .content .markdown em {
+  font-style: italic;
+}
+section.main .content .markdown strong {
+  font-weight: 700;
+}
+section.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+section.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+section.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+section.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+section.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+section.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+section.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+section.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+section.main .content .markdown td,
+section.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+section.main .content .markdown tbody tr:nth-child(odd) td,
+section.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+section.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+section.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+section.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+section.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+section.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+section.main .content .navigation a {
+  width: 250px;
+  margin-left: 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+
+/* Fonts */
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active section.header nav ul li,
+.wf-raleway-n7-active section.main .content .page-heading,
+.wf-raleway-n2-active section.main .container.f04 .content .num,
+.wf-raleway-n7-active section.main .content .markdown h1,
+.wf-raleway-n7-active section.main .content .markdown h2,
+.wf-raleway-n7-active section.main .content .markdown h3,
+.wf-raleway-n7-active section.main .content .markdown h4,
+.wf-raleway-n7-active section.main .content .markdown h5,
+.wf-raleway-n7-active section.main .content .markdown h6 {
+  font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active section.main .content .markdown {
+  font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active section.main .content .markdown code,
+.wf-ubuntu-mono-n4-active section.main .content .markdown pre {
+  font-family: 'Ubuntu Mono';
+}
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+max-width: 750px;
+}
+section.header {
+background-color: transparent;
+}
+section.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.header .container .logo {
+margin: 0;
+}
+section.header-home .container .logo {
+max-width: 180px;
+margin-left: 20px;
+}
+section.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+section.header-home nav ul li {
+font-size: 18px;
+}
+section.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.header .name {
+color: #333333;
+}
+section.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+section.header nav ul {
+text-align: left;
+}
+section.header nav ul li {
+color: #666666;
+}
+section.header nav ul li:hover {
+color: #333333;
+}
+section.footer {
+background-color: transparent;
+}
+section.footer .container {
+flex-direction: row;
+}
+section.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+section.footer .container a:hover {
+color: #333333;
+}
+section.footer .container a .icon {
+font-size: 18px;
+}
+section.footer .container a .icon.larger {
+font-size: 20px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+display: initial;
+}
+section.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+section.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+section.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.footer {
+padding-top: 30px;
+padding-bottom: 60px;
+}
+section.main {
+padding-top: 0;
+}
+section.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+section.main .container .content .post-item .meta {
+display: block;
+}
+section.main.post {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+section.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+section.main .content .navigation div {
+margin-top: 0em;
+}
+</style>
+<style media="(min-width: 769px)">
+  section.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+section.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
+  </style>
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/_images/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="/"><img class="logo" src="/_images/illustrated_blog_avatar.png" alt="logo" /></a>
+        <div class="content">
+            <a href="/"><div class="name"><h1>Julia Silge</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <a href="/about/"><li>about</li></a>
+                        
+                    
+                        
+                            <a href="/resume/"><li>resume</li></a>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Word Vectors with tidy data principles
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Mon Oct 30 2017 00:00:00 UTC">Oct 30, 2017</div>
+                    
+                        
+                    
+                    <div class="reading-time"><div class="middot"></div>11 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/rstats">rstats</a> </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+    
+
+
+<p>Last week I saw Chris Moody’s <a href="http://multithreaded.stitchfix.com/blog/2017/10/18/stop-using-word2vec/">post on the Stitch Fix blog</a> about calculating word vectors from a corpus of text using word counts and matrix factorization, and I was so excited! This blog post illustrates how to implement that approach to find word vector representations in R using tidy data principles and sparse matrices.</p>
+<p>Word vectors, or word embeddings, are typically calculated using neural networks; that is what <a href="https://en.wikipedia.org/wiki/Word2vec">word2vec</a> is. (<a href="https://nlp.stanford.edu/projects/glove/">GloVe embeddings</a> are trained a little differently than word2vec.) By contrast, the approach from Chris’s post that I’m implementing here uses only counting and some linear algebra. Deep learning is great, but I am super excited about this approach because it allows practitioners to find word vectors for their own collections of text (no need to rely on pre-trained vectors) using familiar techniques that are not difficult to understand. And it doesn’t take too long computationally!</p>
+<div id="getting-some-data" class="section level2">
+<h2>Getting some data</h2>
+<p>Let’s download half a million observations from… the <a href="https://cloud.google.com/bigquery/public-data/hacker-news">Hacker News corpus</a>.</p>
+<iframe src="https://giphy.com/embed/uwZhzLqlV0cZq" width="480" height="354" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/buster-keaton-uwZhzLqlV0cZq">via GIPHY</a>
+</p>
+<p>I know, right? But it’s the dataset that Chris uses in his blog post and it gives me an opportunity to use the <a href="https://cran.r-project.org/package=bigrquery">bigrquery</a> package for the first time.</p>
+<pre class="r"><code>library(bigrquery)
+library(tidyverse)
+
+project &lt;- &quot;my-first-project-184003&quot;
+
+sql &lt;- &quot;#legacySQL
+SELECT
+  stories.title AS title,
+  stories.text AS text
+FROM
+  [bigquery-public-data:hacker_news.full] AS stories
+WHERE
+  stories.deleted IS NULL
+LIMIT
+  500000&quot;
+
+hacker_news_raw &lt;- query_exec(sql, project = project, max_pages = Inf)</code></pre>
+<p>Next, let’s clean this text up to take care of some of the messy ways it has gotten encoded.</p>
+<pre class="r"><code>library(stringr)
+
+hacker_news_text &lt;- hacker_news_raw %&gt;%
+    as_tibble() %&gt;%
+    mutate(title = na_if(title, &quot;&quot;),
+           text = coalesce(title, text)) %&gt;%
+    select(-title) %&gt;%
+    mutate(text = str_replace_all(text, &quot;&amp;quot;|&amp;#x2F;&quot;, &quot;&#39;&quot;),    ## hex encoding
+           text = str_replace_all(text, &quot;&amp;#x2F;&quot;, &quot;/&quot;),           ## more hex
+           text = str_replace_all(text, &quot;&lt;a(.*?)&gt;&quot;, &quot; &quot;),         ## links 
+           text = str_replace_all(text, &quot;&amp;gt;|&amp;lt;&quot;, &quot; &quot;),        ## html yuck
+           text = str_replace_all(text, &quot;&lt;[^&gt;]*&gt;&quot;, &quot; &quot;),          ## mmmmm, more html yuck
+           postID = row_number())</code></pre>
+</div>
+<div id="unigram-probabilities" class="section level2">
+<h2>Unigram probabilities</h2>
+<p>First, let’s calculate the unigram probabilities, how often we see each word in this corpus. This is straightforward using <code>unnest_tokens()</code> from the <a href="https://github.com/juliasilge/tidytext">tidytext</a> package and then just <code>count()</code> and <code>mutate()</code> from dplyr.</p>
+<pre class="r"><code>library(tidytext)
+
+unigram_probs &lt;- hacker_news_text %&gt;%
+    unnest_tokens(word, text) %&gt;%
+    count(word, sort = TRUE) %&gt;%
+    mutate(p = n / sum(n))
+
+unigram_probs</code></pre>
+<pre><code>## # A tibble: 314,615 x 3
+##     word       n          p
+##    &lt;chr&gt;   &lt;int&gt;      &lt;dbl&gt;
+##  1   the 1101051 0.04059959
+##  2    to  761660 0.02808506
+##  3     a  669142 0.02467360
+##  4    of  541939 0.01998318
+##  5   and  532594 0.01963860
+##  6     i  464917 0.01714311
+##  7   x27  437330 0.01612588
+##  8    is  431849 0.01592378
+##  9  that  429755 0.01584657
+## 10    it  402667 0.01484774
+## # ... with 314,605 more rows</code></pre>
+</div>
+<div id="skipgram-probabilities" class="section level2">
+<h2>Skipgram probabilities</h2>
+<p>Next, we need to calculate the skipgram probabilities, how often we find each word near each other word. We do this by defining a fixed-size moving window that centers around each word. Do we see <code>word1</code> and <code>word2</code> together within this window? I take the approach here of using <code>unnest_tokens()</code> once with <code>token = &quot;ngrams&quot;</code> to find all the windows I need, then using <code>unnest_tokens()</code> again to tidy these n-grams. After that, I can use <code>pairwise_count()</code> from the <a href="https://github.com/dgrtwo/widyr">widyr</a> package to count up cooccuring pairs within each n-gram/sliding window.</p>
+<p>I’m not sure what the ideal value for window size is here for the skipgrams. This value determines the sliding window that we move through the text, counting up bigrams that we find within the window. When this window is bigger, the process of counting skipgrams takes longer, obviously. I experimented a bit and windows of 8 words seem to work pretty well. Probably more work needed here! I’d be happy to be pointed to more resources on this topic.</p>
+<p>Finding all the skipgrams is a computationally expensive part of this process. Not something that just runs instantly!</p>
+<pre class="r"><code>library(widyr)
+
+tidy_skipgrams &lt;- hacker_news_text %&gt;%
+    unnest_tokens(ngram, text, token = &quot;ngrams&quot;, n = 8) %&gt;%
+    mutate(ngramID = row_number()) %&gt;% 
+    unite(skipgramID, postID, ngramID) %&gt;%
+    unnest_tokens(word, ngram)
+
+tidy_skipgrams</code></pre>
+<pre><code>## # A tibble: 190,151,488 x 2
+##    skipgramID   word
+##         &lt;chr&gt;  &lt;chr&gt;
+##  1        1_1      i
+##  2        1_1    bet
+##  3        1_1 taking
+##  4        1_1      a
+##  5        1_1    few
+##  6        1_1 months
+##  7        1_1    off
+##  8        1_1   from
+##  9        1_2    bet
+## 10        1_2 taking
+## # ... with 190,151,478 more rows</code></pre>
+<pre class="r"><code>skipgram_probs &lt;- tidy_skipgrams %&gt;%
+    pairwise_count(word, skipgramID, diag = TRUE, sort = TRUE) %&gt;%
+    mutate(p = n / sum(n))</code></pre>
+</div>
+<div id="normalized-skipgram-probability" class="section level2">
+<h2>Normalized skipgram probability</h2>
+<p>We now know how often words occur on their own, and how often words occur together with other words. We can calculate which words occurred together more often than expected based on how often they occurred on their own. When this number is high (greater than 1), the two words are associated with each other, likely to occur together. When this number is low (less than 1), the two words are not associated with each other, unlikely to occur together.</p>
+<pre class="r"><code>normalized_prob &lt;- skipgram_probs %&gt;%
+    filter(n &gt; 20) %&gt;%
+    rename(word1 = item1, word2 = item2) %&gt;%
+    left_join(unigram_probs %&gt;%
+                  select(word1 = word, p1 = p),
+              by = &quot;word1&quot;) %&gt;%
+    left_join(unigram_probs %&gt;%
+                  select(word2 = word, p2 = p),
+              by = &quot;word2&quot;) %&gt;%
+    mutate(p_together = p / p1 / p2)</code></pre>
+<p>What are the words most associated with Facebook on Hacker News?</p>
+<pre class="r"><code>normalized_prob %&gt;% 
+    filter(word1 == &quot;facebook&quot;) %&gt;%
+    arrange(-p_together)</code></pre>
+<pre><code>## # A tibble: 1,767 x 7
+##       word1            word2     n            p           p1           p2 p_together
+##       &lt;chr&gt;            &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+##  1 facebook         facebook 54505 3.737944e-05 0.0003310502 3.310502e-04  341.07126
+##  2 facebook        messenger   364 2.496306e-07 0.0003310502 1.098830e-05   68.62360
+##  3 facebook         statuses    40 2.743194e-08 0.0003310502 1.474940e-06   56.18086
+##  4 facebook       zuckerburg    23 1.577336e-08 0.0003310502 8.480903e-07   56.18086
+##  5 facebook          myspace   327 2.242561e-07 0.0003310502 1.290572e-05   52.48898
+##  6 facebook         newsfeed    32 2.194555e-08 0.0003310502 1.327446e-06   49.93854
+##  7 facebook           hiphop    29 1.988815e-08 0.0003310502 1.438066e-06   41.77551
+##  8 facebook     mashable.com    25 1.714496e-08 0.0003310502 1.253699e-06   41.30946
+##  9 facebook            gtalk    22 1.508757e-08 0.0003310502 1.216825e-06   37.45391
+## 10 facebook www.facebook.com    47 3.223253e-08 0.0003310502 2.765512e-06   35.20667
+## # ... with 1,757 more rows</code></pre>
+<p>What about the programming language Scala?</p>
+<pre class="r"><code>normalized_prob %&gt;% 
+    filter(word1 == &quot;scala&quot;) %&gt;%
+    arrange(-p_together)</code></pre>
+<pre><code>## # A tibble: 453 x 7
+##    word1        word2     n            p           p1           p2 p_together
+##    &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+##  1 scala        scala  9418 6.458850e-06 5.394592e-05 5.394592e-05 2219.41246
+##  2 scala      odersky    54 3.703312e-08 5.394592e-05 1.216825e-06  564.16154
+##  3 scala          sbt    36 2.468874e-08 5.394592e-05 1.401193e-06  326.61984
+##  4 scala         akka    74 5.074908e-08 5.394592e-05 2.913006e-06  322.94479
+##  5 scala       groovy    88 6.035026e-08 5.394592e-05 5.494150e-06  203.61983
+##  6 scala           mu    23 1.577336e-08 5.394592e-05 1.769928e-06  165.20008
+##  7 scala       kotlin    88 6.035026e-08 5.394592e-05 7.448445e-06  150.19482
+##  8 scala constructors    23 1.577336e-08 5.394592e-05 2.728638e-06  107.15681
+##  9 scala      clojure   475 3.257543e-07 5.394592e-05 5.678518e-05  106.33997
+## 10 scala    idiomatic    53 3.634732e-08 5.394592e-05 7.337825e-06   91.82194
+## # ... with 443 more rows</code></pre>
+<p>Looks good!</p>
+</div>
+<div id="cast-to-a-sparse-matrix" class="section level2">
+<h2>Cast to a sparse matrix</h2>
+<p>We want to do matrix factorization, so we should probably make a matrix. We can use <code>cast_sparse()</code> from the tidytext package to transform our tidy data frame to a matrix.</p>
+<pre class="r"><code>pmi_matrix &lt;- normalized_prob %&gt;%
+    mutate(pmi = log10(p_together)) %&gt;%
+    cast_sparse(word1, word2, pmi)</code></pre>
+<p>What is the type of this object?</p>
+<pre class="r"><code>class(pmi_matrix)</code></pre>
+<pre><code>## [1] &quot;dgCMatrix&quot;
+## attr(,&quot;package&quot;)
+## [1] &quot;Matrix&quot;</code></pre>
+<p>The <code>dgCMatrix</code> class is a class of sparse numeric matrices in R. Text data like this represented in matrix form usually has lots and lots of zeroes, so we want to make use of sparse data structures to save us time and memory and all that.</p>
+</div>
+<div id="reduce-the-matrix-dimensionality" class="section level2">
+<h2>Reduce the matrix dimensionality</h2>
+<p>We want to get information out of this giant matrix in a more useful form, so it’s time for singular value decomposition. Since we have a sparse matrix, we don’t want to use base R’s <code>svd</code> function, which casts the input to a plain old matrix (not sparse) first thing. Instead we will use the fast SVD algorithm for sparse matrices in the <a href="https://cran.r-project.org/package=irlba">irlba</a> package.</p>
+<pre class="r"><code>library(irlba)
+
+pmi_svd &lt;- irlba(pmi_matrix, 256, maxit = 1e3)</code></pre>
+<p>The number 256 here means that we are finding 256-dimensional vectors for the words. This is another thing that I am not sure exactly what the best number is, but it will be easy to experiment with. Doing the matrix factorization is another part of this process that is a bit time intensive, but certainly not slow compared to training word2vec on a big corpus. In my experimenting here, it takes less time than counting up the skipgrams.</p>
+<p>Once we have the singular value decomposition, we can get out the word vectors! Let’s set some row names, using our input, so we can find out what is what.</p>
+<pre class="r"><code>word_vectors &lt;- pmi_svd$u
+rownames(word_vectors) &lt;- rownames(pmi_matrix)</code></pre>
+<p>Now we can search our matrix of word vectors to find synonyms. I want to get back to a tidy data structure at this point, so I’ll write a new little function for tidying.</p>
+<pre class="r"><code>library(broom)
+
+search_synonyms &lt;- function(word_vectors, selected_vector) {
+    
+    similarities &lt;- word_vectors %*% selected_vector %&gt;%
+        tidy() %&gt;%
+        as_tibble() %&gt;%
+        rename(token = .rownames,
+               similarity = unrowname.x.)
+    
+    similarities %&gt;%
+        arrange(-similarity)    
+}
+
+facebook &lt;- search_synonyms(word_vectors, word_vectors[&quot;facebook&quot;,])
+facebook</code></pre>
+<pre><code>## # A tibble: 68,664 x 2
+##        token similarity
+##        &lt;chr&gt;      &lt;dbl&gt;
+##  1  facebook 0.07622816
+##  2   twitter 0.05477529
+##  3    google 0.04833987
+##  4    social 0.04367801
+##  5        fb 0.03597795
+##  6   account 0.03304327
+##  7 instagram 0.02955428
+##  8     users 0.02581671
+##  9    photos 0.02502522
+## 10   friends 0.02412458
+## # ... with 68,654 more rows</code></pre>
+<pre class="r"><code>haskell &lt;- search_synonyms(word_vectors, word_vectors[&quot;haskell&quot;,])
+haskell</code></pre>
+<pre><code>## # A tibble: 68,664 x 2
+##          token similarity
+##          &lt;chr&gt;      &lt;dbl&gt;
+##  1     haskell 0.04100067
+##  2        lisp 0.03796378
+##  3   languages 0.03710574
+##  4    language 0.03176253
+##  5  functional 0.03022514
+##  6 programming 0.02743172
+##  7       scala 0.02667198
+##  8     clojure 0.02652761
+##  9      python 0.02462822
+## 10      erlang 0.02452040
+## # ... with 68,654 more rows</code></pre>
+<p>That’s… pretty darn amazing. Let’s visualize the most similar words vector to Facebook and Haskell from this dataset of Hacker News posts.</p>
+<pre class="r"><code>facebook %&gt;%
+    mutate(selected = &quot;facebook&quot;) %&gt;%
+    bind_rows(haskell %&gt;%
+                  mutate(selected = &quot;haskell&quot;)) %&gt;%
+    group_by(selected) %&gt;%
+    top_n(15, similarity) %&gt;%
+    ungroup %&gt;%
+    mutate(token = reorder(token, similarity)) %&gt;%
+    ggplot(aes(token, similarity, fill = selected)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(~selected, scales = &quot;free&quot;) +
+    coord_flip() +
+    theme(strip.text=element_text(hjust=0, family=&quot;Roboto-Bold&quot;, size=12)) +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(x = NULL, title = &quot;What word vectors are most similar to Facebook or Haskell?&quot;,
+         subtitle = &quot;Based on the Hacker News corpus, calculated using counts and matrix factorization&quot;)</code></pre>
+<p><img src="/blog/2017/2017-10-30-tidy-word-vectors_files/figure-html/vectors_plot-1.png" width="1440" /></p>
+<p>We can also do the familiar <strong>WORD MATH</strong> that is so fun with the output of word2vec; you have probably seen examples such as <code>King - Man + Woman = Queen</code> and such. We can just add and subtract our word vectors, and then search the matrix we built!</p>
+<p>If the iPhone is an important product associated with Apple, as discussed on Hacker News, what is an important product associated with Microsoft?</p>
+<pre class="r"><code>mystery_product &lt;- word_vectors[&quot;iphone&quot;,] - word_vectors[&quot;apple&quot;,] + word_vectors[&quot;microsoft&quot;,]
+search_synonyms(word_vectors, mystery_product)</code></pre>
+<pre><code>## # A tibble: 68,664 x 2
+##        token similarity
+##        &lt;chr&gt;      &lt;dbl&gt;
+##  1   windows 0.03861497
+##  2     phone 0.02818951
+##  3    iphone 0.02444977
+##  4    mobile 0.02427238
+##  5   android 0.02321326
+##  6 microsoft 0.02233597
+##  7       ios 0.02138345
+##  8    office 0.02000720
+##  9         7 0.01997405
+## 10         8 0.01970687
+## # ... with 68,654 more rows</code></pre>
+<p>We even see some mobile phone and Android terms in this list, below Windows.</p>
+<p>What about an important product associated with Google?</p>
+<pre class="r"><code>mystery_product &lt;- word_vectors[&quot;iphone&quot;,] - word_vectors[&quot;apple&quot;,] + word_vectors[&quot;google&quot;,]
+search_synonyms(word_vectors, mystery_product)</code></pre>
+<pre><code>## # A tibble: 68,664 x 2
+##       token similarity
+##       &lt;chr&gt;      &lt;dbl&gt;
+##  1   google 0.10194467
+##  2   search 0.05937512
+##  3    phone 0.03947618
+##  4      app 0.03716764
+##  5   engine 0.03590006
+##  6 facebook 0.03513982
+##  7  android 0.03289141
+##  8        q 0.02998453
+##  9    gmail 0.02980005
+## 10    using 0.02944208
+## # ... with 68,654 more rows</code></pre>
+<p>Google itself is at the top of the list, which is something that often happens to me when I try this word vector arithmetic no matter how I train them (usually one of the positive vectors in the “equation”). Does anyone know what that means? Anyway, “search”, is next on the list.</p>
+<pre class="r"><code>mystery_product &lt;- word_vectors[&quot;iphone&quot;,] - word_vectors[&quot;apple&quot;,] + word_vectors[&quot;amazon&quot;,]
+search_synonyms(word_vectors, mystery_product)</code></pre>
+<pre><code>## # A tibble: 68,664 x 2
+##      token similarity
+##      &lt;chr&gt;      &lt;dbl&gt;
+##  1  amazon 0.04757609
+##  2     aws 0.04389115
+##  3      s3 0.03356846
+##  4    book 0.03273032
+##  5     ec2 0.03151250
+##  6   cloud 0.03083856
+##  7   books 0.03008677
+##  8  iphone 0.02749843
+##  9 storage 0.02549876
+## 10  kindle 0.02505824
+## # ... with 68,654 more rows</code></pre>
+<p>For Amazon, we get AWS, S3, and EC2, as well as book. Nice!</p>
+</div>
+<div id="the-end" class="section level2">
+<h2>The End</h2>
+<p>I am so excited about this approach! Like Chris said in his blog post, for all the applications in the kind of work I do (non-academic, industry NLP) these type of word vectors will work <em>great</em>. No need for neural networks! This approach is still not lightning fast (I have to sit and wait for parts of it to run) but I can easily implement it with the tools I am familiar with. I would imagine there are vast swaths of data science practitioners for whom this is also true. I am considering the idea of bundling some of these types of functions up into an R package, and Dave has just built a <a href="https://github.com/dgrtwo/widyr/commit/e297c547a1599e48bd3afd23fead6bd01310253a"><code>pairwise_pmi()</code> function in the development version of widyr that simplifies this approach even more</a>. Tidy word vectors, perhaps? Maybe I’ll also look into the <a href="http://multithreaded.stitchfix.com/blog/2017/10/25/word-tensors/">higher rank extension of this technique</a> to get at word and document vectors!</p>
+<p>Let me know if you have feedback or questions.</p>
+</div>
+
+
+                <br>
+            </div>
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="/img/back.svg" alt="back" />
+                        <a href="/blog/ab-testing/">From Power Calculations to P-Values: A/B Testing at Stack Overflow</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                    <div>
+                        <a href="/blog/emoji-sports/">New sports from random emoji</a>
+                        <img class="icon" src="/img/next.svg" alt="next" />
+                    </div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "datascienceish" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="container">
+        <div class="copyright">
+
+        
+            <a href="/about">Copyright © 2020 Julia Silge</a>
+        
+
+        </div>
+        <div class="icons">
+
+        
+            <a href="https://github.com/juliasilge" target="_blank">
+                <img class="icon" src="/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+            <a href="https://twitter.com/juliasilge" target="_blank">
+                <img class="icon" src="/img/twitter.svg" alt="twitter" />
+            </a>
+        
+
+        
+            <a href="https://www.linkedin.com/in/juliasilge" target="_blank">
+                <img class="icon" src="/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+
+        
+            <a href="/index.xml">
+                <img class="icon" src="/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+
+  <script src="/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="/js/progressively.min.js" defer></script>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-68765210-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+  };
+</script>
+
+
+</body>
+</html>
+

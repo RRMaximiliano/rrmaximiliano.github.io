@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="A blog by Julia Silge">
+
+
+    <meta property="twitter:site" content="@juliasilge">
+
+<meta property="twitter:title" content="TensorFlow, Jane Austen, and Text Generation">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="/_images/illustrated_blog_avatar.png">
+
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     Julia Silge - TensorFlow, Jane Austen, and Text Generation 
+
+</title>
+<link rel="canonical" href="/blog/tensorflow-generation/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+section.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.header .container .logo {
+  max-width: 100px;
+  margin-left: -2em;
+}
+section.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  color: #555555;
+}
+section.header nav {
+  margin-bottom: 16px;
+}
+section.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+section.header nav ul a {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+section.header nav ul a:first-child {
+  margin-left: 0;
+}
+section.header nav ul a:last-child {
+  margin-right: 0;
+}
+section.header nav ul li {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.header nav ul li:hover {
+  color: #111111;
+}
+section.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+section.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.footer .container a:first-child {
+  margin-left: 0;
+}
+section.footer .container a:last-child {
+  margin-right: 0;
+}
+section.footer .container a:hover {
+  opacity: 0.8;
+}
+section.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+section.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+section.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+section.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+section.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+section.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+section.main .content .posts {
+  margin-bottom: 4em;
+}
+section.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+section.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+section.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+  display: none;
+}
+section.main .content .front-matter .middot {
+  font-size: 6px;
+  margin: 0 6px;
+  display: inline;
+  vertical-align: middle;
+}
+section.main .content .front-matter .middot:before {
+  content: "•";
+}
+section.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+section.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+section.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+section.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+section.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+section.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+section.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+section.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+section.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+section.header {
+  padding-top: 10px;
+}
+section.header-home {
+  padding-top: 36px;
+}
+section.main {
+  padding-top: 32px;
+}
+section.main .container .content .post-item .meta {
+    display: block;
+}
+section.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+section.main .content {
+    width: 100%;
+}
+section.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+section.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+section.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+section.main .content .markdown code,
+section.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+section.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+section.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+@media (min-width: 769px) {
+  section.main .content .markdown pre {
+    width: 110%;
+    margin-left: -4%;
+  }
+}
+section.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+section.main .content .markdown a code {
+  color: #428bca !important;
+}
+section.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+section.main .content .markdown p {
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+section.main .content .markdown ul,
+section.main .content .markdown ol,
+section.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown dt {
+  font-weight: bold;
+}
+section.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+section.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown li {
+  margin-left: 2em;
+}
+section.main .content .markdown em {
+  font-style: italic;
+}
+section.main .content .markdown strong {
+  font-weight: 700;
+}
+section.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+section.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+section.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+section.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+section.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+section.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+section.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+section.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+section.main .content .markdown td,
+section.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+section.main .content .markdown tbody tr:nth-child(odd) td,
+section.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+section.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+section.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+section.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+section.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+section.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+section.main .content .navigation a {
+  width: 250px;
+  margin-left: 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+
+/* Fonts */
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active section.header nav ul li,
+.wf-raleway-n7-active section.main .content .page-heading,
+.wf-raleway-n2-active section.main .container.f04 .content .num,
+.wf-raleway-n7-active section.main .content .markdown h1,
+.wf-raleway-n7-active section.main .content .markdown h2,
+.wf-raleway-n7-active section.main .content .markdown h3,
+.wf-raleway-n7-active section.main .content .markdown h4,
+.wf-raleway-n7-active section.main .content .markdown h5,
+.wf-raleway-n7-active section.main .content .markdown h6 {
+  font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active section.main .content .markdown {
+  font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active section.main .content .markdown code,
+.wf-ubuntu-mono-n4-active section.main .content .markdown pre {
+  font-family: 'Ubuntu Mono';
+}
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+max-width: 750px;
+}
+section.header {
+background-color: transparent;
+}
+section.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.header .container .logo {
+margin: 0;
+}
+section.header-home .container .logo {
+max-width: 180px;
+margin-left: 20px;
+}
+section.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+section.header-home nav ul li {
+font-size: 18px;
+}
+section.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.header .name {
+color: #333333;
+}
+section.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+section.header nav ul {
+text-align: left;
+}
+section.header nav ul li {
+color: #666666;
+}
+section.header nav ul li:hover {
+color: #333333;
+}
+section.footer {
+background-color: transparent;
+}
+section.footer .container {
+flex-direction: row;
+}
+section.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+section.footer .container a:hover {
+color: #333333;
+}
+section.footer .container a .icon {
+font-size: 18px;
+}
+section.footer .container a .icon.larger {
+font-size: 20px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+display: initial;
+}
+section.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+section.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+section.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.footer {
+padding-top: 30px;
+padding-bottom: 60px;
+}
+section.main {
+padding-top: 0;
+}
+section.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+section.main .container .content .post-item .meta {
+display: block;
+}
+section.main.post {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+section.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+section.main .content .navigation div {
+margin-top: 0em;
+}
+</style>
+<style media="(min-width: 769px)">
+  section.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+section.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
+  </style>
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/_images/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="/"><img class="logo" src="/_images/illustrated_blog_avatar.png" alt="logo" /></a>
+        <div class="content">
+            <a href="/"><div class="name"><h1>Julia Silge</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <a href="/about/"><li>about</li></a>
+                        
+                    
+                        
+                            <a href="/resume/"><li>resume</li></a>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    TensorFlow, Jane Austen, and Text Generation
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Thu Oct 4 2018 00:00:00 UTC">Oct 4, 2018</div>
+                    
+                        
+                    
+                    <div class="reading-time"><div class="middot"></div>15 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/rstats">rstats</a> </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+    
+
+
+<p>I remember the first time I saw a deep learning text generation project that was truly compelling and delightful to me. It was in 2016 when <a href="https://twitter.com/_Pandy/status/689209034143084547">Andy Herd generated new <em>Friends</em> scenes</a> by training a recurrent neural network on all the show’s episodes. Herd’s work went pretty viral at the time and I thought:</p>
+<iframe src="https://giphy.com/embed/3oEjHTazrdiQeYaR68" width="480" height="336" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/inpulsedm-3oEjHTazrdiQeYaR68">via GIPHY</a>
+</p>
+<p>And also:</p>
+<iframe src="https://giphy.com/embed/CDoxe35inxhfO" width="480" height="330" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/CDoxe35inxhfO">via GIPHY</a>
+</p>
+<p>At the time I dabbled a bit with <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy’s tutorials</a> for character-level RNNs; his work and tutorials undergird a lot of the kind of STUNT TEXT GENERATION work we see in the world. Python is not my strongest language, though, and I did not ever have a real motivation to understand the math of what was going on. I watched the masters like <a href="https://twitter.com/JanelleCShane">Janelle Shane</a> instead.</p>
+<p><a href="https://tensorflow.rstudio.com/">TensorFlow for R</a> has changed that for me. Not only is the R interface that RStudio has developed just <em>beautiful</em>, but now these fun text generation projects provide a step into understanding how these neural networks model work at all, and deal with text in particular. Let’s step through how to take the text of <em>Pride and Prejudice</em> and generate 🙌 new 🙌 Jane-Austen-esque text.</p>
+<p>This code borrows heavily from a couple of excellent sources.</p>
+<ul>
+<li><a href="https://github.com/jnolis/banned-license-plates">Jonathan Nolis’ project on offensive license plates</a> (That link is for their code; you can read a <a href="https://towardsdatascience.com/using-deep-learning-to-generate-offensive-license-plates-619b163ed937">great narrative explanation as well</a>.)</li>
+<li><a href="https://keras.rstudio.com/articles/examples/lstm_text_generation.html">RStudio’s example code for text generation</a></li>
+</ul>
+<p>Before starting, you will need to install keras so be sure to check out <a href="https://keras.rstudio.com/reference/install_keras.html">details on installation</a>.</p>
+<div id="tokenize" class="section level2">
+<h2>Tokenize</h2>
+<p>We are going to train a character-level language model, which means the model will take a single character and then predict what character should come next, based on the ones that have come before. First step? We need to take <em>Pride and Prejudice</em> and divide it up into individual characters.</p>
+<iframe src="https://giphy.com/embed/l4JyY6IdblsismaeA" width="480" height="297" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/bbc-drama-pride-and-prejudice-l4JyY6IdblsismaeA">via GIPHY</a>
+</p>
+<p>The code below <em>keeps</em> both capital and lowercase letters, and builds a model that learns when to use which one. This is computationally more intensive than training a model that only learns about the letters themselves in lower case; if you want to start off with that kind of model, change to the default behavior for <code>tokenize_characters()</code> of <code>lowercase = TRUE</code>.</p>
+<pre class="r"><code>library(keras)
+library(tidyverse)
+library(janeaustenr)
+library(tokenizers)
+
+max_length &lt;- 40
+
+text &lt;- austen_books() %&gt;% 
+    filter(book == &quot;Pride &amp; Prejudice&quot;) %&gt;%
+    pull(text) %&gt;%
+    str_c(collapse = &quot; &quot;) %&gt;%
+    tokenize_characters(lowercase = FALSE, strip_non_alphanum = FALSE, simplify = TRUE)
+
+print(sprintf(&quot;Corpus length: %d&quot;, length(text)))</code></pre>
+<pre><code>## [1] &quot;Corpus length: 684767&quot;</code></pre>
+<pre class="r"><code>chars &lt;- text %&gt;%
+    unique() %&gt;%
+    sort()
+
+print(sprintf(&quot;Total characters: %d&quot;, length(chars)))</code></pre>
+<pre><code>## [1] &quot;Total characters: 74&quot;</code></pre>
+<p>A good start!</p>
+</div>
+<div id="chop-chop-chop" class="section level2">
+<h2>CHOP CHOP CHOP</h2>
+<p>Next we want to cut the whole text into pieces: sequences of <code>max_length</code> characters. These will be the chunks of text that we use for training.</p>
+<pre class="r"><code>dataset &lt;- map(
+    seq(1, length(text) - max_length - 1, by = 3), 
+    ~list(sentence = text[.x:(.x + max_length - 1)], 
+          next_char = text[.x + max_length])
+)
+
+dataset &lt;- transpose(dataset)</code></pre>
+</div>
+<div id="vectorize" class="section level2">
+<h2>Vectorize</h2>
+<p>Now it’s time to make a big set of vectors of these chunks of text. If you make <code>max_length</code> larger, this <code>vectors</code> object can get unwieldy in terms of memory.</p>
+<pre class="r"><code>vectorize &lt;- function(data, chars, max_length){
+    x &lt;- array(0, dim = c(length(data$sentence), max_length, length(chars)))
+    y &lt;- array(0, dim = c(length(data$sentence), length(chars)))
+    
+    for(i in 1:length(data$sentence)){
+        x[i,,] &lt;- sapply(chars, function(x){
+            as.integer(x == data$sentence[[i]])
+        })
+        y[i,] &lt;- as.integer(chars == data$next_char[[i]])
+    }
+    
+    list(y = y,
+         x = x)
+}
+
+vectors &lt;- vectorize(dataset, chars, max_length)</code></pre>
+</div>
+<div id="model-definition" class="section level2">
+<h2>Model definition</h2>
+<p>So far all we’ve been doing is chopping text into bits and rearranging data structures. Finally, it is time to delve into ❇️ DEEP LEARNING ❇️. The first step is to create a model. I’ve used the same parameters as <a href="https://keras.rstudio.com/articles/examples/lstm_text_generation.html">the RStudio LSTM example</a>; this next step is fast as it is only defining the kind of model architecture we are going to use.</p>
+<pre class="r"><code>create_model &lt;- function(chars, max_length){
+    keras_model_sequential() %&gt;%
+        layer_lstm(128, input_shape = c(max_length, length(chars))) %&gt;%
+        layer_dense(length(chars)) %&gt;%
+        layer_activation(&quot;softmax&quot;) %&gt;% 
+        compile(
+            loss = &quot;categorical_crossentropy&quot;, 
+            optimizer = optimizer_rmsprop(lr = 0.01)
+        )
+}</code></pre>
+<p>Let’s also make a function that fits the model for a set number of epochs.</p>
+<pre class="r"><code>fit_model &lt;- function(model, vectors, epochs = 1){
+    model %&gt;% fit(
+        vectors$x, vectors$y,
+        batch_size = 128,
+        epochs = epochs
+    )
+    NULL
+}</code></pre>
+</div>
+<div id="model-training-results" class="section level2">
+<h2>Model training &amp; results</h2>
+<p>Now it’s almost time to <strong>train</strong> the model on our data. Let’s make some more functions.</p>
+<p>This one generates a phrase from a model, text, set of characters, and parameters like the maximum length of phrase and diversity, i.e. how WILD we are going to let the model be.</p>
+<pre class="r"><code>generate_phrase &lt;- function(model, text, chars, max_length, diversity){
+    
+    # this function chooses the next character for the phrase
+    choose_next_char &lt;- function(preds, chars, temperature){
+        preds &lt;- log(preds) / temperature
+        exp_preds &lt;- exp(preds)
+        preds &lt;- exp_preds / sum(exp(preds))
+        
+        next_index &lt;- rmultinom(1, 1, preds) %&gt;% 
+            as.integer() %&gt;%
+            which.max()
+        chars[next_index]
+    }
+    
+    # this function takes a sequence of characters and turns it into a numeric array for the model
+    convert_sentence_to_data &lt;- function(sentence, chars){
+        x &lt;- sapply(chars, function(x){
+            as.integer(x == sentence)
+        })
+        array_reshape(x, c(1, dim(x)))
+    }
+    
+    # the inital sentence is from the text
+    start_index &lt;- sample(1:(length(text) - max_length), size = 1)
+    sentence &lt;- text[start_index:(start_index + max_length - 1)]
+    generated &lt;- &quot;&quot;
+    
+    # while we still need characters for the phrase
+    for(i in 1:(max_length * 20)){
+        
+        sentence_data &lt;- convert_sentence_to_data(sentence, chars)
+        
+        # get the predictions for each next character
+        preds &lt;- predict(model, sentence_data)
+        
+        # choose the character
+        next_char &lt;- choose_next_char(preds, chars, diversity)
+        
+        # add it to the text and continue
+        generated &lt;- str_c(generated, next_char, collapse = &quot;&quot;)
+        sentence &lt;- c(sentence[-1], next_char)
+    }
+    
+    generated
+}</code></pre>
+<p>Notice that we seed the first characters for the model to use for prediction with a real chunk of text from <em>Pride and Prejudice</em>.</p>
+<p>This next function fits the model to the set of vectors, and then generates phrases from the current version of the model.</p>
+<pre class="r"><code>iterate_model &lt;- function(model, text, chars, max_length, 
+                          diversity, vectors, iterations){
+    for(iteration in 1:iterations){
+        
+        message(sprintf(&quot;iteration: %02d ---------------\n\n&quot;, iteration))
+        
+        fit_model(model, vectors)
+        
+        for(diversity in c(0.2, 0.5, 1)){
+            
+            message(sprintf(&quot;diversity: %f ---------------\n\n&quot;, diversity))
+            
+            current_phrase &lt;- 1:10 %&gt;% 
+                map_chr(function(x) generate_phrase(model,
+                                                    text,
+                                                    chars,
+                                                    max_length, 
+                                                    diversity))
+            
+            message(current_phrase, sep=&quot;\n&quot;)
+            message(&quot;\n\n&quot;)
+            
+        }
+    }
+    NULL
+}</code></pre>
+<p>I’m sorry to say that we haven’t really done anything yet.</p>
+<iframe src="https://giphy.com/embed/26FLdSILnEZTBFPjO" width="480" height="310" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/bbc-drama-pride-and-prejudice-26FLdSILnEZTBFPjO">via GIPHY</a>
+</p>
+</div>
+<div id="actually-run-the-model" class="section level2">
+<h2>Actually run the model</h2>
+<p>But now! Now we are going to train the model.</p>
+<p>How many times should you iterate through the model? You want to the loss to stabilize (lower is better) but once the loss is at whatever low value we can achieve for the data we have and the model architecture we have chosen, iterating more and more isn’t going to help anymore. For me with this data, about 40 iterations worked well.</p>
+<pre class="r"><code>model &lt;- create_model(chars, max_length)
+
+iterate_model(model, text, chars, max_length, diversity, vectors, 40)</code></pre>
+<pre><code>## NULL</code></pre>
+<p>Now let’s see what we’ve got! Let’s look at several values for <code>diversity</code>, the measure for how creative/wacky we let the model be in which character to choose next in a sequence. We’ll try out values between 0.2 (less creative) and 0.6 (more creative).</p>
+<pre class="r"><code>result &lt;- data_frame(diversity = rep(c(0.2, 0.4, 0.6), 20)) %&gt;%
+    mutate(phrase = map_chr(diversity,
+                            ~ generate_phrase(model, text, chars, max_length, .x))) %&gt;%
+    arrange(diversity)
+
+result %&gt;%
+    sample_n(10) %&gt;%
+    arrange(diversity) %&gt;%
+    kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">diversity</th>
+<th align="left">phrase</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.2</td>
+<td align="left">sisters were the manner were so much the same family to be a moment to her sisters were not to see him and desired to her own party of the word, and the person was a man who had been a compliment of any of the subject. It was to be sure the subject of the satisfaction of the word, who cannot be well to be not betrod of the contrary to be sure the manner of the contrury on the part, and the sentiment of her sisters were so much and real the same proper and such a comfort of her sisters were at the day to be allow the family and such a word. If they were a disappointment of her family of the disappointment of the attention of the manner to her sisters were so much that I have not a few moment and a family to be all the manner of the consents of her family, who cannot do not been the manner t</td>
+</tr>
+<tr class="even">
+<td align="right">0.2</td>
+<td align="left">s part, and was a contrive to her family to the discovery of the manner and the servance of her sisters were the person of the sentiment of the end of the subject of the manner to her family as they were all her attention of her family, and the manner of any of her sisters were of the family of the discovered to the evening to her aunt, and she could not be contrive with the subject, and she had been all the two distress of the contrury in the of her and the happiness of the sentence to her family of the contruct of her sisters were allow the consents of the evening the person were so after the connection of the contriculation of the discovered to be the subject of the attention of the consents and the servance of the subject of the sent the subject of the word, who had been a mind with th</td>
+</tr>
+<tr class="odd">
+<td align="right">0.4</td>
+<td align="left">fect a fortnight to be many of the connected to supplemer of an address to him in the subject. m*va coseZ–and MZbZbZbZZZborness of the contrusion of her family, and was to supplecity of her sisters were needed to her attention with her behaviour of the minutes to much to prevent the minutes to her sisters were to determined to support to the proper an agitation of the manner and pain her sisters were easily were a follow a great ease to her attention of the proper any of the propers I am allow the same intention of the power to her aunt, who cannot all me to her delight to expect to the distress of the contricumed to controsted to see the persuaded her sisters were allow to please in a moment with the respect a money and contrusting her aunt to make him to be p</td>
+</tr>
+<tr class="even">
+<td align="right">0.4</td>
+<td align="left">. Mr. Wickham had been a look and contrusment of her favourable attention was said, and in the family of the compliment of his great really in the perfect that they were of a money, and who had seen the place who was displeasure in the attentions had seen and heart of her lady in the after many aunt, and the means of the rest of the discheme to be allow to be a family, and she had soon afterwards paid it to have seen the distress of her friend and a disappointment of her connection to be not to be the sentiment of my mother was all the word, I have been a well had ever to such any as she had seen much of his sisters were heard and many and seeing her sisters were the different of the connections what you have determine in the subject. If they were of the as the consents of the evening of t</td>
+</tr>
+<tr class="odd">
+<td align="right">0.4</td>
+<td align="left">the happiness of her sisters and had heard of the earnest of the servance of the consequence of the family of the very little to her friend to her family of the lady of the moment to the persuaded her to her sisters were allow to the evening in the party to supple of the moment. It is to be sure the family of the sisters were allow the happy of him.&quot; &quot;The evening and the of her contrary the manner and seeing the heart, and was so information of the appearance, the match he had not have a constant of the consents and seeing the dear the dear Elizabeth was exceedingly so to support to the attention of the distress of his favourable to be another to any of the happiness of the subject. The perfect to her own very little attention which he had been consequently at the fellowing her and absent</td>
+</tr>
+<tr class="even">
+<td align="right">0.4</td>
+<td align="left">Mr. Bennet by Mr. Bennet to the hardsty frival of the will be a love the consents were of her sisters are to her aunt had heard and pleased to be any of her sisters were the morning of the happiness which made her and said, and she had not in the safisghing to the sent a considered to him as he had see her friend to her minutes with the son. I am conversation and heart of the others and the two man to be a great perfect it is much as the sisters became into the will she could not allow the evening all the attention of the subject of Mr. Wickham had been heard to her word of the minutes and manner she had been soon and his as I must be alamments which I have been a few moment she had been so contratient and conversation of her daughters were done in the evening with the persuaded the lady</td>
+</tr>
+<tr class="odd">
+<td align="right">0.4</td>
+<td align="left">pt the respect to be the intention of her own friend to be always to be allow the attentions was the attentions of the satisfaction of the principation in the happiness of the servance of the attention of the of her share to be allow the evening after the lady which the rest of the happiness of the return to make the seite and the discovered him with the after supers I thought I have seen Miss Bingley, and he should not inquiries of the having such a moment, and who could not be soon know me on the delighted to the consents of the next understant a moment, and was very little consents of her way with an each other she had been understand the party that he had not been a little of such an instantly and perfect the family and considered to make the moment of the lady to the hall, but when sh</td>
+</tr>
+<tr class="even">
+<td align="right">0.6</td>
+<td align="left">de, and had the servant of the means and de Mr. Darcy was she said, they were parther, however, and pay to anxious and please any home to much unnost to him and wholly better of the real uncomfort and overtear to be this servance was seen and moment and as I am relating to her first and earnest of an instantly; and he had any person. If tuch, that he was met a sort of the moment. The word, defects to us the man for such a falling her sentiming to her carriage some periove they were we usual forward to the complete a condence of the country mention she was always cannot be allow to him had much the interest of money they she accomplice of prevent the mother to be so fondue to not be little she really one of her mother, and above all that he had heard of a different seeing the next was not t</td>
+</tr>
+<tr class="odd">
+<td align="right">0.6</td>
+<td align="left">he subject. I have good on him, to be as teach of the distress of Mr. Wickham she could not the evening after an stair. They she entered her sister as she had ever soon afterwards concerned to man as she had seemed to take to emong much well intention of the day of their various of her family; and at the nerselles which he is but she was the first to have some perfect and repressible of the mention of her aunt that I immank that you have been we was the satisfaction, and by Mr. Bingley, for the other; and you the pleasure in the appluce–not a great frecen in their case, indeed, and the contrirng to be said and attentive can was a moment he had no sertave in the hopes he entreat of me would be soon ressence, and was good manner that we cannot so the manner I am tclone, I think I am two muc</td>
+</tr>
+<tr class="even">
+<td align="right">0.6</td>
+<td align="left">beth, she was seeing him to Mr. Darcy was the word she could have been her faurity of him, in the happiness in the of a word; and afterwards to take she had not eft to done in the common after only she had the connection was well, and she could not be for sent to be soon said in favowed to each other; that Mr. Bingley had only not complete of the speeched and to suppleter really as she should not hear he had been soon persuaded the consequently and repected that he had seen she had a mother with the dischements to lost the sort of the after a su;bee the discomposest and opened a pleasant considered to get of the poult to be ever seen and intention, and but the happy any moment to him the entroation of her sisters. She is in their sisters and some as a last who was really as he play to be s</td>
+</tr>
+</tbody>
+</table>
+<p>IT WAS TO BE SURE THE SUBJECT OF THE SATISFACTION OF THE WORD!</p>
+<p>You can see here what the whole generated phrases look like, and notice how these are not complete sentences and would need some cleaning up from this state. If we’d like to pull out only complete sentences, we could do some text manipulation, sentence tokenization, etc.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Understanding how text generation works with deep learning and TensorFlow has been very helpful for me as I wrap my brain around these techniques more broadly. And that’s good, because exactly how practical of a skill is this, right?! I mean, <a href="https://stackoverflow.blog/2018/01/15/thanks-million-jon-skeet/">who needs to generate new text from an existing corpus in their day job???</a></p>
+<p>Oh, that’s right: me. Ironically, when I did need to generate text in my day job, I turned to a <a href="https://github.com/abresler/markovifyR">Markov chain generator</a>. It is computationally less expensive and gives “nicer” results without lots of tuning; also I could guarantee that no user was going to be served any unintentionally offensive text. To sum up, if you have an immediate serioud need for text generation, I might recommend another method, but playing with text generation is a great way to understand deep learning. Let me know if you have any questions or feedback!</p>
+</div>
+
+
+                <br>
+            </div>
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="/img/back.svg" alt="back" />
+                        <a href="/blog/evaluating-stm/">Training, evaluating, and interpreting topic models</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                    <div>
+                        <a href="/blog/word-associations/">Word associations from the Small World of Words</a>
+                        <img class="icon" src="/img/next.svg" alt="next" />
+                    </div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "datascienceish" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="container">
+        <div class="copyright">
+
+        
+            <a href="/about">Copyright © 2020 Julia Silge</a>
+        
+
+        </div>
+        <div class="icons">
+
+        
+            <a href="https://github.com/juliasilge" target="_blank">
+                <img class="icon" src="/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+            <a href="https://twitter.com/juliasilge" target="_blank">
+                <img class="icon" src="/img/twitter.svg" alt="twitter" />
+            </a>
+        
+
+        
+            <a href="https://www.linkedin.com/in/juliasilge" target="_blank">
+                <img class="icon" src="/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+
+        
+            <a href="/index.xml">
+                <img class="icon" src="/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+
+  <script src="/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="/js/progressively.min.js" defer></script>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-68765210-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+  };
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Julia Silge</title>
+    <link>/</link>
+    <description>Recent content on Julia Silge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>/blog/</link>
+      <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>&lt;p&gt;My name is Julia Silge and I am a data scientist and software engineer at RStudio where I work on open source modeling tools. My last name is pronounced SILL-GHEE (two syllables, short &lt;code&gt;i&lt;/code&gt;, hard &lt;code&gt;g&lt;/code&gt;). I love making beautiful charts, the statistical programming language R, Jane Austen, black coffee, and red wine.&lt;/p&gt;
+&lt;p&gt;I studied physics and astronomy, finishing my PhD in 2005. I worked in academia (teaching and doing research) and ed tech before moving into data science and discovering R. I am both an international speaker and a real-world practitioner focusing on data analysis and machine learning practice. I wrote a book with &lt;a href=&#34;http://varianceexplained.org/&#34;&gt;my collaborator Dave&lt;/a&gt; about &lt;a href=&#34;http://amzn.to/2tZkmxG&#34;&gt;text mining with R&lt;/a&gt;. You can find me on &lt;a href=&#34;https://twitter.com/juliasilge&#34;&gt;Twitter&lt;/a&gt; and &lt;a href=&#34;https://github.com/juliasilge&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I live in Salt Lake City, UT, with my husband, three kids, and two cats.&lt;/p&gt;
+&lt;p&gt;This blog is built with &lt;a href=&#34;https://github.com/rstudio/blogdown&#34;&gt;blogdown&lt;/a&gt; and &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, and deployed using &lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt;. My blog posts are released under a &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;. My avatar illustration is by &lt;a href=&#34;https://www.daybrighten.com/&#34;&gt;Emily Griffin&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If my blog has helped you, &lt;a href=&#34;https://ko-fi.com/U7U4WG9B&#34;&gt;you can buy me a coffee on Ko-fi!&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>resume</title>
+      <link>/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>&lt;h2 id=&#34;skills-and-tools&#34;&gt;Skills and Tools&lt;/h2&gt;
+&lt;p&gt;Machine learning, statistical modeling, natural language processing, data analysis, text mining, R, SQL, GitHub, Markdown, shell scripting, Linux, writing and speaking for technical and general audiences&lt;/p&gt;
+&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
+&lt;h4 id=&#34;data-scientist--software-engineer-rstudio&#34;&gt;Data Scientist &amp;amp; Software Engineer, RStudio&lt;/h4&gt;
+&lt;p&gt;2020-present&lt;/p&gt;
+&lt;h4 id=&#34;technical-advisory-committee-member-bureau-of-labor-statistics&#34;&gt;Technical Advisory Committee Member, Bureau of Labor Statistics&lt;/h4&gt;
+&lt;p&gt;2019-present&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Advise the Commissioner of Labor Statistics on statistical methodology and other technical matters related to the collection and analysis of BLS data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;data-scientist-stack-overflow&#34;&gt;Data Scientist, Stack Overflow&lt;/h4&gt;
+&lt;p&gt;2016-2019&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Analyze large datasets and build models to understand developers and the software industry, from tech ecosystems to how programmers search for jobs&lt;/li&gt;
+&lt;li&gt;Collaborate with data engineers, web developers, and product managers to implement models in production&lt;/li&gt;
+&lt;li&gt;Communicate the results of analyses, modeling, and tests through data visualization, interactive apps, and writing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;data-scientist-datassist&#34;&gt;Data Scientist, Datassist&lt;/h4&gt;
+&lt;p&gt;2016&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed statistical survey weighting tools (implemented in R) for nonprofits, local governments, social service agencies, and others.&lt;/li&gt;
+&lt;li&gt;Analyzed complex data sets from clients to create clear and compelling reports, visualizations, and interactive apps.&lt;/li&gt;
+&lt;li&gt;Wrote educational materials for online courses to develop the data literacy of our clients around the world.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;content-developer--support-representative-sapling-learning&#34;&gt;Content Developer &amp;amp; Support Representative, Sapling Learning&lt;/h4&gt;
+&lt;p&gt;2012—2016&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Created interactive online questions, solutions, feedback, and tutorials designed for college-level astronomy courses.&lt;/li&gt;
+&lt;li&gt;Reviewed questions authored by others for accuracy, style, and appropriate level.&lt;/li&gt;
+&lt;li&gt;In total, created or reviewed over 800 detailed, rich questions.&lt;/li&gt;
+&lt;li&gt;Assisted in project management and user acceptance testing projects.&lt;/li&gt;
+&lt;li&gt;Incorporated questions and other materials into customized, cohesive online course sites for instructors.&lt;/li&gt;
+&lt;li&gt;Provided individualized customer support for instructors and developed positive client relationships.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;adjunct-professor-quinnipiac-university&#34;&gt;Adjunct Professor, Quinnipiac University&lt;/h4&gt;
+&lt;p&gt;2006—2008&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Taught physics, chemistry, astronomy, and earth science courses with accompanying lab courses for science and non-science majors, utilizing online course management system and online homework.&lt;/li&gt;
+&lt;li&gt;Increased student engagement and learning by employing cooperative instructional strategies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;adjunct-professor-university-of-new-haven&#34;&gt;Adjunct Professor, University of New Haven&lt;/h4&gt;
+&lt;p&gt;2006—2008&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Taught physics for non-science majors with accompanying lab course, utilizing online course management system and online homework.&lt;/li&gt;
+&lt;li&gt;Increased student engagement and learning by employing cooperative instructional strategies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;postdoctoral-researcher-yale-university&#34;&gt;Postdoctoral Researcher, Yale University&lt;/h4&gt;
+&lt;p&gt;2005—2006&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed software for data analysis pipeline of Palomar-QUEST Survey&lt;/li&gt;
+&lt;li&gt;Worked with large data sets (survey generated ~70 GB per night) and integrated existing software of collaborators into pipeline.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;graduate-instructorresearch-assistant-university-of-texas-at-austin&#34;&gt;Graduate Instructor/Research Assistant, University of Texas at Austin&lt;/h4&gt;
+&lt;p&gt;2000—2005&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Studied internal kinematics of nearby galaxies using infrared radiation to determine effects of dust.&lt;/li&gt;
+&lt;li&gt;Independently observed at McDonald Observatory (over 40 nights).&lt;/li&gt;
+&lt;li&gt;Independently developed data analysis software tailored to research project; used dynamical modeling to interpret and understand data.&lt;/li&gt;
+&lt;li&gt;Published first-author papers in refereed journals and presented research at national scientific meetings.&lt;/li&gt;
+&lt;li&gt;Independently coordinated and taught introductory astronomy observing lab for non-science majors, supervising other graduate student instructors and developing curriculum.&lt;/li&gt;
+&lt;li&gt;Received University of Texas Goetting Memorial Endowed Scholarship for excellence in teaching, Texas Space Grant Consortium Graduate Fellowship for excellence in research, and University of Texas Graduate Continuing Fellowship for excellence in research.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;University of Texas at Austin - PhD in astronomy, 2005&lt;/li&gt;
+&lt;li&gt;University of Texas at Austin - MA in astronomy, 2002&lt;/li&gt;
+&lt;li&gt;Texas A&amp;amp;M University - BS in physics, 2000 (magna cum laude)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;other-projects&#34;&gt;Other Projects&lt;/h2&gt;
+&lt;h4 id=&#34;open-source-software&#34;&gt;Open Source Software&lt;/h4&gt;
+&lt;p&gt;Develop R packages for the data science ecosystem, including the &lt;a href=&#34;https://github.com/juliasilge/tidytext&#34;&gt;tidytext&lt;/a&gt; package which is downloaded from CRAN about 40,000 times per month.&lt;/p&gt;
+&lt;h4 id=&#34;author&#34;&gt;Author&lt;/h4&gt;
+&lt;p&gt;Wrote the book &lt;a href=&#34;https://www.tidytextmining.com/&#34;&gt;&lt;em&gt;Text Mining in R: A Tidy Approach&lt;/em&gt;&lt;/a&gt; with my collaborator David Robinson, published in 2017 by O’Reilly.&lt;/p&gt;
+&lt;h4 id=&#34;speaker&#34;&gt;Speaker&lt;/h4&gt;
+&lt;p&gt;Speak regularly at conferences in the United States and around the world about data analysis and machine learning practice.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

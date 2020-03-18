@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="A blog by Julia Silge">
+
+
+    <meta property="twitter:site" content="@juliasilge">
+
+<meta property="twitter:title" content="LASSO regression using tidymodels and #TidyTuesday data for The Office">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="/_images/illustrated_blog_avatar.png">
+
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     Julia Silge - LASSO regression using tidymodels and #TidyTuesday data for The Office 
+
+</title>
+<link rel="canonical" href="/blog/lasso-the-office/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+section.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.header .container .logo {
+  max-width: 100px;
+  margin-left: -2em;
+}
+section.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  color: #555555;
+}
+section.header nav {
+  margin-bottom: 16px;
+}
+section.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+section.header nav ul a {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+section.header nav ul a:first-child {
+  margin-left: 0;
+}
+section.header nav ul a:last-child {
+  margin-right: 0;
+}
+section.header nav ul li {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.header nav ul li:hover {
+  color: #111111;
+}
+section.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+section.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.footer .container a:first-child {
+  margin-left: 0;
+}
+section.footer .container a:last-child {
+  margin-right: 0;
+}
+section.footer .container a:hover {
+  opacity: 0.8;
+}
+section.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+section.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+section.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+section.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+section.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+section.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+section.main .content .posts {
+  margin-bottom: 4em;
+}
+section.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+section.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+section.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+  display: none;
+}
+section.main .content .front-matter .middot {
+  font-size: 6px;
+  margin: 0 6px;
+  display: inline;
+  vertical-align: middle;
+}
+section.main .content .front-matter .middot:before {
+  content: "•";
+}
+section.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+section.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+section.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+section.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+section.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+section.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+section.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+section.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+section.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+section.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+section.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+section.header {
+  padding-top: 10px;
+}
+section.header-home {
+  padding-top: 36px;
+}
+section.main {
+  padding-top: 32px;
+}
+section.main .container .content .post-item .meta {
+    display: block;
+}
+section.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+section.main .content {
+    width: 100%;
+}
+section.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+section.main .content .markdown h1,
+section.main .content .markdown h2,
+section.main .content .markdown h3,
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+section.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+section.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+section.main .content .markdown h4,
+section.main .content .markdown h5,
+section.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+section.main .content .markdown code,
+section.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+section.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+section.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+@media (min-width: 769px) {
+  section.main .content .markdown pre {
+    width: 110%;
+    margin-left: -4%;
+  }
+}
+section.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+section.main .content .markdown a code {
+  color: #428bca !important;
+}
+section.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+section.main .content .markdown p {
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+section.main .content .markdown ul,
+section.main .content .markdown ol,
+section.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+section.main .content .markdown dt {
+  font-weight: bold;
+}
+section.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+section.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+section.main .content .markdown li {
+  margin-left: 2em;
+}
+section.main .content .markdown em {
+  font-style: italic;
+}
+section.main .content .markdown strong {
+  font-weight: 700;
+}
+section.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+section.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+section.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+section.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+section.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+section.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+section.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+section.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+section.main .content .markdown td,
+section.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+section.main .content .markdown tbody tr:nth-child(odd) td,
+section.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+section.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+section.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+section.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+section.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+section.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+section.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+section.main .content .navigation a {
+  width: 250px;
+  margin-left: 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+
+/* Fonts */
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active section.header nav ul li,
+.wf-raleway-n7-active section.main .content .page-heading,
+.wf-raleway-n2-active section.main .container.f04 .content .num,
+.wf-raleway-n7-active section.main .content .markdown h1,
+.wf-raleway-n7-active section.main .content .markdown h2,
+.wf-raleway-n7-active section.main .content .markdown h3,
+.wf-raleway-n7-active section.main .content .markdown h4,
+.wf-raleway-n7-active section.main .content .markdown h5,
+.wf-raleway-n7-active section.main .content .markdown h6 {
+  font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active section.main .content .markdown {
+  font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active section.main .content .markdown code,
+.wf-ubuntu-mono-n4-active section.main .content .markdown pre {
+  font-family: 'Ubuntu Mono';
+}
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+max-width: 750px;
+}
+section.header {
+background-color: transparent;
+}
+section.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.header .container .logo {
+margin: 0;
+}
+section.header-home .container .logo {
+max-width: 180px;
+margin-left: 20px;
+}
+section.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+section.header-home nav ul li {
+font-size: 18px;
+}
+section.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.header .name {
+color: #333333;
+}
+section.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+section.header nav ul {
+text-align: left;
+}
+section.header nav ul li {
+color: #666666;
+}
+section.header nav ul li:hover {
+color: #333333;
+}
+section.footer {
+background-color: transparent;
+}
+section.footer .container {
+flex-direction: row;
+}
+section.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+section.footer .container a:hover {
+color: #333333;
+}
+section.footer .container a .icon {
+font-size: 18px;
+}
+section.footer .container a .icon.larger {
+font-size: 20px;
+}
+section.main .content .front-matter .date,
+section.main .content .front-matter .author,
+section.main .content .front-matter .tags,
+section.main .content .front-matter .word-count,
+section.main .content .front-matter .reading-time .middot {
+display: initial;
+}
+section.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+section.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+section.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+section.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+section.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.footer {
+padding-top: 30px;
+padding-bottom: 60px;
+}
+section.main {
+padding-top: 0;
+}
+section.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+section.main .container .content .post-item .meta {
+display: block;
+}
+section.main.post {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+section.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+section.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+section.main .content .navigation div {
+margin-top: 0em;
+}
+</style>
+<style media="(min-width: 769px)">
+  section.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+section.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
+  </style>
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/_images/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="/"><img class="logo" src="/_images/illustrated_blog_avatar.png" alt="logo" /></a>
+        <div class="content">
+            <a href="/"><div class="name"><h1>Julia Silge</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <a href="/about/"><li>about</li></a>
+                        
+                    
+                        
+                            <a href="/resume/"><li>resume</li></a>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    LASSO regression using tidymodels and #TidyTuesday data for The Office
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Tue Mar 17 2020 00:00:00 UTC">Mar 17, 2020</div>
+                    
+                        
+                    
+                    <div class="reading-time"><div class="middot"></div>11 minute read</div>
+                    <div class="tags">
+                        <ul>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/rstats">rstats</a> </li>
+                          
+                            <div class="middot"></div>
+                            <li><a href="/tags/tidymodels">tidymodels</a> </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+    
+
+
+<p>I’ve been publishing <a href="https://juliasilge.com/tags/tidymodels/">screencasts</a> demonstrating how to use the tidymodels framework, from first steps in modeling to how to tune more complex models. Today, I’m using this week’s <a href="https://github.com/rfordatascience/tidytuesday"><code>#TidyTuesday</code> dataset</a> on <em>The Office</em> to show how to build a LASSO regression model and choose regularization parameters!</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/R32AsuKICAY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p></br></p>
+<p>Here is the code I used in the video, for those who prefer reading instead of or in addition to video.</p>
+<div id="explore-the-data" class="section level2">
+<h2>Explore the data</h2>
+<p>Our modeling goal here is to predict the IMDB ratings for episodes of <em>The Office</em> based on the other characteristics of the episodes in the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md">#TidyTuesday dataset</a>. There are two datasets, one with the ratings and one with information like director, writer, and which character spoke which line. The episode numbers and titles are not consistent between them, so we can use regular expressions to do a better job of matching the datasets up for joining.</p>
+<pre class="r"><code>library(tidyverse)
+
+ratings_raw &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-17/office_ratings.csv&quot;)
+
+remove_regex &lt;- &quot;[:punct:]|[:digit:]|parts |part |the |and&quot;
+
+office_ratings &lt;- ratings_raw %&gt;%
+  transmute(
+    episode_name = str_to_lower(title),
+    episode_name = str_remove_all(episode_name, remove_regex),
+    episode_name = str_trim(episode_name),
+    imdb_rating
+  )
+
+office_info &lt;- schrute::theoffice %&gt;%
+  mutate(
+    season = as.numeric(season),
+    episode = as.numeric(episode),
+    episode_name = str_to_lower(episode_name),
+    episode_name = str_remove_all(episode_name, remove_regex),
+    episode_name = str_trim(episode_name)
+  ) %&gt;%
+  select(season, episode, episode_name, director, writer, character)
+
+office_info</code></pre>
+<pre><code>## # A tibble: 55,130 x 6
+##    season episode episode_name director   writer                       character
+##     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;                        &lt;chr&gt;    
+##  1      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Michael  
+##  2      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Jim      
+##  3      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Michael  
+##  4      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Jim      
+##  5      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Michael  
+##  6      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Michael  
+##  7      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Michael  
+##  8      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Pam      
+##  9      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Michael  
+## 10      1       1 pilot        Ken Kwapis Ricky Gervais;Stephen Merch… Pam      
+## # … with 55,120 more rows</code></pre>
+<p>We are going to use several different kinds of features for modeling. First, let’s find out how many times characters speak per episode.</p>
+<pre class="r"><code>characters &lt;- office_info %&gt;%
+  count(episode_name, character) %&gt;%
+  add_count(character, wt = n, name = &quot;character_count&quot;) %&gt;%
+  filter(character_count &gt; 800) %&gt;%
+  select(-character_count) %&gt;%
+  pivot_wider(
+    names_from = character,
+    values_from = n,
+    values_fill = list(n = 0)
+  )
+
+characters</code></pre>
+<pre><code>## # A tibble: 185 x 16
+##    episode_name  Andy Angela Darryl Dwight   Jim Kelly Kevin Michael Oscar   Pam
+##    &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1 a benihana …    28     37      3     61    44     5    14     108     1    57
+##  2 aarm            44     39     30     87    89     0    30       0    28    34
+##  3 after hours     20     11     14     60    55     8     4       0    10    15
+##  4 alliance         0      7      0     47    49     0     3      68    14    22
+##  5 angry y         53      7      5     16    19    13     9       0     7    29
+##  6 baby shower     13     13      9     35    27     2     4      79     3    25
+##  7 back from v…     3      4      6     22    25     0     5      70     0    33
+##  8 banker           1      2      0     17     0     0     2      44     0     5
+##  9 basketball       0      3     15     25    21     0     1     104     2    14
+## 10 beach games     18      8      0     38    22     9     5     105     5    23
+## # … with 175 more rows, and 5 more variables: Phyllis &lt;int&gt;, Ryan &lt;int&gt;,
+## #   Toby &lt;int&gt;, Erin &lt;int&gt;, Jan &lt;int&gt;</code></pre>
+<p>Next, let’s find which directors and writers are involved in each episode. I’m choosing here to combine this into one category in modeling, for a simpler model, since these are often the same individuals.</p>
+<pre class="r"><code>creators &lt;- office_info %&gt;%
+  distinct(episode_name, director, writer) %&gt;%
+  pivot_longer(director:writer, names_to = &quot;role&quot;, values_to = &quot;person&quot;) %&gt;%
+  separate_rows(person, sep = &quot;;&quot;) %&gt;%
+  add_count(person) %&gt;%
+  filter(n &gt; 10) %&gt;%
+  distinct(episode_name, person) %&gt;%
+  mutate(person_value = 1) %&gt;%
+  pivot_wider(
+    names_from = person,
+    values_from = person_value,
+    values_fill = list(person_value = 0)
+  )
+
+creators</code></pre>
+<pre><code>## # A tibble: 135 x 14
+##    episode_name `Ken Kwapis` `Greg Daniels` `B.J. Novak` `Paul Lieberste…
+##    &lt;chr&gt;               &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt;
+##  1 pilot                   1              1            0                0
+##  2 diversity d…            1              0            1                0
+##  3 health care             0              0            0                1
+##  4 basketball              0              1            0                0
+##  5 hot girl                0              0            0                0
+##  6 dundies                 0              1            0                0
+##  7 sexual hara…            1              0            1                0
+##  8 office olym…            0              0            0                0
+##  9 fire                    1              0            1                0
+## 10 halloween               0              1            0                0
+## # … with 125 more rows, and 9 more variables: `Mindy Kaling` &lt;dbl&gt;, `Paul
+## #   Feig` &lt;dbl&gt;, `Gene Stupnitsky` &lt;dbl&gt;, `Lee Eisenberg` &lt;dbl&gt;, `Jennifer
+## #   Celotta` &lt;dbl&gt;, `Randall Einhorn` &lt;dbl&gt;, `Brent Forrester` &lt;dbl&gt;, `Jeffrey
+## #   Blitz` &lt;dbl&gt;, `Justin Spitzer` &lt;dbl&gt;</code></pre>
+<p>Next, let’s find the season and episode number for each episode, and then finally let’s put it all together into one dataset for modeling.</p>
+<pre class="r"><code>office &lt;- office_info %&gt;%
+  distinct(season, episode, episode_name) %&gt;%
+  inner_join(characters) %&gt;%
+  inner_join(creators) %&gt;%
+  inner_join(office_ratings %&gt;%
+    select(episode_name, imdb_rating)) %&gt;%
+  janitor::clean_names()
+
+office</code></pre>
+<pre><code>## # A tibble: 136 x 32
+##    season episode episode_name  andy angela darryl dwight   jim kelly kevin
+##     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##  1      1       1 pilot            0      1      0     29    36     0     1
+##  2      1       2 diversity d…     0      4      0     17    25     2     8
+##  3      1       3 health care      0      5      0     62    42     0     6
+##  4      1       5 basketball       0      3     15     25    21     0     1
+##  5      1       6 hot girl         0      3      0     28    55     0     5
+##  6      2       1 dundies          0      1      1     32    32     7     1
+##  7      2       2 sexual hara…     0      2      9     11    16     0     6
+##  8      2       3 office olym…     0      6      0     55    55     0     9
+##  9      2       4 fire             0     17      0     65    51     4     5
+## 10      2       5 halloween        0     13      0     33    30     3     2
+## # … with 126 more rows, and 22 more variables: michael &lt;int&gt;, oscar &lt;int&gt;,
+## #   pam &lt;int&gt;, phyllis &lt;int&gt;, ryan &lt;int&gt;, toby &lt;int&gt;, erin &lt;int&gt;, jan &lt;int&gt;,
+## #   ken_kwapis &lt;dbl&gt;, greg_daniels &lt;dbl&gt;, b_j_novak &lt;dbl&gt;,
+## #   paul_lieberstein &lt;dbl&gt;, mindy_kaling &lt;dbl&gt;, paul_feig &lt;dbl&gt;,
+## #   gene_stupnitsky &lt;dbl&gt;, lee_eisenberg &lt;dbl&gt;, jennifer_celotta &lt;dbl&gt;,
+## #   randall_einhorn &lt;dbl&gt;, brent_forrester &lt;dbl&gt;, jeffrey_blitz &lt;dbl&gt;,
+## #   justin_spitzer &lt;dbl&gt;, imdb_rating &lt;dbl&gt;</code></pre>
+<p>There are lots of <a href="https://twitter.com/search?q=%23TidyTuesday">great examples of EDA on Twitter</a>; I especially encourage you to check out <a href="https://youtu.be/_IvAubTDQME">the screencast of my coauthor Dave</a>, which is similar in spirit to the modeling I am showing here and includes more EDA. Just for kicks, let’s show one graph.</p>
+<pre class="r"><code>office %&gt;%
+  ggplot(aes(episode, imdb_rating, fill = as.factor(episode))) +
+  geom_boxplot(show.legend = FALSE)</code></pre>
+<p><img src="/blog/2020/2020-03-17-lasso-office_files/figure-html/unnamed-chunk-6-1.png" width="2400" /></p>
+<p>Ratings are higher for episodes later in the season. What else is associated with higher ratings? Let’s use LASSO regression to find out! 🚀</p>
+</div>
+<div id="train-a-model" class="section level2">
+<h2>Train a model</h2>
+<p>We can start by loading the tidymodels metapackage, and splitting our data into training and testing sets.</p>
+<pre class="r"><code>library(tidymodels)
+office_split &lt;- initial_split(office, strata = season)
+office_train &lt;- training(office_split)
+office_test &lt;- testing(office_split)</code></pre>
+<p>Then, we build a recipe for data preprocessing.</p>
+<ul>
+<li>First, we must tell the <code>recipe()</code> what our model is going to be (using a formula here) and what our training data is.</li>
+<li>Next, we update the role for <code>episode_name</code>, since this is a variable we might like to keep around for convenience as an identifier for rows but is not a predictor or outcome.</li>
+<li>Next, we remove any numeric variables that have zero variance.</li>
+<li>As a last step, we normalize (center and scale) the numeric variables. We need to do this because it’s important for LASSO regularization.</li>
+</ul>
+<p>The object <code>office_rec</code> is a recipe that has <strong>not</strong> been trained on data yet (for example, the centered and scaling has not been calculated) and <code>office_prep</code> is an object that <strong>has</strong> been trained on data. The reason I use <code>strings_as_factors = FALSE</code> here is that my ID column <code>episode_name</code> is of type character (as opposed to, say, integers).</p>
+<pre class="r"><code>office_rec &lt;- recipe(imdb_rating ~ ., data = office_train) %&gt;%
+  update_role(episode_name, new_role = &quot;ID&quot;) %&gt;%
+  step_zv(all_numeric(), -all_outcomes()) %&gt;%
+  step_normalize(all_numeric(), -all_outcomes())
+
+office_prep &lt;- office_rec %&gt;%
+  prep(strings_as_factors = FALSE)</code></pre>
+<p>Now it’s time to <strong>specify</strong> and then <strong>fit</strong> our models. Here I set up one model specification for LASSO regression; I picked a value for <code>penalty</code> (sort of randomly) and I set <code>mixture = 1</code> for LASSO. I am using a <a href="https://tidymodels.github.io/workflows/"><code>workflow()</code></a> in this example for convenience; these are objects that can help you manage modeling pipelines more easily, with pieces that fit together like Lego blocks. You can <code>fit()</code> a workflow, much like you can fit a model, and then you can pull out the fit object and <code>tidy()</code> it!</p>
+<pre class="r"><code>lasso_spec &lt;- linear_reg(penalty = 0.1, mixture = 1) %&gt;%
+  set_engine(&quot;glmnet&quot;)
+
+wf &lt;- workflow() %&gt;%
+  add_recipe(office_rec)
+
+lasso_fit &lt;- wf %&gt;%
+  add_model(lasso_spec) %&gt;%
+  fit(data = office_train)
+
+lasso_fit %&gt;%
+  pull_workflow_fit() %&gt;%
+  tidy()</code></pre>
+<pre><code>## # A tibble: 1,639 x 5
+##    term         step estimate lambda dev.ratio
+##    &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##  1 (Intercept)     1  8.39     0.183    0     
+##  2 (Intercept)     2  8.39     0.167    0.0332
+##  3 jim             2  0.0113   0.167    0.0332
+##  4 michael         2  0.0150   0.167    0.0332
+##  5 (Intercept)     3  8.39     0.152    0.0640
+##  6 jim             3  0.0247   0.152    0.0640
+##  7 michael         3  0.0283   0.152    0.0640
+##  8 (Intercept)     4  8.39     0.139    0.0986
+##  9 dwight          4  0.00236  0.139    0.0986
+## 10 jim             4  0.0361   0.139    0.0986
+## # … with 1,629 more rows</code></pre>
+<p>If you have used glmnet before, this is the familiar output where we can see (here, for the most regularized examples) what contributes to higher IMDB ratings.</p>
+</div>
+<div id="tune-lasso-parameters" class="section level2">
+<h2>Tune LASSO parameters</h2>
+<p>So we fit one LASSO model, but how do we know the right regularization parameter <code>penalty</code>? We can figure that out using resampling and tuning the model. Let’s build a set of bootstrap resamples, and set <code>penalty = tune()</code> instead of to a single value. We can use a function <code>penalty()</code> to set up an appropriate grid for this kind of regularization model.</p>
+<pre class="r"><code>set.seed(1234)
+office_boot &lt;- bootstraps(office_train, strata = season)
+
+tune_spec &lt;- linear_reg(penalty = tune(), mixture = 1) %&gt;%
+  set_engine(&quot;glmnet&quot;)
+
+lambda_grid &lt;- grid_regular(penalty(), levels = 50)</code></pre>
+<p>Now it’s time to tune the grid, using our workflow object.</p>
+<pre class="r"><code>doParallel::registerDoParallel()
+
+set.seed(2020)
+lasso_grid &lt;- tune_grid(
+  wf %&gt;% add_model(tune_spec),
+  resamples = office_boot,
+  grid = lambda_grid
+)</code></pre>
+<p>What results did we get?</p>
+<pre class="r"><code>lasso_grid %&gt;%
+  collect_metrics()</code></pre>
+<pre><code>## # A tibble: 100 x 6
+##     penalty .metric .estimator   mean     n std_err
+##       &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+##  1 1.00e-10 rmse    standard   0.638     25  0.0177
+##  2 1.00e-10 rsq     standard   0.0911    25  0.0132
+##  3 1.60e-10 rmse    standard   0.638     25  0.0177
+##  4 1.60e-10 rsq     standard   0.0911    25  0.0132
+##  5 2.56e-10 rmse    standard   0.638     25  0.0177
+##  6 2.56e-10 rsq     standard   0.0911    25  0.0132
+##  7 4.09e-10 rmse    standard   0.638     25  0.0177
+##  8 4.09e-10 rsq     standard   0.0911    25  0.0132
+##  9 6.55e-10 rmse    standard   0.638     25  0.0177
+## 10 6.55e-10 rsq     standard   0.0911    25  0.0132
+## # … with 90 more rows</code></pre>
+<p>That’s nice, but I would rather see a visualization of performance with the regularization parameter.</p>
+<pre class="r"><code>lasso_grid %&gt;%
+  collect_metrics() %&gt;%
+  ggplot(aes(penalty, mean, color = .metric)) +
+  geom_errorbar(aes(
+    ymin = mean - std_err,
+    ymax = mean + std_err
+  ),
+  alpha = 0.5
+  ) +
+  geom_line(size = 1.5) +
+  facet_wrap(~.metric, scales = &quot;free&quot;, nrow = 2) +
+  scale_x_log10() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="/blog/2020/2020-03-17-lasso-office_files/figure-html/unnamed-chunk-13-1.png" width="2400" /></p>
+<p>This is a great way to see that regularization helps this modeling a lot. We have a couple of options for choosing our final parameter, such as <code>select_by_pct_loss()</code> or <code>select_by_one_std_err()</code>, but for now let’s stick with just picking the lowest RMSE. After we have that parameter, we can finalize our workflow, i.e. update it with this value.</p>
+<pre class="r"><code>lowest_rmse &lt;- lasso_grid %&gt;%
+  select_best(&quot;rmse&quot;, maximize = FALSE)
+
+final_lasso &lt;- finalize_workflow(
+  wf %&gt;% add_model(tune_spec),
+  lowest_rmse
+)</code></pre>
+<p>We can then fit this finalized workflow on our training data. While we’re at it, let’s see what the most important variables are using the <a href="https://koalaverse.github.io/vip/">vip</a> package.</p>
+<pre class="r"><code>library(vip)
+
+final_lasso %&gt;%
+  fit(office_train) %&gt;%
+  pull_workflow_fit() %&gt;%
+  vi(lambda = lowest_rmse$penalty) %&gt;%
+  mutate(
+    Importance = abs(Importance),
+    Variable = fct_reorder(Variable, Importance)
+  ) %&gt;%
+  ggplot(aes(x = Importance, y = Variable, fill = Sign)) +
+  geom_col() +
+  scale_x_continuous(expand = c(0, 0)) +
+  labs(y = NULL)</code></pre>
+<p><img src="/blog/2020/2020-03-17-lasso-office_files/figure-html/unnamed-chunk-15-1.png" width="2400" /></p>
+<p>And then, finally, let’s return to our test data. The tune package has a function <code>last_fit()</code> which is nice for situations when you have tuned and finalized a model or workflow and want to fit it one last time on your training data and evaluate it on your testing data. You only have to pass this function your finalized model/workflow and your split.</p>
+<pre class="r"><code>last_fit(
+  final_lasso,
+  office_split
+) %&gt;%
+  collect_metrics()</code></pre>
+<pre><code>## # A tibble: 2 x 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 rmse    standard       0.381
+## 2 rsq     standard       0.234</code></pre>
+</div>
+
+
+                <br>
+            </div>
+            
+                <div class="navigation">
+                    
+                    <div>
+                        <img class="icon" src="/img/back.svg" alt="back" />
+                        <a href="/blog/tuition-resampling/">Preprocessing and resampling using #TidyTuesday college data</a>
+                    </div>
+                    
+                    <div style="width: 100%;"></div>
+                    
+                </div>
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "datascienceish" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="container">
+        <div class="copyright">
+
+        
+            <a href="/about">Copyright © 2020 Julia Silge</a>
+        
+
+        </div>
+        <div class="icons">
+
+        
+            <a href="https://github.com/juliasilge" target="_blank">
+                <img class="icon" src="/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+            <a href="https://twitter.com/juliasilge" target="_blank">
+                <img class="icon" src="/img/twitter.svg" alt="twitter" />
+            </a>
+        
+
+        
+            <a href="https://www.linkedin.com/in/juliasilge" target="_blank">
+                <img class="icon" src="/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+
+        
+            <a href="/index.xml">
+                <img class="icon" src="/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+
+  <script src="/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="/js/progressively.min.js" defer></script>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-68765210-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+  };
+</script>
+
+
+</body>
+</html>
+
