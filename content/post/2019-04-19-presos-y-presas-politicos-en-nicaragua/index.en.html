@@ -1,0 +1,77 @@
+---
+title: Presos y presas políticos en Nicaragua
+author: Rony Rodriguez-Ramirez
+date: '2019-04-19'
+slug: []
+categories:
+  - Blog
+tags:
+  - Nicaragua
+  - ggplot
+Description: ''
+Tags: []
+Categories: []
+DisableComments: no
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Desde mi cuenta en <a href="https://twitter.com/rrmaximiliano">twitter</a>, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua. Este post tiene dos objetivos: (1) presentar la información actual sobre el total de presas y presos políticos, y (2) compartir herramientas para la elaboración de gráficos.</p>
+<div id="los-datos" class="section level2">
+<h2>Los datos</h2>
+<p>Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página <a href="http://presospoliticosnicaragua.com/">web</a> del comité, o pueden descargarlos <a href="/data">acá</a>. Los principales problemas de los datos del comité es que están en un archivo pdf, y no están “limpios.” Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.</p>
+</div>
+<div id="el-gráfico" class="section level2">
+<h2>El gráfico</h2>
+<p>El gráfico de la evolución total de presos y presas políticos es el siguiente:</p>
+<p><img src="figs/preso_total_190401.gif" /></p>
+<p>De hecho, es un gráfico sencillo de replicar en <code>R</code> y necesitamos pocos paquetes para ello.</p>
+<div id="códigos" class="section level3">
+<h3>Códigos</h3>
+<p>Lo primero que tenemos que hacer es cargar nuestras librerías. Necesitamos tres paquetes: <code>ggplot</code>, <code>gganimate</code>, <code>dplyr</code>, y <code>extrafont</code>.</p>
+<pre class="r"><code>library(ggplot2)
+library(gganimate)
+library(dplyr)
+library(extrafont)</code></pre>
+<p>Ahora, la parte interesante sería realizar el gráfico. Sin embargo, a como mencioné anteriormente, debemos limpiar un poco la base de datos.</p>
+<p>Primero, ordenamos los datos a partir de la fecha usando <code>arrange</code>, luego vamos a crear un ID y lo utilizaremos para crear un acumulado por día de la siguiente forma:</p>
+<pre class="r"><code>arrange_data &lt;- arrange(data, fecha)
+arrange_data$id &lt;- 1
+arrange_data$acumulado &lt;- cumsum(arrange_data$id)</code></pre>
+<p>Ahora utilizamos <code>ggplot</code> y <code>gganimate</code> para crear el gráfico.</p>
+<pre class="r"><code># plot del total de presos y presas políticas
+animate &lt;-  ggplot(data = na.omit(arrange_data), aes(x = fecha,
+                                                     y = acumulado)) +
+            geom_point(alpha = 0.3, size = 5, colour = &quot;steelblue&quot;) +
+            theme_classic() +
+            # labels and fonts
+            labs(title = &quot;Evolución total de presas y presos políticos en Nicaragua&quot;,
+                 subtitle = &quot;Abr 2018 - Abr 1, 2019: {frame_time}&quot;,
+                 y = &quot;Presas y presos políticos&quot;,
+                 x = &quot;&quot;,
+                 caption = &quot;Fuente: Comité Pro Liberación de Presas y Presos Políticos\nExcluye 205 presas y presos políticos sin datos sobre fecha de captura&quot;) +
+            theme(text=element_text(size=14, family=&quot;Myriad Pro&quot;),
+                  plot.caption = element_text(hjust = 0)
+            ) +
+            # transition options
+            transition_time(fecha) +
+            view_follow(fixed_y = TRUE) +
+            shadow_mark(size = 3, colour = &#39;grey&#39;, alpha = 0.3) +
+            ease_aes(&#39;linear&#39;)</code></pre>
+<p>Este código se puede desagregar en tres cosas: (1) los datos y axis; (2) diseño, etiquetas, y letra; y (3) transiciones.</p>
+<p>La primera parte del código son los datos. Tenemos que quitar todas las observaciones que no tienen datos, por lo cual utilizamos <code>na.omit()</code>. Y nuestras variables de referencia son: <code>x = fecha</code> y <code>y= acumulado</code> (i.e., la variable que creamos anteriorment). El tema que ocupo es el clásico, y con los siguientes valores de los puntos de datos <code>geom_point(alpha = 0.3, size = 5, colour = "steelblue")</code>.</p>
+<p>La parte de las etiquetas es un poco más sencillo, así que lo omitiré. Solo un punto a recordar es que utillizo Myriad Pro, y para poder “cargarla” en RStudio, necesitan el paquete <code>extrafont</code>.</p>
+<p>Por último, las opciones de transición. La variable fecha es nuestro tiempo de transición. Ésta variable nos da nuestra punto de partida y final. Para fijar el eje <em>y</em> utilicé <code>view_follow()</code>. Si no lo ocupo, tanto el eje <em>x</em> y eje <em>y</em> no serían fijos. Para darle seguimiento a los puntos, utilicé <code>shadow_mark()</code>; el cual me deja ajustar el tamaño del punto y color. La última opción es <code>ease_aes()</code>, la cual se ocupa para definir el cambio de un valor a otro durante la interporlación. En este caso utilicé la función lineal (i.e., <code>linear</code>).</p>
+<p>Para poder compilar nuestro gráfico tenemos que llamar el objeto <code>animate</code> que creamos anteriormente con el comando <code>animate()</code>, de la siguiente forma.</p>
+<pre class="r"><code>animate(animate, height = 500, width = 600)</code></pre>
+<p>El primer argumento es nuestro objeto, y el segundo y tercero son la altura y ancho el gráfico respectivamente.</p>
+<p>Para guardar nuestro gráfico utilizamos <code>anim_save</code>, y recordamos escribir nuestra extensión. En este caso <strong>.gif</strong>.</p>
+<pre class="r"><code>anim_save(&quot;gif/preso_total_190401.gif&quot;)</code></pre>
+<p>Y así es como creamos nuestro gráfico animado con gganimate en R.</p>
+<div class="figure">
+<img src="https://media.giphy.com/media/N2JaONOG63aMM/giphy.gif" alt="" />
+<p class="caption">Finn</p>
+</div>
+</div>
+</div>
