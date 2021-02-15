@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>about on Website of RRMaximiliano</title>
+    <link>https://rrmaximiliano.github.io/tags/about/</link>
+    <description>Recent content in about on Website of RRMaximiliano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 10 Sep 2019 19:50:01 -0400</lastBuildDate><atom:link href="https://rrmaximiliano.github.io/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bio</title>
+      <link>https://rrmaximiliano.github.io/bio/</link>
+      <pubDate>Tue, 10 Sep 2019 19:50:01 -0400</pubDate>
+      
+      <guid>https://rrmaximiliano.github.io/bio/</guid>
+      <description>I am originally from Nicaragua. I attended Universidad Centroamericana for my bachelor studies, graduating with honors in applied economics in 2015.</description>
+    </item>
+    
+  </channel>
+</rss>
