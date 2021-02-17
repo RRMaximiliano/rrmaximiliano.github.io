@@ -7,8 +7,8 @@
     <meta name="description" content="Aspiring Development Economist | DIME, The World Bank">
     
     <link rel="stylesheet"
-          href="https://rrmaximiliano.github.io/css/style.min.9a6700e4461b50dccdddfc4f81dc65d77e7fca22c35665e398a0c36568db59c7.css"
-          integrity="sha256-mmcA5EYbUNzN3fxPgdxl135/yiLDVmXjmKDDZWjbWcc="
+          href="https://rrmaximiliano.github.io/css/style.min.72fe76fb9d93cde129bfc0f65bdf1e14a5cacb9a17ea5bdee03a21971062a430.css"
+          integrity="sha256-cv52&#43;52TzeEpv8D2W98eFKXKy5oX6lve4DohlxBipDA="
           crossorigin="anonymous"
           type="text/css">
     
@@ -17,14 +17,6 @@
         integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
         crossorigin="anonymous"
         type="text/css">
-    
-        
-        
-        <link rel="stylesheet"
-        href="https://rrmaximiliano.github.io/css/style.min.9a6700e4461b50dccdddfc4f81dc65d77e7fca22c35665e398a0c36568db59c7.css"
-        integrity="sha256-mmcA5EYbUNzN3fxPgdxl135/yiLDVmXjmKDDZWjbWcc="
-        crossorigin="anonymous"
-        media="screen" />
     
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
@@ -208,7 +200,7 @@
 <p>Desde mi cuenta en <a href="https://twitter.com/rrmaximiliano">twitter</a>, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua. Este post tiene dos objetivos: (1) presentar la información actual sobre el total de presas y presos políticos, y (2) compartir herramientas para la elaboración de gráficos.</p>
 <div id="los-datos" class="section level2">
 <h2>Los datos</h2>
-<p>Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página <a href="http://presospoliticosnicaragua.com/">web</a> del comité, o pueden descargarlos <a href="/data">acá</a>. Los principales problemas de los datos del comité es que están en un archivo pdf, y no están “limpios.” Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.</p>
+<p>Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página <a href="http://presospoliticosnicaragua.com/">web</a> del comité, o pueden descargarlos <a href="/data/">acá</a>. Los principales problemas de los datos del comité es que están en un archivo pdf, y no están “limpios.” Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.</p>
 </div>
 <div id="el-gráfico" class="section level2">
 <h2>El gráfico</h2>
@@ -221,7 +213,9 @@
 <pre class="r"><code>library(ggplot2)
 library(gganimate)
 library(dplyr)
-library(extrafont)</code></pre>
+library(extrafont)
+
+data &lt;- readRDS(&quot;data/presos_politicos_1_abr_2019.rds&quot;)</code></pre>
 <p>Ahora, la parte interesante sería realizar el gráfico. Sin embargo, a como mencioné anteriormente, debemos limpiar un poco la base de datos.</p>
 <p>Primero, ordenamos los datos a partir de la fecha usando <code>arrange</code>, luego vamos a crear un ID y lo utilizaremos para crear un acumulado por día de la siguiente forma:</p>
 <pre class="r"><code>arrange_data &lt;- arrange(data, fecha)

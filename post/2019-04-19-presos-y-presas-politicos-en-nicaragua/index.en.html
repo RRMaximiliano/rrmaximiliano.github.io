@@ -199,7 +199,7 @@ summary {
 <p>Desde mi cuenta en <a href="https://twitter.com/rrmaximiliano">twitter</a>, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua. Este post tiene dos objetivos: (1) presentar la información actual sobre el total de presas y presos políticos, y (2) compartir herramientas para la elaboración de gráficos.</p>
 <div id="los-datos" class="section level2">
 <h2>Los datos</h2>
-<p>Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página <a href="http://presospoliticosnicaragua.com/">web</a> del comité, o pueden descargarlos <a href="/data">acá</a>. Los principales problemas de los datos del comité es que están en un archivo pdf, y no están “limpios.” Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.</p>
+<p>Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página <a href="http://presospoliticosnicaragua.com/">web</a> del comité, o pueden descargarlos <a href="/data/">acá</a>. Los principales problemas de los datos del comité es que están en un archivo pdf, y no están “limpios.” Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.</p>
 </div>
 <div id="el-gráfico" class="section level2">
 <h2>El gráfico</h2>
@@ -212,7 +212,9 @@ summary {
 <pre class="r"><code>library(ggplot2)
 library(gganimate)
 library(dplyr)
-library(extrafont)</code></pre>
+library(extrafont)
+
+data &lt;- readRDS(&quot;data/presos_politicos_1_abr_2019.rds&quot;)</code></pre>
 <p>Ahora, la parte interesante sería realizar el gráfico. Sin embargo, a como mencioné anteriormente, debemos limpiar un poco la base de datos.</p>
 <p>Primero, ordenamos los datos a partir de la fecha usando <code>arrange</code>, luego vamos a crear un ID y lo utilizaremos para crear un acumulado por día de la siguiente forma:</p>
 <pre class="r"><code>arrange_data &lt;- arrange(data, fecha)

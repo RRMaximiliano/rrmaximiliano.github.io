@@ -17,7 +17,7 @@ DisableComments: no
 Desde mi cuenta en [twitter](https://twitter.com/rrmaximiliano), he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua. Este post tiene dos objetivos: (1) presentar la información actual sobre el total de presas y presos políticos, y (2) compartir herramientas para la elaboración de gráficos.
 
 ## Los datos
-Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página [web](http://presospoliticosnicaragua.com/) del comité, o pueden descargarlos [acá](/data). Los principales problemas de los datos del comité es que están en un archivo pdf, y no están "limpios." Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.
+Los datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página [web](http://presospoliticosnicaragua.com/) del comité, o pueden descargarlos [acá](/data/). Los principales problemas de los datos del comité es que están en un archivo pdf, y no están "limpios." Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos.
 
 ## El gráfico
 
@@ -35,6 +35,8 @@ library(ggplot2)
 library(gganimate)
 library(dplyr)
 library(extrafont)
+
+data <- readRDS("data/presos_politicos_1_abr_2019.rds")
 ```
 Ahora, la parte interesante sería realizar el gráfico. Sin embargo, a como mencioné anteriormente, debemos limpiar un poco la base de datos.
 
