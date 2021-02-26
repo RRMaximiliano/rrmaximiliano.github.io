@@ -199,7 +199,7 @@ a:active {
     list-style: none;
     padding: 11px 30px;
     float: left;
-    font-size: 12px;
+    font-size: 14px;
     display: block;
     width: calc(100% - 30px);
 }
@@ -227,7 +227,7 @@ a:active {
 .theme-switch-item {
     float: right;
     font-size: 2em;
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .page-top .information {

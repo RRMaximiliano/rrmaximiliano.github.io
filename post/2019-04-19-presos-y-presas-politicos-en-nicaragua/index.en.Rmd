@@ -93,6 +93,6 @@ anim_save("gif/preso_total_190401.gif")
 ```
 Y así es como creamos nuestro gráfico animado con gganimate en R.
 
-![Finn](https://media.giphy.com/media/N2JaONOG63aMM/giphy.gif)
+![](https://media.giphy.com/media/N2JaONOG63aMM/giphy.gif)
 
 
