@@ -13,7 +13,9 @@
       <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/post/2021-05-28-tvsc-stata-command-for-tables/</guid>
-      <description>Balance tablesOne of most common tables you tend to make in economics is a balance table.</description>
+      
+        <description>Balance tablesOne of most common tables you tend to make in economics is a balance table.</description>
+      
     </item>
     
     <item>
@@ -22,7 +24,9 @@
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/research/</guid>
-      <description>Fields of interest: Development economics • Impact evaluations • Labor market • Violence and conflict</description>
+      
+        <description>Fields of interest: Development economics • Impact evaluations • Labor market • Violence and conflict</description>
+      
     </item>
     
     <item>
@@ -31,7 +35,9 @@
       <pubDate>Tue, 10 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/post/2019-09-10-a-completely-useless-command-in-stata/</guid>
-      <description>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run.</description>
+      
+        <description>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run.</description>
+      
     </item>
     
     <item>
@@ -40,7 +46,9 @@
       <pubDate>Fri, 26 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/post/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/</guid>
-      <description>Un punto importante en el análisis de datos es la visualización.</description>
+      
+        <description>Un punto importante en el análisis de datos es la visualización.</description>
+      
     </item>
     
     <item>
@@ -49,7 +57,9 @@
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/archives/</guid>
-      <description></description>
+      
+        <description></description>
+      
     </item>
     
     <item>
@@ -58,7 +68,9 @@
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/post/2019-04-19-presos-y-presas-politicos-en-nicaragua/</guid>
-      <description>Desde mi cuenta en twitter, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua.</description>
+      
+        <description>Desde mi cuenta en twitter, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua.</description>
+      
     </item>
     
     <item>
@@ -67,7 +79,9 @@
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/contact/</guid>
-      <description></description>
+      
+        <description></description>
+      
     </item>
     
     <item>
@@ -76,7 +90,9 @@
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/bio/</guid>
-      <description>I am originally from Nicaragua (born and raised) where I attended the Universidad Centroamericana (UCA) for my bachelor studies, graduating with honors in applied economics in 2015.</description>
+      
+        <description>I am originally from Nicaragua (born and raised) where I attended the Universidad Centroamericana (UCA) for my bachelor studies, graduating with honors in applied economics in 2015.</description>
+      
     </item>
     
     <item>
@@ -85,7 +101,9 @@
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/data/</guid>
-      <description>I would like to share some datasets and repositories that I have created or cleaned that might be helpful for other researchers.</description>
+      
+        <description>I would like to share some datasets and repositories that I have created or cleaned that might be helpful for other researchers.</description>
+      
     </item>
     
     <item>
@@ -94,8 +112,10 @@
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/teaching/</guid>
-      <description>Adjunct Lecturer Undergraduate
+      
+        <description>Adjunct Lecturer Undergraduate
 Social and Human Economy, Universidad Centroamericana, Nicaragua.</description>
+      
     </item>
     
     <item>
@@ -104,7 +124,9 @@ Social and Human Economy, Universidad Centroamericana, Nicaragua.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/links/</guid>
-      <description>Here are some useful links that I believe are of tremendous help for research assistants:</description>
+      
+        <description>Here are some useful links that I believe are of tremendous help for research assistants:</description>
+      
     </item>
     
     <item>
@@ -113,7 +135,9 @@ Social and Human Economy, Universidad Centroamericana, Nicaragua.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://rrmaximiliano.github.io/about/</guid>
-      <description>I am currently working as a research assistant at The World Bank, Development Impact Evaluation (DIME) unit where I have been evaluating a cross-randomized experiment at both the village and individual level in Rwanda.</description>
+      
+        <description>I am currently working as a research assistant at The World Bank, Development Impact Evaluation (DIME) unit where I have been evaluating a cross-randomized experiment at both the village and individual level in Rwanda.</description>
+      
     </item>
     
   </channel>

@@ -47,8 +47,10 @@ tvsc varlist, by(group)
 where _varlist_ is one or multiple variables that we would like to test for the, and in `by()` we add our treatment (group) variable. The command expects to have a treatment variable of the form 0 = control, and 1 = treatment. 
 
 ```stata
-. tvsc divorce marriage, by(treatment)
+tvsc divorce marriage, by(treatment)
+```
 
+```stata
 ---------------------------------------------------
                 Treatment      Control   Difference
 ---------------------------------------------------
@@ -66,8 +68,10 @@ If you don't include any option, you get the raw differences between treatment a
 1. Standard deviations instead of standard errors for treatment and control groups: 
 
 ```stata
-. tvsc divorce marriage, by(treatment) clus_id(region)
+tvsc divorce marriage, by(treatment) clus_id(region)
+```
 
+```stata
 ---------------------------------------------------
                 Treatment      Control   Difference
 ---------------------------------------------------
@@ -81,8 +85,10 @@ marriage        40,064.50    57,421.09    -17356.59
 2. Clustered standard errors for the difference
 
 ```stata
-. tvsc divorce marriage, by(treatment) clus_id(region)
+tvsc divorce marriage, by(treatment) clus_id(region)
+```
 
+```stata
 ---------------------------------------------------
                 Treatment      Control   Difference
 ---------------------------------------------------
@@ -91,14 +97,15 @@ divorce         18,379.07    30,425.36    -12046.29
 marriage        40,064.50    57,421.09    -17356.59
                (6,472.19)  (11,808.47)  (11,261.94)
 ---------------------------------------------------
-
 ```
 
 3. Fourth column using fixed effects:
 
 ```stata
-. tvsc divorce marriage, by(treatment) clus_id(region) strat_id(region)
+tvsc divorce marriage, by(treatment) clus_id(region) strat_id(region)
+```
 
+```stata
 ----------------------------------------------------------------
                 Treatment      Control         Diff      FE Diff
 ----------------------------------------------------------------
@@ -107,7 +114,6 @@ divorce         18,379.07    30,425.36    -12046.29    -13692.48
 marriage        40,064.50    57,421.09    -17356.59    -20555.04
                (6,472.19)  (11,808.47)  (11,261.94)  (12,263.35)
 ----------------------------------------------------------------
-
 ```
 
 ## Exporting
@@ -118,10 +124,10 @@ While the command does not have a built-in function that exports the results to 
 ```stata
 *** ssc install estout, replace
 // Latex Table
-. local style "nomtitle nonumbers noobs b(3) se(3) booktabs"
+local style "nomtitle nonumbers noobs b(3) se(3) booktabs"
 
-. quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
-. esttab, `style' cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "se_2(par) se_1(par) se_3(par)") 
+quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
+esttab, `style' cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "se_2(par) se_1(par) se_3(par)") 
 ```
 
 And this should give you a latex output like this:
@@ -149,16 +155,21 @@ Personally, I always prefer to have only the body of the latex table instead of 
 
 ```stata
 // Latex Table, just the body
-. local style "label nolines nogaps fragment nomtitle nonumbers noobs nodep collabels(none) booktabs b(3) se(3)"
+local style "label nolines nogaps fragment nomtitle nonumbers noobs nodep collabels(none) booktabs b(3) se(3)"
 
-. quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
-. esttab, `style' cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "se_2(par) se_1(par) se_3(par)") 
+quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
+esttab, `style' cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "se_2(par) se_1(par) se_3(par)") 
+```
 
+And you should get this outputs:
+
+```stata
 Number of divorces  &   18,379.07&   30,425.36&   -12046.29\\
                     &  (2,630.31)&  (7,183.07)&  (7,374.89)\\
 Number of marriages &   40,064.50&   57,421.09&   -17356.59\\
                     &  (6,472.19)& (11,808.47)& (11,261.94)\\
 ```
+
 
 And the compiled tex document will look like this:
 
