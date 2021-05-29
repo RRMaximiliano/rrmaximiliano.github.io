@@ -11,15 +11,20 @@ Description: ''
 Tags: []
 Categories: []
 DisableComments: no
+output:
+  blogdown::html_page:
+    highlight: tango
 ---
 
 While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing `pikachu` you will get the following:
 
 ![](figs/pikachu.gif)
 
-This uses only the `display` command to make pikachu's face. In order to install it, you will need to download the `ado` file from [here](adofiles/pikachu.ado) and place it in (or create) your personal ado folder.
+This uses only the `display` command to make pikachu's face. In order to install it: you can run the following command:
 
-> You can find the folder by typing `personal` in the command prompt.
+```stata
+net install pikachu, from("https://raw.githubusercontent.com/rrmaximiliano/pikachu/main") replace
+```
 
 And that's it. Now, you have pikachu reacting to your failures. Finally, in case you don't know, the original meme is this one:
 

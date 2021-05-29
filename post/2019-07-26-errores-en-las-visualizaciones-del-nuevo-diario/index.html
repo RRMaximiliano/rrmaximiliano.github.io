@@ -57,7 +57,7 @@
 <meta name="twitter:image" content="https://rrmaximiliano.github.io/105"/>
 
 <meta name="twitter:title" content="Errores en las visualizaciones del Nuevo Diario"/>
-<meta name="twitter:description" content="Un punto importante en el análisis de datos es la visualización."/>
+<meta name="twitter:description" content="pre  code.sourceCode { white-space: pre; position: relative; }pre  code."/>
 
 
     
@@ -201,13 +201,77 @@
                         <span class="date"> Fri, Jul 26, 2019 
                                            </span>
                         <em class="fas fa-stopwatch"></em>
-                        <span class="reading-time">6-minute read</span>
+                        <span class="reading-time">8-minute read</span>
                     </div>
                 
             </div>
 
             
 <script src="https://rrmaximiliano.github.io/post/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/index.en_files/header-attrs/header-attrs.js"></script>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <p>Un punto importante en el análisis de datos es la visualización. Dado que muchas veces resulta difícil conocer realmente lo que sucede sobre un evento <em>x</em>, es necesario recurrir a figuras que en la mayoría de las ocasiones describen y expresar mejor un mensaje en comparación a las palabras. Sin embargo, la visualización de datos no es algo sencillo y existen elementos sumamente necesarios para poder conllevar un mensaje claro.</p>
@@ -270,37 +334,37 @@
 <div id="graficar-con-r" class="section level2">
 <h2>Graficar con R</h2>
 <p>La figura que presenté anteriormente sobre la comparación centroamericana se puede graficar muy fácilmente en <code>R</code> de la siguiente forma:</p>
-<pre class="r"><code>library(WDI) 
-library(tidyverse)
-library(hrbrthemes)
-library(scales)
-
-#--get data
-data &lt;- WDI(indicator = &quot;NY.GDP.PCAP.KD&quot;, 
-            country = c(&quot;NI&quot;, &quot;CR&quot;, &quot;HN&quot;, &quot;SV&quot;, &quot;PA&quot;, &quot;BZ&quot;, &quot;GT&quot;), 
-            start = 1990, end = 2018) %&gt;%  
-        rename(gdp = &quot;NY.GDP.PCAP.KD&quot;)
-
-#--countries&#39; position: 2018 
-position = c(&quot;Nicaragua&quot;, &quot;Honduras&quot;, &quot;El Salvador&quot;, &quot;Guatemala&quot;, &quot;Belize&quot;, &quot;Costa Rica&quot;, &quot;Panama&quot;)
-
-#--plot
-data %&gt;%  
-  filter(year %in% c(1990, 2018)) %&gt;%  
-  ggplot(aes(x = country, y = gdp, fill = as.factor(year))) + 
-  geom_bar(position = &quot;dodge&quot;, stat = &quot;identity&quot;) + 
-  coord_flip() + 
-  theme_ipsum_rc() + 
-  theme(legend.title = element_blank()) + 
-  scale_y_continuous(labels = dollar) + 
-  scale_x_discrete(limits = position) + 
-  labs(y = &quot;GDP per capita&quot;, 
-       x = &quot;Countries&quot;, 
-       title = &quot;GDP per capita (constant 2011 US $)&quot;,  
-       subtitle = &quot;Central American Countries&quot;, 
-       caption = &quot;Source: World Bank Development Indicators | @rrmaximilliano&quot;) 
-
-ggsave(&quot;figs/pib-ca-fixed.png&quot;, dpi = 300, units = &quot;in&quot;, device=&#39;png&#39;)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WDI) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#--get data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">WDI</span>(<span class="at">indicator =</span> <span class="st">&quot;NY.GDP.PCAP.KD&quot;</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">country =</span> <span class="fu">c</span>(<span class="st">&quot;NI&quot;</span>, <span class="st">&quot;CR&quot;</span>, <span class="st">&quot;HN&quot;</span>, <span class="st">&quot;SV&quot;</span>, <span class="st">&quot;PA&quot;</span>, <span class="st">&quot;BZ&quot;</span>, <span class="st">&quot;GT&quot;</span>), </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">start =</span> <span class="dv">1990</span>, <span class="at">end =</span> <span class="dv">2018</span>) <span class="sc">%&gt;%</span>  </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rename</span>(<span class="at">gdp =</span> <span class="st">&quot;NY.GDP.PCAP.KD&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#--countries&#39; position: 2018 </span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>position <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Nicaragua&quot;</span>, <span class="st">&quot;Honduras&quot;</span>, <span class="st">&quot;El Salvador&quot;</span>, <span class="st">&quot;Guatemala&quot;</span>, <span class="st">&quot;Belize&quot;</span>, <span class="st">&quot;Costa Rica&quot;</span>, <span class="st">&quot;Panama&quot;</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#--plot</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span>  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1990</span>, <span class="dv">2018</span>)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> gdp, <span class="at">fill =</span> <span class="fu">as.factor</span>(year))) <span class="sc">+</span> </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> dollar) <span class="sc">+</span> </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> position) <span class="sc">+</span> </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;GDP per capita&quot;</span>, </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Countries&quot;</span>, </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;GDP per capita (constant 2011 US $)&quot;</span>,  </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Central American Countries&quot;</span>, </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: World Bank Development Indicators | @rrmaximilliano&quot;</span>) </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;figs/pib-ca-fixed.png&quot;</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">device=</span><span class="st">&#39;png&#39;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>

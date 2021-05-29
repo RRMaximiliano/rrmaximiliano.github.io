@@ -12,6 +12,9 @@ Description: ''
 Tags: []
 Categories: []
 DisableComments: no
+output:
+  blogdown::html_page:
+    highlight: tango
 ---
 
 Desde mi cuenta en [twitter](https://twitter.com/rrmaximiliano), he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua. Este post tiene dos objetivos: (1) presentar la información actual sobre el total de presas y presos políticos, y (2) compartir herramientas para la elaboración de gráficos.

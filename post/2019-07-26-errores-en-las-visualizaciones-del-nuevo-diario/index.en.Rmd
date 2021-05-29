@@ -12,6 +12,9 @@ Description: ''
 Tags: []
 Categories: []
 DisableComments: no
+output:
+  blogdown::html_page:
+    highlight: tango
 ---
 
 Un punto importante en el análisis de datos es la visualización. Dado que muchas veces resulta difícil conocer realmente lo que sucede sobre un evento *x*, es necesario recurrir a figuras que en la mayoría de las ocasiones describen y expresar mejor un mensaje en comparación a las palabras. Sin embargo, la visualización de datos no es algo sencillo y existen elementos sumamente necesarios para poder conllevar un mensaje claro.

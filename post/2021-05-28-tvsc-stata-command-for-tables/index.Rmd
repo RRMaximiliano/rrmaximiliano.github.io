@@ -11,6 +11,9 @@ Description: ''
 Tags: []
 Categories: []
 DisableComments: no
+output:
+  blogdown::html_page:
+    highlight: tango
 ---
 
 ## Balance tables
@@ -180,5 +183,31 @@ This [pdf](https://rawcdn.githack.com/RRMaximiliano/tvsc/c1ad6118a944c4ae8dfa67a
 
 If you have any comment or suggestion for this command, open an issue in the original repository: https://github.com/RRMaximiliano/tvsc/issues
 
+## Appendix: dofile
+
+```{stata, engine.path = "C:/Program Files/Stata16/StataMP-64.exe", cache = TRUE}
+
+*** Installing the pkg
+    net install tvsc, from("https://raw.githubusercontent.com/rrmaximiliano/tvsc/main") replace
+
+*** Globals
+    global stars1	"label nolines nogaps fragment nomtitle nonumbers noobs nodep star(* 0.10 ** 0.05 *** 0.01) collabels(none) booktabs b(3) se(3)"
+
+*** Load dataset
+    sysuse census, clear 
+
+*** Create treatment variable
+    set seed 01237846
+    gen treatment = (runiform()<.5)
+   
+*** TvsC
+    local   vars        ///
+            divorce     ///
+            marriage
+
+    quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
+    esttab, ${stars1} cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "se_2(par) se_1(par) se_3(par)")
+
+```
 
 
