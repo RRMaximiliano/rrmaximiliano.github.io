@@ -178,7 +178,7 @@ And the compiled tex document will look like this:
 
 This [pdf](https://rawcdn.githack.com/RRMaximiliano/tvsc/c1ad6118a944c4ae8dfa67a0f05a87bcce3911b9/outputs/00_index.pdf) contains more examples, and the TeX code can be found [here](https://github.com/RRMaximiliano/tvsc/blob/main/outputs/00_index.tex). 
 
-If you any comment or suggestion for this command, open an issue in the original repository: https://github.com/RRMaximiliano/tvsc/issues
+If you have any comment or suggestion for this command, open an issue in the original repository: https://github.com/RRMaximiliano/tvsc/issues
 
 
 
