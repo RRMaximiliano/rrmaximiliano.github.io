@@ -22,7 +22,7 @@ One of most common tables you tend to make in economics is a balance table. That
 
 The `tvsc` tests for statistically significant difference across a group that has two categories. You can install it by typing:
 
-```stata
+```
 net install tvsc, from("https://raw.githubusercontent.com/rrmaximiliano/tvsc/main") replace
 ```
 
@@ -43,17 +43,17 @@ Let's use the census data and create a dummy treatment variable:
 
 The syntax of the `tsvc` is pretty straightforward:
 
-```stata
+```
 tvsc varlist, by(group)
 ```
 
 where _varlist_ is one or multiple variables that we would like to test for the, and in `by()` we add our treatment (group) variable. The command expects to have a treatment variable of the form 0 = control, and 1 = treatment. 
 
-```stata
+```
 tvsc divorce marriage, by(treatment)
 ```
 
-```stata
+```
 ---------------------------------------------------
                 Treatment      Control   Difference
 ---------------------------------------------------
@@ -70,11 +70,11 @@ If you don't include any option, you get the raw differences between treatment a
 
 1. Standard deviations instead of standard errors for treatment and control groups: 
 
-```stata
+```
 tvsc divorce marriage, by(treatment) clus_id(region)
 ```
 
-```stata
+```
 ---------------------------------------------------
                 Treatment      Control   Difference
 ---------------------------------------------------
@@ -87,11 +87,11 @@ marriage        40,064.50    57,421.09    -17356.59
 
 2. Clustered standard errors for the difference
 
-```stata
+```
 tvsc divorce marriage, by(treatment) clus_id(region)
 ```
 
-```stata
+```
 ---------------------------------------------------
                 Treatment      Control   Difference
 ---------------------------------------------------
@@ -104,11 +104,11 @@ marriage        40,064.50    57,421.09    -17356.59
 
 3. Fourth column using fixed effects:
 
-```stata
+```
 tvsc divorce marriage, by(treatment) clus_id(region) strat_id(region)
 ```
 
-```stata
+```
 ----------------------------------------------------------------
                 Treatment      Control         Diff      FE Diff
 ----------------------------------------------------------------
@@ -124,7 +124,7 @@ marriage        40,064.50    57,421.09    -17356.59    -20555.04
 While the command does not have a built-in function that exports the results to excel or latex, I recommend using `esttab` after running `tvsc` as follows:
 
 
-```stata
+```
 *** ssc install estout, replace
 // Latex Table
 local style "nomtitle nonumbers noobs b(3) se(3) booktabs"
@@ -135,7 +135,7 @@ esttab, `style' cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "s
 
 And this should give you a latex output like this:
 
-```stata
+```
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 \begin{tabular}{l*{1}{ccc}}
@@ -156,7 +156,7 @@ In this case, to show the results you need to include the `cells` options where 
 Personally, I always prefer to have only the body of the latex table instead of the full environment, and I get this by modifying the `esttab` options like this:
 
 
-```stata
+```
 // Latex Table, just the body
 local style "label nolines nogaps fragment nomtitle nonumbers noobs nodep collabels(none) booktabs b(3) se(3)"
 
@@ -166,7 +166,7 @@ esttab, `style' cells("mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))" "s
 
 And you should get this outputs:
 
-```stata
+```
 Number of divorces  &   18,379.07&   30,425.36&   -12046.29\\
                     &  (2,630.31)&  (7,183.07)&  (7,374.89)\\
 Number of marriages &   40,064.50&   57,421.09&   -17356.59\\
@@ -185,7 +185,7 @@ If you have any comment or suggestion for this command, open an issue in the ori
 
 ## Appendix: dofile
 
-```{stata, engine.path = "C:/Program Files/Stata16/StataMP-64.exe", cache = TRUE}
+```{stata, engine.path = "C:/Program Files/Stata17/StataMP-64.exe", cache = TRUE}
 
 *** Installing the pkg
     net install tvsc, from("https://raw.githubusercontent.com/rrmaximiliano/tvsc/main") replace

@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Website of RRMaximiliano</title>
+    <title>Home on Rony Rodriguez-Ramirez</title>
     <link>https://rrmaximiliano.github.io/</link>
-    <description>Recent content in Home on Website of RRMaximiliano</description>
+    <description>Recent content in Home on Rony Rodriguez-Ramirez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 28 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://rrmaximiliano.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>TvsC Stata command for tables</title>
-      <link>https://rrmaximiliano.github.io/post/2021-05-28-tvsc-stata-command-for-tables/</link>
-      <pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://rrmaximiliano.github.io/post/2021-05-28-tvsc-stata-command-for-tables/</guid>
-      
-        <description>pre  code.sourceCode { white-space: pre; position: relative; }pre  code.</description>
-      
-    </item>
-    
+    <lastBuildDate>Tue, 10 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rrmaximiliano.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Research</title>
       <link>https://rrmaximiliano.github.io/research/</link>
@@ -25,7 +14,7 @@
       
       <guid>https://rrmaximiliano.github.io/research/</guid>
       
-        <description>Fields of interest: Development economics • Impact evaluations • Labor market • Violence and conflict</description>
+        <description>Hugo, the world&#39;s fastest framework for building websites</description>
       
     </item>
     
@@ -36,7 +25,7 @@
       
       <guid>https://rrmaximiliano.github.io/post/2019-09-10-a-completely-useless-command-in-stata/</guid>
       
-        <description>pre  code.sourceCode { white-space: pre; position: relative; }pre  code.</description>
+        <description>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run.</description>
       
     </item>
     
@@ -47,7 +36,7 @@
       
       <guid>https://rrmaximiliano.github.io/post/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/</guid>
       
-        <description>pre  code.sourceCode { white-space: pre; position: relative; }pre  code.</description>
+        <description>Un punto importante en el análisis de datos es la visualización.</description>
       
     </item>
     
@@ -64,12 +53,12 @@
     
     <item>
       <title>Presos y presas políticos en Nicaragua</title>
-      <link>https://rrmaximiliano.github.io/post/2019-04-19-presos-y-presas-politicos-en-nicaragua/</link>
+      <link>https://rrmaximiliano.github.io/post/2021-02-11-presos-y-presas-politicos-en-nicaragua/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://rrmaximiliano.github.io/post/2019-04-19-presos-y-presas-politicos-en-nicaragua/</guid>
+      <guid>https://rrmaximiliano.github.io/post/2021-02-11-presos-y-presas-politicos-en-nicaragua/</guid>
       
-        <description>pre  code.sourceCode { white-space: pre; position: relative; }pre  code.</description>
+        <description>Desde mi cuenta en twitter, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua.</description>
       
     </item>
     
@@ -80,7 +69,7 @@
       
       <guid>https://rrmaximiliano.github.io/contact/</guid>
       
-        <description></description>
+        <description>Contact Page</description>
       
     </item>
     
@@ -114,7 +103,7 @@
       <guid>https://rrmaximiliano.github.io/teaching/</guid>
       
         <description>Adjunct Lecturer Undergraduate
-Social and Human Economy, Universidad Centroamericana, Nicaragua.</description>
+Social and Human Economy, Universidad Centroamericana, Nicaragua. (Teaching Materials, Evaluation)</description>
       
     </item>
     
