@@ -1,241 +1,750 @@
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-</style>
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  class="html"
+><head>
+  <title>
+    Rony Rodriguez-Ramirez
+        |
+        TvsC Stata command for tables
 
 
-<div id="balance-tables" class="section level2">
-<h2>Balance tables</h2>
+      
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.105.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Rony Rodriguez-Ramirez" />
+  <meta
+    name="description"
+    content="Aspiring Development Economist | DECRG, The World Bank"
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.0891fd15be02aec56b4f3be63f0b4c2f373c595dbc0e30bed960ea94fa540e2a.css"
+      integrity="sha256-CJH9Fb4CrsVrTzvmPwtMLzc8WV28DjC&#43;2WDqlPpUDio="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css"
+    integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f.css"
+    integrity="sha256-fSct41tBD7FlN3VQzfnE06gPu8yWHhEZFOTVwOr1cp8="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.55d8333481b07a08e07cf6f37319753a2b47e99f4c395394c5747b48b495aa9b.css"
+    integrity="sha256-VdgzNIGwegjgfPbzcxl1OitH6Z9MOVOUxXR7SLSVqps="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/regular.min.a7448d02590b43449364b6b5922ed9af5410abb4de4238412a830316dedb850b.css"
+    integrity="sha256-p0SNAlkLQ0STZLa1ki7Zr1QQq7TeQjhBKoMDFt7bhQs="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.9ed75a5d670c953fe4df935937674b4646f92674367e9e66eb995bb04e821647.css"
+    integrity="sha256-ntdaXWcMlT/k35NZN2dLRkb5JnQ2fp5m65lbsE6CFkc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://rrmaximiliano.github.io/post/2021-05-28-tvsc-stata-command-for-tables/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.738c0e3a493854876aeab9e2316fd43f1936aeeac4cc6b3e60bb26456dba72ad.js"
+      integrity="sha256-c4wOOkk4VIdq6rniMW/UPxk2rurEzGs&#43;YLsmRW26cq0="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TvsC Stata command for tables"/>
+<meta name="twitter:description" content="Balance tables One of most common tables you tend to make in economics is a balance table."/>
+
+
+
+  
+  <meta property="og:title" content="TvsC Stata command for tables" />
+<meta property="og:description" content="Balance tables One of most common tables you tend to make in economics is a balance table." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://rrmaximiliano.github.io/post/2021-05-28-tvsc-stata-command-for-tables/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-05-28T00:00:00+00:00" /><meta property="og:site_name" content="Rony Rodrigo Maximiliano Rodriguez Ramirez" />
+
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "TvsC Stata command for tables",
+        "headline": "TvsC Stata command for tables",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Balance tables One of most common tables you tend to make in economics is a balance table.
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/rrmaximiliano.github.io\/post\/2021-05-28-tvsc-stata-command-for-tables\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Rony Rodriguez-Ramirez"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Rony Rodriguez-Ramirez"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Rony Rodriguez-Ramirez"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Rony Rodriguez-Ramirez"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-05-28T00:00:00.00Z",
+        "datePublished": "2021-05-28T00:00:00.00Z",
+        "dateModified": "2021-05-28T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Rony Rodriguez-Ramirez",
+            "url": "https://rrmaximiliano.github.io",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/rrmaximiliano.github.iofavicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/rrmaximiliano.github.io\/post\/2021-05-28-tvsc-stata-command-for-tables\/",
+        "wordCount" : "995",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body
+    
+      class="body theme--light"
+
+    
+  >
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/images/rony.jpg"
+        alt="profile picture"
+      />
+      
+        <div class="sidebar__introduction-title">
+          <a href="/">Rony Rodrigo Maximiliano Rodriguez Ramirez</a>
+        </div>
+
+      
+      <div class="sidebar__introduction-description">
+        <p>Aspiring Development Economist | DECRG, The World Bank</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a
+            href="mailto:mail@example.com"
+            target="_blank"
+            rel="noopener"
+            aria-label="e-mail"
+            title="e-mail"
+          >
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://github.com/rrmaximiliano"
+            target="_blank"
+            rel="noopener"
+            aria-label="Github"
+            title="Github"
+          >
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://twitter.com/rrmaximiliano"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitter"
+            title="Twitter"
+          >
+            <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://scholar.google.com/citations?user=PA_LMYMAAAAJ&amp;hl=en"
+            target="_blank"
+            rel="noopener"
+            aria-label="Google Scholar"
+            title="Google Scholar"
+          >
+            <i class="fab fa-google fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li class="sidebar__list-item">
+          <a
+            href="https://www.twitch.tv/rrmaximiliano"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitch"
+            title="Twitch"
+          >
+            <i class="fab fa-twitch fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Rony Rodriguez-Ramirez
+        2022
+
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', ' UA-134175775-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/bio/"
+              
+              title=""
+              >Bio</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/research/"
+              
+              title=""
+              >Research</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/teaching/"
+              
+              title=""
+              >Teaching</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/data/"
+              
+              title=""
+              >Data Projects</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/docs/rrmrr-vita.pdf"
+              
+              title=""
+              >CV</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Blog</a
+            >
+          </li>
+
+        
+
+
+      
+        
+        
+          <li class="nav__list-item">
+            <a
+              
+              href="/links/"
+              
+              title=""
+              >Useful Links</a
+            >
+          </li>
+
+        
+
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+        <li class="nav__list-item">
+          <div class="themeswitch">
+            <a title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </div>
+        </li>
+
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    
+    <div class="post__content">
+      <h1>TvsC Stata Command for Tables</h1>
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                
+                  Fri, May 28, 2021
+
+
+                
+
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">5-minute read</span>
+          </li>
+        </ul>
+
+      <h2 id="balance-tables">Balance tables</h2>
 <p>One of most common tables you tend to make in economics is a balance table. That is, we have two groups, and want to measure the differences between those groups for several variables. So, here it where <code>tsvc</code> enters. While we can perfom <code>t tests</code> on the equality of means using the ttest command in Stata, sometimes we (or atleast I) want to use several variables and maybe cluster our standard errors without creating a matrix or then export it to excel or latex.</p>
 <p>The <code>tvsc</code> tests for statistically significant difference across a group that has two categories. You can install it by typing:</p>
-<pre><code>net install tvsc, from(&quot;https://raw.githubusercontent.com/rrmaximiliano/tvsc/main&quot;) replace</code></pre>
-<p>There are some dependencies here, since first the command will estimate a linear regression using the <code>redhdfe</code> package and then will use the <code>estout</code> package to show in your results windows the table.</p>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<p>Let’s use the census data and create a dummy treatment variable:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>*** Load dataset</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">sysuse</span> census, <span class="kw">clear</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>*** Create treatment <span class="kw">variable</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> <span class="dv">seed</span> 01237846</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">gen</span> treatment = (runiform()&lt;.5)</span></code></pre></div>
-<p>The syntax of the <code>tsvc</code> is pretty straightforward:</p>
-<pre><code>tvsc varlist, by(group)</code></pre>
-<p>where <em>varlist</em> is one or multiple variables that we would like to test for the, and in <code>by()</code> we add our treatment (group) variable. The command expects to have a treatment variable of the form 0 = control, and 1 = treatment.</p>
-<pre><code>tvsc divorce marriage, by(treatment)</code></pre>
-<pre><code>---------------------------------------------------
-                Treatment      Control   Difference
----------------------------------------------------
-divorce         18,379.07    30,425.36    -12046.29
-               (2,630.31)   (7,183.07)   (7,011.02)
-marriage        40,064.50    57,421.09    -17356.59
-               (6,472.19)  (11,808.47)  (12,747.12)
----------------------------------------------------</code></pre>
-<div id="options" class="section level3">
-<h3>Options</h3>
-<p>If you don’t include any option, you get the raw differences between treatment and control groups. You can use <code>sd</code> to show the standard deviations instead of the standard errors for both treatment and control groups but not for the difference. You can use the option <code>clus_id()</code> to estiamte clustered standard errors, and if you would like to include a 4th column using fixed effects, you can use the option <code>strat_id()</code></p>
-<ol style="list-style-type: decimal">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">net install tvsc, from(&#34;https://raw.githubusercontent.com/rrmaximiliano/tvsc/main&#34;) replace
+</span></span></code></pre></div><p>There are some dependencies here, since first the command will estimate a linear regression using the <code>redhdfe</code> package and then will use the <code>estout</code> package to show in your results windows the table.</p>
+<h2 id="example">Example</h2>
+<p>Let&rsquo;s use the census data and create a dummy treatment variable:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">*** Load dataset
+</span></span><span class="line"><span class="cl">    sysuse census, clear 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*** Create treatment variable
+</span></span><span class="line"><span class="cl">    set seed 01237846
+</span></span><span class="line"><span class="cl">    gen treatment = (runiform()&lt;.5)
+</span></span></code></pre></div><p>The syntax of the <code>tsvc</code> is pretty straightforward:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tvsc varlist, by(group)
+</span></span></code></pre></div><p>where <em>varlist</em> is one or multiple variables that we would like to test for the, and in <code>by()</code> we add our treatment (group) variable. The command expects to have a treatment variable of the form 0 = control, and 1 = treatment.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tvsc divorce marriage, by(treatment)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---------------------------------------------------
+</span></span><span class="line"><span class="cl">                Treatment      Control   Difference
+</span></span><span class="line"><span class="cl">---------------------------------------------------
+</span></span><span class="line"><span class="cl">divorce         18,379.07    30,425.36    -12046.29
+</span></span><span class="line"><span class="cl">               (2,630.31)   (7,183.07)   (7,011.02)
+</span></span><span class="line"><span class="cl">marriage        40,064.50    57,421.09    -17356.59
+</span></span><span class="line"><span class="cl">               (6,472.19)  (11,808.47)  (12,747.12)
+</span></span><span class="line"><span class="cl">---------------------------------------------------
+</span></span></code></pre></div><h3 id="options">Options</h3>
+<p>If you don&rsquo;t include any option, you get the raw differences between treatment and control groups. You can use <code>sd</code> to show the standard deviations instead of the standard errors for both treatment and control groups but not for the difference. You can use the option <code>clus_id()</code> to estiamte clustered standard errors, and if you would like to include a 4th column using fixed effects, you can use the option <code>strat_id()</code></p>
+<ol>
 <li>Standard deviations instead of standard errors for treatment and control groups:</li>
 </ol>
-<pre><code>tvsc divorce marriage, by(treatment) clus_id(region)</code></pre>
-<pre><code>---------------------------------------------------
-                Treatment      Control   Difference
----------------------------------------------------
-divorce         18,379.07    30,425.36    -12046.29
-               (2,630.31)   (7,183.07)   (7,374.89)
-marriage        40,064.50    57,421.09    -17356.59
-               (6,472.19)  (11,808.47)  (11,261.94)
----------------------------------------------------</code></pre>
-<ol start="2" style="list-style-type: decimal">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tvsc divorce marriage, by(treatment) clus_id(region)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---------------------------------------------------
+</span></span><span class="line"><span class="cl">                Treatment      Control   Difference
+</span></span><span class="line"><span class="cl">---------------------------------------------------
+</span></span><span class="line"><span class="cl">divorce         18,379.07    30,425.36    -12046.29
+</span></span><span class="line"><span class="cl">               (2,630.31)   (7,183.07)   (7,374.89)
+</span></span><span class="line"><span class="cl">marriage        40,064.50    57,421.09    -17356.59
+</span></span><span class="line"><span class="cl">               (6,472.19)  (11,808.47)  (11,261.94)
+</span></span><span class="line"><span class="cl">---------------------------------------------------
+</span></span></code></pre></div><ol start="2">
 <li>Clustered standard errors for the difference</li>
 </ol>
-<pre><code>tvsc divorce marriage, by(treatment) clus_id(region)</code></pre>
-<pre><code>---------------------------------------------------
-                Treatment      Control   Difference
----------------------------------------------------
-divorce         18,379.07    30,425.36    -12046.29
-               (2,630.31)   (7,183.07)   (7,374.89)
-marriage        40,064.50    57,421.09    -17356.59
-               (6,472.19)  (11,808.47)  (11,261.94)
----------------------------------------------------</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tvsc divorce marriage, by(treatment) clus_id(region)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---------------------------------------------------
+</span></span><span class="line"><span class="cl">                Treatment      Control   Difference
+</span></span><span class="line"><span class="cl">---------------------------------------------------
+</span></span><span class="line"><span class="cl">divorce         18,379.07    30,425.36    -12046.29
+</span></span><span class="line"><span class="cl">               (2,630.31)   (7,183.07)   (7,374.89)
+</span></span><span class="line"><span class="cl">marriage        40,064.50    57,421.09    -17356.59
+</span></span><span class="line"><span class="cl">               (6,472.19)  (11,808.47)  (11,261.94)
+</span></span><span class="line"><span class="cl">---------------------------------------------------
+</span></span></code></pre></div><ol start="3">
 <li>Fourth column using fixed effects:</li>
 </ol>
-<pre><code>tvsc divorce marriage, by(treatment) clus_id(region) strat_id(region)</code></pre>
-<pre><code>----------------------------------------------------------------
-                Treatment      Control         Diff      FE Diff
-----------------------------------------------------------------
-divorce         18,379.07    30,425.36    -12046.29    -13692.48
-               (2,630.31)   (7,183.07)   (7,374.89)   (8,755.31)
-marriage        40,064.50    57,421.09    -17356.59    -20555.04
-               (6,472.19)  (11,808.47)  (11,261.94)  (12,263.35)
-----------------------------------------------------------------</code></pre>
-</div>
-</div>
-<div id="exporting" class="section level2">
-<h2>Exporting</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tvsc divorce marriage, by(treatment) clus_id(region) strat_id(region)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">----------------------------------------------------------------
+</span></span><span class="line"><span class="cl">                Treatment      Control         Diff      FE Diff
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------
+</span></span><span class="line"><span class="cl">divorce         18,379.07    30,425.36    -12046.29    -13692.48
+</span></span><span class="line"><span class="cl">               (2,630.31)   (7,183.07)   (7,374.89)   (8,755.31)
+</span></span><span class="line"><span class="cl">marriage        40,064.50    57,421.09    -17356.59    -20555.04
+</span></span><span class="line"><span class="cl">               (6,472.19)  (11,808.47)  (11,261.94)  (12,263.35)
+</span></span><span class="line"><span class="cl">----------------------------------------------------------------
+</span></span></code></pre></div><h2 id="exporting">Exporting</h2>
 <p>While the command does not have a built-in function that exports the results to excel or latex, I recommend using <code>esttab</code> after running <code>tvsc</code> as follows:</p>
-<pre><code>*** ssc install estout, replace
-// Latex Table
-local style &quot;nomtitle nonumbers noobs b(3) se(3) booktabs&quot;
-
-quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
-esttab, `style&#39; cells(&quot;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))&quot; &quot;se_2(par) se_1(par) se_3(par)&quot;) </code></pre>
-<p>And this should give you a latex output like this:</p>
-<pre><code>{
-\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{1}{ccc}}
-\toprule
-            &amp;   mu\_2/se\_2&amp;   mu\_1/se\_1&amp;   mu\_3/se\_3\\
-\midrule
-divorce     &amp;   18,379.07&amp;   30,425.36&amp;   -12046.29\\
-            &amp;  (2,630.31)&amp;  (7,183.07)&amp;  (7,374.89)\\
-marriage    &amp;   40,064.50&amp;   57,421.09&amp;   -17356.59\\
-            &amp;  (6,472.19)&amp; (11,808.47)&amp; (11,261.94)\\
-\bottomrule
-\end{tabular}
-}</code></pre>
-<p>In this case, to show the results you need to include the <code>cells</code> options where <code>mu_2</code> is the treatment, <code>mu_1</code> the control group, and <code>mu_3</code> the difference. Likewise, <code>se_2</code>, <code>se_1</code>, and <code>se_3</code> for the standard errors. If you want to get the standard deviations instead of the standard errors in your latex table, just change <code>se_</code> to <code>sd_</code>. And finally, if you used the <code>strat_id</code> option, the difference with fixed effects can be retrieved using <code>mu_4</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">*** ssc install estout, replace
+</span></span><span class="line"><span class="cl">// Latex Table
+</span></span><span class="line"><span class="cl">local style &#34;nomtitle nonumbers noobs b(3) se(3) booktabs&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
+</span></span><span class="line"><span class="cl">esttab, `style&#39; cells(&#34;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))&#34; &#34;se_2(par) se_1(par) se_3(par)&#34;) 
+</span></span></code></pre></div><p>And this should give you a latex output like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+</span></span><span class="line"><span class="cl">\begin{tabular}{l*{1}{ccc}}
+</span></span><span class="line"><span class="cl">\toprule
+</span></span><span class="line"><span class="cl">            &amp;   mu\_2/se\_2&amp;   mu\_1/se\_1&amp;   mu\_3/se\_3\\
+</span></span><span class="line"><span class="cl">\midrule
+</span></span><span class="line"><span class="cl">divorce     &amp;   18,379.07&amp;   30,425.36&amp;   -12046.29\\
+</span></span><span class="line"><span class="cl">            &amp;  (2,630.31)&amp;  (7,183.07)&amp;  (7,374.89)\\
+</span></span><span class="line"><span class="cl">marriage    &amp;   40,064.50&amp;   57,421.09&amp;   -17356.59\\
+</span></span><span class="line"><span class="cl">            &amp;  (6,472.19)&amp; (11,808.47)&amp; (11,261.94)\\
+</span></span><span class="line"><span class="cl">\bottomrule
+</span></span><span class="line"><span class="cl">\end{tabular}
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>In this case, to show the results you need to include the <code>cells</code> options where <code>mu_2</code> is the treatment, <code>mu_1</code> the control group, and <code>mu_3</code> the difference. Likewise, <code>se_2</code>, <code>se_1</code>, and <code>se_3</code> for the standard errors. If you want to get the standard deviations instead of the standard errors in your latex table, just change <code>se_</code> to <code>sd_</code>. And finally, if you used the <code>strat_id</code> option, the difference with fixed effects can be retrieved using <code>mu_4</code>.</p>
 <p>Personally, I always prefer to have only the body of the latex table instead of the full environment, and I get this by modifying the <code>esttab</code> options like this:</p>
-<pre><code>// Latex Table, just the body
-local style &quot;label nolines nogaps fragment nomtitle nonumbers noobs nodep collabels(none) booktabs b(3) se(3)&quot;
-
-quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
-esttab, `style&#39; cells(&quot;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))&quot; &quot;se_2(par) se_1(par) se_3(par)&quot;) </code></pre>
-<p>And you should get this outputs:</p>
-<pre><code>Number of divorces  &amp;   18,379.07&amp;   30,425.36&amp;   -12046.29\\
-                    &amp;  (2,630.31)&amp;  (7,183.07)&amp;  (7,374.89)\\
-Number of marriages &amp;   40,064.50&amp;   57,421.09&amp;   -17356.59\\
-                    &amp;  (6,472.19)&amp; (11,808.47)&amp; (11,261.94)\\</code></pre>
-<p>And the compiled tex document will look like this:</p>
-<p><img src="figs/tab1.png" /></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// Latex Table, just the body
+</span></span><span class="line"><span class="cl">local style &#34;label nolines nogaps fragment nomtitle nonumbers noobs nodep collabels(none) booktabs b(3) se(3)&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
+</span></span><span class="line"><span class="cl">esttab, `style&#39; cells(&#34;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))&#34; &#34;se_2(par) se_1(par) se_3(par)&#34;) 
+</span></span></code></pre></div><p>And you should get this outputs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Number of divorces  &amp;   18,379.07&amp;   30,425.36&amp;   -12046.29\\
+</span></span><span class="line"><span class="cl">                    &amp;  (2,630.31)&amp;  (7,183.07)&amp;  (7,374.89)\\
+</span></span><span class="line"><span class="cl">Number of marriages &amp;   40,064.50&amp;   57,421.09&amp;   -17356.59\\
+</span></span><span class="line"><span class="cl">                    &amp;  (6,472.19)&amp; (11,808.47)&amp; (11,261.94)\\
+</span></span></code></pre></div><p>And the compiled tex document will look like this:</p>
+<p><img src="figs/tab1.png" alt=""></p>
 <p>This <a href="https://rawcdn.githack.com/RRMaximiliano/tvsc/c1ad6118a944c4ae8dfa67a0f05a87bcce3911b9/outputs/00_index.pdf">pdf</a> contains more examples, and the TeX code can be found <a href="https://github.com/RRMaximiliano/tvsc/blob/main/outputs/00_index.tex">here</a>.</p>
-<p>If you have any comment or suggestion for this command, open an issue in the original repository: <a href="https://github.com/RRMaximiliano/tvsc/issues" class="uri">https://github.com/RRMaximiliano/tvsc/issues</a></p>
-</div>
-<div id="appendix-dofile" class="section level2">
-<h2>Appendix: dofile</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>*** Installing the pkg</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    net install tvsc, from(<span class="st">&quot;https://raw.githubusercontent.com/rrmaximiliano/tvsc/main&quot;</span>) <span class="kw">replace</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>*** Globals</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> stars1   <span class="st">&quot;label nolines nogaps fragment nomtitle nonumbers noobs nodep star(* 0.10 ** 0.05 *** 0.01) collabels(none) booktabs b(3) se(3)&quot;</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>*** Load dataset</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">sysuse</span> census, <span class="kw">clear</span> </span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>*** Create treatment <span class="kw">variable</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> <span class="dv">seed</span> 01237846</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">gen</span> treatment = (runiform()&lt;.5)</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>*** TvsC</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">local</span>   vars        <span class="co">///</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>            divorce     <span class="co">///</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            marriage</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">quietly</span> tvsc divorce marriage, <span class="kw">by</span>(treatment) clus_id(region) stra_id(region) labels</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    esttab, <span class="ot">${stars1}</span> cells(<span class="st">&quot;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))&quot;</span> <span class="st">&quot;se_2(par) se_1(par) se_3(par)&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## . *** Installing the pkg
-## .     net install tvsc, from(&quot;https://raw.githubusercontent.com/rrmaximiliano/t
-## &gt; vsc/main&quot;) replace
-## checking tvsc consistency and verifying not already installed...
-## all files already exist and are up to date.
-## 
-## . 
-## . *** Globals
-## .     global stars1       &quot;label nolines nogaps fragment nomtitle nonumbers noo
-## &gt; bs nodep star(* 0.10 ** 0.05 *** 0.01) collabels(none) booktabs b(3) se(3)&quot;
-## 
-## . 
-## . *** Load dataset
-## .     sysuse census, clear 
-## (1980 Census data by state)
-## 
-## . 
-## . *** Create treatment variable
-## .     set seed 01237846
-## 
-## .     gen treatment = (runiform()&lt;.5)
-## 
-## .    
-## . *** TvsC
-## .     local   vars        ///
-## &gt;             divorce     ///
-## &gt;             marriage
-## 
-## . 
-## .     quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(regi
-## &gt; on) labels
-## 
-## .     esttab, ${stars1} cells(&quot;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.
-## &gt; 2fc))&quot; &quot;se_2(par) se_1(par) se_3(par)&quot;)
-## 
-## Number of divorces  &amp;   18,379.07&amp;   30,425.36&amp;   -12046.29\\
-##                     &amp;  (2,630.31)&amp;  (7,183.07)&amp;  (7,374.89)\\
-## Number of marriages &amp;   40,064.50&amp;   57,421.09&amp;   -17356.59\\
-##                     &amp;  (6,472.19)&amp; (11,808.47)&amp; (11,261.94)\\
-## 
-## .</code></pre>
-</div>
+<p>If you have any comment or suggestion for this command, open an issue in the original repository: <a href="https://github.com/RRMaximiliano/tvsc/issues">https://github.com/RRMaximiliano/tvsc/issues</a></p>
+<h2 id="appendix-dofile">Appendix: dofile</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*** Installing the pkg
+</span></span><span class="line"><span class="cl">    net install tvsc, from(&#34;https://raw.githubusercontent.com/rrmaximiliano/tvsc/main&#34;) replace
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*** Globals
+</span></span><span class="line"><span class="cl">    global stars1	&#34;label nolines nogaps fragment nomtitle nonumbers noobs nodep star(* 0.10 ** 0.05 *** 0.01) collabels(none) booktabs b(3) se(3)&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*** Load dataset
+</span></span><span class="line"><span class="cl">    sysuse census, clear 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*** Create treatment variable
+</span></span><span class="line"><span class="cl">    set seed 01237846
+</span></span><span class="line"><span class="cl">    gen treatment = (runiform()&lt;.5)
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">*** TvsC
+</span></span><span class="line"><span class="cl">    local   vars        ///
+</span></span><span class="line"><span class="cl">            divorce     ///
+</span></span><span class="line"><span class="cl">            marriage
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels
+</span></span><span class="line"><span class="cl">    esttab, ${stars1} cells(&#34;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))&#34; &#34;se_2(par) se_1(par) se_3(par)&#34;)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## . *** Installing the pkg
+</span></span><span class="line"><span class="cl">## .     net install tvsc, from(&#34;https://raw.githubusercontent.com/rrmaximiliano/t
+</span></span><span class="line"><span class="cl">## &gt; vsc/main&#34;) replace
+</span></span><span class="line"><span class="cl">## checking tvsc consistency and verifying not already installed...
+</span></span><span class="line"><span class="cl">## all files already exist and are up to date.
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## . 
+</span></span><span class="line"><span class="cl">## . *** Globals
+</span></span><span class="line"><span class="cl">## .     global stars1       &#34;label nolines nogaps fragment nomtitle nonumbers noo
+</span></span><span class="line"><span class="cl">## &gt; bs nodep star(* 0.10 ** 0.05 *** 0.01) collabels(none) booktabs b(3) se(3)&#34;
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## . 
+</span></span><span class="line"><span class="cl">## . *** Load dataset
+</span></span><span class="line"><span class="cl">## .     sysuse census, clear 
+</span></span><span class="line"><span class="cl">## (1980 Census data by state)
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## . 
+</span></span><span class="line"><span class="cl">## . *** Create treatment variable
+</span></span><span class="line"><span class="cl">## .     set seed 01237846
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## .     gen treatment = (runiform()&lt;.5)
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## .    
+</span></span><span class="line"><span class="cl">## . *** TvsC
+</span></span><span class="line"><span class="cl">## .     local   vars        ///
+</span></span><span class="line"><span class="cl">## &gt;             divorce     ///
+</span></span><span class="line"><span class="cl">## &gt;             marriage
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## . 
+</span></span><span class="line"><span class="cl">## .     quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(regi
+</span></span><span class="line"><span class="cl">## &gt; on) labels
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## .     esttab, ${stars1} cells(&#34;mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.
+</span></span><span class="line"><span class="cl">## &gt; 2fc))&#34; &#34;se_2(par) se_1(par) se_3(par)&#34;)
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## Number of divorces  &amp;   18,379.07&amp;   30,425.36&amp;   -12046.29\\
+</span></span><span class="line"><span class="cl">##                     &amp;  (2,630.31)&amp;  (7,183.07)&amp;  (7,374.89)\\
+</span></span><span class="line"><span class="cl">## Number of marriages &amp;   40,064.50&amp;   57,421.09&amp;   -17356.59\\
+</span></span><span class="line"><span class="cl">##                     &amp;  (6,472.19)&amp; (11,808.47)&amp; (11,261.94)\\
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## .
+</span></span></code></pre></div></div>
+    <div class="post__footer">
+      
+
+      
+    </div>
+
+    
+  </div>
+
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Rony Rodriguez-Ramirez
+        2022
+
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js"
+    integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ="
+    crossorigin="anonymous"
+  ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', ' UA-134175775-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>
