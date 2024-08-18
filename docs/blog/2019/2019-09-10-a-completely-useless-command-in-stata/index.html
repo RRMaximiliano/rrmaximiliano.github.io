@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rony Rodriguez-Ramirez">
+<meta name="dcterms.date" content="2019-09-10">
 
-<title>Rony Rodriguez-Ramirez | Home</title>
+<title>A completely useless command in Stata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +22,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,27 +102,20 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-<script type="text/javascript">
 
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-134175775-1', 'auto');
-
-ga('send', {
-  hitType: 'pageview',
-  'anonymizeIp': true,
-});
-</script>
-
-
+<meta property="og:title" content="A completely useless command in Stata">
+<meta property="og:description" content="">
+<meta name="twitter:title" content="A completely useless command in Stata">
+<meta name="twitter:description" content="">
+<meta name="twitter:creator" content="@ellamkaye">
+<meta name="twitter:site" content="@ellamkaye">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,35 +125,35 @@ ga('send', {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">Bio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research/index.html"> 
+    <a class="nav-link" href="../../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching/index.html"> 
+    <a class="nav-link" href="../../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> 
+    <a class="nav-link" href="../../../projects/index.html"> 
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv/index.html"> 
+    <a class="nav-link" href="../../../cv/index.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resource/index.html"> 
+    <a class="nav-link" href="../../../resource/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -135,64 +164,74 @@ ga('send', {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-
-
-
-<div class="quarto-about-jolla column-page">
-  <img src="/files/img/rony.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Rony Rodrigo Maximiliano<br>Rodriguez-Ramirez</h1>
-<p class="subtitle lead"></p><center><br>
-Harvard University<br>
-</center><p></p>
-</div>
-<div class="quarto-title-meta column-page">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">A completely useless command in Stata</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Stata</div>
+              </div>
+                  </div>
   </div>
-</header><div id="hero-heading">
-</div> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="mailto:rrodriguezramirez@g.harvard.edu" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="bi:envelope" style="font-size: 1.1em;" aria-label="Icon envelope from bi Iconify.design set." title="Icon envelope from bi Iconify.design set."></iconify-icon></span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=PA_LMYMAAAAJ&amp;hl=en" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="academicons:google-scholar" style="font-size: 1.1em;" aria-label="Icon google-scholar from academicons Iconify.design set." title="Icon google-scholar from academicons Iconify.design set."></iconify-icon></span>
-  </a>
-  <a href="https://bsky.app/profile/rrmaximiliano.bsky.social" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="ph:butterfly-bold" style="font-size: 1.1em;" aria-label="Icon butterfly-bold from ph Iconify.design set." title="Icon butterfly-bold from ph Iconify.design set."></iconify-icon></span>
-  </a>
-  <a href="https://twitter.com/rrmaximiliano" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="bi:twitter" style="font-size: 1.1em;" aria-label="Icon twitter from bi Iconify.design set." title="Icon twitter from bi Iconify.design set."></iconify-icon></span>
-  </a>
-  <a href="https://www.threads.net/%40andrewheiss" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="bi:threads" style="font-size: 1.1em;" aria-label="Icon threads from bi Iconify.design set." title="Icon threads from bi Iconify.design set."></iconify-icon></span>
-  </a>
-  <a href="https://github.com/rrmaximiliano" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="bi:github" style="font-size: 1.1em;" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></span>
-  </a>
-  <a href="https://www.twitch.tv/rrmaximiliano" class="about-link" rel="" target="">
-     <span class="about-link-text"><iconify-icon inline="" icon="ant-design:twitch-outlined" style="font-size: 1.1em;" aria-label="Icon twitch-outlined from ant-design Iconify.design set." title="Icon twitch-outlined from ant-design Iconify.design set."></iconify-icon></span>
-  </a>
-</div>
-</div>
+    
+  
+  <div class="quarto-title-meta">
 
-<p>Welcome! I am a <del>first</del> second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at <a href="https://www.worldbank.org/en/research/">The World Bank, Development Research Group</a> where I was evaluating an <a href="https://www.socialscienceregistry.org/trials/3514">adaptive experiment in Cameroon</a>, an <a href="https://www.socialscienceregistry.org/trials/10634">RCT in Ukraine</a>, and building programming packages for impact evaluations.</p>
-<p>Overall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the <a href=".\projects/">software</a> tab of this website.</p>
-<p>Please feel free to contact me at the links provided on this website.</p>
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://www.rrmaximiliano.github.io/">Rony Rodriguez-Ramirez</a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 10, 2019</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-</main> <!-- /main -->
+
+<p>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing <code>pikachu</code> you will get the following:</p>
+<p><img src="figs/pikachu.gif" class="img-fluid"></p>
+<p>This uses only the <code>display</code> command to make pikachu’s face. In order to install it: you can run the following command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>net install pikachu, from(<span class="st">"https://raw.githubusercontent.com/rrmaximiliano/pikachu/main"</span>) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And that’s it. Now, you have pikachu reacting to your failures. Finally, in case you don’t know, the original meme is this one:</p>
+<p><img src="https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif" class="img-fluid"></p>
+
+
+<!-- -->
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rodriguez-ramirez2019,
+  author = {Rodriguez-Ramirez, Rony},
+  title = {A Completely Useless Command in {Stata}},
+  date = {2019-09-10},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rodriguez-ramirez2019" class="csl-entry quarto-appendix-citeas" role="listitem">
+Rodriguez-Ramirez, Rony. 2019. <span>“A Completely Useless Command in
+Stata.”</span> September 10, 2019.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -213,6 +252,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -275,6 +321,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -605,7 +702,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "A completely useless command in Stata"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2019-09-10"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Stata</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing <span class="in">`pikachu`</span> you will get the following:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/pikachu.gif)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>This uses only the <span class="in">`display`</span> command to make pikachu's face. In order to install it: you can run the following command:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="in">```stata</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="in">net install pikachu, from("https://raw.githubusercontent.com/rrmaximiliano/pikachu/main") replace</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>And that's it. Now, you have pikachu reacting to your failures. Finally, in case you don't know, the original meme is this one:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

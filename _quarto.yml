@@ -1,0 +1,47 @@
+project:
+  type: website
+
+  preview: 
+    port: 5555
+    browser: true
+    watch-inputs: true
+    navigate: true
+    
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+website:
+  google-analytics: "UA-134175775-1"
+  page-navigation: true
+  navbar:
+    background: "#A51C30"
+    pinned: true
+
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Bio"
+        file: about.qmd 
+      - text: "Research"
+        file: research/index.qmd
+      - text: "Teaching"
+        file: teaching/index.qmd
+      - text: "Software"
+        file: projects/index.qmd
+      - text: "CV"
+        file: cv/index.qmd
+      - text: "Blog"
+        file: blog/index.qmd
+      - text: "Resources"
+        file: resource/index.qmd
+
+format:
+  html:
+    theme:
+      - yeti
+      - html/custom.scss
+    toc: true
+
+
+

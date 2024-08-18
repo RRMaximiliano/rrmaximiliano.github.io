@@ -1,0 +1,39 @@
+---
+title: "Blog"
+description: "Rony's blog"
+listing:
+  - id: posts_2021
+    contents: "2021/**/index.qmd"
+    sort: "date desc"
+    categories: true
+  - id: posts_2019
+    contents: "2019/**/index.qmd"
+    sort: "date desc"
+    categories: true    
+page-layout: full
+toc-title: Year
+toc-location: right
+date-format: "MMMM D, YYYY"
+date: last-modified
+code-tools: false
+comments: false
+engine: knitr
+freeze: false
+---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
+
+## 2021
+
+:::{#posts_2021}
+:::
+
+## 2019
+
+:::{#posts_2019}
+:::
+

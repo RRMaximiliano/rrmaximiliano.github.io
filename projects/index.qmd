@@ -1,0 +1,80 @@
+---
+title: "Software and Data Projects"
+page-layout: full
+toc-location: right
+---
+
+I would like to share some datasets and repositories that I have created or cleaned that might be helpful for other researchers.
+
+## Packages
+
+### Stata
+
+#### `tvsc`
+
+A Stata command that generates balance tables.
+
+* [Github repo](https://github.com/RRMaximiliano/tvsc/)
+
+### R
+
+#### `eleccionesNic`
+
+An R package that allows users to use several datasets containing information on the presidential elections in Nicaragua from 1990 to 2006.
+
+* [Github repo](https://github.com/RRMaximiliano/eleccionesNic)
+
+## Data repositories
+### National Police of Nicaragua data repository
+
+Wrote a code that scrape information from officials reports from the National Police of Nicaragua. The extracted data contains information for type of crime, complaints, and solved cases in Nicaragua from 1980 to 2019. First tidy dataset that is available to the public on crime in Nicaragua at the department level.
+
+* [Github repo](https://github.com/RRMaximiliano/policia-nacional-nic-stats)
+
+### Instituto de Medicina Legal data repository
+
+Wrote a code that scrape information from officials reports from the Institute of Legal Medicine. The extracted data contains information for typology of violence and total cases by medical circunscripción.
+
+* [Github repo](https://github.com/RRMaximiliano/iml_nicaragua)
+
+### Instituto Nicaragüense de Seguridad Social data repository
+
+Wrote a code that scrape information from officials reports from the Nicaraguan Institute of Social Security. The extracted data contains information for the total insured population by gender.
+
+* [Github repo](https://github.com/RRMaximiliano/inss_nicaragua)
+
+### Coronavirus data repository for Nicaragua
+
+Scraped information from the Observatorio Ciudadano de Nicaragua (Non-official information on the current state of COVID-19 in Nicaragua) that allows users to use the datasets and plot information at the national and department level. 
+
+* [Github repo](https://github.com/RRMaximiliano/observatorio-covid-nicaragua)
+
+### Nicaraguan rulers
+
+Hand-coded information on all the rulers of Nicaragua. Currently, the data in this repository contains information from the year 1508 to 2020. First tidy dataset that is available to the public on Nicaraguan rulers,
+
+* [Github repo](https://github.com/RRMaximiliano/nicaraguan-rulers)
+
+### Nicaraguan population 18th and 19th Century
+
+Hand-code information form archives on the Nicaraguan population in the 18th and 19th Century.
+
+* [Github repo](https://github.com/RRMaximiliano/poblacion-nicaragua-siglo-18-19)
+
+### Political Prisoners (Apr 2018 - Apr 2019)
+
+This dataset contains information about the political prisoners from the protest in Nicaragua since April 2018. The data comes from the ["Comité Pro Liberación de Presas y Presos Políticos"](http://presospoliticosnicaragua.com/). Version updated: April 1, 2019.
+
+* [R](/files/presos_politicos_1_abr_2019.rds)
+* [Stata](/files/presos_politicos_1_abr_2019.dta)
+* [CSV](/files/presos_politicos_1_abr_2019.csv)
+
+Please let me know if you find any error or face any confusion while using these datasets. At the end, if we can fix them we both gain something. Also, email me if you have to collab in making these or other datasets more helpful.
+
+## Extra: Translated documents
+
+### Best Practices for Data and Code Management
+
+Translated to Spanish the document “Best Practices for Data and Code Management” by Innovations for Poverty Action (IPA).
+
+* [Github repo](https://github.com/RRMaximiliano/practicas-datos-codigos)

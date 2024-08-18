@@ -1,0 +1,44 @@
+---
+pagetitle: "Rony Rodriguez-Ramirez | Home"
+title: "Rony Rodrigo Maximiliano<br>Rodriguez-Ramirez"
+subtitle: "<center>Harvard University</center>"
+image: /files/img/rony.jpg
+toc: false
+page-layout: full
+format:
+  html:
+    quarto-template-params:
+      banner-header-class: "home"
+
+about:
+  id: hero-heading
+  template: jolla
+  image-width: 15em
+  image-shape: round  
+  links:
+    - text: "{{< iconify bi envelope size=1.1em >}}"
+      href: "mailto:rrodriguezramirez@g.harvard.edu"
+    - text: "{{< iconify bi academicons:google-scholar size=1.1em >}}"
+      href: https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en
+    - text: "{{< iconify ph butterfly-bold size=1.1em >}}"
+      href: "https://bsky.app/profile/rrmaximiliano.bsky.social"
+    - text: "{{< iconify bi twitter size=1.1em >}}"
+      href: https://twitter.com/rrmaximiliano
+    - text: "{{< iconify bi threads size=1.1em >}}"
+      href: https://www.threads.net/%40andrewheiss
+    - text: "{{< iconify bi github size=1.1em >}}"
+      href: https://github.com/rrmaximiliano
+    - text: "{{< iconify bi ant-design:twitch-outlined size=1.1em >}}"
+      href: https://www.twitch.tv/rrmaximiliano
+---
+
+
+::: {#hero-heading}
+:::
+
+Welcome! I am a ~~first~~ second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at [The World Bank, Development Research Group](https://www.worldbank.org/en/research/) where I was evaluating an [adaptive experiment in Cameroon](https://www.socialscienceregistry.org/trials/3514), an [RCT in Ukraine](https://www.socialscienceregistry.org/trials/10634), and building programming packages for impact evaluations.
+
+Overall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the [software](/projects/) tab of this website.
+
+Please feel free to contact me at the links provided on this website.
+

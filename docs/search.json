@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html",
+    "href": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html",
+    "title": "TvsC Stata command for tables",
+    "section": "",
+    "text": "One of the most common tables you tend to make in economics is a balance table. That is, we have two groups, and want to measure the differences between those groups for several variables. So, here it where tsvc enters. While we can perfom t tests on the equality of means using the ttest command in Stata, sometimes we (or atleast I) want to use several variables and maybe cluster our standard errors without creating a matrix or then export it to excel or latex.\nThe tvsc tests for statistically significant difference across a group that has two categories. You can install it by typing:\nnet install tvsc, from(\"https://raw.githubusercontent.com/rrmaximiliano/tvsc/main\") replace\nThere are some dependencies here, since first the command will estimate a linear regression using the redhdfe package and then will use the estout package to show in your results windows the table."
+  },
+  {
+    "objectID": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#balance-tables",
+    "href": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#balance-tables",
+    "title": "TvsC Stata command for tables",
+    "section": "",
+    "text": "One of the most common tables you tend to make in economics is a balance table. That is, we have two groups, and want to measure the differences between those groups for several variables. So, here it where tsvc enters. While we can perfom t tests on the equality of means using the ttest command in Stata, sometimes we (or atleast I) want to use several variables and maybe cluster our standard errors without creating a matrix or then export it to excel or latex.\nThe tvsc tests for statistically significant difference across a group that has two categories. You can install it by typing:\nnet install tvsc, from(\"https://raw.githubusercontent.com/rrmaximiliano/tvsc/main\") replace\nThere are some dependencies here, since first the command will estimate a linear regression using the redhdfe package and then will use the estout package to show in your results windows the table."
+  },
+  {
+    "objectID": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#example",
+    "href": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#example",
+    "title": "TvsC Stata command for tables",
+    "section": "Example",
+    "text": "Example\nLet’s use the census data and create a dummy treatment variable:\n*** Load dataset\n    sysuse census, clear \n\n*** Create treatment variable\n    set seed 01237846\n    gen treatment = (runiform()&lt;.5)\nThe syntax of the tsvc is pretty straightforward:\ntvsc varlist, by(group)\nwhere varlist is one or multiple variables that we would like to test for the, and in by() we add our treatment (group) variable. The command expects to have a treatment variable of the form 0 = control, and 1 = treatment.\ntvsc divorce marriage, by(treatment)\n---------------------------------------------------\n                Treatment      Control   Difference\n---------------------------------------------------\ndivorce         18,379.07    30,425.36    -12046.29\n               (2,630.31)   (7,183.07)   (7,011.02)\nmarriage        40,064.50    57,421.09    -17356.59\n               (6,472.19)  (11,808.47)  (12,747.12)\n---------------------------------------------------\n\nOptions\nIf you don’t include any option, you get the raw differences between treatment and control groups. You can use sd to show the standard deviations instead of the standard errors for both treatment and control groups but not for the difference. You can use the option clus_id() to estiamte clustered standard errors, and if you would like to include a 4th column using fixed effects, you can use the option strat_id()\n\nStandard deviations instead of standard errors for treatment and control groups:\n\ntvsc divorce marriage, by(treatment) clus_id(region)\n---------------------------------------------------\n                Treatment      Control   Difference\n---------------------------------------------------\ndivorce         18,379.07    30,425.36    -12046.29\n               (2,630.31)   (7,183.07)   (7,374.89)\nmarriage        40,064.50    57,421.09    -17356.59\n               (6,472.19)  (11,808.47)  (11,261.94)\n---------------------------------------------------\n\nClustered standard errors for the difference\n\ntvsc divorce marriage, by(treatment) clus_id(region)\n---------------------------------------------------\n                Treatment      Control   Difference\n---------------------------------------------------\ndivorce         18,379.07    30,425.36    -12046.29\n               (2,630.31)   (7,183.07)   (7,374.89)\nmarriage        40,064.50    57,421.09    -17356.59\n               (6,472.19)  (11,808.47)  (11,261.94)\n---------------------------------------------------\n\nFourth column using fixed effects:\n\ntvsc divorce marriage, by(treatment) clus_id(region) strat_id(region)\n----------------------------------------------------------------\n                Treatment      Control         Diff      FE Diff\n----------------------------------------------------------------\ndivorce         18,379.07    30,425.36    -12046.29    -13692.48\n               (2,630.31)   (7,183.07)   (7,374.89)   (8,755.31)\nmarriage        40,064.50    57,421.09    -17356.59    -20555.04\n               (6,472.19)  (11,808.47)  (11,261.94)  (12,263.35)\n----------------------------------------------------------------"
+  },
+  {
+    "objectID": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#exporting",
+    "href": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#exporting",
+    "title": "TvsC Stata command for tables",
+    "section": "Exporting",
+    "text": "Exporting\nWhile the command does not have a built-in function that exports the results to excel or latex, I recommend using esttab after running tvsc as follows:\n*** ssc install estout, replace\n// Latex Table\nlocal style \"nomtitle nonumbers noobs b(3) se(3) booktabs\"\n\nquietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels\nesttab, `style' cells(\"mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))\" \"se_2(par) se_1(par) se_3(par)\") \nAnd this should give you a latex output like this:\n{\n\\def\\sym#1{\\ifmmode^{#1}\\else\\(^{#1}\\)\\fi}\n\\begin{tabular}{l*{1}{ccc}}\n\\toprule\n            &   mu\\_2/se\\_2&   mu\\_1/se\\_1&   mu\\_3/se\\_3\\\\\n\\midrule\ndivorce     &   18,379.07&   30,425.36&   -12046.29\\\\\n            &  (2,630.31)&  (7,183.07)&  (7,374.89)\\\\\nmarriage    &   40,064.50&   57,421.09&   -17356.59\\\\\n            &  (6,472.19)& (11,808.47)& (11,261.94)\\\\\n\\bottomrule\n\\end{tabular}\n}\nIn this case, to show the results you need to include the cells options where mu_2 is the treatment, mu_1 the control group, and mu_3 the difference. Likewise, se_2, se_1, and se_3 for the standard errors. If you want to get the standard deviations instead of the standard errors in your latex table, just change se_ to sd_. And finally, if you used the strat_id option, the difference with fixed effects can be retrieved using mu_4.\nPersonally, I always prefer to have only the body of the latex table instead of the full environment, and I get this by modifying the esttab options like this:\n// Latex Table, just the body\nlocal style \"label nolines nogaps fragment nomtitle nonumbers noobs nodep collabels(none) booktabs b(3) se(3)\"\n\nquietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels\nesttab, `style' cells(\"mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))\" \"se_2(par) se_1(par) se_3(par)\") \nAnd you should get this outputs:\nNumber of divorces  &   18,379.07&   30,425.36&   -12046.29\\\\\n                    &  (2,630.31)&  (7,183.07)&  (7,374.89)\\\\\nNumber of marriages &   40,064.50&   57,421.09&   -17356.59\\\\\n                    &  (6,472.19)& (11,808.47)& (11,261.94)\\\\\nAnd the compiled tex document will look like this:\n\nThis pdf contains more examples, and the TeX code can be found here.\nIf you have any comment or suggestion for this command, open an issue in the original repository: https://github.com/RRMaximiliano/tvsc/issues"
+  },
+  {
+    "objectID": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#appendix-dofile",
+    "href": "blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html#appendix-dofile",
+    "title": "TvsC Stata command for tables",
+    "section": "Appendix: dofile",
+    "text": "Appendix: dofile\n\n*** Installing the pkg\n    net install tvsc, from(\"https://raw.githubusercontent.com/rrmaximiliano/tvsc/main\") replace\n\n*** Globals\n    global stars1   \"label nolines nogaps fragment nomtitle nonumbers noobs nodep star(* 0.10 ** 0.05 *** 0.01) collabels(none) booktabs b(3) se(3)\"\n\n*** Load dataset\n    sysuse census, clear \n\n*** Create treatment variable\n    set seed 01237846\n    gen treatment = (runiform()&lt;.5)\n   \n*** TvsC\n    local   vars        ///\n            divorce     ///\n            marriage\n\n    quietly tvsc divorce marriage, by(treatment) clus_id(region) stra_id(region) labels\n    esttab, ${stars1} cells(\"mu_2(fmt(%9.2fc)) mu_1(fmt(%9.2fc)) mu_3(fmt(%9.2fc))\" \"se_2(par) se_1(par) se_3(par)\")"
+  },
+  {
+    "objectID": "blog/index.html#section",
+    "href": "blog/index.html#section",
+    "title": "Blog",
+    "section": "2021",
+    "text": "2021\n\n\n\n\n\n\n\n\n\n\nTvsC Stata command for tables\n\n\n\n\n\n\nStata\n\n\nBalance Tables\n\n\nRCT\n\n\n\n\n\n\n\n\n\nMay 28, 2021\n\n\nRony Rodriguez-Ramirez\n\n\n\n\n\n\n\n\n\n\n\n\nPresos y presas políticos en Nicaragua\n\n\n\n\n\n\nNicaragua\n\n\nggplot\n\n\nviz\n\n\n\n\n\n\n\n\n\nApril 19, 2019\n\n\nRony Rodriguez-Ramirez\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/index.html#section-1",
+    "href": "blog/index.html#section-1",
+    "title": "Blog",
+    "section": "2019",
+    "text": "2019\n\n\n\n\n\n\n\n\n\n\nA completely useless command in Stata\n\n\n\n\n\n\nStata\n\n\n\n\n\n\n\n\n\nSeptember 10, 2019\n\n\nRony Rodriguez-Ramirez\n\n\n\n\n\n\n\n\n\n\n\n\nErrores en las visualizaciones del Nuevo Diario\n\n\n\n\n\n\nNicaragua\n\n\nviz\n\n\nggplot\n\n\n\n\n\n\n\n\n\nJuly 26, 2019\n\n\nRony Rodriguez-Ramirez\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resource/index.html",
+    "href": "resource/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Here are some useful links that I believe are of tremendous help for research assistants:\n\nDevelopment Impact Evaluation Unit’s computational reproducibility: a repository with information about coding and research standards at DIME.\nietoolkit: Stata package for impact evaluation analysis\niefieldkit: Stata package for primary data collection\nStata Visual Library: Reproducible code for graphs and maps in an easy-to-browse format\nR Econ Visual Library: R code for data visualization in economics\nTidyverse style guide\nIntroduction to R for advanced Stata users\nRStudio Cheatsheets\nDevelopment research in practice\nStata-Latex tables"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Software and Data Projects",
+    "section": "",
+    "text": "I would like to share some datasets and repositories that I have created or cleaned that might be helpful for other researchers."
+  },
+  {
+    "objectID": "projects/index.html#packages",
+    "href": "projects/index.html#packages",
+    "title": "Software and Data Projects",
+    "section": "Packages",
+    "text": "Packages\n\nStata\n\ntvsc\nA Stata command that generates balance tables.\n\nGithub repo\n\n\n\n\nR\n\neleccionesNic\nAn R package that allows users to use several datasets containing information on the presidential elections in Nicaragua from 1990 to 2006.\n\nGithub repo"
+  },
+  {
+    "objectID": "projects/index.html#data-repositories",
+    "href": "projects/index.html#data-repositories",
+    "title": "Software and Data Projects",
+    "section": "Data repositories",
+    "text": "Data repositories\n\nNational Police of Nicaragua data repository\nWrote a code that scrape information from officials reports from the National Police of Nicaragua. The extracted data contains information for type of crime, complaints, and solved cases in Nicaragua from 1980 to 2019. First tidy dataset that is available to the public on crime in Nicaragua at the department level.\n\nGithub repo\n\n\n\nInstituto de Medicina Legal data repository\nWrote a code that scrape information from officials reports from the Institute of Legal Medicine. The extracted data contains information for typology of violence and total cases by medical circunscripción.\n\nGithub repo\n\n\n\nInstituto Nicaragüense de Seguridad Social data repository\nWrote a code that scrape information from officials reports from the Nicaraguan Institute of Social Security. The extracted data contains information for the total insured population by gender.\n\nGithub repo\n\n\n\nCoronavirus data repository for Nicaragua\nScraped information from the Observatorio Ciudadano de Nicaragua (Non-official information on the current state of COVID-19 in Nicaragua) that allows users to use the datasets and plot information at the national and department level.\n\nGithub repo\n\n\n\nNicaraguan rulers\nHand-coded information on all the rulers of Nicaragua. Currently, the data in this repository contains information from the year 1508 to 2020. First tidy dataset that is available to the public on Nicaraguan rulers,\n\nGithub repo\n\n\n\nNicaraguan population 18th and 19th Century\nHand-code information form archives on the Nicaraguan population in the 18th and 19th Century.\n\nGithub repo\n\n\n\nPolitical Prisoners (Apr 2018 - Apr 2019)\nThis dataset contains information about the political prisoners from the protest in Nicaragua since April 2018. The data comes from the “Comité Pro Liberación de Presas y Presos Políticos”. Version updated: April 1, 2019.\n\nR\nStata\nCSV\n\nPlease let me know if you find any error or face any confusion while using these datasets. At the end, if we can fix them we both gain something. Also, email me if you have to collab in making these or other datasets more helpful."
+  },
+  {
+    "objectID": "projects/index.html#extra-translated-documents",
+    "href": "projects/index.html#extra-translated-documents",
+    "title": "Software and Data Projects",
+    "section": "Extra: Translated documents",
+    "text": "Extra: Translated documents\n\nBest Practices for Data and Code Management\nTranslated to Spanish the document “Best Practices for Data and Code Management” by Innovations for Poverty Action (IPA).\n\nGithub repo"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Bio",
+    "section": "",
+    "text": "I am originally from Nicaragua (born and raised) where I attended the Universidad Centroamericana (UCA) for my bachelor studies, graduating with honors in applied economics in 2015.\nJust after finishing my bachelor degree, I moved to the Republic of Korea to study one year of Korean language and two years of a Master’s degree at KDI School of Public Policy and Management. At KDI School, I developed a major interest in development economics. I graduated summa cum laude in August 2018 and stayed in Korea for 1 year as an RA to Professor Booyuel Kim and Professor Hee-Seung Yang working on the long-term impact of the civil war in Nicaragua and on the evaluation of social programs also in Nicaragua.\nSimultaneously, I worked with Professor Nathaniel Lane of SoDa Labs @ Monash University and the University of Oxford, constructing a novel dataset on assassination events of environmental activists. Just after completing my RAship at KDI School, I moved to Mexico City, where I was an RA to Professor Mauricio Romero. I was working on the long-term impacts of outsourcing schools in Liberia. And just after finishing my RAship in Mexico, I moved to DC to work at the World Bank where I currently work as an RA to Berk Özler trialing approaches to increase the take-up of modern contraceptives among adolescent females and young women with an adaptive experiment in Cameroon.\nYou can find details about my current work in the research tab of this website.\nOn a personal note, I play Overwatch. Nonetheless, I am still low Diamond."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Rony Rodrigo MaximilianoRodriguez-Ramirez",
+    "section": "",
+    "text": "Welcome! I am a first second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at The World Bank, Development Research Group where I was evaluating an adaptive experiment in Cameroon, an RCT in Ukraine, and building programming packages for impact evaluations.\nOverall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the software tab of this website.\nPlease feel free to contact me at the links provided on this website."
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Fields of interest:\nDevelopment economics • Economics of Education • Impact evaluations • Violence and conflict"
+  },
+  {
+    "objectID": "research/index.html#publications",
+    "href": "research/index.html#publications",
+    "title": "Research",
+    "section": "Publications",
+    "text": "Publications\n\nBook\n\nWith Emiliana Vegas and Álvaro Hofflinger, “From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile,” in Harry Patrinos and Nuno Crato, eds., Learning Post Corona: What It Will Take to Finally Improve National Education Systems?, Springer: Washington, D.C. Forthcoming.\nWith Mario Sánchez and Douglas Castro, 2015, “Ciudadanía y violencia. Una aproximación a sus múltiples expresiones.” Managua: Centro de Análisis Socio Cultural. [PDF]\n\n\n\nPapers\n\nWith Booyuel Kim and Hee-Seung Yang, “Does the small business program benefit self-employed workers? Evidence from Nicaragua.” Journal of Development Effectiveness, January 2024, 1–20. [Digital Version]\nWith Hloreley Osorio, 2020, “Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo.” Anuario de Estudios Centroamericanos, 46, 1-42. [PDF]\nWith Mario Sánchez, Douglas Castro & Jorge Guerra, 2016, “Movimientos sociales y acción colectiva en Nicaragua: Entre la identidad, autonomía y subordinación.” Amnis, (15). [Digital Version]\nWith Carol Siero & Sebastián Hernández, 2015, “¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico? Una evidencia de datos panel para Nicaragua y Centroamérica.” Encuentro, 102, 52-74. [PDF]\n\n\n\nWorking Papers\n\nWith Booyuel Kim and Hee-Seung Yang, “In utero exposure to civil conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes.” [Draft/slides available upon request]\nWith Harry Patrinos, Renata Lemos, Lelys Dinarte, and James Gresham, “Investing in Human Capital during Wartime: Experimental Evidence from Ukraine.”\n\n\n\nReports\n\nThe World Bank. 2022. Improving the well-being of adolescent girls in developing countries.” Washington, D.C.: The World Bank"
+  },
+  {
+    "objectID": "research/index.html#selected-works-in-progress",
+    "href": "research/index.html#selected-works-in-progress",
+    "title": "Research",
+    "section": "Selected works in progress",
+    "text": "Selected works in progress\n\nWith Lelys Dinarte and Renata Lemos “Supporting Mental Health Through the Promotion of Psychosocial Support in Armenian Schools.”\nWith Jostin Kitmang “The Role of Selective Public Universities in Shaping Long-Term Outcome.”\nWith Berk Özler, Katy Bergstrom, and Luca Parisotto, “Shared decision-making: Does quality of care affect contraceptive use?”\n“Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua.”"
+  },
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Undergraduate\nSocial and Human Economy, Universidad Centroamericana, Nicaragua. (Teaching Materials, Evaluation)"
+  },
+  {
+    "objectID": "teaching/index.html#adjunct-lecturer",
+    "href": "teaching/index.html#adjunct-lecturer",
+    "title": "Teaching",
+    "section": "",
+    "text": "Undergraduate\nSocial and Human Economy, Universidad Centroamericana, Nicaragua. (Teaching Materials, Evaluation)"
+  },
+  {
+    "objectID": "teaching/index.html#teaching-assistant-teaching-felow",
+    "href": "teaching/index.html#teaching-assistant-teaching-felow",
+    "title": "Teaching",
+    "section": "Teaching Assistant (Teaching Felow)",
+    "text": "Teaching Assistant (Teaching Felow)\nI have served as a Teaching Assistant for the following courses:\nGraduate\nEducation Policy Analysis EPA 101, Prof. Emiliana Vegas, Harvard University\nAdvanced Quantitative Methods API 209 (Math Camp), Prof. Dan Ley, Harvard University (Teaching Materials)\nImpact Evaluations Methods, Prof. Booyuel Kim, KDI School, South Korea. (Teaching Materials)\nFoundations of Sustainable Development, Prof. Booyuel Kim, KDI School, South Korea.\nUndergraduate\nMacroeconomics, Econometrics, Monetary Economics, Development Economics, Universidad Centroamericana, Nicaragua.\nSummer School\nStata Workshop, Summer 2018, KDI School, South Korea."
+  },
+  {
+    "objectID": "teaching/index.html#instructor",
+    "href": "teaching/index.html#instructor",
+    "title": "Teaching",
+    "section": "Instructor",
+    "text": "Instructor\nProgramming courses\nR for advanced Stata users, The World Bank.\nStata avanzado para economistas, Lambda, Perú. (Teaching Materials)"
+  },
+  {
+    "objectID": "cv/index.html",
+    "href": "cv/index.html",
+    "title": "Curriculum vitæ",
+    "section": "",
+    "text": "Download current CV"
+  },
+  {
+    "objectID": "blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html",
+    "href": "blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html",
+    "title": "Presos y presas políticos en Nicaragua",
+    "section": "",
+    "text": "Desde mi cuenta en twitter, he compartido gráficos y analizado diversos datos sobre la crisis política en Nicaragua. Este post tiene dos objetivos: (1) presentar la información actual sobre el total de presas y presos políticos, y (2) compartir herramientas para la elaboración de gráficos."
+  },
+  {
+    "objectID": "blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html#los-datos",
+    "href": "blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html#los-datos",
+    "title": "Presos y presas políticos en Nicaragua",
+    "section": "Los datos",
+    "text": "Los datos\nLos datos que ocupo provienen del Comité Pro Liberación de Presas y Presos Políticos. Pueden encontrar las datos en la página web del comité, o pueden descargarlos acá. Los principales problemas de los datos del comité es que están en un archivo pdf, y no están “limpios.” Por limpio, me refiero a que no ha habido ninguna transformación de las variables para hacer análisis de datos. Sobre esto, tal vez en el futuro, me animo a realizar un pequeño post sobre limpieza de datos."
+  },
+  {
+    "objectID": "blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html#el-gráfico",
+    "href": "blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html#el-gráfico",
+    "title": "Presos y presas políticos en Nicaragua",
+    "section": "El gráfico",
+    "text": "El gráfico\nEl gráfico de la evolución total de presos y presas políticos es el siguiente:\n\n\n\nFig 1\n\n\nDe hecho, es un gráfico sencillo de replicar en R y necesitamos pocos paquetes para ello.\n\nCódigos\nLo primero que tenemos que hacer es cargar nuestras librerías. Necesitamos tres paquetes: ggplot, gganimate, dplyr, y extrafont.\n\n\nToggle the code\nlibrary(ggplot2)\nlibrary(gganimate)\nlibrary(dplyr)\nlibrary(extrafont)\n\n\nAhora, la parte interesante sería realizar el gráfico. Sin embargo, a como mencioné anteriormente, debemos limpiar un poco la base de datos.\nPrimero, ordenamos los datos a partir de la fecha usando arrange, luego vamos a crear un ID y lo utilizaremos para crear un acumulado por día de la siguiente forma:\n\n\nToggle the code\narrange_data &lt;- arrange(data, fecha)\narrange_data$id &lt;- 1\narrange_data$acumulado &lt;- cumsum(arrange_data$id)\n\n\nAhora utilizamos ggplot y gganimate para crear el gráfico.\n\n\nToggle the code\n# plot del total de presos y presas políticas\nanimate &lt;-  ggplot(\n  data = na.omit(arrange_data), \n  aes(\n    x = fecha,\n    y = acumulado\n    )\n  ) +\n  geom_point(alpha = 0.3, size = 5, colour = \"steelblue\") +\n  theme_classic() +\n  # labels and fonts\n  labs(title = \"Evolución total de presas y presos políticos en Nicaragua\",\n        subtitle = \"Abr 2018 - Abr 1, 2019: {frame_time}\",\n        y = \"Presas y presos políticos\",\n        x = \"\",\n        caption = \"Fuente: Comité Pro Liberación de Presas y Presos Políticos\\nExcluye 205 presas y presos políticos sin datos sobre fecha de captura\") +\n  theme(\n    text = element_text(size=14, family=\"Myriad Pro\"),\n    plot.caption = element_text(hjust = 0)\n  ) +\n  # transition options\n  transition_time(fecha) +\n  view_follow(fixed_y = TRUE) +\n  shadow_mark(size = 3, colour = 'grey', alpha = 0.3) +\n  ease_aes('linear')\n\n\nEste código se puede desagregar en tres cosas: (1) los datos y axis; (2) diseño, etiquetas, y letra; y (3) transiciones.\nLa primera parte del código son los datos. Tenemos que quitar todas las observaciones que no tienen datos, por lo cual utilizamos na.omit(). Y nuestras variables de referencia son: x = fecha y y= acumulado (i.e., la variable que creamos anteriorment). El tema que ocupo es el clásico, y con los siguientes valores de los puntos de datos geom_point(alpha = 0.3, size = 5, colour = \"steelblue\").\nLa parte de las etiquetas es un poco más sencillo, así que lo omitiré. Solo un punto a recordar es que utillizo Myriad Pro, y para poder “cargarla” en RStudio, necesitan el paquete extrafont.\nPor último, las opciones de transición. La variable fecha es nuestro tiempo de transición. Ésta variable nos da nuestra punto de partida y final. Para fijar el eje y utilicé view_follow(). Si no lo ocupo, tanto el eje x y eje y no serían fijos. Para darle seguimiento a los puntos, utilicé shadow_mark(); el cual me deja ajustar el tamaño del punto y color. La última opción es ease_aes(), la cual se ocupa para definir el cambio de un valor a otro durante la interporlación. En este caso utilicé la función lineal (i.e., linear).\nPara poder compilar nuestro gráfico tenemos que llamar el objeto animate que creamos anteriormente con el comando animate(), de la siguiente forma.\n\n\nToggle the code\nanimate(animate, height = 500, width = 600)\n\n\nEl primer argumento es nuestro objeto, y el segundo y tercero son la altura y ancho el gráfico respectivamente.\nPara guardar nuestro gráfico utilizamos anim_save, y recordamos escribir nuestra extensión. En este caso .gif.\n\n\nToggle the code\nanim_save(\"gif/preso_total_190401.gif\")\n\n\nY así es como creamos nuestro gráfico animado con gganimate en R.\n\n\n\nFinn"
+  },
+  {
+    "objectID": "blog/2019/2019-09-10-a-completely-useless-command-in-stata/index.html",
+    "href": "blog/2019/2019-09-10-a-completely-useless-command-in-stata/index.html",
+    "title": "A completely useless command in Stata",
+    "section": "",
+    "text": "While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing pikachu you will get the following:\n\nThis uses only the display command to make pikachu’s face. In order to install it: you can run the following command:\nnet install pikachu, from(\"https://raw.githubusercontent.com/rrmaximiliano/pikachu/main\") replace\nAnd that’s it. Now, you have pikachu reacting to your failures. Finally, in case you don’t know, the original meme is this one:\n\n\n\n\n\n\nReuseCC BY-SA 4.0CitationBibTeX citation:@online{rodriguez-ramirez2019,\n  author = {Rodriguez-Ramirez, Rony},\n  title = {A Completely Useless Command in {Stata}},\n  date = {2019-09-10},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nRodriguez-Ramirez, Rony. 2019. “A Completely Useless Command in\nStata.” September 10, 2019."
+  },
+  {
+    "objectID": "blog/2019/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/index.html",
+    "href": "blog/2019/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/index.html",
+    "title": "Errores en las visualizaciones del Nuevo Diario",
+    "section": "",
+    "text": "Un punto importante en el análisis de datos es la visualización. Dado que muchas veces resulta difícil conocer realmente lo que sucede sobre un evento x, es necesario recurrir a figuras que en la mayoría de las ocasiones describen y expresar mejor un mensaje en comparación a las palabras. Sin embargo, la visualización de datos no es algo sencillo y existen elementos sumamente necesarios para poder conllevar un mensaje claro.\nAyer, 24 de junio, se publicó un artículo en el Nuevo Diario con el objetivo de analizar los niveles del Producto Interno Bruto (PIB) per cápita en Nicaragua comparándolos con los demás países de Centroamérica. No obstante, el artículo presenta varios problemas los cuales se pueden solucionar."
+  },
+  {
+    "objectID": "blog/2019/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/index.html#graficar-con-r",
+    "href": "blog/2019/2019-07-26-errores-en-las-visualizaciones-del-nuevo-diario/index.html#graficar-con-r",
+    "title": "Errores en las visualizaciones del Nuevo Diario",
+    "section": "Graficar con R",
+    "text": "Graficar con R\nLa figura que presenté anteriormente sobre la comparación centroamericana se puede graficar muy fácilmente en R de la siguiente forma:\n\n\nToggle the code\nlibrary(WDI) \nlibrary(tidyverse)\nlibrary(hrbrthemes)\nlibrary(scales)\n\n#--get data\ndata &lt;- WDI(\n    indicator = \"NY.GDP.PCAP.KD\", \n    country = c(\"NI\", \"CR\", \"HN\", \"SV\", \"PA\", \"BZ\", \"GT\"), \n    start = 1990, end = 2018\n  ) %&gt;%  \n  rename(gdp = \"NY.GDP.PCAP.KD\")\n\n#--countries' position: 2018 \nposition = c(\"Nicaragua\", \"Honduras\", \"El Salvador\", \"Guatemala\", \"Belize\", \"Costa Rica\", \"Panama\")\n\n#--plot\ndata %&gt;%  \n  filter(year %in% c(1990, 2018)) %&gt;%  \n  ggplot(\n    aes(\n      x = country, \n      y = gdp, \n      fill = as.factor(year)\n    )\n  ) + \n  geom_bar(position = \"dodge\", stat = \"identity\") + \n  coord_flip() + \n  theme_ipsum_rc() + \n  theme(legend.title = element_blank()) + \n  scale_y_continuous(labels = dollar) + \n  scale_x_discrete(limits = position) + \n  labs(\n    y = \"GDP per capita\", \n    x = \"Countries\", \n    title = \"GDP per capita (constant 2011 US $)\",  \n    subtitle = \"Central American Countries\", \n    caption = \"Source: World Bank Development Indicators | @rrmaximilliano\"\n  ) \n\nggsave(\"figs/pib-ca-fixed.png\", dpi = 300, units = \"in\", device='png')"
+  }
+]

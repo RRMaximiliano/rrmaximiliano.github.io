@@ -1,0 +1,28 @@
+---
+title: "Resources"
+page-layout: full
+toc-location: right
+---
+
+
+Here are some useful links that I believe are of tremendous help for research assistants:
+
+* [Development Impact Evaluation Unit's computational reproducibility](https://github.com/worldbank/dime-standards): a repository with information about coding and research standards at DIME.
+
+* [ietoolkit](https://worldbank.github.io/ietoolkit/): Stata package for impact evaluation analysis
+
+* [iefieldkit](https://dimewiki.worldbank.org/wiki/Iefieldkit): Stata package for primary data collection
+
+* [Stata Visual Library](https://worldbank.github.io/stata-visual-library/): Reproducible code for graphs and maps in an easy-to-browse format
+
+* [R Econ Visual Library](https://worldbank.github.io/r-econ-visual-library/): R code for data visualization in economics
+
+* [Tidyverse style guide](https://style.tidyverse.org/)
+
+* [Introduction to R for advanced Stata users](https://github.com/worldbank/dime-r-training)
+
+* [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
+
+* [Development research in practice](https://worldbank.github.io/dime-data-handbook/)
+
+* [Stata-Latex tables](https://github.com/worldbank/stata-tables)

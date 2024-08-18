@@ -1,0 +1,39 @@
+# freeze computational output
+# (see https://quarto.org/docs/projects/code-execution.html#freeze)
+freeze: true
+
+# Enable banner style title blocks
+title-block-banner: true
+
+citation: true
+license: CC BY-SA
+
+open-graph: true
+twitter-card:
+    image-width: 600
+    image-height: 314
+    card-style: summary_large_image
+    creator: "@rrmaximiliano"
+    site: "@rrmaximiliano"
+
+# Default for table of contents
+toc: true
+toc-title: Contents
+toc-depth: 3
+toc-location: left
+
+code-fold: show
+code-summary: "Toggle the code"
+code-tools: true
+
+execute:
+  echo: true
+  message: true
+  warning: true
+
+highlight-style: github
+
+# Default author
+author:
+  - name: Rony Rodriguez-Ramirez
+    url: https://www.rrmaximiliano.github.io/

@@ -1,0 +1,17 @@
+---
+title: "Bio"
+page-layout: full
+---
+
+I am originally from Nicaragua (born and raised) where I attended the Universidad Centroamericana (UCA) for my bachelor studies, graduating with honors in applied economics in 2015. 
+
+Just after finishing my bachelor degree, I moved to the Republic of Korea to study one year of Korean language and two years of a Master's degree at KDI School of Public Policy and Management. At KDI School, I developed a major interest in development economics. I graduated summa cum laude in August 2018 and stayed in Korea for 1 year as an RA to [Professor Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Professor Hee-Seung Yang](https://sites.google.com/site/heeseungyang/) working on the long-term impact of the civil war in Nicaragua and on the evaluation of social programs also in Nicaragua. 
+
+Simultaneously, I worked with [Professor Nathaniel Lane](http://nathanlane.info/) of SoDa Labs @ Monash University and the University of Oxford, constructing a novel dataset on assassination events of environmental activists. Just after completing my RAship at KDI School, I moved to Mexico City, where I was an RA to Professor [Mauricio Romero](https://mauricio-romero.com/). I was working on the long-term impacts of outsourcing schools in Liberia. And just after finishing my RAship in Mexico, I moved to DC to work at the World Bank where I currently work as an RA to [Berk Özler](https://sites.google.com/site/decrgberkozler/home) trialing approaches to increase the take-up of modern contraceptives among adolescent females and young women with an adaptive experiment in Cameroon.
+
+You can find details about my current work in the [research](/research/) tab of this website.
+
+On a personal note, I play [Overwatch](https://overwatchleague.com/). Nonetheless, I am still low Diamond.
+
+![](https://media.giphy.com/media/2yqYbPakQKDFhNZbW9/source.gif)
+
