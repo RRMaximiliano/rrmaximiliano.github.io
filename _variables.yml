@@ -1,5 +1,8 @@
 author: Rony Rodriguez-Ramirez
 
+github-url: "https://github.com/RRMaximiliano/rrmaximiliano.github.io"
+orcid: 0000-0003-2640-484X
+
 instructor:
   name: Rony Rodriguez-Ramirez
   name_no_title: Rony Rodriguez-Ramirez
@@ -9,14 +12,6 @@ instructor:
   github: rrmaximiliano
   twitter: rrmaximiliano
   appointment_url: https://calendly.com/rrmaximiliano/
-
-attribution:
-  name: Dr. Andrew Heiss
-  name_no_title: Andrew Heiss
-  email: aheiss@gsu.edu
-  url: "https://www.andrewheiss.com/"
-  twitter: andrewheiss
-  github: andrewheiss
 
 university:
   name: Harvard University

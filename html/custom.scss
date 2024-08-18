@@ -41,8 +41,9 @@ $dark:          $gray-800 !default;
 $font-family-sans-serif:      IBM Plex Sans, sans-serif !default;
 $font-family-serif:           Barlow, serif !default;   /* Not actually a serif font but whatever */
 $font-family-monospace:       JetBrains Mono, !default;
+$headings-font-family:        Fira Sans Condensed, sans-serif !default;
 
-$font-size-base:              1.15rem !default;
+$font-size-base:              1rem !default;
 $headings-font-weight:        700 !default;
 
 $h1-font-size: $font-size-base * 2.45;
@@ -152,12 +153,12 @@ div.sidebar-item-container .active, div.sidebar-item-container .show > .nav-link
 
 // Temporarily hide the middle div since it has unmodifiable GitHub links as of Quarto 1.3.something: https://github.com/quarto-dev/quarto-cli/issues/5283
 .nav-footer-center {
-  display: none;
+  text-align: center;
 }
 
-.nav-footer-left {
-  flex-grow: 3;
-}
+// .nav-footer-left {
+//   flex-grow: 3;
+// }
 
 // Schedule stuff
 .content-title {

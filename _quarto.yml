@@ -15,19 +15,21 @@ website:
   google-analytics: "UA-134175775-1"
   page-navigation: true
   navbar:
-    background: "#A51C30"
+    background: "#FFFF"
     pinned: true
 
     left:
-      - text: "Home"
+      - text: "🏠 Rony Rodríguez-Ramírez"
         file: index.qmd
+    
+    right:
       - text: "Bio"
         file: about.qmd 
       - text: "Research"
         file: research/index.qmd
       - text: "Teaching"
         file: teaching/index.qmd
-      - text: "Software"
+      - text: "Software and Data"
         file: projects/index.qmd
       - text: "CV"
         file: cv/index.qmd
@@ -36,11 +38,25 @@ website:
       - text: "Resources"
         file: resource/index.qmd
 
+  page-footer:
+    border: true  
+    left: >-
+      &#169; 2024 Rony Rodríguez-Ramírez &#183; Made with [Quarto](https://quarto.org)
+    center: |
+      <a class="link me-1" href="https://github.com/rrmaximiliano" title="github" target="_blank" rel="noopener">{{< fa brands github >}}</a>
+      <a class="link me-1" href="https://orcid.org/0000-0003-2640-484X" title="orcid" target="_blank" rel="noopener">{{< ai orcid >}}</a>
+      <a class="link me-1" href="https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en" title="Google Scholar" target="_blank"rel="noopener">{{< ai google-scholar >}}</a>
+    right: >-
+      [Contact Me](/contact.qmd) | [View the source at {{< fa brands github >}} GitHub]({{< var github-url >}})
+
 format:
   html:
     theme:
-      - yeti
-      - html/custom.scss
+      light:
+        - yeti
+        - html/custom.scss
+      dark:
+        - html/custom-dark.scss
     toc: true
 
 

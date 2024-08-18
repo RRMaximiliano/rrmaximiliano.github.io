@@ -1,6 +1,6 @@
 ---
 pagetitle: "Rony Rodriguez-Ramirez | Home"
-title: "Rony Rodrigo Maximiliano<br>Rodriguez-Ramirez"
+title: "Rony Rodrigo Maximiliano<br>Rodríguez-Ramírez"
 subtitle: "<center>Harvard University</center>"
 image: /files/img/rony.jpg
 toc: false
@@ -32,13 +32,12 @@ about:
       href: https://www.twitch.tv/rrmaximiliano
 ---
 
-
 ::: {#hero-heading}
 :::
+
 
 Welcome! I am a ~~first~~ second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at [The World Bank, Development Research Group](https://www.worldbank.org/en/research/) where I was evaluating an [adaptive experiment in Cameroon](https://www.socialscienceregistry.org/trials/3514), an [RCT in Ukraine](https://www.socialscienceregistry.org/trials/10634), and building programming packages for impact evaluations.
 
 Overall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the [software](/projects/) tab of this website.
 
 Please feel free to contact me at the links provided on this website.
-
