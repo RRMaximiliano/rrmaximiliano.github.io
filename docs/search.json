@@ -67,21 +67,21 @@
     "href": "projects/index.html#packages",
     "title": "Software and Data Projects",
     "section": "Packages",
-    "text": "Packages\n\nStata\n\ntvsc\nA Stata command that generates balance tables.\nRepo: \n\n\n\nR\n\neleccionesNic\nAn R package that allows users to use several datasets containing information on the presidential elections in Nicaragua from 1990 to 2006.\nRepo:"
+    "text": "Packages\n\nStata\n\ntvsc\nA Stata command that generates balance tables.\nRepo \n\n\n\nR\n\neleccionesNic\nAn R package that allows users to use several datasets containing information on the presidential elections in Nicaragua from 1990 to 2006.\nRepo"
   },
   {
     "objectID": "projects/index.html#data-repositories",
     "href": "projects/index.html#data-repositories",
     "title": "Software and Data Projects",
     "section": "Data repositories",
-    "text": "Data repositories\n\nNational Police of Nicaragua data repository\nWrote a code that scrape information from officials reports from the National Police of Nicaragua. The extracted data contains information for type of crime, complaints, and solved cases in Nicaragua from 1980 to 2019. First tidy dataset that is available to the public on crime in Nicaragua at the department level.\nRepo: \n\n\nInstituto de Medicina Legal data repository\nWrote a code that scrape information from officials reports from the Institute of Legal Medicine. The extracted data contains information for typology of violence and total cases by medical circunscripción.\nRepo: \n\n\nInstituto Nicaragüense de Seguridad Social data repository\nWrote a code that scrape information from officials reports from the Nicaraguan Institute of Social Security. The extracted data contains information for the total insured population by gender.\nRepo: \n\n\nCoronavirus data repository for Nicaragua\nScraped information from the Observatorio Ciudadano de Nicaragua (Non-official information on the current state of COVID-19 in Nicaragua) that allows users to use the datasets and plot information at the national and department level.\nRepo: \n\n\nNicaraguan rulers\nHand-coded information on all the rulers of Nicaragua. Currently, the data in this repository contains information from the year 1508 to 2020. First tidy dataset that is available to the public on Nicaraguan rulers,\nRepo: \n\n\nNicaraguan population 18th and 19th Century\nHand-code information form archives on the Nicaraguan population in the 18th and 19th Century.\nRepo: \n\n\nPolitical Prisoners (Apr 2018 - Apr 2019)\nThis dataset contains information about the political prisoners from the protest in Nicaragua since April 2018. The data comes from the Repo: “Comité Pro Liberación de Presas y Presos Políticos”. Version updated: April 1, 2019.\n\nR\nStata\nCSV\n\nPlease let me know if you find any error or face any confusion while using these datasets. At the end, if we can fix them we both gain something. Also, email me if you have to collab in making these or other datasets more helpful."
+    "text": "Data repositories\n\nNational Police of Nicaragua data repository\nWrote a code that scrape information from officials reports from the National Police of Nicaragua. The extracted data contains information for type of crime, complaints, and solved cases in Nicaragua from 1980 to 2019. First tidy dataset that is available to the public on crime in Nicaragua at the department level.\nRepo \n\n\nInstituto de Medicina Legal data repository\nWrote a code that scrape information from officials reports from the Institute of Legal Medicine. The extracted data contains information for typology of violence and total cases by medical circunscripción.\nRepo \n\n\nInstituto Nicaragüense de Seguridad Social data repository\nWrote a code that scrape information from officials reports from the Nicaraguan Institute of Social Security. The extracted data contains information for the total insured population by gender.\nRepo \n\n\nCoronavirus data repository for Nicaragua\nScraped information from the Observatorio Ciudadano de Nicaragua (Non-official information on the current state of COVID-19 in Nicaragua) that allows users to use the datasets and plot information at the national and department level.\nRepo \n\n\nNicaraguan rulers\nHand-coded information on all the rulers of Nicaragua. Currently, the data in this repository contains information from the year 1508 to 2020. First tidy dataset that is available to the public on Nicaraguan rulers,\nRepo \n\n\nNicaraguan population 18th and 19th Century\nHand-code information form archives on the Nicaraguan population in the 18th and 19th Century.\nRepo \n\n\nPolitical Prisoners (Apr 2018 - Apr 2019)\nThis dataset contains information about the political prisoners from the protest in Nicaragua since April 2018. The data comes from the Repo “Comité Pro Liberación de Presas y Presos Políticos”. Version updated: April 1, 2019.\nR  Stata  CSV \nPlease let me know if you find any error or face any confusion while using these datasets. At the end, if we can fix them we both gain something. Also, email me if you have to collab in making these or other datasets more helpful."
   },
   {
     "objectID": "projects/index.html#extra-translated-documents",
     "href": "projects/index.html#extra-translated-documents",
     "title": "Software and Data Projects",
     "section": "Extra: Translated documents",
-    "text": "Extra: Translated documents\n\nBest Practices for Data and Code Management\nTranslated to Spanish the document “Best Practices for Data and Code Management” by Innovations for Poverty Action (IPA).\nRepo:"
+    "text": "Extra: Translated documents\n\nBest Practices for Data and Code Management\nTranslated to Spanish the document “Best Practices for Data and Code Management” by Innovations for Poverty Action (IPA).\nRepo"
   },
   {
     "objectID": "about.html",
@@ -95,7 +95,7 @@
     "href": "index.html",
     "title": "Rony Rodrigo MaximilianoRodríguez-Ramírez",
     "section": "",
-    "text": "Welcome! I am a first second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at The World Bank, Development Research Group where I was evaluating an adaptive experiment in Cameroon, an RCT in Ukraine, and building programming packages for impact evaluations.\nOverall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the software tab of this website.\nPlease feel free to contact me at the links provided on this website."
+    "text": "Email\n  \n  \n      GScholar\n  \n  \n      Bluesky\n  \n  \n      Twitter\n  \n  \n      Threads\n  \n  \n      Github\n  \n  \n      Twitch\n  \n\n\n\n\nWelcome! I am a first second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at The World Bank, Development Research Group where I was evaluating an adaptive experiment in Cameroon, an RCT in Ukraine, and building programming packages for impact evaluations.\nOverall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the software tab of this website.\nPlease feel free to contact me at the links provided on this website."
   },
   {
     "objectID": "research/index.html",
@@ -123,28 +123,28 @@
     "href": "teaching/index.html",
     "title": "Teaching",
     "section": "",
-    "text": "Undergraduate\nSocial and Human Economy, Universidad Centroamericana, Nicaragua. (Teaching Materials, Evaluation)"
+    "text": "Undergraduate\n\nSocial and Human Economy, Universidad Centroamericana, Nicaragua.\n\nTeaching Materials Evaluation"
   },
   {
     "objectID": "teaching/index.html#adjunct-lecturer",
     "href": "teaching/index.html#adjunct-lecturer",
     "title": "Teaching",
     "section": "",
-    "text": "Undergraduate\nSocial and Human Economy, Universidad Centroamericana, Nicaragua. (Teaching Materials, Evaluation)"
+    "text": "Undergraduate\n\nSocial and Human Economy, Universidad Centroamericana, Nicaragua.\n\nTeaching Materials Evaluation"
   },
   {
     "objectID": "teaching/index.html#teaching-assistant-teaching-felow",
     "href": "teaching/index.html#teaching-assistant-teaching-felow",
     "title": "Teaching",
     "section": "Teaching Assistant (Teaching Felow)",
-    "text": "Teaching Assistant (Teaching Felow)\nI have served as a Teaching Assistant for the following courses:\nGraduate\nEducation Policy Analysis EPA 101, Prof. Emiliana Vegas, Harvard University\nAdvanced Quantitative Methods API 209 (Math Camp), Prof. Dan Ley, Harvard University (Teaching Materials)\nImpact Evaluations Methods, Prof. Booyuel Kim, KDI School, South Korea. (Teaching Materials)\nFoundations of Sustainable Development, Prof. Booyuel Kim, KDI School, South Korea.\nUndergraduate\nMacroeconomics, Econometrics, Monetary Economics, Development Economics, Universidad Centroamericana, Nicaragua.\nSummer School\nStata Workshop, Summer 2018, KDI School, South Korea."
+    "text": "Teaching Assistant (Teaching Felow)\nI have served as a Teaching Assistant for the following courses:\n\nGraduate\nHarvard University\n\nEducation Policy Analysis EPA 101, Prof. Emiliana Vegas\nAdvanced Quantitative Methods API 209 (Math Camp), Prof. Dan Ley\n\nTeaching Materials\nKDI School of Public Policy and Management\n\nImpact Evaluations Methods, Prof. Booyuel Kim\n\nTeaching Materials\n\nFoundations of Sustainable Development, Prof. Booyuel Kim\n\n\n\nUndergraduate\n\nMacroeconomics, Econometrics, Monetary Economics, Development Economics, Universidad Centroamericana, Nicaragua.\n\nSummer School\n\nStata Workshop, Summer 2018, KDI School, South Korea."
   },
   {
     "objectID": "teaching/index.html#instructor",
     "href": "teaching/index.html#instructor",
     "title": "Teaching",
     "section": "Instructor",
-    "text": "Instructor\nProgramming courses\nR for advanced Stata users, The World Bank.\nStata avanzado para economistas, Lambda, Perú. (Teaching Materials)"
+    "text": "Instructor\n\nProgramming courses\n\nMetrics using Stata, Econ Thaki.\n\nTeaching Materials\n\nR for advanced Stata users, The World Bank.\n\nTeaching Materials\n\nStata avanzado para economistas, Lambda, Perú.\n\nTeaching Materials"
   },
   {
     "objectID": "cv/index.html",

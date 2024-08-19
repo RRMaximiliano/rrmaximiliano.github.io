@@ -8,34 +8,51 @@ toc-location: right
 
 **Undergraduate**
 
-*Social and Human Economy*, Universidad Centroamericana, Nicaragua. ([Teaching Materials](https://github.com/econsoc-uca), [Evaluation](/docs/evaluation-esh.pdf))
+- *Social and Human Economy*, Universidad Centroamericana, Nicaragua. 
+
+[Teaching Materials](https://github.com/econsoc-uca){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"} [Evaluation](/docs/evaluation-esh.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
 
 ## Teaching Assistant (Teaching Felow)
 
 I have served as a Teaching Assistant for the following courses:
 
-**Graduate**
+### Graduate
 
-*Education Policy Analysis EPA 101*, [Prof. Emiliana Vegas](https://www.emilianavegas.com), Harvard University
+**Harvard University**
 
-*Advanced Quantitative Methods API 209 (Math Camp)*, [Prof. Dan Ley](https://scholar.harvard.edu/danlevy/home), Harvard University ([Teaching Materials](https://harvard-api209.github.io/api209-math-camp/))
+- *Education Policy Analysis EPA 101*, [Prof. Emiliana Vegas](https://www.emilianavegas.com)
+- *Advanced Quantitative Methods API 209 (Math Camp)*, [Prof. Dan Ley](https://scholar.harvard.edu/danlevy/home) 
 
-*Impact Evaluations Methods*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home), KDI School, South Korea. ([Teaching Materials](http://bit.ly/kdi_impact_evaluation))
+[Teaching Materials](https://harvard-api209.github.io/api209-math-camp/){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
 
-*Foundations of Sustainable Development*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home), KDI School, South Korea.
+**KDI School of Public Policy and Management**
 
-**Undergraduate**
+- *Impact Evaluations Methods*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home) 
 
-*Macroeconomics, Econometrics, Monetary Economics, Development Economics*, Universidad Centroamericana, Nicaragua.
+[Teaching Materials](http://bit.ly/kdi_impact_evaluation){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
+
+- *Foundations of Sustainable Development*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)
+
+### Undergraduate
+
+- *Macroeconomics, Econometrics, Monetary Economics, Development Economics*, Universidad Centroamericana, Nicaragua.
 
 **Summer School**
 
-*Stata Workshop*, Summer 2018, KDI School, South Korea.
+- *Stata Workshop*, Summer 2018, KDI School, South Korea.
 
 ## Instructor
 
-**Programming courses**
+### Programming courses
 
-*R for advanced Stata users*, The World Bank.
+- *Metrics using Stata*, Econ Thaki. 
 
-*Stata avanzado para economistas*, Lambda, Perú. ([Teaching Materials](https://github.com/lambda-stata/course-materials))
+[Teaching Materials](https://github.com/RRMaximiliano/econ-thaki-talleres){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
+
+- *R for advanced Stata users*, The World Bank. 
+
+[Teaching Materials](https://github.com/worldbank/dime-r-training){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
+
+- *Stata avanzado para economistas*, Lambda, Perú. 
+
+[Teaching Materials](https://github.com/lambda-stata/course-materials){.btn .btn-outline-primary}
