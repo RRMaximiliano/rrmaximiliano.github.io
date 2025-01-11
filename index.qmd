@@ -24,8 +24,6 @@ about:
       href: "https://bsky.app/profile/rrmaximiliano.bsky.social"
     - text: "{{< iconify bi twitter size=1.1em >}} Twitter"
       href: https://twitter.com/rrmaximiliano
-    - text: "{{< iconify bi threads size=1.1em >}} Threads"
-      href: https://www.threads.net/%40andrewheiss
     - text: "{{< iconify bi github size=1.1em >}} Github"
       href: https://github.com/rrmaximiliano
     - text: "{{< iconify bi ant-design:twitch-outlined size=1.1em >}} Twitch"
