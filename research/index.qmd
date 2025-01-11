@@ -13,7 +13,7 @@ Development economics • Economics of Education • Impact evaluations • Viol
 
 ### Books 
 
-- With [Emiliana Vegas](https://www.emilianavegas.com/) and [Álvaro Hofflinger](https://alvarohofflinger.com/), "From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile," in Harry Patrinos and Nuno Crato, eds., Improving National Education Systems After COVID-19, Springer: Washington, D.C., 2024. [[Ungated PDF]](files/pdfs/vegas_et_al_2024_chile.pdf)
+- With [Emiliana Vegas](https://www.emilianavegas.com/) and [Álvaro Hofflinger](https://alvarohofflinger.com/), "From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile," in Harry Patrinos and Nuno Crato, eds., Improving National Education Systems After COVID-19, Springer: Washington, D.C., 2024. [[Ungated PDF]](research/files/pdfs/vegas_et_al_2024_chile.pdf)
 
 - With Mario Sánchez and Douglas Castro, 2015, "Ciudadanía y violencia. Una aproximación a sus múltiples expresiones." Managua: Centro de Análisis Socio Cultural. [[PDF]](http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf)
 
