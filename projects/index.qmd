@@ -10,17 +10,13 @@ I would like to share some datasets and repositories that I have created or clea
 
 ### Stata
 
-#### `tvsc`
-
-A Stata command that generates balance tables. 
+`tvsc`: Stata command that generates balance tables. 
 
 [Repo {{< fa brands github >}}](https://github.com/RRMaximiliano/tvsc/){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"}
 
 ### R
 
-#### `eleccionesNic`
-
-An R package that allows users to use several datasets containing information on the presidential elections in Nicaragua from 1990 to 2006. 
+`eleccionesNic`: R package that allows users to use several datasets containing information on the presidential elections in Nicaragua from 1990 to 2006. 
 
 [Repo {{< fa brands github >}}](https://github.com/RRMaximiliano/eleccionesNic){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"}
 

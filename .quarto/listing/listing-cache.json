@@ -1,6 +1,6 @@
 {
   "listingMap": {
-    "blog\\index.qmd": [
+    "blog/index.qmd": [
       "2021/**/index.qmd",
       "2019/**/index.qmd"
     ]
