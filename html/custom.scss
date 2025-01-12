@@ -214,9 +214,13 @@ div.sidebar-item-container .active, div.sidebar-item-container .show > .nav-link
   background-color: $crimson;
 }
 
-// Slightly larger buttons
+// Slightly larger buttons with adjusted padding and line height
 p a.btn, .buttons span.btn {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: $font-family-sans-serif;  
+  padding: 0.2rem 0.4rem; /* Adjust padding for a tighter fit */
+  line-height: 1; /* Align height with non-button text */
 }
 
 .buttons .btn {
