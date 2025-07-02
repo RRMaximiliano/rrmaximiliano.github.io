@@ -58,9 +58,55 @@ a:hover, a:focus {
 .cv-label { text-transform: uppercase; margin-bottom: .25rem; }
 .cv-date  { color: #000; }
 
-/* Lists inside lists spacing … (unchanged) */
+/* Ensure about-links are always laid out horizontally */
+.about-links {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  white-space: nowrap !important;
+  gap: 0.75em !important;
+  padding: 0.5em 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
 
-/* Callouts … (unchanged) */
+.about-links .about-link {
+  flex: 0 0 auto !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.about-links iconify-icon,
+.about-links i {
+  color: #A51C30 !important;
+  font-size: 1.4em !important;
+}
+
+.about-links .about-link:hover iconify-icon,
+.about-links .about-link:hover i {
+  color: darken(#A51C30, 10%) !important;
+}
+
+@media (max-width: 768px) {
+  .about-links {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.quarto-title .subtitle.lead {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+  color: #6c757d;
+}
 
 /* ─────────────────────  Code styling  ───────────────────── */
 code,

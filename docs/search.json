@@ -116,7 +116,7 @@
     "href": "blog/2019/2019-09-10-a-completely-useless-command-in-stata/index.html",
     "title": "A completely useless command in Stata",
     "section": "",
-    "text": "While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing pikachu you will get the following:\n\nThis uses only the display command to make pikachu’s face. In order to install it: you can run the following command:\nnet install pikachu, from(\"https://raw.githubusercontent.com/rrmaximiliano/pikachu/main\") replace\nAnd that’s it. Now, you have pikachu reacting to your failures. Finally, in case you don’t know, the original meme is this one:\n\n\n\n\n\n\nReuseCC BY-SA 4.0CitationBibTeX citation:@online{rodriguez-ramirez2019,\n  author = {Rodriguez-Ramirez, Rony},\n  title = {A Completely Useless Command in {Stata}},\n  date = {2019-09-10},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nRodriguez-Ramirez, R. (2019, September 10). A completely useless\ncommand in Stata."
+    "text": "While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing pikachu you will get the following:\n\nThis uses only the display command to make pikachu’s face. In order to install it: you can run the following command:\nnet install pikachu, from(\"https://raw.githubusercontent.com/rrmaximiliano/pikachu/main\") replace\nAnd that’s it. Now, you have pikachu reacting to your failures. Finally, in case you don’t know, the original meme is this one:\n\n\n\n\n\n\nReuseCC BY-SA 4.0CitationBibTeX citation:@online{rodriguez-ramirez2019,\n  author = {Rodriguez-Ramirez, Rony},\n  title = {A Completely Useless Command in {Stata}},\n  date = {2019-09-10},\n  url = {https://www.rrmaximiliano.github.io/blog/2019/2019-09-10-a-completely-useless-command-in-stata/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nRodriguez-Ramirez, R. (2019, September 10). A completely useless\ncommand in Stata. https://www.rrmaximiliano.github.io/blog/2019/2019-09-10-a-completely-useless-command-in-stata/"
   },
   {
     "objectID": "about.html",
@@ -236,20 +236,6 @@
     "title": "",
     "section": "R Tools and Visualization",
     "text": "R Tools and Visualization\n\nR Econ Visual Library\nDescription: Templates for publication-ready data visualizations in R, especially for applied economics.\nLink: Library\n\n\nIntroduction to R for Advanced Stata Users\nSource: World Bank\nDescription: Designed for practitioners shifting from Stata to R for applied research.\nLink: Repo\n\n\nTidyverse Style Guide\nDescription: Standards for writing clean and consistent R code in the tidyverse ecosystem.\nLink: style.tidyverse.org\n\n\nRStudio Cheatsheets\nDescription: Quick-reference sheets for popular R packages, including ggplot2, dplyr, and rmarkdown.\nLink: Cheatsheets"
-  },
-  {
-    "objectID": "resource/index.html#additional-reference",
-    "href": "resource/index.html#additional-reference",
-    "title": "",
-    "section": "Additional Reference",
-    "text": "Additional Reference\n\nRStudio Cheatsheets\nDescription: Downloadable quick-reference sheets for commonly used R packages, including ggplot2, dplyr, and rmarkdown.\nLink: RStudio Cheatsheets"
-  },
-  {
-    "objectID": "resource/index.html#stata-programming",
-    "href": "resource/index.html#stata-programming",
-    "title": "",
-    "section": "Stata Programming",
-    "text": "Stata Programming\n\nStata Programming Tutorials by Germán Rodríguez\nDescription: Excellent applied tutorials for advanced Stata users, from loops to simulations.\nLink: Tutorials"
   },
   {
     "objectID": "resource/index.html#graduate-school-resources-for-latin-american-students",
