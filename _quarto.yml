@@ -12,19 +12,18 @@ project:
     - "*.qmd"
 
 website:
+  search: false
   google-analytics: "UA-134175775-1"
   page-navigation: true
+  site-url: "https://www.rrmaximiliano.github.io/"
+  repo-url: "https://github.com/RRMaximiliano/rrmaximiliano.github.io"
   navbar:
     background: "#FFFF"
     pinned: true
 
     left:
-      - text: "🏠 Rony Rodríguez-Ramírez"
+      - text: "Rony Rodríguez-Ramírez"
         file: index.qmd
-    
-    right:
-      - text: "Bio"
-        file: about.qmd 
       - text: "Research"
         file: research/index.qmd
       - text: "Teaching"
@@ -38,25 +37,41 @@ website:
       - text: "Resources"
         file: resource/index.qmd
 
+    right:
+      - text: "{{< iconify bi envelope size=1.1em >}}"
+        href: "mailto:rrodriguezramirez@g.harvard.edu"
+      - text: "{{< iconify bi academicons:google-scholar size=1.1em >}}"
+        href: https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en
+      - text: "{{< iconify ph butterfly-bold size=1.1em >}}"
+        href: "https://bsky.app/profile/rrmaximiliano.bsky.social"
+      - text: "{{< iconify bi twitter size=1.1em >}}"
+        href: https://twitter.com/rrmaximiliano
+      - text: "{{< iconify bi github size=1.1em >}}"
+        href: https://github.com/rrmaximiliano
+      - text: "{{< iconify bi ant-design:twitch-outlined size=1.1em >}}"
+        href: https://www.twitch.tv/rrmaximiliano
+    
   page-footer:
     border: true  
     left: >-
-      &#169; 2024 Rony Rodríguez-Ramírez &#183; Made with [Quarto](https://quarto.org)
+      &#169; <span id="copy-year"></span> Rony Rodríguez-Ramírez
+      <script>
+        document.addEventListener('DOMContentLoaded', () =>
+          document.getElementById('copy-year').textContent = new Date().getFullYear()
+        );
+      </script>
     center: |
       <a class="link me-1" href="https://github.com/rrmaximiliano" title="github" target="_blank" rel="noopener">{{< fa brands github >}}</a>
       <a class="link me-1" href="https://orcid.org/0000-0003-2640-484X" title="orcid" target="_blank" rel="noopener">{{< ai orcid >}}</a>
       <a class="link me-1" href="https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en" title="Google Scholar" target="_blank"rel="noopener">{{< ai google-scholar >}}</a>
     right: >-
-      [Contact Me](/contact.qmd) | [View the source at {{< fa brands github >}} GitHub]({{< var github-url >}})
+      [Contact Me](/contact.qmd) | [View the source on {{< fa brands github >}} GitHub]({{< var github-url >}})
 
 format:
   html:
     theme:
-      light:
-        - yeti
-        - html/custom.scss
-      dark:
-        - html/custom-dark.scss
+      light: 
+      - html/custom.scss
     toc: true
 
 

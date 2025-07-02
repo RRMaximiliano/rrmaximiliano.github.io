@@ -1,97 +1,141 @@
 ---
-title: "Research"
-page-layout: full
 toc-location: right
 ---
 
-**Fields of interest:** 
+## Published Work
 
-Development economics • Economics of Education • Impact evaluations • Violence and conflict
+### Book Chapters
 
-## Publications
+::: {.publication}
+**From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile**  
+(with [Emiliana Vegas](https://www.emilianavegas.com/) and [Álvaro Hofflinger](https://alvarohofflinger.com/))  
+[Ungated PDF](../files/pdfs/vegas_et_al_2024_chile.pdf) | [Publisher](https://link.springer.com/chapter/10.1007/978-3-031-69284-0_2)
 
-#### Book Chapters
-- With [Emiliana Vegas](https://www.emilianavegas.com/) and [Álvaro Hofflinger](https://alvarohofflinger.com/), "From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile," in Harry Patrinos and Nuno Crato, eds., Improving National Education Systems After COVID-19, Springer: Washington, D.C., 2024. 
+<details>
+<summary>Abstract</summary>
+This chapter analyzes the effects of school closures in Chile, the nation with the longest period of school closures among OECD countries. Using data from PISA (national level) and SIMCE (student level) in 2022, we examine the association between school closures and students’ GPA, attendance rates, and math and reading scores. Our findings show that, on average, students’ attendance rates and math and reading scores experienced a decline, while their annual GPA increased after 2020. The results also show that school closures affect students differently depending on their demographic and socioeconomic backgrounds.
+</details>
+:::
 
-[Ungated PDF](../files/pdfs/vegas_et_al_2024_chile.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="PDF"}
+### Papers
 
-#### Papers
-- With [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/), "Does the small business program benefit self-employed workers? Evidence from Nicaragua." *__Journal of Development Effectiveness__*, January 2024, 1–20. 
+::: {.publication}
+**Does the small business program benefit self-employed workers? Evidence from Nicaragua**  
+(with [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/))  
+*Journal of Development Effectiveness*, Jan 2024, 1–20.  
+[Publisher](https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138)
 
-[Digital Version](https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138#:~:text=Using%20data%20from%20three%20rounds,%2Demployed%20workers'%20earnings%20overall.){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="PDF"}
+<details>
+<summary>Abstract</summary>
+Business and skills training programmes have been a popular social policy intervention to increase productivity of the self-employed in developing countries. We study the Small Business of the Family Economy programme, a government business training programme designed to assist Nicaraguan self-employed workers. Using data from three rounds of the Nicaragua Living Standards Measurement Survey, we employ a difference-in-differences strategy to exploit variation in eligibility for the programme across time and economic activity. Our estimates indicate that the programme does not increase self-employed workers’ earnings overall. However, we find heterogeneous treatment effects for female self-employed workers with low educational attainment, which could be explained by increased working months and having a second job.
+</details>
+:::
 
-#### Working Papers
-- With [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/), "In utero exposure to civil conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes." [Draft/slides available upon request]
-- With [Harry Patrinos](https://hpatrinos.com/), [Renata Lemos](https://renatalemos.com/), [Lelys Dinarte](https://sites.google.com/view/lelys-dinarte/home), and James Gresham, "Investing in Human Capital during Wartime: Experimental Evidence from Ukraine."
+## Working Papers
 
----
+::: {.publication}
+**Investing in Human Capital during Wartime: Experimental Evidence from Ukraine**  
+(with [Harry Patrinos](https://hpatrinos.com/), [Renata Lemos](https://renatalemos.com/), [Lelys Dinarte](https://sites.google.com/view/lelys-dinarte/home), and James Gresham)
 
-### Pre-Doctoral Studies (before 2023)
+<details>
+<summary>Abstract</summary>
+This paper provides insights into human capital investments during wartime by presenting evidence from three experiments of an online tutoring program for Ukrainian students amid Russia’s invasion of Ukraine. The program provides three hours of weekly math and Ukrainian language tutoring in small groups over six weeks, and uses academic and psychosocial tools to address student challenges at different intensities of disruption. Results from all three experiments show significant improvements in math and Ukrainian language scores by as much as 0.49 SD and 0.40 SD and a reduction in stress levels by up to 0.12 SD. The program improves peer support, fosters positive learning attitudes, and helps students develop social-emotional skills, contributing to improved learning and mental health. The benefit-cost ratios show that benefits exceed costs in each experiment.
+</details>
+:::
 
-#### Books
-- With Mario Sánchez and Douglas Castro, 2015, "Ciudadanía y violencia. Una aproximación a sus múltiples expresiones." Managua: Centro de Análisis Socio Cultural.
+::: {.publication}
+**Shared decision-making: Does quality of care affect contraceptive use?**  
+(with [Berk Özler](https://sites.google.com/site/decrgberkozler/home) and [Luca Parisotto](https://sites.google.com/view/lucaparisotto/home))
 
-[PDF](http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="PDF"}
+<details>
+<summary>Abstract</summary>
+Whether higher quality of care in contraceptive counselling improves client outcomes is an important question that does not find a clear answer in the extant literature. Using a trial that tested various approaches to increase the uptake of modern contraceptives among the clients of an urban hospital in Cameroon as its background, this study examines the association between a quality of care index for contraceptive counselling and the probability of using a modern method approximately four months later. We find that high quality contraceptive counselling is associated with higher levels of contraceptive use at follow-up and greater client satisfaction. While previous studies have primarily focused on continuation rates among contraceptive users, this study shows that high quality of care can be also instrumental by potentially increasing take-up rates among all clients. The study also shows that a quality of care measure that was validated in rural India can be easily and reliably used to assess process quality in urban Cameroon.
+</details>
+:::
 
-#### Papers
-- With Hloreley Osorio, 2020, "Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo." *__Anuario de Estudios Centroamericanos__*, 46, 1-42. 
+::: {.publication}
+**In utero exposure to civil conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes**  
+(with [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/))
 
-[PDF](https://revistas.ucr.ac.cr/index.php/anuario/article/view/45081){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"}
+<details>
+<summary>Abstract</summary>
+We examine the Nicaraguan Civil conflict in the seventies that ended up with the overthrown of the Somoza dictatorship and the start of the Sandinista Revolution. Nicaragua between 1977 and 1979 experienced high rates of war confrontation. After the announcement of the Sandinista National Liberation Front (FSLN, by its acronym in Spanish) in November of 1977, the country had undergone a civil war which ended up with a range of 30,000-50,000 casualties. The escalated confrontation allows us to examine the long-term effects of the war-related conflict on the subsequent generation’s socioeconomic outcomes. In particular, this paper aims to identify whether in-utero exposure to the civil conflict in Nicaragua has a negative impact on individual’s education, labor and marriage market outcomes. We exploit the variation in timing of and geographical exposure to the civil conflict during the last year of the dictatorship. We use data from the Nicaraguan National Census to exploit differences across regions and across cohorts, our preliminary findings indicate that the civil conflict negatively affected those exposed to the conflict in utero. In particular, the long-term consequences of the war decreased educational attainment, formal employability, and thus reducing lifetime earnings, especially for females. The exposure to the civil conflict also seems to decrease marriage probability.
+</details>
+:::
 
-- With Mario Sánchez, Douglas Castro & Jorge Guerra, 2016, "Movimientos sociales y acción colectiva en Nicaragua: Entre la identidad, autonomía y subordinación." *__Amnis__*, (15). 
+## Pre-Doctoral Studies (Before 2023)
 
-[Digital Version](https://amnis.revues.org/2813){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="PDF"}
+### Books
 
-- With Carol Siero & Sebastián Hernández, 2015, "¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico? Una evidencia de datos panel para Nicaragua y Centroamérica." *__Encuentro__*, 102, 52-74. 
+::: {.publication}
+**Ciudadanía y violencia. Una aproximación a sus múltiples expresiones**  
+(with Mario Sánchez and Douglas Castro)  
+[PDF](http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf)
+:::
 
-[PDF](https://revistasnicaragua.cnu.edu.ni/index.php/encuentro/article/view/2817){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="PDF"}
+### Papers
 
+::: {.publication}
+**Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo**  
+(with Hloreley Osorio)  
+*Anuario de Estudios Centroamericanos*, 46 (2020), 1–42.  
+[Ungated Version](https://www.redalyc.org/journal/152/15264516019/15264516019.pdf)
 
-#### Reports
-- The World Bank. 2022. [Improving the well-being of adolescent girls in developing countries](https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf)." Washington, D.C.: The World Bank.
+<details>
+<summary>Abstract</summary>
+From a structure and agency perspective, this article analyzes the criticism
+and crisis in Nicaragua during the Ortega administration (2007-2020). It shows that
+the "singular trials" of social sectors to curb authoritarianism and capitalism, interpreted
+by the government as enemies of progress (2007- March 2018), went through a
+"general judgment" of social and business sectors represented in the Alianza Cívica that,
+witnessing crimes against humanity, criticize authoritarianism and injustice, which the
+government evaluates as an attempted coup (April 2018-2020). The conflict between
+trials led to a national dialogue with partial decisions, while the socio-political and
+economic crisis deepens. The analysis reveals the need for promoting democracy with
+social justice
+</details>
+:::
 
----
+::: {.publication}
+**Movimientos sociales y acción colectiva en Nicaragua: Entre la identidad, autonomía y subordinación**  
+(with Mario Sánchez, Douglas Castro, and Jorge Guerra)  
+*Amnis*, (15), 2016.  
+[Publisher](https://amnis.revues.org/2813)
+
+<details>
+<summary>Abstract</summary>
+This article analyzes the evolution of three social movements (Natives, women and workers) at key moments of the history of Nicaragua: the dictatorship of Somoza (1934-1979), the Sandinista revolution (1979-1990) and the neoliberal era (1990-2000).
+</details>
+:::
+
+::: {.publication}
+**¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico?**  
+(with Carol Siero and Sebastián Hernández)
+*Encuentro*, 102 (2015), 52–74.  
+[PDF](https://revistasnicaragua.cnu.edu.ni/index.php/encuentro/article/view/2817)
+
+<details>
+<summary>Abstract</summary>
+La cooperación internacional al desarrollo ha sido divulgada como una operación que se realiza con el objetivo de promover el desarrollo y crecimiento económico de los países. Sin embargo, la cooperación no solamente se basa en la idea del mejoramiento económico de los países sino también en las relaciones político-económicas que los países tienen y en la forma en que éstos administran los recursos. Esto sugiere que el estudio de la cooperación debe abordar contextos, políticas e ideales tanto de los cooperantes como de los beneficiarios. En el presente artículo se desarrollaron dos modelos econométricos, estimados a través de datos panel. Primero, un modelo de selectividad que hace referencia a la cantidad de dinero desembolsado a sectores estratégicos de la economía por parte de los donantes y, segundo, un modelo de eficacia de la cooperación para valorar la incidencia de la ayuda en el desarrollo y crecimiento económico. A través de estos dos modelos, el paradigma actual de la cooperación presenta debilidades al momento de establecer ejes estratégicos. Por esto, es necesario que el debate sobre el rol de la cooperación tenga un carácter activo en las políticas tanto de los países cooperantes como de los beneficiarios.
+</details>
+:::
+
+### Reports
+
+::: {.publication}
+**Improving the well-being of adolescent girls in developing countries**  
+_The World Bank (2022)_ 
+[PDF](https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf)
+:::
 
 ## Selected Works in Progress
 
-- With [Lelys Dinarte](https://sites.google.com/view/lelys-dinarte/home) and [Renata Lemos](https://renatalemos.com/) "Supporting Mental Health Through the Promotion of Psychosocial Support in Armenian Schools."
-- With Jostin Kitmang "The Role of Selective Public Universities in Shaping Long-Term Outcome."
-- With [Berk Özler](https://sites.google.com/site/decrgberkozler/home) and [Luca Parisotto](https://sites.google.com/view/lucaparisotto/home), "Shared decision-making: Does quality of care affect contraceptive use?"
+::: {.publication}
+**Supporting Mental Health Through the Promotion of Psychosocial Support in Armenian Schools**  
+(with [Lelys Dinarte](https://sites.google.com/view/lelys-dinarte/home) and [Renata Lemos](https://renatalemos.com/))
+:::
 
-<!-- ## Publications -->
-
-<!-- ### Books  -->
-
-<!-- - With [Emiliana Vegas](https://www.emilianavegas.com/) and [Álvaro Hofflinger](https://alvarohofflinger.com/), "From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile," in Harry Patrinos and Nuno Crato, eds., Improving National Education Systems After COVID-19, Springer: Washington, D.C., 2024. [Ungated PDF](../files/pdfs/vegas_et_al_2024_chile.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"} -->
-
-<!-- - With Mario Sánchez and Douglas Castro, 2015, "Ciudadanía y violencia. Una aproximación a sus múltiples expresiones." Managua: Centro de Análisis Socio Cultural. [PDF](http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"} -->
-
-<!-- ### Papers -->
-
-<!-- - With [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/), "Does the  small business program benefit self-employed workers? Evidence from Nicaragua." *__Journal of Development Effectiveness__*, January 2024, 1–20. [Digital Version](https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138#:~:text=Using%20data%20from%20three%20rounds,%2Demployed%20workers'%20earnings%20overall.){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"} -->
-
-<!-- - With Hloreley Osorio, 2020, "Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo." *__Anuario de Estudios Centroamericanos__*, 46, 1-42. [PDF](https://revistas.ucr.ac.cr/index.php/anuario/article/view/45081){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip" title="Github Repo"} -->
-
-<!-- - With Mario Sánchez, Douglas Castro & Jorge Guerra, 2016, "Movimientos sociales y acción colectiva en Nicaragua: Entre la identidad, autonomía y subordinación." *__Amnis__*, (15). [[Digital Version]](https://amnis.revues.org/2813) -->
-
-<!-- - With Carol Siero & Sebastián Hernández, 2015, "¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico? Una evidencia de datos panel para Nicaragua y Centroamérica." *__Encuentro__*, 102, 52-74. [[PDF]](https://revistasnicaragua.cnu.edu.ni/index.php/encuentro/article/view/2817) -->
-
-<!-- ### Working Papers -->
-
-<!-- - With [Booyuel Kim](https://sites.google.com/site/booyuelkim/home) and [Hee-Seung Yang](https://sites.google.com/site/heeseungyang/), "In utero exposure to civil conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes." [Draft/slides available upon request] -->
-
-<!-- - With [Harry Patrinos](https://hpatrinos.com/), [Renata Lemos](https://renatalemos.com/), [Lelys Dinarte](https://sites.google.com/view/lelys-dinarte/home), and James Gresham, "Investing in Human Capital during Wartime: Experimental Evidence from Ukraine." -->
-
-<!-- ### Reports -->
-
-<!-- - The World Bank. 2022. [Improving the well-being of adolescent girls in developing countries](https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf)." Washington, D.C.: The World Bank -->
-
-<!-- ## Selected works in progress -->
-
-<!-- - With [Lelys Dinarte](https://sites.google.com/view/lelys-dinarte/home) and [Renata Lemos](https://renatalemos.com/) "Supporting Mental Health Through the Promotion of Psychosocial Support in Armenian Schools." -->
-
-<!-- - With Jostin Kitmang "The Role of Selective Public Universities in Shaping Long-Term Outcome." -->
-
-<!-- - With [Berk Özler](https://sites.google.com/site/decrgberkozler/home) and [Luca Parisotto](https://sites.google.com/view/lucaparisotto/home), "Shared decision-making: Does quality of care affect contraceptive use?" -->
-
-<!-- - "Abortion Ban and Socioeconomic Outcomes: Evidence from Nicaragua." -->
+::: {.publication}
+**The Role of Selective Public Universities in Shaping Long-Term Outcomes**  
+(with Jostin Kitmang)
+:::

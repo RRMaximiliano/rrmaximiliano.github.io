@@ -12,34 +12,15 @@ format:
 
 about:
   id: hero-heading
-  template: jolla
+  template: trestles
   image-width: 15em
   image-shape: round  
-  links:
-    - text: "{{< iconify bi envelope size=1.1em >}} Email"
-      href: "mailto:rrodriguezramirez@g.harvard.edu"
-    - text: "{{< iconify bi academicons:google-scholar size=1.1em >}} GScholar"
-      href: https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en
-    - text: "{{< iconify ph butterfly-bold size=1.1em >}} Bluesky"
-      href: "https://bsky.app/profile/rrmaximiliano.bsky.social"
-    - text: "{{< iconify bi twitter size=1.1em >}} Twitter"
-      href: https://twitter.com/rrmaximiliano
-    - text: "{{< iconify bi github size=1.1em >}} Github"
-      href: https://github.com/rrmaximiliano
-    - text: "{{< iconify bi ant-design:twitch-outlined size=1.1em >}} Twitch"
-      href: https://www.twitch.tv/rrmaximiliano
 ---
-
-::: {#hero-heading}
-:::
-
 
 <div style="text-align: justify">
 
-Welcome! I am a ~~first~~ second year PhD student in Education Policy and Program Evaluation (Economics of Education Field Course) at Harvard University. Before joining the PhD program, I was working as a research assistant at [The World Bank, Development Research Group](https://www.worldbank.org/en/research/) where I was evaluating an [adaptive experiment in Cameroon](https://www.socialscienceregistry.org/trials/3514), an [RCT in Ukraine](https://www.socialscienceregistry.org/trials/10634), and building programming packages for impact evaluations.
+Hi! I'm a second year Ph.D. student in Education Policy and Program Evaluation. My research is driven by a central question: **How can education systems be adapted to protect and rebuild human capital when faced with large-scale shocks like conflict, displacement, and political crises?** My academic and personal journey, which started in Nicaragua, has given me a strong motivation to address learning inequalities caused by political instability and forced migration.
 
-Overall, my research interests are development economics, education, impact evaluations, and conflict. Notwithstanding that my work has been alongside several professors and researchers, I have also independently developed a portfolio of data projects that can be of help for future research, and, especially, for Nicaragua that can be found in the [software](/projects/) tab of this website.
-
-Please feel free to contact me at the links provided on this website.
+I focus on designing and evaluating scalable interventions that can reduce these inequalities. A core part of my approach is to integrate robust psychosocial support within educational settings to ensure all children can learn effectively. The centerpiece of my current work is a large-scale randomized controlled trial (RCT) in Armenia that I co-lead across 450 public schools. This project is designed to meet the educational and psychosocial needs of children displaced by the Nagorno-Karabakh conflict. I also recently co-led another RCT in Ukraine with over 10,000 students, where we embedded mental health components into an online tutoring program and saw positive impacts on learning outcomes and student well-being. My ultimate goal is to produce rigorous research that can inform social policies and create effective pathways toward more just societies.
 
 </div>

@@ -6,6 +6,7 @@ freeze: true
 title-block-banner: true
 
 citation: true
+csl: apa.csl
 license: CC BY-SA
 
 open-graph: true
@@ -33,7 +34,7 @@ execute:
 
 highlight-style: github
 
-# Default author
+# Author information
 author:
   - name: Rony Rodriguez-Ramirez
     url: https://www.rrmaximiliano.github.io/

@@ -1,6 +1,5 @@
 ---
 title: "Errores en las visualizaciones del Nuevo Diario"
-author: Rony Rodriguez-Ramirez
 date: "2019-07-26"
 categories:
   - Nicaragua

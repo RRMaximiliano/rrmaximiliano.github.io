@@ -1,11 +1,19 @@
 ---
 title: Curriculum vitæ
-date: last-modified
-date-format: long
-published-title: CV last updated
 engine: knitr
 freeze: false
 ---
+
+```{r include=FALSE}
+library(httr)
+url <- "https://rrmaximiliano.github.io/rrmrr-vita/rrmrr-vita.pdf"
+hdr <- HEAD(url)
+pdf_date <- headers(hdr)[["last-modified"]]
+last_updated <- format(
+  as.POSIXct(pdf_date, format = "%a, %d %b %Y %H:%M:%S", tz = "GMT"),
+  "%B %d, %Y"
+)
+```
 
 ```{css echo=FALSE}
 .embed-container {
@@ -25,6 +33,18 @@ freeze: false
     width: 100%;
     height: 100%;
 }
+```
+
+```{=html}
+<div class="quarto-title-meta">
+  <div class="quarto-title-meta-container">
+    <div class="quarto-title-meta-heading cv-label">LAST UPDATED</div>
+    <br>
+    <div class="quarto-title-meta-contents cv-date">
+      `r last_updated`
+    </div>
+  </div>
+</div>
 ```
 
 ```{=html}

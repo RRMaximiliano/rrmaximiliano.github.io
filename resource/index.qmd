@@ -1,28 +1,68 @@
 ---
-title: "Resources"
-page-layout: full
 toc-location: right
 ---
 
+I’ve gathered here a curated list of resources that I frequently recommend to research assistants and early-career scholars. These materials cover research workflows, coding tools, and guidance for graduate applications, especially for students from Latin America.
 
-Here are some useful links that I believe are of tremendous help for research assistants:
+## Research Standards & Workflow
 
-* [Development Impact Evaluation Unit's computational reproducibility](https://github.com/worldbank/dime-standards): a repository with information about coding and research standards at DIME.
+### Computational Reproducibility Standards  
+**Source**: World Bank DIME  
+**Description**: A complete guide to reproducible workflows, folder structures, and coding standards.  
+**Link**: [DIME Standards GitHub](https://github.com/worldbank/dime-standards)
 
-* [ietoolkit](https://worldbank.github.io/ietoolkit/): Stata package for impact evaluation analysis
+### Development Research in Practice  
+**Source**: World Bank DIME  
+**Description**: Companion to the book *Development Research in Practice*, with applied guidance for data collection and analysis.  
+**Link**: [Handbook Site](https://worldbank.github.io/dime-data-handbook/)
 
-* [iefieldkit](https://dimewiki.worldbank.org/wiki/Iefieldkit): Stata package for primary data collection
+## Stata Tools
 
-* [Stata Visual Library](https://worldbank.github.io/stata-visual-library/): Reproducible code for graphs and maps in an easy-to-browse format
+### ietoolkit  
+**Description**: Automates impact evaluation tasks in Stata, including randomization and standardized tables.  
+**Link**: [Documentation](https://worldbank.github.io/ietoolkit/)
 
-* [R Econ Visual Library](https://worldbank.github.io/r-econ-visual-library/): R code for data visualization in economics
+### iefieldkit  
+**Description**: Stata commands for managing high-quality survey-based data collection.  
+**Link**: [Guide](https://dimewiki.worldbank.org/wiki/Iefieldkit)
 
-* [Tidyverse style guide](https://style.tidyverse.org/)
+### Stata-Latex Tables  
+**Description**: Export regression and summary tables to LaTeX from Stata using reproducible code.  
+**Link**: [GitHub](https://github.com/worldbank/stata-tables)
 
-* [Introduction to R for advanced Stata users](https://github.com/worldbank/dime-r-training)
+### Stata Visual Library  
+**Description**: Gallery of graph templates in Stata for policy reporting and publications.  
+**Link**: [Library](https://worldbank.github.io/stata-visual-library/)
 
-* [RStudio Cheatsheets](https://rstudio.com/resources/cheatsheets/)
+## R Tools and Visualization
 
-* [Development research in practice](https://worldbank.github.io/dime-data-handbook/)
+### R Econ Visual Library  
+**Description**: Templates for publication-ready data visualizations in R, especially for applied economics.  
+**Link**: [Library](https://worldbank.github.io/r-econ-visual-library/)
 
-* [Stata-Latex tables](https://github.com/worldbank/stata-tables)
+### Introduction to R for Advanced Stata Users  
+**Source**: World Bank  
+**Description**: Designed for practitioners shifting from Stata to R for applied research.  
+**Link**: [Repo](https://github.com/worldbank/dime-r-training)
+
+### Tidyverse Style Guide  
+**Description**: Standards for writing clean and consistent R code in the tidyverse ecosystem.  
+**Link**: [style.tidyverse.org](https://style.tidyverse.org/)
+
+### RStudio Cheatsheets  
+**Description**: Quick-reference sheets for popular R packages, including `ggplot2`, `dplyr`, and `rmarkdown`.  
+**Link**: [Cheatsheets](https://posit.co/resources/cheatsheets/)
+
+## Graduate School Resources (for Latin American Students)
+
+### Guía EconThaki  
+**Description**: A comprehensive, step-by-step guide to applying to PhD programs in economics from Latin America, created by EconThaki.  
+**Link**: [econthaki.github.io/Guia-PhD-EconThaki](https://econthaki.github.io/Guia-PhD-EconThaki/)
+
+### Aplicar Desde Argentina  
+**Description**: Detailed advice and country-specific resources for students in Argentina interested in applying to graduate programs abroad.  
+**Link**: [AplicarDesdeArgentina](https://aplicardesdeargentina.weebly.com/)
+
+### Aplicar Desde México  
+**Description**: Twitter account sharing application tips, deadlines, and peer support for Mexican students applying to grad school.  
+**Link**: [@AplicarDesdeMx on Twitter](https://twitter.com/AplicarDesdeMx)

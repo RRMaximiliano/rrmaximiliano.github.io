@@ -1,58 +1,65 @@
 ---
-title: "Teaching"
-page-layout: full
 toc-location: right
 ---
 
+## Teaching Assistant / Teaching Fellow
+
+### Education Policy Analysis (EPA 101)  
+*Harvard University — Prof. [Emiliana Vegas](https://www.emilianavegas.com)*
+
+**Role**: Teaching Fellow  
+**Semester offered**: Fall 2024  
+[Teaching Materials](https://rrmaximiliano.github.io/epa_workshops/)
+
+### Advanced Quantitative Methods (API 209 — Math Camp)  
+*Harvard University — Prof. [Dan Levy](https://scholar.harvard.edu/danlevy/home)*
+
+**Role**: Teaching Fellow  
+**Semester offered**: Summer 2024  
+[Teaching Materials](https://harvard-api209.github.io/api209-math-camp/)
+
+### Impact Evaluation Methods
+*KDI School of Public Policy and Management — Prof. [Booyuel Kim](https://sites.google.com/site/booyuelkim/home)*
+
+**Role**: Teaching Assistant  
+**Semester offered**: Spring 2021  
+[Teaching Materials](http://bit.ly/kdi_impact_evaluation)
+
+### Foundations of Sustainable Development  
+*KDI School of Public Policy and Management — Prof. [Booyuel Kim](https://sites.google.com/site/booyuelkim/home)*
+
+**Role**: Teaching Assistant  
+**Semester offered**: Fall 2020  
+
+### Undergraduate Economics Courses  
+Macroeconomics • Econometrics • Monetary Economics • Development Economics  
+*Universidad Centroamericana, Nicaragua*
+
+**Role**: Teaching Assistant (2016 – 2018)
+
+## Instructor — Programming Courses
+
+### Metrics using Stata  
+*Econ Thaki*  
+[Teaching Materials](https://github.com/RRMaximiliano/econ-thaki-talleres)
+
+### R for Advanced Stata Users  
+*The World Bank*  
+[Teaching Materials](https://github.com/worldbank/dime-r-training)
+
+### Stata avanzado para economistas  
+*Lambda, Perú*  
+[Teaching Materials](https://github.com/lambda-stata/course-materials)
+
+### Stata Workshop (Summer School)  
+*KDI School, South Korea*  
+**Semester offered**: Summer 2018  
+
 ## Adjunct Lecturer
 
-**Undergraduate**
+### Social and Human Economy  
+*Universidad Centroamericana, Nicaragua*
 
-- *Social and Human Economy*, Universidad Centroamericana, Nicaragua. 
-
-[Teaching Materials](https://github.com/econsoc-uca){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"} [Evaluation](/docs/evaluation-esh.pdf){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
-
-## Teaching Assistant (Teaching Felow)
-
-I have served as a Teaching Assistant for the following courses:
-
-### Graduate
-
-**Harvard University**
-
-- *Education Policy Analysis EPA 101*, [Prof. Emiliana Vegas](https://www.emilianavegas.com)
-- *Advanced Quantitative Methods API 209 (Math Camp)*, [Prof. Dan Ley](https://scholar.harvard.edu/danlevy/home) 
-
-[Teaching Materials](https://harvard-api209.github.io/api209-math-camp/){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
-
-**KDI School of Public Policy and Management**
-
-- *Impact Evaluations Methods*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home) 
-
-[Teaching Materials](http://bit.ly/kdi_impact_evaluation){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
-
-- *Foundations of Sustainable Development*, [Prof. Booyuel Kim](https://sites.google.com/site/booyuelkim/home)
-
-### Undergraduate
-
-- *Macroeconomics, Econometrics, Monetary Economics, Development Economics*, Universidad Centroamericana, Nicaragua.
-
-**Summer School**
-
-- *Stata Workshop*, Summer 2018, KDI School, South Korea.
-
-## Instructor
-
-### Programming courses
-
-- *Metrics using Stata*, Econ Thaki. 
-
-[Teaching Materials](https://github.com/RRMaximiliano/econ-thaki-talleres){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
-
-- *R for advanced Stata users*, The World Bank. 
-
-[Teaching Materials](https://github.com/worldbank/dime-r-training){.btn .btn-outline-primary .btn role="button" data-toggle="tooltip"}
-
-- *Stata avanzado para economistas*, Lambda, Perú. 
-
-[Teaching Materials](https://github.com/lambda-stata/course-materials){.btn .btn-outline-primary}
+**Role**: Adjunct Lecturer  
+**Semester offered**: Spring 2019  
+[Teaching Materials](https://github.com/econsoc-uca) | [Evaluation](/docs/evaluation-esh.pdf)
