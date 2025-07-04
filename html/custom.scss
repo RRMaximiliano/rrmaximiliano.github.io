@@ -1,6 +1,6 @@
 /*-- scss:defaults --*/
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');   /* ⬅ code font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
 $font-family-base: "Alegreya Sans", sans-serif;
 $link-color: #A51C30;
@@ -106,6 +106,21 @@ a:hover, a:focus {
   letter-spacing: 0.5px;
   margin-top: 0.5rem;
   color: #6c757d;
+}
+
+/* ─────────────────────  Form Formatting  ───────────────────── */
+
+form .btn.btn-primary {
+  background-color: #A51C30;
+  border-color: #A51C30;
+  color: white;
+}
+
+form .btn.btn-primary:hover,
+form .btn.btn-primary:focus {
+  background-color: darken(#A51C30, 7%);
+  border-color: darken(#A51C30, 7%);
+  color: white;
 }
 
 /* ─────────────────────  Code styling  ───────────────────── */
