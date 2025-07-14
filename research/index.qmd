@@ -45,7 +45,8 @@ This paper provides insights into human capital investments during wartime by pr
 
 ::: {.publication}
 **Shared decision-making: Does quality of care affect contraceptive use?**  
-(with [Berk Özler](https://sites.google.com/site/decrgberkozler/home) and [Luca Parisotto](https://sites.google.com/view/lucaparisotto/home))
+(with [Berk Özler](https://sites.google.com/site/decrgberkozler/home) and [Luca Parisotto](https://sites.google.com/view/lucaparisotto/home))  
+[PDF -- Last Version](../files/pdfs/ozler_et_al_2025_cameroon_qoc.pdf)
 
 <details>
 <summary>Abstract</summary>
@@ -112,7 +113,7 @@ This article analyzes the evolution of three social movements (Natives, women an
 **¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico?**  
 (with Carol Siero and Sebastián Hernández)
 *Encuentro*, 102 (2015), 52–74.  
-[PDF](https://revistasnicaragua.cnu.edu.ni/index.php/encuentro/article/view/2817)
+[Ungated PDF](../files/pdfs/siero_et_al_2015_cooperacion_internacional.pdf)
 
 <details>
 <summary>Abstract</summary>
