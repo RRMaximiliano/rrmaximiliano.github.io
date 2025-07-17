@@ -34,7 +34,7 @@ about:
 
 <div style="text-align: justify">
 
-Hi! I'm a second year Ph.D. student in Education Policy and Program Evaluation. My research is driven by a central question: **How can education systems be adapted to protect and rebuild human capital when faced with large-scale shocks like conflict, displacement, and political crises?** My academic and personal journey, which started in Nicaragua, has given me a strong motivation to address learning inequalities caused by political instability and forced migration.
+Hi! I'm a second year Ph.D. student in Education Policy and Program Evaluation (Economics of Education Field Course). My research is driven by a central question: **How can education systems be adapted to protect and rebuild human capital when faced with large-scale shocks like conflict, displacement, and political crises?** My academic and personal journey, which started in Nicaragua, has given me a strong motivation to address learning inequalities caused by political instability and forced migration.
 
 I focus on designing and evaluating scalable interventions that can reduce these inequalities. A core part of my approach is to integrate robust psychosocial support within educational settings to ensure all children can learn effectively. The centerpiece of my current work is a large-scale randomized controlled trial (RCT) in Armenia that I co-lead across 450 public schools. This project is designed to meet the educational and psychosocial needs of children displaced by the Nagorno-Karabakh conflict. I also recently co-led another RCT in Ukraine with over 10,000 students, where we embedded mental health components into an online tutoring program and saw positive impacts on learning outcomes and student well-being.
 
