@@ -13,6 +13,7 @@ project:
 
 resources:
   - fonts/
+  - redirects/
 
 website:
   search: false
