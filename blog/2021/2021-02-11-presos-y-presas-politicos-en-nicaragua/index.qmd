@@ -1,6 +1,7 @@
 ---
 title: Presos y presas políticos en Nicaragua
 date: '2019-04-19'
+draft: true
 categories:
   - Nicaragua
   - ggplot

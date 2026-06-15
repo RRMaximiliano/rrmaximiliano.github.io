@@ -16,6 +16,7 @@ resources:
   - go/
 
 website:
+  draft-mode: gone
   search: false
   google-analytics: "UA-134175775-1"
   page-navigation: true

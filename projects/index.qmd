@@ -42,11 +42,6 @@ I share here some software and datasets I’ve created or cleaned that may be us
 **Description**: Digitized historical population data from archival sources for the 1700s and 1800s.  
 **Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/poblacion-nicaragua-siglo-18-19)
 
-### Political Prisoners Dataset (Apr 2018 – Apr 2019)  
-**Description**: Data on individuals imprisoned during the Nicaraguan protests. Based on public reports from Comité Pro Liberación de Presas y Presos Políticos.  
-**Data files**:  
-[RDS](/files/data/presos_politicos_1_abr_2019.rds) | [Stata](/files/data/presos_politicos_1_abr_2019.dta) | [CSV](/files/data/presos_politicos_1_abr_2019.csv)
-
 ## Extra: Translated Documents
 
 ### Best Practices for Data and Code Management  
