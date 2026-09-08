@@ -1,0 +1,178 @@
+---
+pagetitle: "Office Hours | Rony Rodriguez-Ramirez"
+title: "Office Hours"
+subtitle: "API 209 · Fall 2026"
+toc: false
+page-layout: article
+format:
+  html:
+    grid:
+      margin-width: 0px
+      sidebar-width: 0px
+      body-width: 960px
+---
+
+```{=html}
+<style>
+  .oh-intro {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 44em;
+    margin: 0 0 2rem 0;
+    color: #212529;
+  }
+  .oh-intro strong { color: #A51C30; font-weight: 700; }
+
+  .oh-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.75rem;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .oh-meta li::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem; height: 0.5rem;
+    border-radius: 50%;
+    background: #A51C30;
+    margin-right: 0.55rem;
+    vertical-align: middle;
+    position: relative; top: -1px;
+  }
+
+  .oh-embed {
+    position: relative;
+    width: 100%;
+    min-height: 720px;
+    border: 1px solid #e6e6e6;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .oh-embed iframe {
+    display: block;
+    width: 100%;
+    height: 720px;
+    border: 0;
+  }
+  .oh-embed[hidden] { display: none; }
+
+  .oh-setup {
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.05rem;
+    border: 1px dashed #d9d9d9;
+    border-radius: 14px;
+  }
+  .oh-setup code { font-size: 0.85rem; }
+
+  .oh-fallback {
+    margin: 0.9rem 0 0 0;
+    font-size: 1rem;
+    color: #6c757d;
+  }
+
+  .oh-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem 2.5rem;
+    margin: 3rem 0 1rem 0;
+    padding-top: 2rem;
+    border-top: 2px solid #A51C30;
+  }
+  .oh-notes h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin: 0 0 0.4rem 0;
+    font-weight: 700;
+  }
+  .oh-notes p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .oh-embed, .oh-embed iframe { min-height: 640px; height: 640px; }
+    .oh-intro { font-size: 1.15rem; }
+  }
+</style>
+```
+
+::: {.oh-intro}
+This booking page is for **API 209 students only**. Pick a **10-minute slot** below. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link. Accept it and it lands on your calendar.
+:::
+
+```{=html}
+<ul class="oh-meta">
+  <li>10 minutes, one student per slot</li>
+  <li>Bring your question, code, or problem set</li>
+  <li>Over Zoom, link in the invite</li>
+</ul>
+
+<div class="oh-embed" id="oh-embed" hidden>
+  <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
+</div>
+
+<div class="oh-setup" id="oh-setup" hidden>
+  The booking calendar is not connected yet.<br>
+  Paste the Google Calendar appointment link into <code>BOOKING_URL</code> in <code>office-hours/index.qmd</code>.
+</div>
+
+<p class="oh-fallback" id="oh-fallback" hidden>
+  Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
+</p>
+
+<script>
+  // ── Configuration ────────────────────────────────────────────────
+  // Google Calendar → Appointment schedule → Share → "Booking page" link.
+  // Paste that link here. Nothing else on this page needs to change.
+  const BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO";
+  // ─────────────────────────────────────────────────────────────────
+
+  (function () {
+    const embed    = document.getElementById("oh-embed");
+    const setup    = document.getElementById("oh-setup");
+    const fallback = document.getElementById("oh-fallback");
+    const frame    = document.getElementById("oh-frame");
+    const link     = document.getElementById("oh-link");
+
+    if (!BOOKING_URL) { setup.hidden = false; return; }
+
+    // Google booking pages accept ?gv=true to render the embeddable view.
+    const embedUrl = BOOKING_URL.includes("gv=true")
+      ? BOOKING_URL
+      : BOOKING_URL + (BOOKING_URL.includes("?") ? "&" : "?") + "gv=true";
+
+    frame.src = embedUrl;
+    link.href = BOOKING_URL;
+    embed.hidden = false;
+    fallback.hidden = false;
+  })();
+</script>
+
+<div class="oh-notes">
+  <div>
+    <h3>Where</h3>
+    <p>Office hours are on Zoom. The link is in the calendar invite you receive after booking.</p>
+  </div>
+  <div>
+    <h3>Nothing open?</h3>
+    <p>Email me at <a href="mailto:rrodriguezramirez@g.harvard.edu">rrodriguezramirez@g.harvard.edu</a> and we will find a time.</p>
+  </div>
+  <div>
+    <h3>Groups</h3>
+    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
+  </div>
+</div>
+```
