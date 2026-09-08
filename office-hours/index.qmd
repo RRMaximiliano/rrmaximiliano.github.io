@@ -27,7 +27,7 @@ format:
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem 1.75rem;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 2rem 0;
     padding: 0;
     list-style: none;
     font-size: 1rem;
@@ -45,6 +45,45 @@ format:
     vertical-align: middle;
     position: relative; top: -1px;
   }
+
+  /* Segmented control */
+  .oh-tabs {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    margin: 0 0 1rem 0;
+    background: #f3f3f4;
+    border-radius: 999px;
+  }
+  .oh-tabs[hidden] { display: none; }
+  .oh-tab {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    border-radius: 999px;
+    padding: 0.55rem 1.25rem;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #6c757d;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .oh-tab small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .oh-tab:hover { color: #212529; }
+  .oh-tab[aria-selected="true"] {
+    background: #fff;
+    color: #A51C30;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .oh-tab:focus-visible { outline: 2px solid #A51C30; outline-offset: 2px; }
 
   .oh-embed {
     position: relative;
@@ -105,20 +144,24 @@ format:
   @media (max-width: 600px) {
     .oh-embed, .oh-embed iframe { min-height: 640px; height: 640px; }
     .oh-intro { font-size: 1.15rem; }
+    .oh-tabs { display: flex; }
+    .oh-tab { flex: 1; text-align: center; padding: 0.5rem 0.75rem; }
   }
 </style>
 ```
 
 ::: {.oh-intro}
-This booking page is for **API 209 students only**. Pick a **10-minute slot** below. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link. Accept it and it lands on your calendar.
+This booking page is for **API 209 students only**. Choose online or in person, then pick a **10-minute slot**. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.
 :::
 
 ```{=html}
 <ul class="oh-meta">
   <li>10 minutes, one student per slot</li>
   <li>Bring your question, code, or problem set</li>
-  <li>Over Zoom, link in the invite</li>
+  <li>Cancel from the invite if plans change</li>
 </ul>
+
+<div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden></div>
 
 <div class="oh-embed" id="oh-embed" hidden>
   <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
@@ -126,7 +169,7 @@ This booking page is for **API 209 students only**. Pick a **10-minute slot** be
 
 <div class="oh-setup" id="oh-setup" hidden>
   The booking calendar is not connected yet.<br>
-  Paste the Google Calendar appointment link into <code>BOOKING_URL</code> in <code>office-hours/index.qmd</code>.
+  Paste a Google Calendar appointment link into <code>SCHEDULES</code> in <code>office-hours/index.qmd</code>.
 </div>
 
 <p class="oh-fallback" id="oh-fallback" hidden>
@@ -135,36 +178,78 @@ This booking page is for **API 209 students only**. Pick a **10-minute slot** be
 
 <script>
   // ── Configuration ────────────────────────────────────────────────
-  // Google Calendar → Appointment schedule → Share → "Booking page" link.
-  // Paste that link here. Nothing else on this page needs to change.
-  const BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO";
+  // One entry per Google Calendar appointment schedule.
+  // Google Calendar → the schedule → Share → copy the booking page link.
+  // Leave `url` empty to hide an option until its schedule exists.
+  const SCHEDULES = [
+    {
+      id: "online",
+      label: "Online",
+      detail: "Zoom",
+      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO",
+      where: "On Zoom. The link is in the calendar invite you receive after booking."
+    },
+    {
+      id: "in-person",
+      label: "In person",
+      detail: "Fridays",
+      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3sF473bpox4eaITxAhcP1do24PWNwAzs6Ca9z3zm56uFnNTpoTAdsdjIXniU0pJiO33CSZ1OZK",
+      where: "In person on Fridays at the Winter Garden, Kennedy School. Details are in the calendar invite."
+    }
+  ];
   // ─────────────────────────────────────────────────────────────────
 
-  (function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs     = document.getElementById("oh-tabs");
     const embed    = document.getElementById("oh-embed");
     const setup    = document.getElementById("oh-setup");
     const fallback = document.getElementById("oh-fallback");
     const frame    = document.getElementById("oh-frame");
     const link     = document.getElementById("oh-link");
 
-    if (!BOOKING_URL) { setup.hidden = false; return; }
+    const active = SCHEDULES.filter(s => s.url);
+    if (!active.length) { setup.hidden = false; return; }
 
     // Google booking pages accept ?gv=true to render the embeddable view.
-    const embedUrl = BOOKING_URL.includes("gv=true")
-      ? BOOKING_URL
-      : BOOKING_URL + (BOOKING_URL.includes("?") ? "&" : "?") + "gv=true";
+    const embedUrl = u => u.includes("gv=true") ? u : u + (u.includes("?") ? "&" : "?") + "gv=true";
 
-    frame.src = embedUrl;
-    link.href = BOOKING_URL;
+    function select(s, pushHash) {
+      frame.src = embedUrl(s.url);
+      link.href = s.url;
+      const where = document.getElementById("oh-where");
+      if (where) where.textContent = s.where;
+      tabs.querySelectorAll(".oh-tab").forEach(b =>
+        b.setAttribute("aria-selected", b.dataset.id === s.id ? "true" : "false"));
+      if (pushHash) history.replaceState(null, "", "#" + s.id);
+    }
+
+    if (active.length > 1) {
+      active.forEach(s => {
+        const b = document.createElement("button");
+        b.className = "oh-tab";
+        b.type = "button";
+        b.role = "tab";
+        b.dataset.id = s.id;
+        b.innerHTML = s.label + (s.detail ? "<small>" + s.detail + "</small>" : "");
+        b.addEventListener("click", () => select(s, true));
+        tabs.appendChild(b);
+      });
+      tabs.hidden = false;
+    }
+
+    // Deep link: /office-hours/#in-person opens that option directly.
+    const fromHash = active.find(s => "#" + s.id === location.hash);
+    select(fromHash || active[0], false);
+
     embed.hidden = false;
     fallback.hidden = false;
-  })();
+  });
 </script>
 
 <div class="oh-notes">
   <div>
     <h3>Where</h3>
-    <p>Office hours are on Zoom. The link is in the calendar invite you receive after booking.</p>
+    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
   </div>
   <div>
     <h3>Nothing open?</h3>
