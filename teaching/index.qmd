@@ -9,7 +9,7 @@ toc-location: right
 
 **Role**: Teaching Fellow  
 **Semester offered**: Fall 2024  
-[Teaching Materials](https://rrmaximiliano.github.io/epa_workshops/)
+[Teaching Materials](https://rrmaximiliano.github.io/epa_workshops/) | [Office Hours](/office-hours/epa-101/index.qmd)
 
 ### Advanced Quantitative Methods (API 209 — Math Camp)  
 *Harvard University — Prof. [Dan Levy](https://scholar.harvard.edu/danlevy/home)*

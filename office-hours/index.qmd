@@ -150,6 +150,8 @@ format:
 </style>
 ```
 
+**API 209 office hours** · [EPA 101 office hours](/office-hours/epa-101/index.qmd)
+
 ::: {.oh-intro}
 This booking page is for **API 209 students only**. Choose online or in person, then pick a **10-minute slot**. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.
 :::
