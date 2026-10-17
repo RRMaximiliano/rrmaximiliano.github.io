@@ -21,3 +21,7 @@ $navbar-fg: $muted;
 $navbar-hl: $ink;
 $footer-bg: $paper;
 $footer-fg: $muted;
+
+/*-- scss:rules --*/
+// Soften the white CV pages a little on the dark background
+.cv-page img { filter: brightness(.9); box-shadow: none; }

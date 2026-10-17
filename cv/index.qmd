@@ -2,59 +2,65 @@
 title: Curriculum vitæ
 engine: knitr
 freeze: false
+toc: false
+resources:
+  - "pages/*.png"
 ---
 
-```{r include=FALSE}
+```{r setup, include=FALSE}
+# The CV PDF is published from the rrmrr-vita repository. At render time this
+# downloads it, reads its "last modified" date, and turns each page into an
+# image (needs Poppler's `pdftoppm`; otherwise the page embeds the PDF).
 library(httr)
-url <- "https://rrmaximiliano.github.io/rrmrr-vita/rrmrr-vita.pdf"
-hdr <- HEAD(url)
-pdf_date <- headers(hdr)[["last-modified"]]
+cv_url <- "https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf"
+pdf_file <- tempfile(fileext = ".pdf")
+res <- GET(cv_url, write_disk(pdf_file, overwrite = TRUE))
+pdf_date <- headers(res)[["last-modified"]]
 last_updated <- format(
   as.POSIXct(pdf_date, format = "%a, %d %b %Y %H:%M:%S", tz = "GMT"),
   "%B %d, %Y"
 )
-```
 
-```{css echo=FALSE}
-.embed-container {
-    position: relative;
-    padding-bottom: 129%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
+pages <- character(0)
+pdftoppm <- Sys.which("pdftoppm")
+if (!nzchar(pdftoppm) && file.exists("/opt/homebrew/bin/pdftoppm")) pdftoppm <- "/opt/homebrew/bin/pdftoppm"
+if (nzchar(pdftoppm)) {
+  dir.create("pages", showWarnings = FALSE)
+  unlink(Sys.glob("pages/cv-*.png"))
+  system2(pdftoppm, c("-png", "-r", "144", shQuote(pdf_file), "pages/cv"))
+  pages <- sort(Sys.glob("pages/cv-*.png"))
 }
 
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+png_size <- function(f) {
+  b <- readBin(f, "raw", 24)
+  to_int <- function(x) sum(as.integer(x) * 256^(3:0))
+  c(to_int(b[17:20]), to_int(b[21:24]))
 }
 ```
 
 ```{=html}
-<div class="quarto-title-meta">
-  <div class="quarto-title-meta-container">
-    <div class="quarto-title-meta-heading cv-label">LAST UPDATED</div>
-    <br>
-    <div class="quarto-title-meta-contents cv-date">
-      `r last_updated`
-    </div>
-  </div>
+<div class="cv-bar">
+  <span class="cv-updated">Last updated `r last_updated`</span>
+  <span class="cv-actions">
+    <a href="`r cv_url`" download>Download PDF ↓</a><span class="sep"> | </span><a href="`r cv_url`" target="_blank" rel="noopener">Open in a new tab ↗</a>
+  </span>
 </div>
 ```
 
-```{=html}
-<p class="text-center">
-  <a class="btn btn-primary btn-lg cv-download" href="https://rrmaximiliano.github.io/rrmrr-vita/rrmrr-vita.pdf" target="_blank">
-    <i class="fa-solid fa-file-arrow-down"></i>&ensp;Download current CV
-  </a>
-</p>
-
-<div class="embed-container">
-  <iframe src="https://rrmaximiliano.github.io/rrmrr-vita/rrmrr-vita.pdf" style="border: 0.5px"></iframe>
-</div>
+```{r pages, results='asis', echo=FALSE}
+cat("```{=html}\n")
+if (length(pages)) {
+  cat('<div class="cv-pages">\n')
+  for (i in seq_along(pages)) {
+    d <- png_size(pages[i])
+    cat(sprintf(
+      '<a class="cv-page" href="%s" target="_blank" rel="noopener"><img src="%s" alt="CV, page %d of %d" width="%d" height="%d" loading="%s"></a>\n',
+      cv_url, pages[i], i, length(pages), d[1], d[2], if (i == 1) "eager" else "lazy"
+    ))
+  }
+  cat("</div>\n")
+} else {
+  cat(sprintf('<div class="cv-frame"><iframe src="%s#toolbar=0&amp;navpanes=0&amp;view=FitH" title="Curriculum vitæ (PDF)" loading="lazy"></iframe></div>\n', cv_url))
+}
+cat("```\n")
 ```

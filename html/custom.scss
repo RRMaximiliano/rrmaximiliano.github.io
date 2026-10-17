@@ -373,11 +373,34 @@ a.oh-course:hover, a.oh-course:focus-visible { border-color: $accent; color: inh
 // ── Inner pages ──
 main strong { color: $ink; font-weight: 500; }
 
-// ── CV download button ──
-.cv-download { background-color: $accent; color: #fff; border: none; }
-.cv-download:hover, .cv-download:focus { background-color: darken($accent, 5%); color: #fff; }
-.cv-label, .cv-date { @extend %label; }
-.cv-label { text-transform: uppercase; margin-bottom: .25rem; }
+// ── CV page ──
+.cv-bar {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: .4rem 1.5rem; margin: -.75rem 0 1rem;
+  font-family: $mono; font-size: .8rem;
+}
+.cv-updated { color: $muted; }
+.cv-actions {
+  a { color: $accent; text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .sep { color: $rule; margin: 0 .15rem; }
+}
+.cv-frame {
+  border: 1px solid $rule; border-radius: 8px; overflow: hidden;
+  background: $code-bg;
+  aspect-ratio: 8.5 / 11;
+  iframe { display: block; width: 100%; height: 100%; border: 0; }
+}
+// CV pages rendered as images (see cv/index.qmd)
+.cv-pages { display: grid; gap: 1.25rem; }
+a.cv-page { display: block; line-height: 0; text-decoration: none; }
+.cv-page img {
+  width: 100%; height: auto; background: #fff;
+  border: 1px solid $rule; border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px -12px rgba(0, 0, 0, .12);
+  transition: border-color .15s ease;
+}
+a.cv-page:hover img { border-color: $accent; }
 
 // ── Forms ──
 form .btn.btn-primary { background-color: $accent; border-color: $accent; color: #fff; }
