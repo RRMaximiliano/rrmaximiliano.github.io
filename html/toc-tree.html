@@ -90,8 +90,10 @@
   };
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
 
+  toc.classList.add('tree-init');
   measure();
   update();
+  requestAnimationFrame(() => requestAnimationFrame(() => toc.classList.remove('tree-init')));
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { measure(); update(); });
 })();

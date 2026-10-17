@@ -12,4 +12,16 @@
   }
   if (best) { best.classList.add('active'); best.setAttribute('aria-current', 'page'); }
 })();
+
+// Glide to sections when a same-page link is clicked (not on page load).
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a || a.hash.length < 2 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+  const target = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+  if (!target) return;
+  e.preventDefault();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  history.pushState(null, '', a.hash);
+});
 </script>

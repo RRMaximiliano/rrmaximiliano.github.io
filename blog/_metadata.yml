@@ -32,7 +32,6 @@ execute:
   message: true
   warning: true
 
-highlight-style: github
 
 # Author information
 author:

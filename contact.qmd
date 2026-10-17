@@ -3,11 +3,7 @@ pagetitle: Rony Rodriguez-Ramirez - Contact
 # title: Send me a note
 name: Contact Form
 page-layout: article
-format: 
-  html: 
-    grid:
-      margin-width: 0px
-      sidebar-width: 0px
+toc: false
 ---
 
 # Send me a note {{< fa feather-pointed >}}

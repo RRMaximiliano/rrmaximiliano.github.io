@@ -36,15 +36,10 @@ $headings-font-family: $serif;
 $headings-font-weight: 500;
 
 /*-- scss:rules --*/
-// Smooth page changes: cross-fade between pages (Chrome, Edge, Safari 18+),
-// keep the scrollbar's space reserved, and glide to in-page anchors.
-@view-transition { navigation: auto; }
-::view-transition-old(root), ::view-transition-new(root) { animation-duration: .18s; }
-html { scrollbar-gutter: stable; scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
-}
+// Page changes: no cross-fade (it blended two different layouts mid-switch).
+// The browser keeps the old page on screen until the new one is ready, and
+// the reserved scrollbar space keeps the layout from shifting sideways.
+html { scrollbar-gutter: stable; }
 
 body {
   font-size: 1.125rem;
@@ -188,6 +183,9 @@ nav#TOC.toc-tree {
   .prog .pct { color: $muted; margin-left: 8px; }
   .rail-time { font-size: .72rem; letter-spacing: .02em; color: $muted; margin-top: .6rem; }
 }
+// No animation while the tree sets its first state on page load
+nav#TOC.toc-tree.tree-init .subs,
+nav#TOC.toc-tree.tree-init .rail-title { transition: none; }
 @media (prefers-reduced-motion: reduce) {
   nav#TOC.toc-tree .subs, nav#TOC.toc-tree .rail-title { transition: none; }
 }
@@ -195,6 +193,7 @@ nav#TOC.toc-tree {
 // ── Footer ──
 .nav-footer {
   @extend %label;
+  .footer-gh { width: 12px; height: 12px; vertical-align: -1px; fill: currentColor; }
   border-top: 1px solid $rule;
   a { color: $muted; }
   a:hover { color: $accent; }
