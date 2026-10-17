@@ -1,38 +1,32 @@
 ---
 pagetitle: "Rony Rodriguez-Ramirez | Home"
-title: "Rony Rodrigo Maximiliano<br>Rodríguez-Ramírez"
-subtitle: "Harvard University"
 image: /files/img/rony.jpg
 toc: false
 page-layout: full
-format:
-  html:
-    quarto-template-params:
-      banner-header-class: "home"
-
-about:
-  id: hero-heading
-  template: trestles
-  image-width: 15em
-  image-shape: round
-  links:
-    - text: "{{< iconify bi envelope size=1.1em >}}"
-      href: "mailto:rrodriguezramirez@g.harvard.edu"
-    - text: "{{< ai orcid >}}"
-      href: "https://orcid.org/0000-0003-2640-484X"
-    - text: "{{< iconify bi academicons:google-scholar size=1.1em >}}"
-      href: "https://scholar.google.com/citations?user=PA_LMYMAAAAJ&hl=en"
-    - text: "{{< iconify ph butterfly-bold size=1.1em >}}"
-      href: "https://bsky.app/profile/rrmaximiliano.bsky.social"
-    - text: "{{< iconify bi twitter size=1.1em >}}"
-      href: "https://twitter.com/rrmaximiliano"
-    - text: "{{< iconify bi github size=1.1em >}}"
-      href: "https://github.com/rrmaximiliano"
-    - text: "{{< iconify bi ant-design:twitch-outlined size=1.1em >}}"
-      href: "https://www.twitch.tv/rrmaximiliano"  
+body-classes: home
+metadata-files:
+  - html/research-listings.yml
 ---
 
-<div style="text-align: justify">
+::: {.home-grid}
+
+::: {.home-side}
+
+```{=html}
+<div class="home-name" role="heading" aria-level="1">Rony Rodrigo Maximiliano<br>Rodríguez-Ramírez</div>
+<div class="home-affil">Harvard University</div>
+<img class="home-photo" src="files/img/rony.jpg" alt="Rony Rodríguez-Ramírez">
+```
+
+::: {.home-contact}
+**Email:** rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu
+
+{{< include html/_contact-icons.md >}}
+:::
+
+:::
+
+::: {.home-main}
 
 Hi! I'm a second year Ph.D. student in Education Policy and Program Evaluation (Economics of Education Field Course). My research is driven by a central question: **How can education systems be adapted to protect and rebuild human capital when faced with large-scale shocks like conflict, displacement, and political crises?** My academic and personal journey, which started in Nicaragua, has given me a strong motivation to address learning inequalities caused by political instability and forced migration.
 
@@ -40,4 +34,8 @@ I focus on designing and evaluating scalable interventions that can reduce these
 
 I am affiliated with the [Center for International Development (CID)](https://www.hks.harvard.edu/centers/cid/about-cid/people/phd-affiliates/rony-rodrigo-maximiliano-rodriguez-ramirez), the [Institute for Quantitative Social Science (IQSS)](https://www.iq.harvard.edu/people/rony-rodrigo-maximiliano-rodriguez-ramirez), and the Education Policy Lab for Latin America. My ultimate goal is to produce rigorous research that can inform social policies and create effective pathways toward more just societies.
 
-</div>
+{{< include research/_sections.qmd >}}
+
+:::
+
+:::

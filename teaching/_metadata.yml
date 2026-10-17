@@ -1,0 +1,32 @@
+# Listing setup for teaching/index.qmd. Edit teaching/courses.yml instead.
+listing:
+  - id: current
+    contents: courses.yml
+    template: ../html/teaching.ejs
+    include:
+      group: current
+    sort: false
+  - id: harvard
+    contents: courses.yml
+    template: ../html/teaching.ejs
+    include:
+      group: harvard
+    sort: false
+  - id: instructor
+    contents: courses.yml
+    template: ../html/teaching.ejs
+    include:
+      group: instructor
+    sort: false
+  - id: lecturer
+    contents: courses.yml
+    template: ../html/teaching.ejs
+    include:
+      group: lecturer
+    sort: false
+  - id: ta
+    contents: courses.yml
+    template: ../html/teaching.ejs
+    include:
+      group: ta
+    sort: false

@@ -1,0 +1,138 @@
+# Teaching entries, shown on /teaching. Newest first within each group.
+#
+# Fields
+#   title        (required)
+#   group        current | harvard | instructor | lecturer | ta
+#   institution
+#   instructors  list of {name, url}; url is optional
+#   years        free text, e.g. "2024–2025" or "Summer 2024, Summer 2026"
+#   note         optional extra line (e.g. list of courses)
+#   links        list of {text, url}
+#   booking      office-hours booking page (current courses only)
+
+# ── Currently teaching ──────────────────────────────────────────────
+- title: "Education Policy Analysis (EPA 101)"
+  group: current
+  institution: "Harvard University"
+  years: "Fall 2026"
+  booking: "/office-hours/epa-101/"
+
+- title: "Advanced Quantitative Methods (API 209)"
+  group: current
+  institution: "Harvard Kennedy School"
+  years: "Fall 2026"
+  booking: "/office-hours/"
+
+# ── Teaching Fellow, Harvard ────────────────────────────────────────
+- title: "Using Big Data to Solve Economic and Social Problems"
+  group: harvard
+  institution: "Harvard University"
+  instructors:
+    - {name: "Prof. Raj Chetty"}
+    - {name: "Dr. Greg Bruich"}
+  years: "2026"
+
+- title: "Economics of Education in Low- and Middle-Income Countries"
+  group: harvard
+  institution: "Harvard University"
+  instructors:
+    - {name: "Prof. Alejandro Ganimian"}
+  years: "2026"
+
+- title: "Advanced Quantitative Methods (API 209), Math Camp"
+  group: harvard
+  institution: "Harvard Kennedy School"
+  instructors:
+    - {name: "Prof. Dan Levy", url: "https://scholar.harvard.edu/danlevy/home"}
+  years: "Summer 2024, Summer 2026"
+  links:
+    - {text: "Math Camp Materials", url: "https://harvard-api209.github.io/api209-math-camp/"}
+
+- title: "Education Policy Analysis (EPA 101)"
+  group: harvard
+  institution: "Harvard University"
+  instructors:
+    - {name: "Prof. Emiliana Vegas", url: "https://www.emilianavegas.com"}
+    - {name: "Prof. Eric Taylor"}
+    - {name: "Prof. Susan Dynarski"}
+  years: "2024–2025"
+  links:
+    - {text: "Teaching Materials", url: "https://rrmaximiliano.github.io/epa_workshops/"}
+
+# ── Instructor ──────────────────────────────────────────────────────
+- title: "R for Stata Users"
+  group: instructor
+  institution: "The World Bank"
+  years: "2021–2023"
+  links:
+    - {text: "Teaching Materials", url: "https://github.com/worldbank/dime-r-training"}
+
+- title: "Reproducible Research Fundamentals"
+  group: instructor
+  institution: "The World Bank"
+  years: "2021–2023"
+  links:
+    - {text: "Teaching Materials", url: "https://github.com/worldbank/rrf-course"}
+
+- title: "Advanced Methods in Econometrics"
+  group: instructor
+  institution: "Lambda Institute, Perú"
+  years: "2021"
+  links:
+    - {text: "Teaching Materials", url: "https://github.com/lambda-stata/econometria-avanzada"}
+
+- title: "Impact Evaluation"
+  group: instructor
+  institution: "Lambda Institute, Perú"
+  years: "2021"
+
+- title: "Advanced Stata for Economists"
+  group: instructor
+  institution: "Lambda Institute, Perú"
+  years: "2020, 2021"
+  links:
+    - {text: "Teaching Materials", url: "https://github.com/lambda-stata/course-materials"}
+
+- title: "Stata Workshop (Summer School)"
+  group: instructor
+  institution: "KDI School, South Korea"
+  years: "Summer 2018"
+
+- title: "Metrics using Stata"
+  group: instructor
+  institution: "Econ Thaki"
+  links:
+    - {text: "Teaching Materials", url: "https://github.com/RRMaximiliano/econ-thaki-talleres"}
+
+# ── Adjunct Lecturer ────────────────────────────────────────────────
+- title: "Social and Human Economy"
+  group: lecturer
+  institution: "Universidad Centroamericana, Nicaragua"
+  years: "2018"
+  links:
+    - {text: "Teaching Materials", url: "https://github.com/econsoc-uca"}
+    # The evaluation PDF (/docs/evaluation-esh.pdf) is missing from the repo; add it back here once restored:
+    # - {text: "Evaluation", url: "/files/pdfs/evaluation-esh.pdf"}
+
+# ── Teaching Assistant ──────────────────────────────────────────────
+- title: "Foundations of Sustainable Development"
+  group: ta
+  institution: "KDI School of Public Policy and Management"
+  instructors:
+    - {name: "Prof. Booyuel Kim", url: "https://sites.google.com/site/booyuelkim/home"}
+  years: "2018"
+
+- title: "Impact Evaluation Methods"
+  group: ta
+  institution: "KDI School of Public Policy and Management"
+  instructors:
+    - {name: "Prof. Booyuel Kim", url: "https://sites.google.com/site/booyuelkim/home"}
+  years: "2017"
+  links:
+    - {text: "Teaching Materials", url: "http://bit.ly/kdi_impact_evaluation"}
+
+- title: "Undergraduate Economics Courses"
+  group: ta
+  institution: "Universidad Centroamericana, Nicaragua"
+  note: "Macroeconomics · Econometrics · Monetary Economics · Development Economics"
+  years: "2016–2018"

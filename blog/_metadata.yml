@@ -3,7 +3,7 @@
 freeze: true
 
 # Enable banner style title blocks
-title-block-banner: true
+title-block-banner: false
 
 citation: true
 csl: apa.csl
@@ -19,7 +19,7 @@ twitter-card:
 
 # Default for table of contents
 toc: true
-toc-title: Contents
+toc-title: Tree
 toc-depth: 3
 toc-location: left
 

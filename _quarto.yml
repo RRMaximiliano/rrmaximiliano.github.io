@@ -18,12 +18,10 @@ resources:
 website:
   draft-mode: gone
   search: false
-  google-analytics: "UA-134175775-1"
   page-navigation: true
-  site-url: "https://www.rrmaximiliano.github.io/"
+  site-url: "https://www.rrmaximiliano.com/"
   repo-url: "https://github.com/RRMaximiliano/rrmaximiliano.github.io"
   navbar:
-    background: "#FFFF"
     pinned: true
 
     left:
@@ -59,6 +57,16 @@ website:
 format:
   html:
     theme:
-      light: 
-      - html/custom.scss
+      light:
+        - html/custom.scss
+      dark:
+        - html/custom.scss
+        - html/dark.scss
+    respect-user-color-scheme: true
+    include-in-header: html/head.html
+    include-after-body: html/toc-tree.html
+    toc-title: Tree
+    toc-expand: true
     toc: true
+    grid:
+      body-width: 720px

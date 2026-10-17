@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+// Dark mode, sampled from the T3 Code app (dark appearance). Loaded after custom.scss.
+$paper:   #252526;   // app background
+$ink:     #dce8e8;   // primary text (cool off-white)
+$ink-2:   #c3cfd0;   // body text
+$muted:   #848b8c;   // secondary text
+$rule:    #343435;   // borders
+$faint:   #55595a;   // tree branches, empty progress
+$code-bg: #2a2a2c;   // panels / code blocks
+$accent:  #9fc3c9;   // teal from T3's inline code; selection tint is #37474f
+
+$body-bg: $paper;
+$body-color: $ink-2;
+$headings-color: $ink;
+$link-color: $ink;
+$link-hover-color: $accent;
+$border-color: $rule;
+$primary: $accent;
+$navbar-bg: $paper;
+$navbar-fg: $muted;
+$navbar-hl: $ink;
+$footer-bg: $paper;
+$footer-fg: $muted;

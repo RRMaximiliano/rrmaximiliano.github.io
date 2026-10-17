@@ -1,0 +1,223 @@
+# Research entries, shown on the homepage and on /research.
+# Text here is copied verbatim from the original research page.
+#
+# Fields
+#   title      (required)
+#   group      published-chapters | published-papers | working |
+#              predoc-books | predoc-papers | predoc-reports | progress
+#   coauthors  list of {name, url}; url is optional
+#   venue      shown in italics (journal, publisher)
+#   details    plain text after the venue, e.g. "Jan 2024, 1–20."
+#   links      list of {text, url}
+#   abstract   plain text; adds an "Abstract" toggle
+
+- title: "From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile"
+  group: published-chapters
+  coauthors:
+    - {name: "Emiliana Vegas", url: "https://www.emilianavegas.com/"}
+    - {name: "Álvaro Hofflinger", url: "https://alvarohofflinger.com/"}
+  links:
+    - {text: "Ungated PDF", url: "/files/pdfs/vegas_et_al_2024_chile.pdf"}
+    - {text: "Publisher", url: "https://link.springer.com/chapter/10.1007/978-3-031-69284-0_2"}
+  abstract: >-
+    This chapter analyzes the effects of school closures in Chile, the nation with the longest
+    period of school closures among OECD countries. Using data from PISA (national level) and SIMCE
+    (student level) in 2022, we examine the association between school closures and students’ GPA,
+    attendance rates, and math and reading scores. Our findings show that, on average, students’
+    attendance rates and math and reading scores experienced a decline, while their annual GPA
+    increased after 2020. The results also show that school closures affect students differently
+    depending on their demographic and socioeconomic backgrounds.
+
+- title: "The rise of post-pandemic bullying and its association with student achievement and school attachment: Evidence from Chile"
+  group: published-papers
+  coauthors:
+    - {name: "Álvaro Hofflinger", url: "https://alvarohofflinger.com/"}
+    - {name: "Emiliana Vegas", url: "https://www.emilianavegas.com/"}
+  venue: "International Journal of Educational Development"
+  details: "2026, 103677."
+  # Add once the DOI is live (it returned 404 on 2026-10-16):
+  # links:
+  #   - {text: "Publisher", url: "https://doi.org/10.1016/j.ijedudev.2026.103677"}
+  abstract: >-
+    Most of the research on the pandemic has focused on assessing the impact of school closures on
+    learning loss. Less attention has been paid to how school social dynamics changed after
+    COVID-19. In this study, we examine whether bullying increased after the pandemic and whether
+    the association between bullying exposure and student achievement changed in the post-pandemic
+    period. To do so, we used student-level census data from 10th graders before and after the
+    pandemic in Chile, which experienced the most extensive school closures among OECD countries. We
+    compare 10th-grade students before the pandemic (in 2016 and 2018) with those after the pandemic
+    (in 2022). All forms of bullying (physical, verbal, social, and via the internet) increased in
+    the post-pandemic cohort, with the increases concentrated among already-vulnerable groups for
+    physical and cyberbullying. Moreover, the achievement gap between bullied and non-bullied
+    students widened after the pandemic: bullying exposure in 2022 is associated with significantly
+    lower scores in mathematics and reading, and GPA than the same exposure before the pandemic.
+    Students exposed to bullying also report weaker attachment to their schools. While our cohort-
+    comparison design does not identify the causal effect of bullying on learning, the patterns we
+    document suggest that the deterioration of school social dynamics may be one of the most
+    important long-term legacies of the pandemic.
+
+- title: "Does the small business program benefit self-employed workers? Evidence from Nicaragua"
+  group: published-papers
+  coauthors:
+    - {name: "Booyuel Kim", url: "https://sites.google.com/site/booyuelkim/home"}
+    - {name: "Hee-Seung Yang", url: "https://sites.google.com/site/heeseungyang/"}
+  venue: "Journal of Development Effectiveness"
+  details: "Jan 2024, 1–20."
+  links:
+    - {text: "Publisher", url: "https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138"}
+  abstract: >-
+    Business and skills training programmes have been a popular social policy intervention to
+    increase productivity of the self-employed in developing countries. We study the Small Business
+    of the Family Economy programme, a government business training programme designed to assist
+    Nicaraguan self-employed workers. Using data from three rounds of the Nicaragua Living Standards
+    Measurement Survey, we employ a difference-in-differences strategy to exploit variation in
+    eligibility for the programme across time and economic activity. Our estimates indicate that the
+    programme does not increase self-employed workers’ earnings overall. However, we find
+    heterogeneous treatment effects for female self-employed workers with low educational
+    attainment, which could be explained by increased working months and having a second job.
+
+- title: "Investing in Human Capital during Wartime: Experimental Evidence from Ukraine"
+  group: working
+  coauthors:
+    - {name: "Harry Patrinos", url: "https://hpatrinos.com/"}
+    - {name: "Renata Lemos", url: "https://renatalemos.com/"}
+    - {name: "Lelys Dinarte", url: "https://sites.google.com/view/lelys-dinarte/home"}
+    - {name: "James Gresham"}
+  abstract: >-
+    This paper provides insights into human capital investments during wartime by presenting
+    evidence from three experiments of an online tutoring program for Ukrainian students amid
+    Russia’s invasion of Ukraine. The program provides three hours of weekly math and Ukrainian
+    language tutoring in small groups over six weeks, and uses academic and psychosocial tools to
+    address student challenges at different intensities of disruption. Results from all three
+    experiments show significant improvements in math and Ukrainian language scores by as much as
+    0.49 SD and 0.40 SD and a reduction in stress levels by up to 0.12 SD. The program improves peer
+    support, fosters positive learning attitudes, and helps students develop social-emotional
+    skills, contributing to improved learning and mental health. The benefit-cost ratios show that
+    benefits exceed costs in each experiment.
+
+- title: "Shared decision-making: Does quality of care affect contraceptive use?"
+  group: working
+  coauthors:
+    - {name: "Berk Özler", url: "https://sites.google.com/site/decrgberkozler/home"}
+    - {name: "Luca Parisotto", url: "https://sites.google.com/view/lucaparisotto/home"}
+  links:
+    - {text: "PDF -- Last Version", url: "/files/pdfs/ozler_et_al_2025_cameroon_qoc.pdf"}
+  abstract: >-
+    Whether higher quality of care in contraceptive counselling improves client outcomes is an
+    important question that does not find a clear answer in the extant literature. Using a trial
+    that tested various approaches to increase the uptake of modern contraceptives among the clients
+    of an urban hospital in Cameroon as its background, this study examines the association between
+    a quality of care index for contraceptive counselling and the probability of using a modern
+    method approximately four months later. We find that high quality contraceptive counselling is
+    associated with higher levels of contraceptive use at follow-up and greater client satisfaction.
+    While previous studies have primarily focused on continuation rates among contraceptive users,
+    this study shows that high quality of care can be also instrumental by potentially increasing
+    take-up rates among all clients. The study also shows that a quality of care measure that was
+    validated in rural India can be easily and reliably used to assess process quality in urban
+    Cameroon.
+
+- title: "In utero exposure to civil conflict: Nicaraguan war and its long-term effects on socioeconomic outcomes"
+  group: working
+  coauthors:
+    - {name: "Booyuel Kim", url: "https://sites.google.com/site/booyuelkim/home"}
+    - {name: "Hee-Seung Yang", url: "https://sites.google.com/site/heeseungyang/"}
+  abstract: >-
+    We examine the Nicaraguan Civil conflict in the seventies that ended up with the overthrown of
+    the Somoza dictatorship and the start of the Sandinista Revolution. Nicaragua between 1977 and
+    1979 experienced high rates of war confrontation. After the announcement of the Sandinista
+    National Liberation Front (FSLN, by its acronym in Spanish) in November of 1977, the country had
+    undergone a civil war which ended up with a range of 30,000-50,000 casualties. The escalated
+    confrontation allows us to examine the long-term effects of the war-related conflict on the
+    subsequent generation’s socioeconomic outcomes. In particular, this paper aims to identify
+    whether in-utero exposure to the civil conflict in Nicaragua has a negative impact on
+    individual’s education, labor and marriage market outcomes. We exploit the variation in timing
+    of and geographical exposure to the civil conflict during the last year of the dictatorship. We
+    use data from the Nicaraguan National Census to exploit differences across regions and across
+    cohorts, our preliminary findings indicate that the civil conflict negatively affected those
+    exposed to the conflict in utero. In particular, the long-term consequences of the war decreased
+    educational attainment, formal employability, and thus reducing lifetime earnings, especially
+    for females. The exposure to the civil conflict also seems to decrease marriage probability.
+
+- title: "Ciudadanía y violencia. Una aproximación a sus múltiples expresiones"
+  group: predoc-books
+  coauthors:
+    - {name: "Mario Sánchez"}
+    - {name: "Douglas Castro"}
+  links:
+    - {text: "PDF", url: "http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf"}
+
+- title: "Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo"
+  group: predoc-papers
+  coauthors:
+    - {name: "Hloreley Osorio"}
+  venue: "Anuario de Estudios Centroamericanos"
+  details: "46 (2020), 1–42."
+  links:
+    - {text: "Ungated Version", url: "https://www.redalyc.org/journal/152/15264516019/15264516019.pdf"}
+  abstract: >-
+    From a structure and agency perspective, this article analyzes the criticism and crisis in
+    Nicaragua during the Ortega administration (2007-2020). It shows that the "singular trials" of
+    social sectors to curb authoritarianism and capitalism, interpreted by the government as enemies
+    of progress (2007- March 2018), went through a "general judgment" of social and business sectors
+    represented in the Alianza Cívica that, witnessing crimes against humanity, criticize
+    authoritarianism and injustice, which the government evaluates as an attempted coup (April
+    2018-2020). The conflict between trials led to a national dialogue with partial decisions, while
+    the socio-political and economic crisis deepens. The analysis reveals the need for promoting
+    democracy with social justice
+
+- title: "Movimientos sociales y acción colectiva en Nicaragua: Entre la identidad, autonomía y subordinación"
+  group: predoc-papers
+  coauthors:
+    - {name: "Mario Sánchez"}
+    - {name: "Douglas Castro"}
+    - {name: "Jorge Guerra"}
+  venue: "Amnis"
+  details: "(15), 2016."
+  links:
+    - {text: "Publisher", url: "https://amnis.revues.org/2813"}
+  abstract: >-
+    This article analyzes the evolution of three social movements (Natives, women and workers) at
+    key moments of the history of Nicaragua: the dictatorship of Somoza (1934-1979), the Sandinista
+    revolution (1979-1990) and the neoliberal era (1990-2000).
+
+- title: "¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico?"
+  group: predoc-papers
+  coauthors:
+    - {name: "Carol Siero"}
+    - {name: "Sebastián Hernández"}
+  venue: "Encuentro"
+  details: "102 (2015), 52–74."
+  links:
+    - {text: "Ungated PDF", url: "/files/pdfs/siero_et_al_2015_cooperacion_internacional.pdf"}
+  abstract: >-
+    La cooperación internacional al desarrollo ha sido divulgada como una operación que se realiza
+    con el objetivo de promover el desarrollo y crecimiento económico de los países. Sin embargo, la
+    cooperación no solamente se basa en la idea del mejoramiento económico de los países sino
+    también en las relaciones político-económicas que los países tienen y en la forma en que éstos
+    administran los recursos. Esto sugiere que el estudio de la cooperación debe abordar contextos,
+    políticas e ideales tanto de los cooperantes como de los beneficiarios. En el presente artículo
+    se desarrollaron dos modelos econométricos, estimados a través de datos panel. Primero, un
+    modelo de selectividad que hace referencia a la cantidad de dinero desembolsado a sectores
+    estratégicos de la economía por parte de los donantes y, segundo, un modelo de eficacia de la
+    cooperación para valorar la incidencia de la ayuda en el desarrollo y crecimiento económico. A
+    través de estos dos modelos, el paradigma actual de la cooperación presenta debilidades al
+    momento de establecer ejes estratégicos. Por esto, es necesario que el debate sobre el rol de la
+    cooperación tenga un carácter activo en las políticas tanto de los países cooperantes como de
+    los beneficiarios.
+
+- title: "Improving the well-being of adolescent girls in developing countries"
+  group: predoc-reports
+  venue: "The World Bank (2022)"
+  links:
+    - {text: "PDF", url: "https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf"}
+
+- title: "Supporting Mental Health Through the Promotion of Psychosocial Support in Armenian Schools"
+  group: progress
+  coauthors:
+    - {name: "Lelys Dinarte", url: "https://sites.google.com/view/lelys-dinarte/home"}
+    - {name: "Renata Lemos", url: "https://renatalemos.com/"}
+
+- title: "The Role of Selective Public Universities in Shaping Long-Term Outcomes"
+  group: progress
+  coauthors:
+    - {name: "Jostin Kitmang"}

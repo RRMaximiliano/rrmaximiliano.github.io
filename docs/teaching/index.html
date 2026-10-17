@@ -24,6 +24,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -31,10 +33,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e94a102dee1c849217ca85003219b238.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bde90d040f26c5f0c269e1058ff2ebcc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0508c56c52ff9c172d95ccaf2504664f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bde90d040f26c5f0c269e1058ff2ebcc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5e0a679b501ec6c6d2f6ff9c758e6bd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-cdb2fe0d85154c07f656acfd10780f09.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-58a0e77c1a62e6bffc31c43d48bc25d9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-cdb2fe0d85154c07f656acfd10780f09.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -52,25 +58,449 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-current .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-group','listing-institution','listing-years','listing-booking',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-group","listing-institution","listing-years","listing-booking"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-current'] = new List('listing-current', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-harvard .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-group','listing-institution','listing-instructors','listing-years','listing-links',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-group","listing-institution","listing-instructors","listing-years","listing-links"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-harvard'] = new List('listing-harvard', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-instructor .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-group','listing-institution','listing-years','listing-links',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-group","listing-institution","listing-years","listing-links"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-instructor'] = new List('listing-instructor', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-lecturer .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-group','listing-institution','listing-years','listing-links',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-group","listing-institution","listing-years","listing-links"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-lecturer'] = new List('listing-lecturer', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-ta .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-group','listing-institution','listing-instructors','listing-years','listing-links','listing-note',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-title","listing-group","listing-institution","listing-instructors","listing-years","listing-links","listing-note"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-ta'] = new List('listing-ta', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<link rel="preload" href="../fonts/site/Newsreader-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../fonts/site/Newsreader-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../fonts/site/IBMPlexMono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../fonts/site/IBMPlexMono-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<style>
+/* Self-hosted fonts (files in fonts/site). Inlined so text never re-flows on load. */
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/IBMPlexMono-normal-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/IBMPlexMono-normal-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/site/IBMPlexMono-normal-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/site/IBMPlexMono-normal-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/Newsreader-italic-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/Newsreader-italic-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/Newsreader-normal-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/Newsreader-normal-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/site/Newsreader-normal-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/site/Newsreader-normal-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-134175775-1', 'auto');
-
-ga('send', {
-  hitType: 'pageview',
-  'anonymizeIp': true,
-});
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
 </script>
-
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -114,6 +544,7 @@ ga('send', {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -123,29 +554,15 @@ ga('send', {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Tree</h2>
    
   <ul>
-  <li><a href="#teaching-assistant-teaching-fellow" id="toc-teaching-assistant-teaching-fellow" class="nav-link active" data-scroll-target="#teaching-assistant-teaching-fellow">Teaching Assistant / Teaching Fellow</a>
-  <ul class="collapse">
-  <li><a href="#education-policy-analysis-epa-101" id="toc-education-policy-analysis-epa-101" class="nav-link" data-scroll-target="#education-policy-analysis-epa-101">Education Policy Analysis (EPA 101)</a></li>
-  <li><a href="#advanced-quantitative-methods-api-209-math-camp" id="toc-advanced-quantitative-methods-api-209-math-camp" class="nav-link" data-scroll-target="#advanced-quantitative-methods-api-209-math-camp">Advanced Quantitative Methods (API 209 — Math Camp)</a></li>
-  <li><a href="#impact-evaluation-methods" id="toc-impact-evaluation-methods" class="nav-link" data-scroll-target="#impact-evaluation-methods">Impact Evaluation Methods</a></li>
-  <li><a href="#foundations-of-sustainable-development" id="toc-foundations-of-sustainable-development" class="nav-link" data-scroll-target="#foundations-of-sustainable-development">Foundations of Sustainable Development</a></li>
-  <li><a href="#undergraduate-economics-courses" id="toc-undergraduate-economics-courses" class="nav-link" data-scroll-target="#undergraduate-economics-courses">Undergraduate Economics Courses</a></li>
-  </ul></li>
-  <li><a href="#instructor-programming-courses" id="toc-instructor-programming-courses" class="nav-link" data-scroll-target="#instructor-programming-courses">Instructor — Programming Courses</a>
-  <ul class="collapse">
-  <li><a href="#metrics-using-stata" id="toc-metrics-using-stata" class="nav-link" data-scroll-target="#metrics-using-stata">Metrics using Stata</a></li>
-  <li><a href="#r-for-advanced-stata-users" id="toc-r-for-advanced-stata-users" class="nav-link" data-scroll-target="#r-for-advanced-stata-users">R for Advanced Stata Users</a></li>
-  <li><a href="#stata-avanzado-para-economistas" id="toc-stata-avanzado-para-economistas" class="nav-link" data-scroll-target="#stata-avanzado-para-economistas">Stata avanzado para economistas</a></li>
-  <li><a href="#stata-workshop-summer-school" id="toc-stata-workshop-summer-school" class="nav-link" data-scroll-target="#stata-workshop-summer-school">Stata Workshop (Summer School)</a></li>
-  </ul></li>
-  <li><a href="#adjunct-lecturer" id="toc-adjunct-lecturer" class="nav-link" data-scroll-target="#adjunct-lecturer">Adjunct Lecturer</a>
-  <ul class="collapse">
-  <li><a href="#social-and-human-economy" id="toc-social-and-human-economy" class="nav-link" data-scroll-target="#social-and-human-economy">Social and Human Economy</a></li>
-  </ul></li>
+  <li><a href="#currently-teaching" id="toc-currently-teaching" class="nav-link active" data-scroll-target="#currently-teaching">Currently Teaching</a></li>
+  <li><a href="#teaching-fellow-harvard-university" id="toc-teaching-fellow-harvard-university" class="nav-link" data-scroll-target="#teaching-fellow-harvard-university">Teaching Fellow, Harvard University</a></li>
+  <li><a href="#instructor" id="toc-instructor" class="nav-link" data-scroll-target="#instructor">Instructor</a></li>
+  <li><a href="#adjunct-lecturer" id="toc-adjunct-lecturer" class="nav-link" data-scroll-target="#adjunct-lecturer">Adjunct Lecturer</a></li>
+  <li><a href="#teaching-assistant" id="toc-teaching-assistant" class="nav-link" data-scroll-target="#teaching-assistant">Teaching Assistant</a></li>
   </ul>
 </nav>
     </div>
@@ -155,81 +572,288 @@ ga('send', {
 
 
 
-<section id="teaching-assistant-teaching-fellow" class="level2">
-<h2 class="anchored" data-anchor-id="teaching-assistant-teaching-fellow">Teaching Assistant / Teaching Fellow</h2>
-<section id="education-policy-analysis-epa-101" class="level3">
-<h3 class="anchored" data-anchor-id="education-policy-analysis-epa-101">Education Policy Analysis (EPA 101)</h3>
-<p><em>Harvard University — Prof.&nbsp;<a href="https://www.emilianavegas.com">Emiliana Vegas</a></em></p>
-<p><strong>Role</strong>: Teaching Fellow<br>
-<strong>Semester offered</strong>: Fall 2024<br>
-<a href="https://rrmaximiliano.github.io/epa_workshops/">Teaching Materials</a> | <a href="../office-hours/epa-101/index.html">Office Hours</a></p>
+
+<!-- To add or edit a course, change teaching/courses.yml. -->
+<section id="currently-teaching" class="level2">
+<h2 class="anchored" data-anchor-id="currently-teaching">Currently Teaching</h2>
+<div class="teaching-note">
+<p><strong>Students:</strong> please book office hours through the links below.</p>
+</div>
+<div id="listing-current" class="quarto-listing quarto-listing-container-custom">
+<div class="course-list">
+
+<article class="course course-current">
+<div class="course-head"><span class="course-title">Education Policy Analysis (EPA 101)</span><span class="course-years">Fall 2026</span></div>
+<div class="course-meta">Harvard University</div>
+
+<div class="course-links"><a class="course-book" href="../office-hours/epa-101/">Book office hours →</a></div>
+</article>
+
+<article class="course course-current">
+<div class="course-head"><span class="course-title">Advanced Quantitative Methods (API 209)</span><span class="course-years">Fall 2026</span></div>
+<div class="course-meta">Harvard Kennedy School</div>
+
+<div class="course-links"><a class="course-book" href="../office-hours/">Book office hours →</a></div>
+</article>
+
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 </section>
-<section id="advanced-quantitative-methods-api-209-math-camp" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-quantitative-methods-api-209-math-camp">Advanced Quantitative Methods (API 209 — Math Camp)</h3>
-<p><em>Harvard University — Prof.&nbsp;<a href="https://scholar.harvard.edu/danlevy/home">Dan Levy</a></em></p>
-<p><strong>Role</strong>: Teaching Fellow<br>
-<strong>Semester offered</strong>: Summer 2024<br>
-<a href="https://harvard-api209.github.io/api209-math-camp/">Teaching Materials</a></p>
+<section id="teaching-fellow-harvard-university" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-fellow-harvard-university">Teaching Fellow, Harvard University</h2>
+<div id="listing-harvard" class="quarto-listing quarto-listing-container-custom">
+<div class="course-list">
+
+<article class="course">
+<div class="course-head"><span class="course-title">Using Big Data to Solve Economic and Social Problems</span><span class="course-years">2026</span></div>
+<div class="course-meta">Harvard University · Prof. Raj Chetty and Dr. Greg Bruich</div>
+
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Economics of Education in Low- and Middle-Income Countries</span><span class="course-years">2026</span></div>
+<div class="course-meta">Harvard University · Prof. Alejandro Ganimian</div>
+
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Advanced Quantitative Methods (API 209), Math Camp</span><span class="course-years">Summer 2024, Summer 2026</span></div>
+<div class="course-meta">Harvard Kennedy School · <a href="https://scholar.harvard.edu/danlevy/home">Prof. Dan Levy</a></div>
+
+<div class="course-links"><a href="https://harvard-api209.github.io/api209-math-camp/">Math Camp Materials</a></div>
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Education Policy Analysis (EPA 101)</span><span class="course-years">2024–2025</span></div>
+<div class="course-meta">Harvard University · <a href="https://www.emilianavegas.com">Prof. Emiliana Vegas</a>, Prof. Eric Taylor, and Prof. Susan Dynarski</div>
+
+<div class="course-links"><a href="https://rrmaximiliano.github.io/epa_workshops/">Teaching Materials</a></div>
+</article>
+
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 </section>
-<section id="impact-evaluation-methods" class="level3">
-<h3 class="anchored" data-anchor-id="impact-evaluation-methods">Impact Evaluation Methods</h3>
-<p><em>KDI School of Public Policy and Management — Prof.&nbsp;<a href="https://sites.google.com/site/booyuelkim/home">Booyuel Kim</a></em></p>
-<p><strong>Role</strong>: Teaching Assistant<br>
-<strong>Semester offered</strong>: Spring 2021<br>
-<a href="http://bit.ly/kdi_impact_evaluation">Teaching Materials</a></p>
-</section>
-<section id="foundations-of-sustainable-development" class="level3">
-<h3 class="anchored" data-anchor-id="foundations-of-sustainable-development">Foundations of Sustainable Development</h3>
-<p><em>KDI School of Public Policy and Management — Prof.&nbsp;<a href="https://sites.google.com/site/booyuelkim/home">Booyuel Kim</a></em></p>
-<p><strong>Role</strong>: Teaching Assistant<br>
-<strong>Semester offered</strong>: Fall 2020</p>
-</section>
-<section id="undergraduate-economics-courses" class="level3">
-<h3 class="anchored" data-anchor-id="undergraduate-economics-courses">Undergraduate Economics Courses</h3>
-<p>Macroeconomics • Econometrics • Monetary Economics • Development Economics<br>
-<em>Universidad Centroamericana, Nicaragua</em></p>
-<p><strong>Role</strong>: Teaching Assistant (2016 – 2018)</p>
-</section>
-</section>
-<section id="instructor-programming-courses" class="level2">
-<h2 class="anchored" data-anchor-id="instructor-programming-courses">Instructor — Programming Courses</h2>
-<section id="metrics-using-stata" class="level3">
-<h3 class="anchored" data-anchor-id="metrics-using-stata">Metrics using Stata</h3>
-<p><em>Econ Thaki</em><br>
-<a href="https://github.com/RRMaximiliano/econ-thaki-talleres">Teaching Materials</a></p>
-</section>
-<section id="r-for-advanced-stata-users" class="level3">
-<h3 class="anchored" data-anchor-id="r-for-advanced-stata-users">R for Advanced Stata Users</h3>
-<p><em>The World Bank</em><br>
-<a href="https://github.com/worldbank/dime-r-training">Teaching Materials</a></p>
-</section>
-<section id="stata-avanzado-para-economistas" class="level3">
-<h3 class="anchored" data-anchor-id="stata-avanzado-para-economistas">Stata avanzado para economistas</h3>
-<p><em>Lambda, Perú</em><br>
-<a href="https://github.com/lambda-stata/course-materials">Teaching Materials</a></p>
-</section>
-<section id="stata-workshop-summer-school" class="level3">
-<h3 class="anchored" data-anchor-id="stata-workshop-summer-school">Stata Workshop (Summer School)</h3>
-<p><em>KDI School, South Korea</em><br>
-<strong>Semester offered</strong>: Summer 2018</p>
-</section>
+<section id="instructor" class="level2">
+<h2 class="anchored" data-anchor-id="instructor">Instructor</h2>
+<div id="listing-instructor" class="quarto-listing quarto-listing-container-custom">
+<div class="course-list">
+
+<article class="course">
+<div class="course-head"><span class="course-title">R for Stata Users</span><span class="course-years">2021–2023</span></div>
+<div class="course-meta">The World Bank</div>
+
+<div class="course-links"><a href="https://github.com/worldbank/dime-r-training">Teaching Materials</a></div>
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Reproducible Research Fundamentals</span><span class="course-years">2021–2023</span></div>
+<div class="course-meta">The World Bank</div>
+
+<div class="course-links"><a href="https://github.com/worldbank/rrf-course">Teaching Materials</a></div>
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Advanced Methods in Econometrics</span><span class="course-years">2021</span></div>
+<div class="course-meta">Lambda Institute, Perú</div>
+
+<div class="course-links"><a href="https://github.com/lambda-stata/econometria-avanzada">Teaching Materials</a></div>
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Impact Evaluation</span><span class="course-years">2021</span></div>
+<div class="course-meta">Lambda Institute, Perú</div>
+
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Advanced Stata for Economists</span><span class="course-years">2020, 2021</span></div>
+<div class="course-meta">Lambda Institute, Perú</div>
+
+<div class="course-links"><a href="https://github.com/lambda-stata/course-materials">Teaching Materials</a></div>
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Stata Workshop (Summer School)</span><span class="course-years">Summer 2018</span></div>
+<div class="course-meta">KDI School, South Korea</div>
+
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Metrics using Stata</span></div>
+<div class="course-meta">Econ Thaki</div>
+
+<div class="course-links"><a href="https://github.com/RRMaximiliano/econ-thaki-talleres">Teaching Materials</a></div>
+</article>
+
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 </section>
 <section id="adjunct-lecturer" class="level2">
 <h2 class="anchored" data-anchor-id="adjunct-lecturer">Adjunct Lecturer</h2>
-<section id="social-and-human-economy" class="level3">
-<h3 class="anchored" data-anchor-id="social-and-human-economy">Social and Human Economy</h3>
-<p><em>Universidad Centroamericana, Nicaragua</em></p>
-<p><strong>Role</strong>: Adjunct Lecturer<br>
-<strong>Semester offered</strong>: Spring 2019<br>
-<a href="https://github.com/econsoc-uca">Teaching Materials</a> | <a href="../docs/evaluation-esh.pdf">Evaluation</a></p>
+<div id="listing-lecturer" class="quarto-listing quarto-listing-container-custom">
+<div class="course-list">
 
+<article class="course">
+<div class="course-head"><span class="course-title">Social and Human Economy</span><span class="course-years">2018</span></div>
+<div class="course-meta">Universidad Centroamericana, Nicaragua</div>
 
+<div class="course-links"><a href="https://github.com/econsoc-uca">Teaching Materials</a></div>
+</article>
+
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
 </section>
+<section id="teaching-assistant" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-assistant">Teaching Assistant</h2>
+<div id="listing-ta" class="quarto-listing quarto-listing-container-custom">
+<div class="course-list">
+
+<article class="course">
+<div class="course-head"><span class="course-title">Foundations of Sustainable Development</span><span class="course-years">2018</span></div>
+<div class="course-meta">KDI School of Public Policy and Management · <a href="https://sites.google.com/site/booyuelkim/home">Prof. Booyuel Kim</a></div>
+
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Impact Evaluation Methods</span><span class="course-years">2017</span></div>
+<div class="course-meta">KDI School of Public Policy and Management · <a href="https://sites.google.com/site/booyuelkim/home">Prof. Booyuel Kim</a></div>
+
+<div class="course-links"><a href="http://bit.ly/kdi_impact_evaluation">Teaching Materials</a></div>
+</article>
+
+<article class="course">
+<div class="course-head"><span class="course-title">Undergraduate Economics Courses</span><span class="course-years">2016–2018</span></div>
+<div class="course-meta">Universidad Centroamericana, Nicaragua</div>
+<div class="course-note">Macroeconomics · Econometrics · Monetary Economics · Development Economics</div>
+
+</article>
+
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+
+
+
 </section>
 
 </main> <!-- /main -->
+<script>
+// Turns Quarto's table of contents into a "tree": └ branches, only the current
+// section's sub-items unfolded, a ▓░ reading-progress bar and an "N MIN READ" line.
+(() => {
+  const toc = document.querySelector('nav#TOC');
+  if (!toc || toc.dataset.tree) return;
+  toc.dataset.tree = '1';
+  toc.classList.add('toc-tree');
+
+  // Page title, shown in the rail once the header has scrolled away
+  const titleEl = document.querySelector('#title-block-header h1.title');
+  let railTitle = null;
+  if (titleEl) {
+    railTitle = document.createElement('div');
+    railTitle.className = 'rail-title';
+    railTitle.textContent = titleEl.textContent.trim();
+    toc.prepend(railTitle);
+  }
+
+  // Branch glyphs
+  const links = [...toc.querySelectorAll('a.nav-link')];
+  for (const a of links) {
+    const br = document.createElement('span');
+    br.className = 'br';
+    br.setAttribute('aria-hidden', 'true');
+    br.textContent = '└';
+    a.prepend(br);
+    a.title = a.textContent.replace('└', '').trim();
+  }
+
+  // Wrap nested lists so they can fold open and closed smoothly
+  for (const ul of toc.querySelectorAll('li > ul')) {
+    ul.classList.remove('collapse', 'show');
+    const wrap = document.createElement('div');
+    wrap.className = 'subs';
+    const inner = document.createElement('div');
+    ul.replaceWith(wrap);
+    inner.appendChild(ul);
+    wrap.appendChild(inner);
+  }
+
+  // Progress bar and reading time
+  const prog = document.createElement('div');
+  prog.className = 'prog';
+  prog.setAttribute('aria-hidden', 'true');
+  const time = document.createElement('div');
+  time.className = 'rail-time';
+  const main = document.querySelector('main.content') || document.body;
+  const words = (main.innerText.match(/\S+/g) || []).length;
+  time.textContent = Math.max(1, Math.round(words / 230)) + ' MIN READ';
+  toc.append(prog, time);
+
+  const targets = links
+    .map(a => [a, document.getElementById(decodeURIComponent(a.hash.slice(1)))])
+    .filter(([, h]) => h);
+
+  let barLen = 24;
+  const measure = () => {
+    const probe = document.createElement('span');
+    probe.textContent = '░'.repeat(10);
+    probe.style.visibility = 'hidden';
+    prog.textContent = '';
+    prog.appendChild(probe);
+    const cw = probe.getBoundingClientRect().width / 10 || 8;
+    barLen = Math.max(8, Math.min(32, Math.floor((prog.clientWidth - cw * 5) / cw)));
+  };
+
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const pct = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 1;
+    const filled = Math.round(pct * barLen);
+    const label = String(Math.round(pct * 100)).padStart(2, '0') + '%';
+    prog.innerHTML = '<b>' + '▓'.repeat(filled) + '</b>' + '░'.repeat(barLen - filled) +
+      '<span class="pct">' + label + '</span>';
+
+    // Current section: last heading above the line just below the navbar
+    let current = targets.length ? targets[0][0] : null;
+    for (const [a, h] of targets) {
+      if (h.getBoundingClientRect().top <= 120) current = a; else break;
+    }
+    if (max > 0 && scrollY >= max - 2 && targets.length) current = targets[targets.length - 1][0];
+    for (const a of links) a.classList.toggle('on', a === current);
+    for (const s of toc.querySelectorAll('.subs')) {
+      const li = s.parentElement;
+      s.classList.toggle('open', !!current && li.contains(current));
+    }
+    if (railTitle) railTitle.classList.toggle('on', titleEl.getBoundingClientRect().bottom < 64);
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+
+  measure();
+  update();
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', () => { measure(); update(); });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -300,7 +924,7 @@ ga('send', {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.rrmaximiliano\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/www\.rrmaximiliano\.com\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

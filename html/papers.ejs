@@ -1,0 +1,27 @@
+<%
+// Renders entries from research/papers.yml. Edit the YAML, not this file.
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const person = a => a.url ? `<a href="${esc(a.url)}">${esc(a.name)}</a>` : esc(a.name);
+const names = list => {
+  const n = list.map(person);
+  if (n.length < 3) return n.join(' and ');
+  return n.slice(0, -1).join(', ') + ', and ' + n[n.length - 1];
+};
+const toggle = "const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))";
+%>
+```{=html}
+<div class="pub-list">
+<% for (const item of items) { %>
+<article class="pub">
+<div class="pub-title"><% if (item.url) { %><a href="<%- item.url %>"><%- item.title %></a><% } else { %><%- item.title %><% } %></div>
+<% if (item.coauthors && item.coauthors.length) { %><div class="pub-authors">(with <%= names(item.coauthors) %>)</div><% } %>
+<% if (item.venue) { %><div class="pub-venue"><em><%- item.venue %></em><% if (item.details) { %>, <%- item.details %><% } %></div><% } %>
+<% const bits = []; %>
+<% if (item.abstract) bits.push(`<button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="${toggle}">Abstract</button>`); %>
+<% for (const l of (item.links || [])) bits.push(`<a href="${esc(l.url)}">${esc(l.text)}</a>`); %>
+<% if (bits.length) { %><div class="pub-links"><%= bits.join('<span class="sep"> | </span>') %></div><% } %>
+<% if (item.abstract) { %><div class="pub-abstract" hidden><%- item.abstract %></div><% } %>
+</article>
+<% } %>
+</div>
+```

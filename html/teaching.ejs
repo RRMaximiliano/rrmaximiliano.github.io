@@ -1,0 +1,24 @@
+<%
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const person = a => a.url ? `<a href="${esc(a.url)}">${esc(a.name)}</a>` : esc(a.name);
+const names = list => {
+  const n = list.map(person);
+  if (n.length < 3) return n.join(' and ');
+  return n.slice(0, -1).join(', ') + ', and ' + n[n.length - 1];
+};
+%>
+```{=html}
+<div class="course-list">
+<% for (const item of items) { %>
+<article class="course<%- item.booking ? ' course-current' : '' %>">
+<div class="course-head"><span class="course-title"><%- item.title %></span><% if (item.years) { %><span class="course-years"><%- item.years %></span><% } %></div>
+<div class="course-meta"><%- item.institution %><% if (item.instructors && item.instructors.length) { %> · <%= names(item.instructors) %><% } %></div>
+<% if (item.note) { %><div class="course-note"><%- item.note %></div><% } %>
+<% const bits = []; %>
+<% if (item.booking) bits.push(`<a class="course-book" href="${esc(item.booking)}">Book office hours →</a>`); %>
+<% for (const l of (item.links || [])) bits.push(`<a href="${esc(l.url)}">${esc(l.text)}</a>`); %>
+<% if (bits.length) { %><div class="course-links"><%= bits.join('<span class="sep"> | </span>') %></div><% } %>
+</article>
+<% } %>
+</div>
+```

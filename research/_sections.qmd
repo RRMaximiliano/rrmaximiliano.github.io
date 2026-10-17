@@ -1,0 +1,40 @@
+<!-- Shared by the homepage and /research. Papers live in research/papers.yml. -->
+
+## Published Work
+
+### Book Chapters
+
+::: {#published-chapters}
+:::
+
+### Papers
+
+::: {#published-papers}
+:::
+
+## Working Papers
+
+::: {#working}
+:::
+
+## Pre-Doctoral Studies (Before 2023)
+
+### Books
+
+::: {#predoc-books}
+:::
+
+### Papers
+
+::: {#predoc-papers}
+:::
+
+### Reports
+
+::: {#predoc-reports}
+:::
+
+## Selected Works in Progress
+
+::: {#progress}
+:::

@@ -1,0 +1,98 @@
+<script>
+// Turns Quarto's table of contents into a "tree": └ branches, only the current
+// section's sub-items unfolded, a ▓░ reading-progress bar and an "N MIN READ" line.
+(() => {
+  const toc = document.querySelector('nav#TOC');
+  if (!toc || toc.dataset.tree) return;
+  toc.dataset.tree = '1';
+  toc.classList.add('toc-tree');
+
+  // Page title, shown in the rail once the header has scrolled away
+  const titleEl = document.querySelector('#title-block-header h1.title');
+  let railTitle = null;
+  if (titleEl) {
+    railTitle = document.createElement('div');
+    railTitle.className = 'rail-title';
+    railTitle.textContent = titleEl.textContent.trim();
+    toc.prepend(railTitle);
+  }
+
+  // Branch glyphs
+  const links = [...toc.querySelectorAll('a.nav-link')];
+  for (const a of links) {
+    const br = document.createElement('span');
+    br.className = 'br';
+    br.setAttribute('aria-hidden', 'true');
+    br.textContent = '└';
+    a.prepend(br);
+    a.title = a.textContent.replace('└', '').trim();
+  }
+
+  // Wrap nested lists so they can fold open and closed smoothly
+  for (const ul of toc.querySelectorAll('li > ul')) {
+    ul.classList.remove('collapse', 'show');
+    const wrap = document.createElement('div');
+    wrap.className = 'subs';
+    const inner = document.createElement('div');
+    ul.replaceWith(wrap);
+    inner.appendChild(ul);
+    wrap.appendChild(inner);
+  }
+
+  // Progress bar and reading time
+  const prog = document.createElement('div');
+  prog.className = 'prog';
+  prog.setAttribute('aria-hidden', 'true');
+  const time = document.createElement('div');
+  time.className = 'rail-time';
+  const main = document.querySelector('main.content') || document.body;
+  const words = (main.innerText.match(/\S+/g) || []).length;
+  time.textContent = Math.max(1, Math.round(words / 230)) + ' MIN READ';
+  toc.append(prog, time);
+
+  const targets = links
+    .map(a => [a, document.getElementById(decodeURIComponent(a.hash.slice(1)))])
+    .filter(([, h]) => h);
+
+  let barLen = 24;
+  const measure = () => {
+    const probe = document.createElement('span');
+    probe.textContent = '░'.repeat(10);
+    probe.style.visibility = 'hidden';
+    prog.textContent = '';
+    prog.appendChild(probe);
+    const cw = probe.getBoundingClientRect().width / 10 || 8;
+    barLen = Math.max(8, Math.min(32, Math.floor((prog.clientWidth - cw * 5) / cw)));
+  };
+
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const pct = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 1;
+    const filled = Math.round(pct * barLen);
+    const label = String(Math.round(pct * 100)).padStart(2, '0') + '%';
+    prog.innerHTML = '<b>' + '▓'.repeat(filled) + '</b>' + '░'.repeat(barLen - filled) +
+      '<span class="pct">' + label + '</span>';
+
+    // Current section: last heading above the line just below the navbar
+    let current = targets.length ? targets[0][0] : null;
+    for (const [a, h] of targets) {
+      if (h.getBoundingClientRect().top <= 120) current = a; else break;
+    }
+    if (max > 0 && scrollY >= max - 2 && targets.length) current = targets[targets.length - 1][0];
+    for (const a of links) a.classList.toggle('on', a === current);
+    for (const s of toc.querySelectorAll('.subs')) {
+      const li = s.parentElement;
+      s.classList.toggle('open', !!current && li.contains(current));
+    }
+    if (railTitle) railTitle.classList.toggle('on', titleEl.getBoundingClientRect().bottom < 64);
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+
+  measure();
+  update();
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', () => { measure(); update(); });
+})();
+</script>

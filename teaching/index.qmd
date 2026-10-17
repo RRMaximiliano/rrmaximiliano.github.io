@@ -2,64 +2,33 @@
 toc-location: right
 ---
 
-## Teaching Assistant / Teaching Fellow
+<!-- To add or edit a course, change teaching/courses.yml. -->
 
-### Education Policy Analysis (EPA 101)  
-*Harvard University — Prof. [Emiliana Vegas](https://www.emilianavegas.com)*
+## Currently Teaching
 
-**Role**: Teaching Fellow  
-**Semester offered**: Fall 2024  
-[Teaching Materials](https://rrmaximiliano.github.io/epa_workshops/) | [Office Hours](/office-hours/epa-101/index.qmd)
+::: {.teaching-note}
+**Students:** please book office hours through the links below.
+:::
 
-### Advanced Quantitative Methods (API 209 — Math Camp)  
-*Harvard University — Prof. [Dan Levy](https://scholar.harvard.edu/danlevy/home)*
+::: {#current}
+:::
 
-**Role**: Teaching Fellow  
-**Semester offered**: Summer 2024  
-[Teaching Materials](https://harvard-api209.github.io/api209-math-camp/)
+## Teaching Fellow, Harvard University
 
-### Impact Evaluation Methods
-*KDI School of Public Policy and Management — Prof. [Booyuel Kim](https://sites.google.com/site/booyuelkim/home)*
+::: {#harvard}
+:::
 
-**Role**: Teaching Assistant  
-**Semester offered**: Spring 2021  
-[Teaching Materials](http://bit.ly/kdi_impact_evaluation)
+## Instructor
 
-### Foundations of Sustainable Development  
-*KDI School of Public Policy and Management — Prof. [Booyuel Kim](https://sites.google.com/site/booyuelkim/home)*
-
-**Role**: Teaching Assistant  
-**Semester offered**: Fall 2020  
-
-### Undergraduate Economics Courses  
-Macroeconomics • Econometrics • Monetary Economics • Development Economics  
-*Universidad Centroamericana, Nicaragua*
-
-**Role**: Teaching Assistant (2016 – 2018)
-
-## Instructor — Programming Courses
-
-### Metrics using Stata  
-*Econ Thaki*  
-[Teaching Materials](https://github.com/RRMaximiliano/econ-thaki-talleres)
-
-### R for Advanced Stata Users  
-*The World Bank*  
-[Teaching Materials](https://github.com/worldbank/dime-r-training)
-
-### Stata avanzado para economistas  
-*Lambda, Perú*  
-[Teaching Materials](https://github.com/lambda-stata/course-materials)
-
-### Stata Workshop (Summer School)  
-*KDI School, South Korea*  
-**Semester offered**: Summer 2018  
+::: {#instructor}
+:::
 
 ## Adjunct Lecturer
 
-### Social and Human Economy  
-*Universidad Centroamericana, Nicaragua*
+::: {#lecturer}
+:::
 
-**Role**: Adjunct Lecturer  
-**Semester offered**: Spring 2019  
-[Teaching Materials](https://github.com/econsoc-uca) | [Evaluation](/docs/evaluation-esh.pdf)
+## Teaching Assistant
+
+::: {#ta}
+:::
