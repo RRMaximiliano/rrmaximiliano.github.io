@@ -48,20 +48,20 @@ $ease-out-expo: cubic-bezier(.19, 1, .22, 1);
 @keyframes stag-in { from { opacity: 0; transform: translateY(14px); } }
 @keyframes reveal-fade { from { opacity: 0; } }
 
-main.content > :not(.home-grid):not(.oh-layout):not(script):not(style),
-.home-side > *, .oh-side > *,
-.home-main > *, .oh-main > * {
+main.content > :not(.home-grid):not(script):not(style),
+.home-side > *,
+.home-main > * {
   animation: stag-in .5s $ease-out-expo both;
 }
 @for $i from 1 through 12 {
-  main.content > :nth-child(#{$i}), .home-side > :nth-child(#{$i}), .oh-side > :nth-child(#{$i}) { animation-delay: ($i - 1) * 70ms; }
-  .home-main > :nth-child(#{$i}), .oh-main > :nth-child(#{$i}) { animation-delay: 140ms + ($i - 1) * 70ms; }
+  main.content > :nth-child(#{$i}), .home-side > :nth-child(#{$i}) { animation-delay: ($i - 1) * 70ms; }
+  .home-main > :nth-child(#{$i}) { animation-delay: 140ms + ($i - 1) * 70ms; }
 }
 main.content > :nth-child(n+13), .home-main > :nth-child(n+13) { animation-delay: 900ms; }
 #quarto-margin-sidebar, #quarto-sidebar { animation: reveal-fade .6s ease 150ms both; }
 
 html.intro, html.pre {
-  main.content > *, .home-side > *, .home-main > *, .oh-side > *, .oh-main > *, #quarto-margin-sidebar, #quarto-sidebar {
+  main.content > *, .home-side > *, .home-main > *, #quarto-margin-sidebar, #quarto-sidebar {
     animation-play-state: paused;
   }
 }
@@ -76,7 +76,7 @@ html.intro .home-name { visibility: hidden; animation: none; }
 @keyframes caret-blink { 50% { opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  main.content > *, .home-side > *, .home-main > *, .oh-side > *, .oh-main > *, #quarto-margin-sidebar, #quarto-sidebar { animation: none !important; }
+  main.content > *, .home-side > *, .home-main > *, #quarto-margin-sidebar, #quarto-sidebar { animation: none !important; }
 }
 
 body {
@@ -333,43 +333,22 @@ section.level3:has(.pub-list) > h3 {
 }
 
 // ── Office hours (office-hours/) ──
-// Course pages: details in a narrow left column, the calendar on the right,
-// so the booking widget is on screen without scrolling. Stacks on small screens.
-.oh-page {
-  #title-block-header, .oh-switch, .oh-layout {
-    width: 100%; max-width: 1040px; margin-left: auto; margin-right: auto; // keep equal to .navbar-container
-  }
-}
-.oh-layout {
-  display: grid; grid-template-columns: 270px minmax(0, 1fr);
-  gap: 3rem; align-items: start;
-}
-.oh-side {
-  font-size: 1rem; line-height: 1.55;
-  > * { margin: 0; }
-  > * + * { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid $rule; }
-  p { margin: 0; }
-}
-.oh-main { min-width: 0; }
 .oh-switch {
-  @extend %label; font-size: .78rem; margin-top: -.5rem; margin-bottom: 1.75rem;
+  @extend %label; font-size: .78rem; margin: -.5rem 0 1.5rem;
   p { margin: 0; }
   a { color: $muted; }
   a:hover { color: $accent; }
   strong { color: $ink; font-weight: 500; }
 }
 .oh-notice {
+  margin: 0 0 1.5rem;
   color: $ink-2;
+  p { margin: 0; }
   strong { color: $ink; }
 }
 .oh-intro {
+  margin: 0 0 1.5rem;
   strong { color: $ink; font-weight: 500; }
-}
-.oh-meta {
-  display: grid; gap: .35rem; padding-left: 0; list-style: none;
-  @extend %label; font-size: .76rem; line-height: 1.45;
-  li { padding-left: 1.4em; text-indent: -1.4em; }
-  li::before { content: "└ "; color: $faint; }
 }
 // Online / In person switch
 .oh-tabs {
@@ -377,6 +356,8 @@ section.level3:has(.pub-list) > h3 {
   background: $code-bg; border: 1px solid $rule; border-radius: 999px;
 }
 .oh-tabs[hidden] { display: none; }
+.oh-where { font-size: 1rem; color: $ink-2; margin: 0 0 1rem; }
+.oh-where:empty { display: none; }
 .oh-tab {
   appearance: none; border: 0; background: transparent; border-radius: 999px;
   padding: .45rem 1.1rem; font-family: $mono; font-size: .8rem; color: $muted;
@@ -395,23 +376,8 @@ section.level3:has(.pub-list) > h3 {
   padding: 2.5rem 1.5rem; text-align: center; color: $muted;
   border: 1px dashed $rule; border-radius: 10px;
 }
-.oh-fallback { @extend %label; font-size: .78rem; margin: .8rem 0 0; }
+.oh-fallback { @extend %label; font-size: .78rem; line-height: 1.7; margin: .9rem 0 0; }
 .oh-fallback a { color: $accent; }
-.oh-notes {
-  display: grid; gap: 1rem;
-  h3 { @extend %label; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 .3rem; }
-  p { margin: 0; }
-}
-@media (max-width: 900px) {
-  .oh-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-  // the calendar comes right after the notice and intro; details move below it
-  .oh-side { display: contents; }
-  .oh-side > * + * { margin-top: 0; padding-top: 0; border-top: 0; }
-  .oh-notice { order: 1; } .oh-intro { order: 2; } .oh-main { order: 3; }
-  .oh-meta { order: 4; } .oh-notes { order: 5; padding-top: 1.5rem; border-top: 1px solid $rule; }
-  .oh-layout { gap: 1.25rem; }
-  .oh-meta { margin-top: .5rem; }
-}
 // Hub: one card per course
 .oh-courses { display: grid; gap: .75rem; }
 a.oh-course {

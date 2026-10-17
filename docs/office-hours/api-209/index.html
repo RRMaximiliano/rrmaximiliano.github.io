@@ -37,9 +37,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c44f9ca6087a7ee948cf82035d45fa3f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-d4242eebd6bc719f312bc46441090a6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c44f9ca6087a7ee948cf82035d45fa3f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-744df7f410b656a807557bf8406614b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-347d7158ee2ffac74fbfb1b63b1bb704.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-744df7f410b656a807557bf8406614b0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed oh-page quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -416,12 +416,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -432,7 +432,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
     
   
@@ -447,37 +447,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="oh-switch">
 <p><a href="../../office-hours/index.html">← All office hours</a> · <strong>API 209</strong> · <a href="../../office-hours/epa-101/index.html">EPA 101</a></p>
 </div>
-<div class="oh-layout">
-<div class="oh-side">
 <div class="oh-notice">
 <p><strong>API 209 students only.</strong> Not in API 209? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
 </div>
 <div class="oh-intro">
 <p>Choose online or in person, then pick a <strong>10-minute slot</strong>. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.</p>
 </div>
-<ul class="oh-meta">
-  <li>10 minutes, one student per slot</li>
-  <li>Bring your question, code, or problem set</li>
-  <li>Cancel from the invite if plans change</li>
-</ul>
-
-<div class="oh-notes">
-  <div>
-    <h3 class="anchored">Where</h3>
-    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
-  </div>
-  <div>
-    <h3 class="anchored">Nothing open?</h3>
-    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
-  </div>
-  <div>
-    <h3 class="anchored">Groups</h3>
-    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
-  </div>
-</div>
-</div>
-<div class="oh-main">
 <div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden=""></div>
+<p class="oh-where" id="oh-where"></p>
 
 <div class="oh-embed" id="oh-embed" hidden="">
   <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
@@ -489,6 +466,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 <p class="oh-fallback" id="oh-fallback" hidden="">
+  Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.<br>
   Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
 </p>
 
@@ -559,8 +537,6 @@ ul.task-list li input[type="checkbox"] {
     fallback.hidden = false;
   });
 </script>
-</div>
-</div>
 
 
 

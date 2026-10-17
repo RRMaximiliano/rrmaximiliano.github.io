@@ -3,16 +3,13 @@ pagetitle: "API 209 Office Hours | Rony Rodriguez-Ramirez"
 title: "API 209 Office Hours"
 subtitle: "Advanced Quantitative Methods · Fall 2026"
 toc: false
-page-layout: full
-body-classes: oh-page
+page-layout: article
 ---
 
 ::: {.oh-switch}
 [← All office hours](/office-hours/index.qmd) · **API 209** · [EPA 101](/office-hours/epa-101/index.qmd)
 :::
 
-:::::: {.oh-layout}
-::::: {.oh-side}
 ::: {.oh-notice}
 **API 209 students only.** Not in API 209? Please don't book a slot here. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
@@ -22,32 +19,8 @@ Choose online or in person, then pick a **10-minute slot**. The times you see co
 :::
 
 ```{=html}
-<ul class="oh-meta">
-  <li>10 minutes, one student per slot</li>
-  <li>Bring your question, code, or problem set</li>
-  <li>Cancel from the invite if plans change</li>
-</ul>
-
-<div class="oh-notes">
-  <div>
-    <h3>Where</h3>
-    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
-  </div>
-  <div>
-    <h3>Nothing open?</h3>
-    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
-  </div>
-  <div>
-    <h3>Groups</h3>
-    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
-  </div>
-</div>
-```
-:::::
-
-::::: {.oh-main}
-```{=html}
 <div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden></div>
+<p class="oh-where" id="oh-where"></p>
 
 <div class="oh-embed" id="oh-embed" hidden>
   <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
@@ -59,6 +32,7 @@ Choose online or in person, then pick a **10-minute slot**. The times you see co
 </div>
 
 <p class="oh-fallback" id="oh-fallback" hidden>
+  Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.<br>
   Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
 </p>
 
@@ -130,5 +104,3 @@ Choose online or in person, then pick a **10-minute slot**. The times you see co
   });
 </script>
 ```
-:::::
-::::::
