@@ -73,9 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-d771a4526761f369358c481205b6bed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-4f91214f6ac2491f351db2ddaab3f45a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-d771a4526761f369358c481205b6bed4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-e107eee1347a05de4b85c48f74152613.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-7a39ab5b9c7869f022b41206d9a4efd1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-e107eee1347a05de4b85c48f74152613.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -398,6 +398,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../office-hours/index.html"> 
+<span class="menu-text">Office Hours</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../../projects/index.html"> 
@@ -730,6 +734,31 @@ visualizaciones del Nuevo Diario</em>. <a href="https://www.rrmaximiliano.com/bl
   update();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { measure(); update(); });
+})();
+</script>
+<script>
+// Turns "name [at] domain [dot] edu" placeholders (class="js-email") into a
+// working mailto link in the browser, so the address isn't plain text in the HTML.
+document.querySelectorAll('.js-email').forEach(el => {
+  const addr = el.textContent.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.').trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return;
+  const a = document.createElement('a');
+  a.href = 'mailto:' + addr;
+  a.textContent = addr;
+  el.replaceWith(a);
+});
+
+// Highlight the navbar section for pages below it (e.g. /office-hours/api-209/).
+(() => {
+  const here = location.pathname.replace(/index\.html$/, '');
+  const links = [...document.querySelectorAll('#navbarCollapse .navbar-nav:not(.me-auto) a.nav-link')];
+  if (links.some(a => a.classList.contains('active'))) return;
+  let best = null, bestLen = 0;
+  for (const a of links) {
+    const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, '');
+    if (p.length > 1 && here.startsWith(p) && p.length > bestLen) { best = a; bestLen = p.length; }
+  }
+  if (best) { best.classList.add('active'); best.setAttribute('aria-current', 'page'); }
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

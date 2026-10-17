@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Rony Rodriguez-Ramirez">
-<meta name="dcterms.date" content="2019-09-10">
 
-<title>A completely useless command in Stata</title>
+<title>API 209 Office Hours | Rony Rodriguez-Ramirez</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,62 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-fd8395820e742535546d581561f498c6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-684d579cb0d35a3cb2ff43f1dac1ce43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-74a4ad0c690d53e29222cb470602f35f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-684d579cb0d35a3cb2ff43f1dac1ce43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bde90d040f26c5f0c269e1058ff2ebcc.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0508c56c52ff9c172d95ccaf2504664f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bde90d040f26c5f0c269e1058ff2ebcc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4f1471b5c9a4c37c216893c4b1c6de4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fa9ef806fbe9f18664cf9ed70c804aaa.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4f1471b5c9a4c37c216893c4b1c6de4a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -93,10 +56,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<link rel="preload" href="../../../fonts/site/Newsreader-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
-<link rel="preload" href="../../../fonts/site/Newsreader-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
-<link rel="preload" href="../../../fonts/site/IBMPlexMono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
-<link rel="preload" href="../../../fonts/site/IBMPlexMono-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../../fonts/site/Newsreader-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../../fonts/site/Newsreader-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../../fonts/site/IBMPlexMono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="../../fonts/site/IBMPlexMono-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <style>
 /* Self-hosted fonts (files in fonts/site). Inlined so text never re-flows on load. */
 /* latin-ext */
@@ -105,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../../../fonts/site/IBMPlexMono-normal-400-latin-ext.woff2) format('woff2');
+  src: url(../../fonts/site/IBMPlexMono-normal-400-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -114,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../../../fonts/site/IBMPlexMono-normal-400-latin.woff2) format('woff2');
+  src: url(../../fonts/site/IBMPlexMono-normal-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* latin-ext */
@@ -123,7 +86,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../../../fonts/site/IBMPlexMono-normal-500-latin-ext.woff2) format('woff2');
+  src: url(../../fonts/site/IBMPlexMono-normal-500-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -132,7 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../../../fonts/site/IBMPlexMono-normal-500-latin.woff2) format('woff2');
+  src: url(../../fonts/site/IBMPlexMono-normal-500-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* latin-ext */
@@ -141,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(../../../fonts/site/Newsreader-italic-400-latin-ext.woff2) format('woff2');
+  src: url(../../fonts/site/Newsreader-italic-400-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -150,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(../../../fonts/site/Newsreader-italic-400-latin.woff2) format('woff2');
+  src: url(../../fonts/site/Newsreader-italic-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* latin-ext */
@@ -159,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../../../fonts/site/Newsreader-normal-400-latin-ext.woff2) format('woff2');
+  src: url(../../fonts/site/Newsreader-normal-400-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -168,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../../../fonts/site/Newsreader-normal-400-latin.woff2) format('woff2');
+  src: url(../../fonts/site/Newsreader-normal-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* latin-ext */
@@ -177,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../../../fonts/site/Newsreader-normal-400-latin-ext.woff2) format('woff2');
+  src: url(../../fonts/site/Newsreader-normal-400-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -186,24 +149,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../../../fonts/site/Newsreader-normal-400-latin.woff2) format('woff2');
+  src: url(../../fonts/site/Newsreader-normal-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
 
 
-<meta property="og:title" content="A completely useless command in Stata">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://www.rrmaximiliano.com/blog/2019/2019-09-10-a-completely-useless-command-in-stata/figs/pikachu.gif">
-<meta name="twitter:title" content="A completely useless command in Stata">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://www.rrmaximiliano.com/blog/2019/2019-09-10-a-completely-useless-command-in-stata/figs/pikachu.gif">
-<meta name="twitter:creator" content="@rrmaximiliano">
-<meta name="twitter:site" content="@rrmaximiliano">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -386,33 +340,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Rony Rodríguez-Ramírez</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../research/index.html"> 
+    <a class="nav-link" href="../../research/index.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../teaching/index.html"> 
+    <a class="nav-link" href="../../teaching/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../projects/index.html"> 
+    <a class="nav-link" href="../../office-hours/index.html"> 
+<span class="menu-text">Office Hours</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">Software and Data</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../cv/index.html"> 
+    <a class="nav-link" href="../../cv/index.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog/index.html"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../resource/index.html"> 
+    <a class="nav-link" href="../../resource/index.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -426,42 +384,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">A completely useless command in Stata</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-  <div class="quarto-categories">
-    <div class="quarto-category">Stata</div>
-  </div>
-  </div>
+<h1 class="title">API 209 Office Hours</h1>
+<p class="subtitle lead">Advanced Quantitative Methods · Fall 2026</p>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p><a href="https://www.rrmaximiliano.github.io/">Rony Rodriguez-Ramirez</a> </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 10, 2019</p>
-    </div>
-  </div>
   
     
   </div>
@@ -471,28 +410,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing <code>pikachu</code> you will get the following:</p>
-<p><img src="figs/pikachu.gif" class="img-fluid"></p>
-<p>This uses only the <code>display</code> command to make pikachu’s face. In order to install it: you can run the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>net install pikachu, from(<span class="st">"https://raw.githubusercontent.com/rrmaximiliano/pikachu/main"</span>) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And that’s it. Now, you have pikachu reacting to your failures. Finally, in case you don’t know, the original meme is this one:</p>
-<p><img src="https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif" class="img-fluid"></p>
+<div class="oh-switch">
+<p><a href="../../office-hours/index.html">← All office hours</a> · <strong>API 209</strong> · <a href="../../office-hours/epa-101/index.html">EPA 101</a></p>
+</div>
+<div class="oh-notice">
+<p><strong>API 209 students only.</strong> Not in API 209? Please don’t book a slot here. Email me instead at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span>.</p>
+</div>
+<div class="oh-intro">
+<p>Choose online or in person, then pick a <strong>10-minute slot</strong>. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.</p>
+</div>
+<ul class="oh-meta">
+  <li>10 minutes, one student per slot</li>
+  <li>Bring your question, code, or problem set</li>
+  <li>Cancel from the invite if plans change</li>
+</ul>
+
+<div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden=""></div>
+
+<div class="oh-embed" id="oh-embed" hidden="">
+  <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
+</div>
+
+<div class="oh-setup" id="oh-setup" hidden="">
+  The booking calendar is not connected yet.<br>
+  Paste a Google Calendar appointment link into <code>SCHEDULES</code> in <code>office-hours/api-209/index.qmd</code>.
+</div>
+
+<p class="oh-fallback" id="oh-fallback" hidden="">
+  Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
+</p>
+
+<script>
+  // ── Configuration ────────────────────────────────────────────────
+  // One entry per Google Calendar appointment schedule.
+  // Google Calendar → the schedule → Share → copy the booking page link.
+  // Leave `url` empty to hide an option until its schedule exists.
+  const SCHEDULES = [
+    {
+      id: "online",
+      label: "Online",
+      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO",
+      where: "On Zoom. The link is in the calendar invite you receive after booking."
+    },
+    {
+      id: "in-person",
+      label: "In person",
+      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3sF473bpox4eaITxAhcP1do24PWNwAzs6Ca9z3zm56uFnNTpoTAdsdjIXniU0pJiO33CSZ1OZK",
+      where: "In person on Fridays at the Winter Garden, Kennedy School. Details are in the calendar invite."
+    }
+  ];
+  // ─────────────────────────────────────────────────────────────────
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs     = document.getElementById("oh-tabs");
+    const embed    = document.getElementById("oh-embed");
+    const setup    = document.getElementById("oh-setup");
+    const fallback = document.getElementById("oh-fallback");
+    const frame    = document.getElementById("oh-frame");
+    const link     = document.getElementById("oh-link");
+
+    const active = SCHEDULES.filter(s => s.url);
+    if (!active.length) { setup.hidden = false; return; }
+
+    // Google booking pages accept ?gv=true to render the embeddable view.
+    const embedUrl = u => u.includes("gv=true") ? u : u + (u.includes("?") ? "&" : "?") + "gv=true";
+
+    function select(s, pushHash) {
+      frame.src = embedUrl(s.url);
+      link.href = s.url;
+      const where = document.getElementById("oh-where");
+      if (where) where.textContent = s.where;
+      tabs.querySelectorAll(".oh-tab").forEach(b =>
+        b.setAttribute("aria-selected", b.dataset.id === s.id ? "true" : "false"));
+      if (pushHash) history.replaceState(null, "", "#" + s.id);
+    }
+
+    if (active.length > 1) {
+      active.forEach(s => {
+        const b = document.createElement("button");
+        b.className = "oh-tab";
+        b.type = "button";
+        b.role = "tab";
+        b.dataset.id = s.id;
+        b.innerHTML = s.label + (s.detail ? "<small>" + s.detail + "</small>" : "");
+        b.addEventListener("click", () => select(s, true));
+        tabs.appendChild(b);
+      });
+      tabs.hidden = false;
+    }
+
+    // Deep link: /office-hours/api-209/#in-person opens that option directly.
+    const fromHash = active.find(s => "#" + s.id === location.hash);
+    select(fromHash || active[0], false);
+
+    embed.hidden = false;
+    fallback.hidden = false;
+  });
+</script>
+
+<div class="oh-notes">
+  <div>
+    <h3 class="anchored">Where</h3>
+    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
+  </div>
+  <div>
+    <h3 class="anchored">Nothing open?</h3>
+    <p>Email me at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span> and we will find a time.</p>
+  </div>
+  <div>
+    <h3 class="anchored">Groups</h3>
+    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
+  </div>
+</div>
 
 
-<!-- -->
 
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{rodriguez-ramirez2019,
-  author = {Rodriguez-Ramirez, Rony},
-  title = {A Completely Useless Command in {Stata}},
-  date = {2019-09-10},
-  url = {https://www.rrmaximiliano.com/blog/2019/2019-09-10-a-completely-useless-command-in-stata/},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-rodriguez-ramirez2019" class="csl-entry quarto-appendix-citeas" role="listitem">
-Rodriguez-Ramirez, R. (2019, September 10). <em>A completely useless
-command in Stata</em>. <a href="https://www.rrmaximiliano.com/blog/2019/2019-09-10-a-completely-useless-command-in-stata/">https://www.rrmaximiliano.com/blog/2019/2019-09-10-a-completely-useless-command-in-stata/</a>
-</div></div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script>
 // Turns Quarto's table of contents into a "tree": └ branches, only the current
 // section's sub-items unfolded, a ▓░ reading-progress bar and an "N MIN READ" line.
@@ -591,6 +624,31 @@ command in Stata</em>. <a href="https://www.rrmaximiliano.com/blog/2019/2019-09-
   addEventListener('resize', () => { measure(); update(); });
 })();
 </script>
+<script>
+// Turns "name [at] domain [dot] edu" placeholders (class="js-email") into a
+// working mailto link in the browser, so the address isn't plain text in the HTML.
+document.querySelectorAll('.js-email').forEach(el => {
+  const addr = el.textContent.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.').trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return;
+  const a = document.createElement('a');
+  a.href = 'mailto:' + addr;
+  a.textContent = addr;
+  el.replaceWith(a);
+});
+
+// Highlight the navbar section for pages below it (e.g. /office-hours/api-209/).
+(() => {
+  const here = location.pathname.replace(/index\.html$/, '');
+  const links = [...document.querySelectorAll('#navbarCollapse .navbar-nav:not(.me-auto) a.nav-link')];
+  if (links.some(a => a.classList.contains('active'))) return;
+  let best = null, bestLen = 0;
+  for (const a of links) {
+    const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, '');
+    if (p.length > 1 && here.startsWith(p) && p.length > bestLen) { best = a; bestLen = p.length; }
+  }
+  if (best) { best.classList.add('active'); best.setAttribute('aria-current', 'page'); }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -673,57 +731,6 @@ command in Stata</em>. <a href="https://www.rrmaximiliano.com/blog/2019/2019-09-
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1053,28 +1060,7 @@ command in Stata</em>. <a href="https://www.rrmaximiliano.com/blog/2019/2019-09-
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "A completely useless command in Stata"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2019-09-10"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  - Stata</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>While I was running a bit more than 5000 regressions in Stata, a friend of mine asked me what I usually do after running and exporting my regressions; well, I had the brilliant and useless idea of creating a command in Stata that mimics the face I make every time my code fails to run. By typing <span class="in">`pikachu`</span> you will get the following:</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="al">![](figs/pikachu.gif)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>This uses only the <span class="in">`display`</span> command to make pikachu's face. In order to install it: you can run the following command:</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="in">```stata</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="in">net install pikachu, from("https://raw.githubusercontent.com/rrmaximiliano/pikachu/main") replace</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>And that's it. Now, you have pikachu reacting to your failures. Finally, in case you don't know, the original meme is this one:</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://media.giphy.com/media/3kzJvEciJa94SMW3hN/giphy.gif)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1090,7 +1076,7 @@ command in Stata</em>. <a href="https://www.rrmaximiliano.com/blog/2019/2019-09-
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p><a href="../../../contact.html">Contact Me</a> | <a href="https://github.com/RRMaximiliano/rrmaximiliano.github.io">View the source on <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></p>
+<p><a href="../../contact.html">Contact Me</a> | <a href="https://github.com/RRMaximiliano/rrmaximiliano.github.io">View the source on <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></p>
 </div>
   </div>
 </footer>

@@ -295,6 +295,84 @@ section.level3:has(.pub-list) > h3 {
   .course-head { flex-direction: column; gap: 0; }
 }
 
+// ── Office hours (office-hours/) ──
+.oh-switch {
+  @extend %label; font-size: .78rem; margin: -.5rem 0 1.5rem;
+  p { margin: 0; }
+  a { color: $muted; }
+  a:hover { color: $accent; }
+  strong { color: $ink; font-weight: 500; }
+}
+.oh-notice {
+  border-left: 2px solid $accent;
+  padding: .15rem 0 .15rem 1rem;
+  margin: 0 0 1.75rem;
+  color: $ink-2;
+  p { margin: 0; }
+  strong { color: $ink; }
+}
+.oh-intro {
+  font-size: 1.15rem; line-height: 1.6; margin: 0 0 1.5rem;
+  strong { color: $ink; font-weight: 500; }
+}
+.oh-meta {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
+  margin: 0 0 1.75rem; padding: 0; list-style: none;
+  @extend %label; font-size: .78rem;
+  li::before { content: "└ "; color: $faint; }
+}
+// Online / In person switch
+.oh-tabs {
+  display: inline-flex; gap: 4px; padding: 4px; margin: 0 0 1rem;
+  background: $code-bg; border: 1px solid $rule; border-radius: 999px;
+}
+.oh-tabs[hidden] { display: none; }
+.oh-tab {
+  appearance: none; border: 0; background: transparent; border-radius: 999px;
+  padding: .45rem 1.1rem; font-family: $mono; font-size: .8rem; color: $muted;
+  cursor: pointer; transition: background .15s ease, color .15s ease;
+}
+.oh-tab:hover { color: $ink; }
+.oh-tab[aria-selected="true"] { background: $paper; color: $ink; box-shadow: 0 1px 2px rgba(0, 0, 0, .08); }
+.oh-tab:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+.oh-embed {
+  width: 100%; border: 1px solid $rule; border-radius: 10px; overflow: hidden;
+  background: #fff; // Google's booking page is always light
+  iframe { display: block; width: 100%; height: 720px; border: 0; }
+}
+.oh-embed[hidden] { display: none; }
+.oh-setup {
+  padding: 2.5rem 1.5rem; text-align: center; color: $muted;
+  border: 1px dashed $rule; border-radius: 10px;
+}
+.oh-fallback { @extend %label; font-size: .78rem; margin: .8rem 0 0; }
+.oh-fallback a { color: $accent; }
+.oh-notes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem 2rem; margin: 2.5rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid $rule;
+  h3 { @extend %label; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 .35rem; }
+  p { margin: 0; font-size: 1rem; line-height: 1.5; }
+}
+// Hub: one card per course
+.oh-courses { display: grid; gap: .75rem; }
+a.oh-course {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid $rule; border-radius: 8px; padding: .95rem 1.15rem;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+a.oh-course:hover, a.oh-course:focus-visible { border-color: $accent; color: inherit; }
+.oh-course-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.oh-course-title { color: $ink; font-weight: 500; }
+.oh-course-term { @extend %label; font-size: .78rem; color: $accent; white-space: nowrap; }
+.oh-course-meta { display: block; color: $ink-2; font-size: 1rem; }
+.oh-course-cta { display: block; font-family: $mono; font-size: .8rem; font-weight: 500; color: $accent; margin-top: .3rem; }
+@media (max-width: 600px) {
+  .oh-embed iframe { height: 640px; }
+  .oh-tabs { display: flex; }
+  .oh-tab { flex: 1; }
+  .oh-course-head { flex-direction: column; gap: 0; }
+}
+
 // ── Inner pages ──
 main strong { color: $ink; font-weight: 500; }
 

@@ -36,9 +36,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bde90d040f26c5f0c269e1058ff2ebcc.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6d2ade30e5f19736932dab471b6807ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-bc9ec2b7725a46677058f70665429324.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6d2ade30e5f19736932dab471b6807ce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2a46761a62a6b8eeece4287f7ec8c75d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-70e21c5ccdeb81efbe01f2d9de189a7b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-2a46761a62a6b8eeece4287f7ec8c75d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -354,6 +354,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./office-hours/index.html"> 
+<span class="menu-text">Office Hours</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./projects/index.html"> 
 <span class="menu-text">Software and Data</span></a>
   </li>  
@@ -510,6 +514,31 @@ Send message
   update();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { measure(); update(); });
+})();
+</script>
+<script>
+// Turns "name [at] domain [dot] edu" placeholders (class="js-email") into a
+// working mailto link in the browser, so the address isn't plain text in the HTML.
+document.querySelectorAll('.js-email').forEach(el => {
+  const addr = el.textContent.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.').trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return;
+  const a = document.createElement('a');
+  a.href = 'mailto:' + addr;
+  a.textContent = addr;
+  el.replaceWith(a);
+});
+
+// Highlight the navbar section for pages below it (e.g. /office-hours/api-209/).
+(() => {
+  const here = location.pathname.replace(/index\.html$/, '');
+  const links = [...document.querySelectorAll('#navbarCollapse .navbar-nav:not(.me-auto) a.nav-link')];
+  if (links.some(a => a.classList.contains('active'))) return;
+  let best = null, bestLen = 0;
+  for (const a of links) {
+    const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, '');
+    if (p.length > 1 && here.startsWith(p) && p.length > bestLen) { best = a; bestLen = p.length; }
+  }
+  if (best) { best.classList.add('active'); best.setAttribute('aria-current', 'page'); }
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

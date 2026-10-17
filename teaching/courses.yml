@@ -21,7 +21,7 @@
   group: current
   institution: "Harvard Kennedy School"
   years: "Fall 2026"
-  booking: "/office-hours/"
+  booking: "/office-hours/api-209/"
 
 # ── Teaching Fellow, Harvard ────────────────────────────────────────
 - title: "Using Big Data to Solve Economic and Social Problems"

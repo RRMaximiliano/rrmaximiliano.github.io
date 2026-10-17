@@ -1,7 +1,7 @@
 ---
 pagetitle: "Office Hours | Rony Rodriguez-Ramirez"
 title: "Office Hours"
-subtitle: "API 209 · Fall 2026"
+subtitle: "Fall 2026"
 toc: false
 page-layout: article
 format:
@@ -9,255 +9,39 @@ format:
     grid:
       margin-width: 0px
       sidebar-width: 0px
-      body-width: 960px
+      body-width: 820px
 ---
 
 ```{=html}
-<style>
-  .oh-intro {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    max-width: 44em;
-    margin: 0 0 2rem 0;
-    color: #212529;
+<script>
+  // Older links pointed at the API 209 booking page here (e.g. /office-hours/#in-person).
+  if (location.hash === "#online" || location.hash === "#in-person") {
+    location.replace("api-209/" + location.hash);
   }
-  .oh-intro strong { color: #A51C30; font-weight: 700; }
-
-  .oh-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.75rem;
-    margin: 0 0 2rem 0;
-    padding: 0;
-    list-style: none;
-    font-size: 1rem;
-    color: #6c757d;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .oh-meta li::before {
-    content: "";
-    display: inline-block;
-    width: 0.5rem; height: 0.5rem;
-    border-radius: 50%;
-    background: #A51C30;
-    margin-right: 0.55rem;
-    vertical-align: middle;
-    position: relative; top: -1px;
-  }
-
-  /* Segmented control */
-  .oh-tabs {
-    display: inline-flex;
-    gap: 4px;
-    padding: 4px;
-    margin: 0 0 1rem 0;
-    background: #f3f3f4;
-    border-radius: 999px;
-  }
-  .oh-tabs[hidden] { display: none; }
-  .oh-tab {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    border-radius: 999px;
-    padding: 0.55rem 1.25rem;
-    font: inherit;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #6c757d;
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-  .oh-tab small {
-    display: block;
-    font-weight: 400;
-    font-size: 0.85rem;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-    margin-top: 1px;
-  }
-  .oh-tab:hover { color: #212529; }
-  .oh-tab[aria-selected="true"] {
-    background: #fff;
-    color: #A51C30;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  .oh-tab:focus-visible { outline: 2px solid #A51C30; outline-offset: 2px; }
-
-  .oh-embed {
-    position: relative;
-    width: 100%;
-    min-height: 720px;
-    border: 1px solid #e6e6e6;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-  }
-  .oh-embed iframe {
-    display: block;
-    width: 100%;
-    height: 720px;
-    border: 0;
-  }
-  .oh-embed[hidden] { display: none; }
-
-  .oh-setup {
-    padding: 3rem 2rem;
-    text-align: center;
-    color: #6c757d;
-    font-size: 1.05rem;
-    border: 1px dashed #d9d9d9;
-    border-radius: 14px;
-  }
-  .oh-setup code { font-size: 0.85rem; }
-
-  .oh-fallback {
-    margin: 0.9rem 0 0 0;
-    font-size: 1rem;
-    color: #6c757d;
-  }
-
-  .oh-notes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem 2.5rem;
-    margin: 3rem 0 1rem 0;
-    padding-top: 2rem;
-    border-top: 2px solid #A51C30;
-  }
-  .oh-notes h3 {
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #6c757d;
-    margin: 0 0 0.4rem 0;
-    font-weight: 700;
-  }
-  .oh-notes p {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 600px) {
-    .oh-embed, .oh-embed iframe { min-height: 640px; height: 640px; }
-    .oh-intro { font-size: 1.15rem; }
-    .oh-tabs { display: flex; }
-    .oh-tab { flex: 1; text-align: center; padding: 0.5rem 0.75rem; }
-  }
-</style>
+</script>
 ```
 
-**API 209 office hours** · [EPA 101 office hours](/office-hours/epa-101/index.qmd)
-
-::: {.oh-intro}
-This booking page is for **API 209 students only**. Choose online or in person, then pick a **10-minute slot**. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.
+::: {.oh-notice}
+**For students only.** These booking pages are for students enrolled in the courses below. If you are not a student in one of them, please don't book a slot. Email me instead at [rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu]{.js-email}.
 :::
 
 ```{=html}
-<ul class="oh-meta">
-  <li>10 minutes, one student per slot</li>
-  <li>Bring your question, code, or problem set</li>
-  <li>Cancel from the invite if plans change</li>
-</ul>
-
-<div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden></div>
-
-<div class="oh-embed" id="oh-embed" hidden>
-  <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
-</div>
-
-<div class="oh-setup" id="oh-setup" hidden>
-  The booking calendar is not connected yet.<br>
-  Paste a Google Calendar appointment link into <code>SCHEDULES</code> in <code>office-hours/index.qmd</code>.
-</div>
-
-<p class="oh-fallback" id="oh-fallback" hidden>
-  Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
-</p>
-
-<script>
-  // ── Configuration ────────────────────────────────────────────────
-  // One entry per Google Calendar appointment schedule.
-  // Google Calendar → the schedule → Share → copy the booking page link.
-  // Leave `url` empty to hide an option until its schedule exists.
-  const SCHEDULES = [
-    {
-      id: "online",
-      label: "Online",
-      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO",
-      where: "On Zoom. The link is in the calendar invite you receive after booking."
-    },
-    {
-      id: "in-person",
-      label: "In person",
-      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3sF473bpox4eaITxAhcP1do24PWNwAzs6Ca9z3zm56uFnNTpoTAdsdjIXniU0pJiO33CSZ1OZK",
-      where: "In person on Fridays at the Winter Garden, Kennedy School. Details are in the calendar invite."
-    }
-  ];
-  // ─────────────────────────────────────────────────────────────────
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs     = document.getElementById("oh-tabs");
-    const embed    = document.getElementById("oh-embed");
-    const setup    = document.getElementById("oh-setup");
-    const fallback = document.getElementById("oh-fallback");
-    const frame    = document.getElementById("oh-frame");
-    const link     = document.getElementById("oh-link");
-
-    const active = SCHEDULES.filter(s => s.url);
-    if (!active.length) { setup.hidden = false; return; }
-
-    // Google booking pages accept ?gv=true to render the embeddable view.
-    const embedUrl = u => u.includes("gv=true") ? u : u + (u.includes("?") ? "&" : "?") + "gv=true";
-
-    function select(s, pushHash) {
-      frame.src = embedUrl(s.url);
-      link.href = s.url;
-      const where = document.getElementById("oh-where");
-      if (where) where.textContent = s.where;
-      tabs.querySelectorAll(".oh-tab").forEach(b =>
-        b.setAttribute("aria-selected", b.dataset.id === s.id ? "true" : "false"));
-      if (pushHash) history.replaceState(null, "", "#" + s.id);
-    }
-
-    if (active.length > 1) {
-      active.forEach(s => {
-        const b = document.createElement("button");
-        b.className = "oh-tab";
-        b.type = "button";
-        b.role = "tab";
-        b.dataset.id = s.id;
-        b.innerHTML = s.label + (s.detail ? "<small>" + s.detail + "</small>" : "");
-        b.addEventListener("click", () => select(s, true));
-        tabs.appendChild(b);
-      });
-      tabs.hidden = false;
-    }
-
-    // Deep link: /office-hours/#in-person opens that option directly.
-    const fromHash = active.find(s => "#" + s.id === location.hash);
-    select(fromHash || active[0], false);
-
-    embed.hidden = false;
-    fallback.hidden = false;
-  });
-</script>
-
-<div class="oh-notes">
-  <div>
-    <h3>Where</h3>
-    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
-  </div>
-  <div>
-    <h3>Nothing open?</h3>
-    <p>Email me at <a href="mailto:rrodriguezramirez@g.harvard.edu">rrodriguezramirez@g.harvard.edu</a> and we will find a time.</p>
-  </div>
-  <div>
-    <h3>Groups</h3>
-    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
-  </div>
+<div class="oh-courses">
+  <a class="oh-course" href="api-209/">
+    <span class="oh-course-head">
+      <span class="oh-course-title">Advanced Quantitative Methods (API 209)</span>
+      <span class="oh-course-term">Fall 2026</span>
+    </span>
+    <span class="oh-course-meta">Harvard Kennedy School · 10-minute slots · online or in person</span>
+    <span class="oh-course-cta">Book API 209 office hours →</span>
+  </a>
+  <a class="oh-course" href="epa-101/">
+    <span class="oh-course-head">
+      <span class="oh-course-title">Education Policy Analysis (EPA 101)</span>
+      <span class="oh-course-term">Fall 2026</span>
+    </span>
+    <span class="oh-course-meta">Harvard University · 15-minute slots · Gutman Library</span>
+    <span class="oh-course-cta">Book EPA 101 office hours →</span>
+  </a>
 </div>
 ```

@@ -1,0 +1,131 @@
+---
+pagetitle: "API 209 Office Hours | Rony Rodriguez-Ramirez"
+title: "API 209 Office Hours"
+subtitle: "Advanced Quantitative Methods · Fall 2026"
+toc: false
+page-layout: article
+format:
+  html:
+    grid:
+      margin-width: 0px
+      sidebar-width: 0px
+      body-width: 820px
+---
+
+::: {.oh-switch}
+[← All office hours](/office-hours/index.qmd) · **API 209** · [EPA 101](/office-hours/epa-101/index.qmd)
+:::
+
+::: {.oh-notice}
+**API 209 students only.** Not in API 209? Please don't book a slot here. Email me instead at [rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu]{.js-email}.
+:::
+
+::: {.oh-intro}
+Choose online or in person, then pick a **10-minute slot**. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.
+:::
+
+```{=html}
+<ul class="oh-meta">
+  <li>10 minutes, one student per slot</li>
+  <li>Bring your question, code, or problem set</li>
+  <li>Cancel from the invite if plans change</li>
+</ul>
+
+<div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden></div>
+
+<div class="oh-embed" id="oh-embed" hidden>
+  <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
+</div>
+
+<div class="oh-setup" id="oh-setup" hidden>
+  The booking calendar is not connected yet.<br>
+  Paste a Google Calendar appointment link into <code>SCHEDULES</code> in <code>office-hours/api-209/index.qmd</code>.
+</div>
+
+<p class="oh-fallback" id="oh-fallback" hidden>
+  Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
+</p>
+
+<script>
+  // ── Configuration ────────────────────────────────────────────────
+  // One entry per Google Calendar appointment schedule.
+  // Google Calendar → the schedule → Share → copy the booking page link.
+  // Leave `url` empty to hide an option until its schedule exists.
+  const SCHEDULES = [
+    {
+      id: "online",
+      label: "Online",
+      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO",
+      where: "On Zoom. The link is in the calendar invite you receive after booking."
+    },
+    {
+      id: "in-person",
+      label: "In person",
+      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3sF473bpox4eaITxAhcP1do24PWNwAzs6Ca9z3zm56uFnNTpoTAdsdjIXniU0pJiO33CSZ1OZK",
+      where: "In person on Fridays at the Winter Garden, Kennedy School. Details are in the calendar invite."
+    }
+  ];
+  // ─────────────────────────────────────────────────────────────────
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs     = document.getElementById("oh-tabs");
+    const embed    = document.getElementById("oh-embed");
+    const setup    = document.getElementById("oh-setup");
+    const fallback = document.getElementById("oh-fallback");
+    const frame    = document.getElementById("oh-frame");
+    const link     = document.getElementById("oh-link");
+
+    const active = SCHEDULES.filter(s => s.url);
+    if (!active.length) { setup.hidden = false; return; }
+
+    // Google booking pages accept ?gv=true to render the embeddable view.
+    const embedUrl = u => u.includes("gv=true") ? u : u + (u.includes("?") ? "&" : "?") + "gv=true";
+
+    function select(s, pushHash) {
+      frame.src = embedUrl(s.url);
+      link.href = s.url;
+      const where = document.getElementById("oh-where");
+      if (where) where.textContent = s.where;
+      tabs.querySelectorAll(".oh-tab").forEach(b =>
+        b.setAttribute("aria-selected", b.dataset.id === s.id ? "true" : "false"));
+      if (pushHash) history.replaceState(null, "", "#" + s.id);
+    }
+
+    if (active.length > 1) {
+      active.forEach(s => {
+        const b = document.createElement("button");
+        b.className = "oh-tab";
+        b.type = "button";
+        b.role = "tab";
+        b.dataset.id = s.id;
+        b.innerHTML = s.label + (s.detail ? "<small>" + s.detail + "</small>" : "");
+        b.addEventListener("click", () => select(s, true));
+        tabs.appendChild(b);
+      });
+      tabs.hidden = false;
+    }
+
+    // Deep link: /office-hours/api-209/#in-person opens that option directly.
+    const fromHash = active.find(s => "#" + s.id === location.hash);
+    select(fromHash || active[0], false);
+
+    embed.hidden = false;
+    fallback.hidden = false;
+  });
+</script>
+
+<div class="oh-notes">
+  <div>
+    <h3>Where</h3>
+    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
+  </div>
+  <div>
+    <h3>Nothing open?</h3>
+    <p>Email me at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span> and we will find a time.</p>
+  </div>
+  <div>
+    <h3>Groups</h3>
+    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
+  </div>
+</div>
+```
