@@ -36,10 +36,21 @@ $headings-font-family: $serif;
 $headings-font-weight: 500;
 
 /*-- scss:rules --*/
-// Page changes: no cross-fade (it blended two different layouts mid-switch).
-// The browser keeps the old page on screen until the new one is ready, and
-// the reserved scrollbar space keeps the layout from shifting sideways.
+// Page changes (Chrome, Edge, Safari 18+): the navbar stays still; the page
+// fades out quickly, then the new page fades in. The two pages never overlap.
+// Reserved scrollbar space keeps the layout from shifting sideways.
 html { scrollbar-gutter: stable; }
+@view-transition { navigation: auto; }
+#quarto-header { view-transition-name: site-header; }
+::view-transition-old(site-header),
+::view-transition-new(site-header) { animation: none; }
+::view-transition-old(root) { animation: 80ms cubic-bezier(.4, 0, 1, 1) both vt-fade-out; }
+::view-transition-new(root) { animation: 180ms cubic-bezier(0, 0, .2, 1) 80ms both vt-fade-in; }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
 
 body {
   font-size: 1.125rem;

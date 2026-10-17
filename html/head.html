@@ -1,3 +1,18 @@
+<!-- Prepare the next page while the cursor rests on a link (Chrome/Edge), so it opens instantly. -->
+<script type="speculationrules">
+{
+  "prerender": [{
+    "where": {
+      "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": ["/*.pdf", "/files/*", "/go/*", "/rrmrr-vita/*", "/cv/pages/*"] } },
+        { "not": { "selector_matches": "[target=_blank], [download], [rel~=nofollow]" } }
+      ]
+    },
+    "eagerness": "moderate"
+  }]
+}
+</script>
 <link rel="preload" href="/fonts/site/Newsreader-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/site/Newsreader-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/site/IBMPlexMono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
