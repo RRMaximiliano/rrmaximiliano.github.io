@@ -17,7 +17,7 @@ format:
 :::
 
 ::: {.oh-notice}
-**API 209 students only.** Not in API 209? Please don't book a slot here. Email me instead at [rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu]{.js-email}.
+**API 209 students only.** Not in API 209? Please don't book a slot here. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
 
 ::: {.oh-intro}
@@ -121,7 +121,7 @@ Choose online or in person, then pick a **10-minute slot**. The times you see co
   </div>
   <div>
     <h3>Nothing open?</h3>
-    <p>Email me at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span> and we will find a time.</p>
+    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
   </div>
   <div>
     <h3>Groups</h3>

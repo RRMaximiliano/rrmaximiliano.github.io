@@ -1,14 +1,4 @@
 <script>
-// Turns "name [at] domain [dot] edu" placeholders (class="js-email") into a
-// working mailto link in the browser, so the address isn't plain text in the HTML.
-document.querySelectorAll('.js-email').forEach(el => {
-  const addr = el.textContent.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.').trim();
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return;
-  const a = document.createElement('a');
-  a.href = 'mailto:' + addr;
-  a.textContent = addr;
-  el.replaceWith(a);
-});
 
 // Highlight the navbar section for pages below it (e.g. /office-hours/api-209/).
 (() => {

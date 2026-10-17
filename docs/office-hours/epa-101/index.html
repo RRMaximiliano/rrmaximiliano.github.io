@@ -414,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="../../office-hours/index.html">← All office hours</a> · <a href="../../office-hours/api-209/index.html">API 209</a> · <strong>EPA 101</strong></p>
 </div>
 <div class="oh-notice">
-<p><strong>EPA 101 students only.</strong> Not in EPA 101? Please don’t book a slot here. Email me instead at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span>.</p>
+<p><strong>EPA 101 students only.</strong> Not in EPA 101? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
 </div>
 <div class="oh-intro">
 <p>Choose an available <strong>15-minute slot</strong> below to meet at <strong>Gutman Library</strong>. After you book, you will receive a calendar invite with the appointment details.</p>
@@ -440,7 +440,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div>
     <h3 class="anchored">Nothing open?</h3>
-    <p>Email me at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span> and we will find a time.</p>
+    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
   </div>
 </div>
 
@@ -546,16 +546,6 @@ ul.task-list li input[type="checkbox"] {
 })();
 </script>
 <script>
-// Turns "name [at] domain [dot] edu" placeholders (class="js-email") into a
-// working mailto link in the browser, so the address isn't plain text in the HTML.
-document.querySelectorAll('.js-email').forEach(el => {
-  const addr = el.textContent.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.').trim();
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return;
-  const a = document.createElement('a');
-  a.href = 'mailto:' + addr;
-  a.textContent = addr;
-  el.replaceWith(a);
-});
 
 // Highlight the navbar section for pages below it (e.g. /office-hours/api-209/).
 (() => {

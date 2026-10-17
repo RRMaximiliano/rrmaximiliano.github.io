@@ -22,7 +22,7 @@ format:
 ```
 
 ::: {.oh-notice}
-**For students only.** These booking pages are for students enrolled in the courses below. If you are not a student in one of them, please don't book a slot. Email me instead at [rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu]{.js-email}.
+**For students only.** These booking pages are for students enrolled in the courses below. If you are not a student in one of them, please don't book a slot. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
 
 ```{=html}

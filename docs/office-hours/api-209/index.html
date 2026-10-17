@@ -414,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="../../office-hours/index.html">← All office hours</a> · <strong>API 209</strong> · <a href="../../office-hours/epa-101/index.html">EPA 101</a></p>
 </div>
 <div class="oh-notice">
-<p><strong>API 209 students only.</strong> Not in API 209? Please don’t book a slot here. Email me instead at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span>.</p>
+<p><strong>API 209 students only.</strong> Not in API 209? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
 </div>
 <div class="oh-intro">
 <p>Choose online or in person, then pick a <strong>10-minute slot</strong>. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.</p>
@@ -515,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div>
     <h3 class="anchored">Nothing open?</h3>
-    <p>Email me at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span> and we will find a time.</p>
+    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
   </div>
   <div>
     <h3 class="anchored">Groups</h3>
@@ -625,16 +625,6 @@ ul.task-list li input[type="checkbox"] {
 })();
 </script>
 <script>
-// Turns "name [at] domain [dot] edu" placeholders (class="js-email") into a
-// working mailto link in the browser, so the address isn't plain text in the HTML.
-document.querySelectorAll('.js-email').forEach(el => {
-  const addr = el.textContent.replace(/\s*\[at\]\s*/g, '@').replace(/\s*\[dot\]\s*/g, '.').trim();
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return;
-  const a = document.createElement('a');
-  a.href = 'mailto:' + addr;
-  a.textContent = addr;
-  el.replaceWith(a);
-});
 
 // Highlight the navbar section for pages below it (e.g. /office-hours/api-209/).
 (() => {

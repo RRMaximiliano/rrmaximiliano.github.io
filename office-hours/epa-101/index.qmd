@@ -17,7 +17,7 @@ format:
 :::
 
 ::: {.oh-notice}
-**EPA 101 students only.** Not in EPA 101? Please don't book a slot here. Email me instead at [rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu]{.js-email}.
+**EPA 101 students only.** Not in EPA 101? Please don't book a slot here. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
 
 ::: {.oh-intro}
@@ -48,7 +48,7 @@ Choose an available **15-minute slot** below to meet at **Gutman Library**. Afte
   </div>
   <div>
     <h3>Nothing open?</h3>
-    <p>Email me at <span class="js-email">rrodriguezramirez [at] g [dot] harvard [dot] edu</span> and we will find a time.</p>
+    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
   </div>
 </div>
 ```
