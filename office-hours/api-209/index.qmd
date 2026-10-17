@@ -3,13 +3,16 @@ pagetitle: "API 209 Office Hours | Rony Rodriguez-Ramirez"
 title: "API 209 Office Hours"
 subtitle: "Advanced Quantitative Methods · Fall 2026"
 toc: false
-page-layout: article
+page-layout: full
+body-classes: oh-page
 ---
 
 ::: {.oh-switch}
 [← All office hours](/office-hours/index.qmd) · **API 209** · [EPA 101](/office-hours/epa-101/index.qmd)
 :::
 
+:::::: {.oh-layout}
+::::: {.oh-side}
 ::: {.oh-notice}
 **API 209 students only.** Not in API 209? Please don't book a slot here. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
@@ -25,6 +28,25 @@ Choose online or in person, then pick a **10-minute slot**. The times you see co
   <li>Cancel from the invite if plans change</li>
 </ul>
 
+<div class="oh-notes">
+  <div>
+    <h3>Where</h3>
+    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
+  </div>
+  <div>
+    <h3>Nothing open?</h3>
+    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
+  </div>
+  <div>
+    <h3>Groups</h3>
+    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
+  </div>
+</div>
+```
+:::::
+
+::::: {.oh-main}
+```{=html}
 <div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden></div>
 
 <div class="oh-embed" id="oh-embed" hidden>
@@ -107,19 +129,6 @@ Choose online or in person, then pick a **10-minute slot**. The times you see co
     fallback.hidden = false;
   });
 </script>
-
-<div class="oh-notes">
-  <div>
-    <h3>Where</h3>
-    <p id="oh-where">The location is in the calendar invite you receive after booking.</p>
-  </div>
-  <div>
-    <h3>Nothing open?</h3>
-    <p>Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.</p>
-  </div>
-  <div>
-    <h3>Groups</h3>
-    <p>Working on the same problem with a classmate? Book one slot and come together.</p>
-  </div>
-</div>
 ```
+:::::
+::::::

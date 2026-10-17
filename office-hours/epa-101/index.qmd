@@ -3,13 +3,16 @@ pagetitle: "EPA 101 Office Hours | Rony Rodriguez-Ramirez"
 title: "EPA 101 Office Hours"
 subtitle: "Education Policy Analysis · Fall 2026"
 toc: false
-page-layout: article
+page-layout: full
+body-classes: oh-page
 ---
 
 ::: {.oh-switch}
 [← All office hours](/office-hours/index.qmd) · [API 209](/office-hours/api-209/index.qmd) · **EPA 101**
 :::
 
+:::::: {.oh-layout}
+::::: {.oh-side}
 ::: {.oh-notice}
 **EPA 101 students only.** Not in EPA 101? Please don't book a slot here. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
@@ -25,16 +28,6 @@ Choose an available **15-minute slot** below to meet at **Gutman Library**. Afte
   <li>Cancel from the invite if plans change</li>
 </ul>
 
-<div class="oh-embed">
-  <iframe
-    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ZL8fFGiXVfN9HgicNeHOh8kFx4qlrBFq2d3dsil726HGEQjyGI-tI6v7GjpjNl19v2TKYHHmb?gv=true"
-    title="Book an EPA 101 office hours appointment"></iframe>
-</div>
-
-<p class="oh-fallback">
-  Calendar not loading? <a href="https://calendar.app.google/8CZJw1ymD3ut9XGPA" target="_blank" rel="noopener">Open the EPA 101 booking page in a new tab</a>.
-</p>
-
 <div class="oh-notes">
   <div>
     <h3>Where</h3>
@@ -46,3 +39,19 @@ Choose an available **15-minute slot** below to meet at **Gutman Library**. Afte
   </div>
 </div>
 ```
+:::::
+
+::::: {.oh-main}
+```{=html}
+<div class="oh-embed">
+  <iframe
+    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ZL8fFGiXVfN9HgicNeHOh8kFx4qlrBFq2d3dsil726HGEQjyGI-tI6v7GjpjNl19v2TKYHHmb?gv=true"
+    title="Book an EPA 101 office hours appointment"></iframe>
+</div>
+
+<p class="oh-fallback">
+  Calendar not loading? <a href="https://calendar.app.google/8CZJw1ymD3ut9XGPA" target="_blank" rel="noopener">Open the EPA 101 booking page in a new tab</a>.
+</p>
+```
+:::::
+::::::
