@@ -304,9 +304,7 @@ section.level3:has(.pub-list) > h3 {
   strong { color: $ink; font-weight: 500; }
 }
 .oh-notice {
-  border-left: 2px solid $accent;
-  padding: .15rem 0 .15rem 1rem;
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.5rem;
   color: $ink-2;
   p { margin: 0; }
   strong { color: $ink; }
