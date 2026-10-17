@@ -4,5 +4,3 @@
 # Duplicate copies created by iCloud/Finder sync (e.g. "index 2.html")
 docs/**/* [0-9].*
 
-# CV page images are generated at render time (copied into docs/cv/pages)
-cv/pages/

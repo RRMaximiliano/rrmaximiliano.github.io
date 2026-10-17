@@ -74,9 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-747dc985dd81264f8795ce582c70e737.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-81f6eccca28dc60bf30f1e75a53aa89d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-747dc985dd81264f8795ce582c70e737.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-133b68641103fb0bda6943e6e49de49a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-edf598bfe078b8b6d959fc10db3a3179.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-133b68641103fb0bda6943e6e49de49a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -92,6 +92,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+// Entrance motion helpers (styles in html/custom.scss):
+// - "pre": the page is being prepared in the background; hold animations until it's shown.
+// - "intro": first homepage visit this session; hold the page while the name types out.
+(() => {
+  const root = document.documentElement;
+  try {
+    if (document.prerendering) {
+      root.classList.add('pre');
+      document.addEventListener('prerenderingchange', () => root.classList.remove('pre'), { once: true });
+    }
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const home = /^\/(index\.html)?$/.test(location.pathname);
+    if (home && !reduce && !sessionStorage.getItem('intro-seen')) {
+      root.classList.add('intro');
+      setTimeout(() => root.classList.remove('intro'), 4000); // never leave the page held
+    }
+  } catch (e) { root.classList.remove('pre', 'intro'); }
+})();
+</script>
 <!-- Prepare the next page while the cursor rests on a link (Chrome/Edge), so it opens instantly. -->
 <script type="speculationrules">
 {
@@ -637,6 +657,44 @@ document.addEventListener('click', e => {
   target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   history.pushState(null, '', a.hash);
 });
+
+// Homepage intro: type the name out, then let the rest of the page rise in.
+(() => {
+  const root = document.documentElement;
+  if (!root.classList.contains('intro')) return;
+  const el = document.querySelector('.home-name');
+  if (!el) { root.classList.remove('intro'); return; }
+  try { sessionStorage.setItem('intro-seen', '1'); } catch (e) {}
+  const original = el.innerHTML;
+  const chars = [];
+  el.childNodes.forEach(n => {
+    if (n.nodeType === 3) chars.push(...n.textContent);
+    else if (n.nodeName === 'BR') chars.push('\n');
+  });
+  el.style.minHeight = el.getBoundingClientRect().height + 'px';
+  el.setAttribute('aria-label', el.textContent);
+  const typed = document.createElement('span');
+  typed.setAttribute('aria-hidden', 'true');
+  const caret = document.createElement('span');
+  caret.className = 'type-caret';
+  caret.setAttribute('aria-hidden', 'true');
+  el.replaceChildren(typed, caret);
+  el.style.visibility = 'visible';
+  let i = 0;
+  const finish = () => {
+    el.innerHTML = original;
+    el.removeAttribute('aria-label');
+    el.style.minHeight = '';
+    root.classList.remove('intro');
+  };
+  const step = () => {
+    if (i >= chars.length) { setTimeout(finish, 260); return; }
+    const c = chars[i++];
+    if (c === '\n') typed.appendChild(document.createElement('br')); else typed.append(c);
+    setTimeout(step, c === ' ' ? 18 : 32);
+  };
+  setTimeout(step, 420);
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -24,4 +24,43 @@ document.addEventListener('click', e => {
   target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   history.pushState(null, '', a.hash);
 });
+
+// Homepage intro: type the name out, then let the rest of the page rise in.
+(() => {
+  const root = document.documentElement;
+  if (!root.classList.contains('intro')) return;
+  const el = document.querySelector('.home-name');
+  if (!el) { root.classList.remove('intro'); return; }
+  try { sessionStorage.setItem('intro-seen', '1'); } catch (e) {}
+  const original = el.innerHTML;
+  const chars = [];
+  el.childNodes.forEach(n => {
+    if (n.nodeType === 3) chars.push(...n.textContent);
+    else if (n.nodeName === 'BR') chars.push('\n');
+  });
+  el.style.minHeight = el.getBoundingClientRect().height + 'px';
+  el.setAttribute('aria-label', el.textContent);
+  const typed = document.createElement('span');
+  typed.setAttribute('aria-hidden', 'true');
+  const caret = document.createElement('span');
+  caret.className = 'type-caret';
+  caret.setAttribute('aria-hidden', 'true');
+  el.replaceChildren(typed, caret);
+  el.style.visibility = 'visible';
+  let i = 0;
+  const finish = () => {
+    el.style.animation = 'none'; // already on screen; don't replay the entrance
+    el.innerHTML = original;
+    el.removeAttribute('aria-label');
+    el.style.minHeight = '';
+    root.classList.remove('intro');
+  };
+  const step = () => {
+    if (i >= chars.length) { setTimeout(finish, 260); return; }
+    const c = chars[i++];
+    if (c === '\n') typed.appendChild(document.createElement('br')); else typed.append(c);
+    setTimeout(step, c === ' ' ? 18 : 32);
+  };
+  setTimeout(step, 420);
+})();
 </script>

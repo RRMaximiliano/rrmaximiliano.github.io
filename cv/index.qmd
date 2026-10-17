@@ -3,39 +3,19 @@ title: Curriculum vitæ
 engine: knitr
 freeze: false
 toc: false
-resources:
-  - "pages/*.png"
 ---
 
 ```{r setup, include=FALSE}
-# The CV PDF is published from the rrmrr-vita repository. At render time this
-# downloads it, reads its "last modified" date, and turns each page into an
-# image (needs Poppler's `pdftoppm`; otherwise the page embeds the PDF).
+# The CV PDF is published from the rrmrr-vita repository; this reads its
+# "last modified" date at render time.
 library(httr)
 cv_url <- "https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf"
-pdf_file <- tempfile(fileext = ".pdf")
-res <- GET(cv_url, write_disk(pdf_file, overwrite = TRUE))
-pdf_date <- headers(res)[["last-modified"]]
+hdr <- HEAD(cv_url)
+pdf_date <- headers(hdr)[["last-modified"]]
 last_updated <- format(
   as.POSIXct(pdf_date, format = "%a, %d %b %Y %H:%M:%S", tz = "GMT"),
   "%B %d, %Y"
 )
-
-pages <- character(0)
-pdftoppm <- Sys.which("pdftoppm")
-if (!nzchar(pdftoppm) && file.exists("/opt/homebrew/bin/pdftoppm")) pdftoppm <- "/opt/homebrew/bin/pdftoppm"
-if (nzchar(pdftoppm)) {
-  dir.create("pages", showWarnings = FALSE)
-  unlink(Sys.glob("pages/cv-*.png"))
-  system2(pdftoppm, c("-png", "-r", "144", shQuote(pdf_file), "pages/cv"))
-  pages <- sort(Sys.glob("pages/cv-*.png"))
-}
-
-png_size <- function(f) {
-  b <- readBin(f, "raw", 24)
-  to_int <- function(x) sum(as.integer(x) * 256^(3:0))
-  c(to_int(b[17:20]), to_int(b[21:24]))
-}
 ```
 
 ```{=html}
@@ -45,22 +25,10 @@ png_size <- function(f) {
     <a href="`r cv_url`" download>Download PDF ↓</a><span class="sep"> | </span><a href="`r cv_url`" target="_blank" rel="noopener">Open in a new tab ↗</a>
   </span>
 </div>
-```
 
-```{r pages, results='asis', echo=FALSE}
-cat("```{=html}\n")
-if (length(pages)) {
-  cat('<div class="cv-pages">\n')
-  for (i in seq_along(pages)) {
-    d <- png_size(pages[i])
-    cat(sprintf(
-      '<a class="cv-page" href="%s" target="_blank" rel="noopener"><img src="%s" alt="CV, page %d of %d" width="%d" height="%d" loading="%s"></a>\n',
-      cv_url, pages[i], i, length(pages), d[1], d[2], if (i == 1) "eager" else "lazy"
-    ))
-  }
-  cat("</div>\n")
-} else {
-  cat(sprintf('<div class="cv-frame"><iframe src="%s#toolbar=0&amp;navpanes=0&amp;view=FitH" title="Curriculum vitæ (PDF)" loading="lazy"></iframe></div>\n', cv_url))
-}
-cat("```\n")
+<div class="cv-frame">
+  <iframe src="`r cv_url`#view=FitH&amp;navpanes=0" title="Curriculum vitæ (PDF)"></iframe>
+</div>
+
+<p class="cv-mobile">Phones can't show the CV inside the page. <a href="`r cv_url`" target="_blank" rel="noopener">Open the CV ↗</a></p>
 ```
