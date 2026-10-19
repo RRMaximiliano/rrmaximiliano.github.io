@@ -137,13 +137,14 @@ a:hover, a:focus { color: $accent; text-decoration-color: $accent; }
 .navbar .me-auto .nav-link,
 .navbar .me-auto .nav-link.active { color: $ink !important; text-decoration: none; }
 
-// Sacuanjoche mark before the name (the favicon, coloured with the text so it follows the theme toggle)
+// Sacuanjoche mark before the name: the line version (the tab uses the solid one),
+// coloured with the text so it follows the theme toggle
 @media (min-width: 992px) {
   .navbar .me-auto .nav-item:first-child .nav-link { display: inline-flex; align-items: center; gap: .55rem; }
   .navbar .me-auto .nav-item:first-child .nav-link::before {
-    content: ""; flex: none; width: 17px; height: 17px; background: currentColor;
-    -webkit-mask: url("/favicon.svg") center / contain no-repeat;
-    mask: url("/favicon.svg") center / contain no-repeat;
+    content: ""; flex: none; width: 18px; height: 18px; background: currentColor;
+    -webkit-mask: url("/brand/sacuanjoche-line.svg") center / contain no-repeat;
+    mask: url("/brand/sacuanjoche-line.svg") center / contain no-repeat;
   }
 }
 

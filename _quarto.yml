@@ -17,6 +17,7 @@ resources:
   - favicon.svg
   - favicon.ico
   - apple-touch-icon.png
+  - brand/sacuanjoche-line.svg
 
 website:
   draft-mode: gone
