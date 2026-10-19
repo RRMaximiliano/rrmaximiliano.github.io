@@ -83,6 +83,10 @@
     - {name: "Renata Lemos", url: "https://renatalemos.com/"}
     - {name: "Lelys Dinarte", url: "https://sites.google.com/view/lelys-dinarte/home"}
     - {name: "James Gresham"}
+  links:
+    - {text: "PDF", url: "https://renatalemos.com/wp-content/uploads/2026/03/ukraine_03222026.pdf"}
+    - {text: "Registry", url: "https://www.socialscienceregistry.org/trials/9328"}
+    - {text: "World Bank Brief", url: "https://thedocs.worldbank.org/en/doc/c2e290b2b8b55ac737e754a52617ff79-0090052026/original/E2P-Ukraine.pdf?deliveryName=FCP_6_DM274129"}
   abstract: >-
     This paper provides insights into human capital investments during wartime by presenting
     evidence from three experiments of an online tutoring program for Ukrainian students amid

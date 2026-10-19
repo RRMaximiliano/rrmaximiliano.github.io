@@ -10,6 +10,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!about.qmd"     # old Bio page; about.html now redirects home
 
 resources:
   - fonts/
@@ -18,12 +19,19 @@ resources:
   - favicon.ico
   - apple-touch-icon.png
   - brand/sacuanjoche-line.svg
+  - about.html
 
 website:
   draft-mode: gone
   search: false
   page-navigation: true
   site-url: "https://www.rrmaximiliano.com/"
+  # Link previews (Slack, X, email): photo, title and this summary
+  image: https://www.rrmaximiliano.com/files/img/rony.jpg
+  open-graph:
+    description: &summary "Ph.D. candidate in Education Policy and Program Evaluation at Harvard University, studying how education systems can protect and rebuild human capital after conflict, displacement, and political crises."
+  twitter-card:
+    description: *summary
   repo-url: "https://github.com/RRMaximiliano/rrmaximiliano.github.io"
   navbar:
     pinned: true

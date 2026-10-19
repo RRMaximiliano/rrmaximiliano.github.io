@@ -1,6 +1,6 @@
 ---
 pagetitle: "Rony Rodriguez-Ramirez | Home"
-image: /files/img/rony.jpg
+image: https://www.rrmaximiliano.com/files/img/rony.jpg
 toc: false
 page-layout: full
 body-classes: home

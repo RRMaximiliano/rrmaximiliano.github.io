@@ -1,5 +1,10 @@
 <!-- Shared by the homepage and /research. Papers live in research/papers.yml. -->
 
+## Working Papers
+
+::: {#working}
+:::
+
 ## Published Work
 
 ### Book Chapters
@@ -10,11 +15,6 @@
 ### Papers
 
 ::: {#published-papers}
-:::
-
-## Working Papers
-
-::: {#working}
 :::
 
 ## Pre-Doctoral Studies (Before 2023)
