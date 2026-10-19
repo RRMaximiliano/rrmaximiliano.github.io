@@ -1,5 +1,5 @@
 ---
-pagetitle: "API 209 Office Hours | Rony Rodriguez-Ramirez"
+pagetitle: "Rony Rodriguez-Ramirez | API 209 Office Hours"
 title: "API 209 Office Hours"
 subtitle: "Advanced Quantitative Methods · Fall 2026"
 toc: false

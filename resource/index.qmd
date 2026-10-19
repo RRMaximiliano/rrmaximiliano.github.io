@@ -1,4 +1,5 @@
 ---
+pagetitle: "Rony Rodriguez-Ramirez | Resources"
 toc-location: right
 ---
 

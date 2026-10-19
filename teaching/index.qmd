@@ -1,4 +1,5 @@
 ---
+pagetitle: "Rony Rodriguez-Ramirez | Teaching"
 toc-location: right
 ---
 

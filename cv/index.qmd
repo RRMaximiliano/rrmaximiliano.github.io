@@ -1,4 +1,5 @@
 ---
+pagetitle: "Rony Rodriguez-Ramirez | CV"
 title: Curriculum vitæ
 engine: knitr
 freeze: false

@@ -1,4 +1,5 @@
 ---
+pagetitle: "Rony Rodriguez-Ramirez | Blog"
 title: "Blog"
 description: "Rony's blog"
 listing:

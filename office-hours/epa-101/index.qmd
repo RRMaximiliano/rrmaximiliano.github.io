@@ -1,5 +1,5 @@
 ---
-pagetitle: "EPA 101 Office Hours | Rony Rodriguez-Ramirez"
+pagetitle: "Rony Rodriguez-Ramirez | EPA 101 Office Hours"
 title: "EPA 101 Office Hours"
 subtitle: "Education Policy Analysis · Fall 2026"
 toc: false

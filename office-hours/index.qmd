@@ -1,5 +1,5 @@
 ---
-pagetitle: "Office Hours | Rony Rodriguez-Ramirez"
+pagetitle: "Rony Rodriguez-Ramirez | Office Hours"
 title: "Office Hours"
 subtitle: "Fall 2026"
 toc: false
