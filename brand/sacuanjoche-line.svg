@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Sacuanjoche (Plumeria), line version. Ink follows the site: light #27272a, dark #dce8e8. -->
+  <style>.ink{fill:#27272a}@media (prefers-color-scheme:dark){.ink{fill:#dce8e8}}</style>
+  <defs>
+    <path id="p" d="M0 0C-2.4-1.6-6.6-4.9-6.3-9.4C-6-13.4-1.2-14.9 2.3-13.4C5.6-12 6.4-7.6 4.4-4.4C3.2-2.4 1.6-1 0 0Z"/>
+    <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+      <g transform="translate(16 16.6)" fill="#000" stroke="#fff" stroke-width="2" stroke-linejoin="round"><use href="#p"/><use href="#p" transform="rotate(72)"/><use href="#p" transform="rotate(144)"/><use href="#p" transform="rotate(216)"/><use href="#p" transform="rotate(288)"/></g>
+      <circle cx="16" cy="16.6" r="1.9" fill="#000" stroke="#fff" stroke-width="1.6"/>
+    </mask>
+  </defs>
+  <rect class="ink" width="32" height="32" mask="url(#m)"/>
+</svg>

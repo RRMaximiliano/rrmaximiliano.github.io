@@ -14,6 +14,9 @@ project:
 resources:
   - fonts/
   - go/
+  - favicon.svg
+  - favicon.ico
+  - apple-touch-icon.png
 
 website:
   draft-mode: gone
