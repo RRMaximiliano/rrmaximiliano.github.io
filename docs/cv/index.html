@@ -454,8 +454,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<!-- The CV PDF and rrmrr-vita.json are published from the rrmrr-vita
+     repository. The JSON (commit and date of the last CV change) is read in
+     the browser, so this line matches the PDF footer without re-rendering. -->
 <div class="cv-bar">
-  <span class="cv-updated">Last updated March 20, 2026</span>
+  <span class="cv-updated" id="cv-updated"></span>
   <span class="cv-actions">
     <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" download="">Download PDF ↓</a><span class="sep"> | </span><a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" target="_blank" rel="noopener">Open in a new tab ↗</a>
   </span>
@@ -466,6 +469,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 <p class="cv-mobile">Phones can't show the CV inside the page. <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" target="_blank" rel="noopener">Open the CV ↗</a></p>
+
+<script>
+fetch("https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.json", { cache: "no-cache" })
+  .then((r) => r.json())
+  .then((cv) => {
+    const [y, m, d] = cv.updated.split("-").map(Number);
+    const date = new Date(y, m - 1, d).toLocaleDateString("en-US", {
+      month: "long", day: "numeric", year: "numeric"
+    });
+    const link = document.createElement("a");
+    link.href = cv.commit_url;
+    link.textContent = cv.commit;
+    const el = document.getElementById("cv-updated");
+    el.append("Updated with commit ", link, ` on ${date}`);
+  })
+  .catch(() => {});
+</script>
 
 
 

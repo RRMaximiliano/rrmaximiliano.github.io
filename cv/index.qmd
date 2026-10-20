@@ -1,35 +1,40 @@
 ---
 pagetitle: "Rony Rodriguez-Ramirez | CV"
 title: Curriculum vitæ
-engine: knitr
-freeze: false
 toc: false
 ---
 
-```{r setup, include=FALSE}
-# The CV PDF is published from the rrmrr-vita repository; this reads its
-# "last modified" date at render time.
-library(httr)
-cv_url <- "https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf"
-hdr <- HEAD(cv_url)
-pdf_date <- headers(hdr)[["last-modified"]]
-last_updated <- format(
-  as.POSIXct(pdf_date, format = "%a, %d %b %Y %H:%M:%S", tz = "GMT"),
-  "%B %d, %Y"
-)
-```
-
 ```{=html}
+<!-- The CV PDF and rrmrr-vita.json are published from the rrmrr-vita
+     repository. The JSON (commit and date of the last CV change) is read in
+     the browser, so this line matches the PDF footer without re-rendering. -->
 <div class="cv-bar">
-  <span class="cv-updated">Last updated `r last_updated`</span>
+  <span class="cv-updated" id="cv-updated"></span>
   <span class="cv-actions">
-    <a href="`r cv_url`" download>Download PDF ↓</a><span class="sep"> | </span><a href="`r cv_url`" target="_blank" rel="noopener">Open in a new tab ↗</a>
+    <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" download>Download PDF ↓</a><span class="sep"> | </span><a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" target="_blank" rel="noopener">Open in a new tab ↗</a>
   </span>
 </div>
 
 <div class="cv-frame">
-  <iframe src="`r cv_url`#view=FitH&amp;navpanes=0" title="Curriculum vitæ (PDF)"></iframe>
+  <iframe src="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf#view=FitH&amp;navpanes=0" title="Curriculum vitæ (PDF)"></iframe>
 </div>
 
-<p class="cv-mobile">Phones can't show the CV inside the page. <a href="`r cv_url`" target="_blank" rel="noopener">Open the CV ↗</a></p>
+<p class="cv-mobile">Phones can't show the CV inside the page. <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" target="_blank" rel="noopener">Open the CV ↗</a></p>
+
+<script>
+fetch("https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.json", { cache: "no-cache" })
+  .then((r) => r.json())
+  .then((cv) => {
+    const [y, m, d] = cv.updated.split("-").map(Number);
+    const date = new Date(y, m - 1, d).toLocaleDateString("en-US", {
+      month: "long", day: "numeric", year: "numeric"
+    });
+    const link = document.createElement("a");
+    link.href = cv.commit_url;
+    link.textContent = cv.commit;
+    const el = document.getElementById("cv-updated");
+    el.append("Updated with commit ", link, ` on ${date}`);
+  })
+  .catch(() => {});
+</script>
 ```
