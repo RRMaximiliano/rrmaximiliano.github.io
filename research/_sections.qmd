@@ -1,4 +1,4 @@
-<!-- Shared by the homepage and /research. Papers live in research/papers.yml. -->
+<!-- The full research list on /research (the homepage uses _home-sections.qmd). Papers live in research/papers.yml. -->
 
 ## Working Papers
 

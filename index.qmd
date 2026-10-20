@@ -34,7 +34,7 @@ I focus on designing and evaluating scalable interventions that can reduce these
 
 I am affiliated with the [Center for International Development (CID)](https://www.hks.harvard.edu/centers/cid/about-cid/people/phd-affiliates/rony-rodrigo-maximiliano-rodriguez-ramirez), the [Institute for Quantitative Social Science (IQSS)](https://www.iq.harvard.edu/people/rony-rodrigo-maximiliano-rodriguez-ramirez), and the [Education Lab for Latin America (ELLA)](https://ella.gse.harvard.edu/) at the Harvard Graduate School of Education, which I co-founded. My ultimate goal is to produce rigorous research that can inform social policies and create effective pathways toward more just societies.
 
-{{< include research/_sections.qmd >}}
+{{< include research/_home-sections.qmd >}}
 
 :::
 

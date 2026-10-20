@@ -39,9 +39,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9b37070e92c7fa56b11f0a162437185f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4f1540589327ae2a0f7d1b67b03c91eb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-9b37070e92c7fa56b11f0a162437185f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6c2f8decbff261f0e5f98c842c6e7de5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-40e460c7a604dca2fe126b8d44398ba1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6c2f8decbff261f0e5f98c842c6e7de5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -60,62 +60,6 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-published-chapters .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-group','listing-coauthors','listing-links','listing-abstract',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-title","listing-group","listing-coauthors","listing-links","listing-abstract"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-published-chapters'] = new List('listing-published-chapters', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-published-papers .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-group','listing-coauthors','listing-venue','listing-details','listing-abstract','listing-links',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-title","listing-group","listing-coauthors","listing-venue","listing-details","listing-abstract","listing-links"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-published-papers'] = new List('listing-published-papers', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-working .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -130,90 +74,6 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-working'] = new List('listing-working', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-predoc-books .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-group','listing-coauthors','listing-links',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-title","listing-group","listing-coauthors","listing-links"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-predoc-books'] = new List('listing-predoc-books', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-predoc-papers .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-group','listing-coauthors','listing-venue','listing-details','listing-links','listing-abstract',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-title","listing-group","listing-coauthors","listing-venue","listing-details","listing-links","listing-abstract"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-predoc-papers'] = new List('listing-predoc-papers', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-predoc-reports .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-group','listing-venue','listing-links',{ data: ['index'] },{ data: ['categories'] }],
-      
-      searchColumns: ["listing-title","listing-group","listing-venue","listing-links"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-predoc-reports'] = new List('listing-predoc-reports', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -658,7 +518,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Hi! I’m a fourth year Ph.D.&nbsp;<del>student</del> candidate in Education Policy and Program Evaluation (Economics of Education Field Course). My research is driven by a central question: <strong>How can education systems be adapted to protect and rebuild human capital when faced with large-scale shocks like conflict, displacement, and political crises?</strong> My academic and personal journey, which started in Nicaragua, has given me a strong motivation to address learning inequalities caused by political instability and forced migration.</p>
 <p>I focus on designing and evaluating scalable interventions that can reduce these inequalities. A core part of my approach is to integrate robust psychosocial support within educational settings to ensure all children can learn effectively. The centerpiece of my current work is a large-scale randomized controlled trial (RCT) in Armenia that I co-lead across 450 public schools. This project is designed to meet the educational and psychosocial needs of children displaced by the Nagorno-Karabakh conflict. I also recently co-led another RCT in Ukraine with over 10,000 students, where we embedded mental health components into an online tutoring program and saw positive impacts on learning outcomes and student well-being.</p>
 <p>I am affiliated with the <a href="https://www.hks.harvard.edu/centers/cid/about-cid/people/phd-affiliates/rony-rodrigo-maximiliano-rodriguez-ramirez">Center for International Development (CID)</a>, the <a href="https://www.iq.harvard.edu/people/rony-rodrigo-maximiliano-rodriguez-ramirez">Institute for Quantitative Social Science (IQSS)</a>, and the <a href="https://ella.gse.harvard.edu/">Education Lab for Latin America (ELLA)</a> at the Harvard Graduate School of Education, which I co-founded. My ultimate goal is to produce rigorous research that can inform social policies and create effective pathways toward more just societies.</p>
-<!-- Shared by the homepage and /research. Papers live in research/papers.yml. -->
+<!-- Homepage research: current work only. The full list (with published and
+     pre-doctoral work) is research/_sections.qmd, shown on /research. -->
 <section id="working-papers" class="level2">
 <h2 class="anchored" data-anchor-id="working-papers">Working Papers</h2>
 <div id="listing-working" class="quarto-listing quarto-listing-container-custom">
@@ -692,53 +553,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
-<section id="published-work" class="level2">
-<h2 class="anchored" data-anchor-id="published-work">Published Work</h2>
-<section id="book-chapters" class="level3">
-<h3 class="anchored" data-anchor-id="book-chapters">Book Chapters</h3>
-<div id="listing-published-chapters" class="quarto-listing quarto-listing-container-custom">
-<div class="pub-list">
-
-<article class="pub">
-<div class="pub-title">From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile</div>
-<div class="pub-authors">(with <a href="https://www.emilianavegas.com/">Emiliana Vegas</a> and <a href="https://alvarohofflinger.com/">Álvaro Hofflinger</a>)</div>
-
-<div class="pub-links"><button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))">Abstract</button><span class="sep"> | </span><a href="./files/pdfs/vegas_et_al_2024_chile.pdf">Ungated Version</a><span class="sep"> | </span><a href="https://link.springer.com/chapter/10.1007/978-3-031-69284-0_2">Publisher Version</a></div>
-<div class="pub-abstract" hidden="">This chapter analyzes the effects of school closures in Chile, the nation with the longest period of school closures among OECD countries. Using data from PISA (national level) and SIMCE (student level) in 2022, we examine the association between school closures and students’ GPA, attendance rates, and math and reading scores. Our findings show that, on average, students’ attendance rates and math and reading scores experienced a decline, while their annual GPA increased after 2020. The results also show that school closures affect students differently depending on their demographic and socioeconomic backgrounds.</div>
-</article>
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="papers" class="level3">
-<h3 class="anchored" data-anchor-id="papers">Papers</h3>
-<div id="listing-published-papers" class="quarto-listing quarto-listing-container-custom">
-<div class="pub-list">
-
-<article class="pub">
-<div class="pub-title">The rise of post-pandemic bullying and its association with student achievement and school attachment: Evidence from Chile</div>
-<div class="pub-authors">(with <a href="https://alvarohofflinger.com/">Álvaro Hofflinger</a> and <a href="https://www.emilianavegas.com/">Emiliana Vegas</a>)</div>
-<div class="pub-venue"><em>International Journal of Educational Development</em>, 2026, 103677.</div>
-
-<div class="pub-links"><button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))">Abstract</button></div>
-<div class="pub-abstract" hidden="">Most of the research on the pandemic has focused on assessing the impact of school closures on learning loss. Less attention has been paid to how school social dynamics changed after COVID-19. In this study, we examine whether bullying increased after the pandemic and whether the association between bullying exposure and student achievement changed in the post-pandemic period. To do so, we used student-level census data from 10th graders before and after the pandemic in Chile, which experienced the most extensive school closures among OECD countries. We compare 10th-grade students before the pandemic (in 2016 and 2018) with those after the pandemic (in 2022). All forms of bullying (physical, verbal, social, and via the internet) increased in the post-pandemic cohort, with the increases concentrated among already-vulnerable groups for physical and cyberbullying. Moreover, the achievement gap between bullied and non-bullied students widened after the pandemic: bullying exposure in 2022 is associated with significantly lower scores in mathematics and reading, and GPA than the same exposure before the pandemic. Students exposed to bullying also report weaker attachment to their schools. While our cohort- comparison design does not identify the causal effect of bullying on learning, the patterns we document suggest that the deterioration of school social dynamics may be one of the most important long-term legacies of the pandemic.</div>
-</article>
-
-<article class="pub">
-<div class="pub-title">Does the small business program benefit self-employed workers? Evidence from Nicaragua</div>
-<div class="pub-authors">(with <a href="https://sites.google.com/site/booyuelkim/home">Booyuel Kim</a> and <a href="https://sites.google.com/site/heeseungyang/">Hee-Seung Yang</a>)</div>
-<div class="pub-venue"><em>Journal of Development Effectiveness</em>, Jan 2024, 1–20.</div>
-
-<div class="pub-links"><button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))">Abstract</button><span class="sep"> | </span><a href="https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138">Publisher Version</a></div>
-<div class="pub-abstract" hidden="">Business and skills training programmes have been a popular social policy intervention to increase productivity of the self-employed in developing countries. We study the Small Business of the Family Economy programme, a government business training programme designed to assist Nicaraguan self-employed workers. Using data from three rounds of the Nicaragua Living Standards Measurement Survey, we employ a difference-in-differences strategy to exploit variation in eligibility for the programme across time and economic activity. Our estimates indicate that the programme does not increase self-employed workers’ earnings overall. However, we find heterogeneous treatment effects for female self-employed workers with low educational attainment, which could be explained by increased working months and having a second job.</div>
-</article>
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-</section>
 <section id="selected-works-in-progress" class="level2">
 <h2 class="anchored" data-anchor-id="selected-works-in-progress">Selected Works in Progress</h2>
 <div id="listing-progress" class="quarto-listing quarto-listing-container-custom">
@@ -769,80 +583,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-</section>
-<section id="pre-doctoral-studies-before-2023" class="level2">
-<h2 class="anchored" data-anchor-id="pre-doctoral-studies-before-2023">Pre-Doctoral Studies (Before 2023)</h2>
-<section id="books" class="level3">
-<h3 class="anchored" data-anchor-id="books">Books</h3>
-<div id="listing-predoc-books" class="quarto-listing quarto-listing-container-custom">
-<div class="pub-list">
-
-<article class="pub">
-<div class="pub-title">Ciudadanía y violencia. Una aproximación a sus múltiples expresiones</div>
-<div class="pub-authors">(with Mario Sánchez and Douglas Castro)</div>
-
-<div class="pub-links"><a href="http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf">Ungated Version</a></div>
-
-</article>
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="papers-1" class="level3">
-<h3 class="anchored" data-anchor-id="papers-1">Papers</h3>
-<div id="listing-predoc-papers" class="quarto-listing quarto-listing-container-custom">
-<div class="pub-list">
-
-<article class="pub">
-<div class="pub-title">Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo</div>
-<div class="pub-authors">(with Hloreley Osorio)</div>
-<div class="pub-venue"><em>Anuario de Estudios Centroamericanos</em>, 46 (2020), 1–42.</div>
-
-<div class="pub-links"><button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))">Abstract</button><span class="sep"> | </span><a href="https://www.redalyc.org/journal/152/15264516019/15264516019.pdf">Ungated Version</a></div>
-<div class="pub-abstract" hidden="">From a structure and agency perspective, this article analyzes the criticism and crisis in Nicaragua during the Ortega administration (2007-2020). It shows that the "singular trials" of social sectors to curb authoritarianism and capitalism, interpreted by the government as enemies of progress (2007- March 2018), went through a "general judgment" of social and business sectors represented in the Alianza Cívica that, witnessing crimes against humanity, criticize authoritarianism and injustice, which the government evaluates as an attempted coup (April 2018-2020). The conflict between trials led to a national dialogue with partial decisions, while the socio-political and economic crisis deepens. The analysis reveals the need for promoting democracy with social justice</div>
-</article>
-
-<article class="pub">
-<div class="pub-title">Movimientos sociales y acción colectiva en Nicaragua: Entre la identidad, autonomía y subordinación</div>
-<div class="pub-authors">(with Mario Sánchez, Douglas Castro, and Jorge Guerra)</div>
-<div class="pub-venue"><em>Amnis</em>, (15), 2016.</div>
-
-<div class="pub-links"><button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))">Abstract</button><span class="sep"> | </span><a href="https://amnis.revues.org/2813">Publisher Version</a></div>
-<div class="pub-abstract" hidden="">This article analyzes the evolution of three social movements (Natives, women and workers) at key moments of the history of Nicaragua: the dictatorship of Somoza (1934-1979), the Sandinista revolution (1979-1990) and the neoliberal era (1990-2000).</div>
-</article>
-
-<article class="pub">
-<div class="pub-title">¿Ha sido importante la cooperación internacional para el desarrollo y el crecimiento económico?</div>
-<div class="pub-authors">(with Carol Siero and Sebastián Hernández)</div>
-<div class="pub-venue"><em>Encuentro</em>, 102 (2015), 52–74.</div>
-
-<div class="pub-links"><button type="button" class="pub-abs-toggle" aria-expanded="false" onclick="const a=this.closest('.pub').querySelector('.pub-abstract');a.hidden=!a.hidden;this.setAttribute('aria-expanded',String(!a.hidden))">Abstract</button><span class="sep"> | </span><a href="./files/pdfs/siero_et_al_2015_cooperacion_internacional.pdf">Ungated Version</a></div>
-<div class="pub-abstract" hidden="">La cooperación internacional al desarrollo ha sido divulgada como una operación que se realiza con el objetivo de promover el desarrollo y crecimiento económico de los países. Sin embargo, la cooperación no solamente se basa en la idea del mejoramiento económico de los países sino también en las relaciones político-económicas que los países tienen y en la forma en que éstos administran los recursos. Esto sugiere que el estudio de la cooperación debe abordar contextos, políticas e ideales tanto de los cooperantes como de los beneficiarios. En el presente artículo se desarrollaron dos modelos econométricos, estimados a través de datos panel. Primero, un modelo de selectividad que hace referencia a la cantidad de dinero desembolsado a sectores estratégicos de la economía por parte de los donantes y, segundo, un modelo de eficacia de la cooperación para valorar la incidencia de la ayuda en el desarrollo y crecimiento económico. A través de estos dos modelos, el paradigma actual de la cooperación presenta debilidades al momento de establecer ejes estratégicos. Por esto, es necesario que el debate sobre el rol de la cooperación tenga un carácter activo en las políticas tanto de los países cooperantes como de los beneficiarios.</div>
-</article>
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
-<section id="reports" class="level3">
-<h3 class="anchored" data-anchor-id="reports">Reports</h3>
-<div id="listing-predoc-reports" class="quarto-listing quarto-listing-container-custom">
-<div class="pub-list">
-
-<article class="pub">
-<div class="pub-title">Improving the well-being of adolescent girls in developing countries</div>
-
-<div class="pub-venue"><em>The World Bank (2022)</em></div>
-
-<div class="pub-links"><a href="https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf">Publisher Version</a></div>
-
-</article>
-
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
+<p><span class="home-more">Published work and pre-doctoral studies are on the <a href="./research/index.html">Research</a> page.</span></p>
 </section>
 </div>
 </div>

@@ -1,0 +1,14 @@
+<!-- Homepage research: current work only. The full list (with published and
+     pre-doctoral work) is research/_sections.qmd, shown on /research. -->
+
+## Working Papers
+
+::: {#working}
+:::
+
+## Selected Works in Progress
+
+::: {#progress}
+:::
+
+[Published work and pre-doctoral studies are on the [Research](/research/index.qmd) page.]{.home-more}

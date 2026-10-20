@@ -1,41 +1,12 @@
 # Listing setup for the homepage (paths from the project root).
+# The homepage shows only working papers and works in progress; /research shows everything.
 # You normally don't need to edit this; edit research/papers.yml instead.
 listing:
-  - id: published-chapters
-    contents: /research/papers.yml
-    template: /html/papers.ejs
-    include:
-      group: published-chapters
-    sort: false
-  - id: published-papers
-    contents: /research/papers.yml
-    template: /html/papers.ejs
-    include:
-      group: published-papers
-    sort: false
   - id: working
     contents: /research/papers.yml
     template: /html/papers.ejs
     include:
       group: working
-    sort: false
-  - id: predoc-books
-    contents: /research/papers.yml
-    template: /html/papers.ejs
-    include:
-      group: predoc-books
-    sort: false
-  - id: predoc-papers
-    contents: /research/papers.yml
-    template: /html/papers.ejs
-    include:
-      group: predoc-papers
-    sort: false
-  - id: predoc-reports
-    contents: /research/papers.yml
-    template: /html/papers.ejs
-    include:
-      group: predoc-reports
     sort: false
   - id: progress
     contents: /research/papers.yml

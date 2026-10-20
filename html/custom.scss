@@ -145,7 +145,14 @@ a:hover, a:focus { color: $accent; text-decoration-color: $accent; }
     content: ""; flex: none; width: 18px; height: 18px; background: currentColor;
     -webkit-mask: url("/brand/sacuanjoche-line.svg") center / contain no-repeat;
     mask: url("/brand/sacuanjoche-line.svg") center / contain no-repeat;
+    transform-origin: 50% 51.9%; // the flower's centre sits at y 16.6 of 32
+    transition: transform 1.2s cubic-bezier(.3, .7, .2, 1);
   }
+  // One turn when hovering the name; it unwinds when the pointer leaves
+  .navbar .me-auto .nav-item:first-child .nav-link:hover::before { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar .me-auto .nav-item:first-child .nav-link::before { transition: none; }
 }
 
 // Dark-mode toggle: Lucide moon (in light mode) / sun (in dark mode)
@@ -290,6 +297,9 @@ nav#TOC.toc-tree.tree-init .rail-title { transition: none; }
 .pub { margin: 0 0 1.35rem; }
 .pub-title { color: $ink; font-weight: 500; line-height: 1.38; }
 .pub-authors, .pub-venue { color: $ink-2; }
+// Homepage pointer to the full research list
+.home-more { display: block; margin-top: 2.25rem; color: $ink-2; }
+
 .pub-links {
   font-family: $mono;
   font-size: .8rem;
