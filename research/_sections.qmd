@@ -17,6 +17,11 @@
 ::: {#published-papers}
 :::
 
+## Selected Works in Progress
+
+::: {#progress}
+:::
+
 ## Pre-Doctoral Studies (Before 2023)
 
 ### Books
@@ -32,9 +37,4 @@
 ### Reports
 
 ::: {#predoc-reports}
-:::
-
-## Selected Works in Progress
-
-::: {#progress}
 :::

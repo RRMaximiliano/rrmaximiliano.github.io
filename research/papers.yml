@@ -9,6 +9,12 @@
 #   venue      shown in italics (journal, publisher)
 #   details    plain text after the venue, e.g. "Jan 2024, 1–20."
 #   links      list of {text, url}
+#              Link labels, keep these consistent:
+#                Working Paper      PDF of an unpublished paper
+#                Publisher Version  the journal, publisher or institution page/PDF
+#                Ungated Version    free copy of a published work
+#                AEA RCT Registry   socialscienceregistry.org trial page
+#                Policy Brief       brief or note summarizing the work
 #   abstract   plain text; adds an "Abstract" toggle
 
 - title: "From Closure to Recovery: Tracing the Educational Impact of COVID-19 in Chile"
@@ -17,8 +23,8 @@
     - {name: "Emiliana Vegas", url: "https://www.emilianavegas.com/"}
     - {name: "Álvaro Hofflinger", url: "https://alvarohofflinger.com/"}
   links:
-    - {text: "Ungated PDF", url: "/files/pdfs/vegas_et_al_2024_chile.pdf"}
-    - {text: "Publisher", url: "https://link.springer.com/chapter/10.1007/978-3-031-69284-0_2"}
+    - {text: "Ungated Version", url: "/files/pdfs/vegas_et_al_2024_chile.pdf"}
+    - {text: "Publisher Version", url: "https://link.springer.com/chapter/10.1007/978-3-031-69284-0_2"}
   abstract: >-
     This chapter analyzes the effects of school closures in Chile, the nation with the longest
     period of school closures among OECD countries. Using data from PISA (national level) and SIMCE
@@ -37,7 +43,7 @@
   details: "2026, 103677."
   # Add once the DOI is live (it returned 404 on 2026-10-16):
   # links:
-  #   - {text: "Publisher", url: "https://doi.org/10.1016/j.ijedudev.2026.103677"}
+  #   - {text: "Publisher Version", url: "https://doi.org/10.1016/j.ijedudev.2026.103677"}
   abstract: >-
     Most of the research on the pandemic has focused on assessing the impact of school closures on
     learning loss. Less attention has been paid to how school social dynamics changed after
@@ -64,7 +70,7 @@
   venue: "Journal of Development Effectiveness"
   details: "Jan 2024, 1–20."
   links:
-    - {text: "Publisher", url: "https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138"}
+    - {text: "Publisher Version", url: "https://www.tandfonline.com/doi/full/10.1080/19439342.2023.2300138"}
   abstract: >-
     Business and skills training programmes have been a popular social policy intervention to
     increase productivity of the self-employed in developing countries. We study the Small Business
@@ -84,9 +90,9 @@
     - {name: "Lelys Dinarte", url: "https://sites.google.com/view/lelys-dinarte/home"}
     - {name: "James Gresham"}
   links:
-    - {text: "PDF", url: "https://renatalemos.com/wp-content/uploads/2026/03/ukraine_03222026.pdf"}
-    - {text: "Registry", url: "https://www.socialscienceregistry.org/trials/9328"}
-    - {text: "World Bank Brief", url: "https://thedocs.worldbank.org/en/doc/c2e290b2b8b55ac737e754a52617ff79-0090052026/original/E2P-Ukraine.pdf?deliveryName=FCP_6_DM274129"}
+    - {text: "Working Paper", url: "https://renatalemos.com/wp-content/uploads/2026/03/ukraine_03222026.pdf"}
+    - {text: "AEA RCT Registry", url: "https://www.socialscienceregistry.org/trials/9328"}
+    - {text: "Policy Brief", url: "https://thedocs.worldbank.org/en/doc/c2e290b2b8b55ac737e754a52617ff79-0090052026/original/E2P-Ukraine.pdf?deliveryName=FCP_6_DM274129"}
   abstract: >-
     This paper provides insights into human capital investments during wartime by presenting
     evidence from three experiments of an online tutoring program for Ukrainian students amid
@@ -105,7 +111,7 @@
     - {name: "Berk Özler", url: "https://sites.google.com/site/decrgberkozler/home"}
     - {name: "Luca Parisotto", url: "https://sites.google.com/view/lucaparisotto/home"}
   links:
-    - {text: "PDF -- Last Version", url: "/files/pdfs/ozler_et_al_2025_cameroon_qoc.pdf"}
+    - {text: "Working Paper", url: "/files/pdfs/ozler_et_al_2025_cameroon_qoc.pdf"}
   abstract: >-
     Whether higher quality of care in contraceptive counselling improves client outcomes is an
     important question that does not find a clear answer in the extant literature. Using a trial
@@ -148,7 +154,7 @@
     - {name: "Mario Sánchez"}
     - {name: "Douglas Castro"}
   links:
-    - {text: "PDF", url: "http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf"}
+    - {text: "Ungated Version", url: "http://biblioteca.clacso.edu.ar/Nicaragua/casc-uca/20150313124733/Ciudadania-y-violencia.pdf"}
 
 - title: "Crítica y crisis en Nicaragua: la tensión entre democracia y capitalismo"
   group: predoc-papers
@@ -178,7 +184,7 @@
   venue: "Amnis"
   details: "(15), 2016."
   links:
-    - {text: "Publisher", url: "https://amnis.revues.org/2813"}
+    - {text: "Publisher Version", url: "https://amnis.revues.org/2813"}
   abstract: >-
     This article analyzes the evolution of three social movements (Natives, women and workers) at
     key moments of the history of Nicaragua: the dictatorship of Somoza (1934-1979), the Sandinista
@@ -192,7 +198,7 @@
   venue: "Encuentro"
   details: "102 (2015), 52–74."
   links:
-    - {text: "Ungated PDF", url: "/files/pdfs/siero_et_al_2015_cooperacion_internacional.pdf"}
+    - {text: "Ungated Version", url: "/files/pdfs/siero_et_al_2015_cooperacion_internacional.pdf"}
   abstract: >-
     La cooperación internacional al desarrollo ha sido divulgada como una operación que se realiza
     con el objetivo de promover el desarrollo y crecimiento económico de los países. Sin embargo, la
@@ -213,15 +219,24 @@
   group: predoc-reports
   venue: "The World Bank (2022)"
   links:
-    - {text: "PDF", url: "https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf"}
+    - {text: "Publisher Version", url: "https://documents1.worldbank.org/curated/en/099025312242111019/pdf/P1699940bcc13001a083820804f74e8151b.pdf"}
 
 - title: "Supporting Mental Health Through the Promotion of Psychosocial Support in Armenian Schools"
   group: progress
   coauthors:
     - {name: "Lelys Dinarte", url: "https://sites.google.com/view/lelys-dinarte/home"}
     - {name: "Renata Lemos", url: "https://renatalemos.com/"}
+  links:
+    - {text: "AEA RCT Registry", url: "https://www.socialscienceregistry.org/trials/16497"}
 
 - title: "The Role of Selective Public Universities in Shaping Long-Term Outcomes"
   group: progress
   coauthors:
     - {name: "Jostin Kitmang"}
+
+- title: "Can Parents Fill the Gap? Information, Support, and Human Capital When Schools Close"
+  group: progress
+  coauthors:
+    - {name: "Roohullah Gulzari", url: "https://roohgulzari.github.io/"}
+  links:
+    - {text: "AEA RCT Registry", url: "https://www.socialscienceregistry.org/trials/18557"}
