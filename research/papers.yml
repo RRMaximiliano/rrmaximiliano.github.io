@@ -40,10 +40,9 @@
     - {name: "Álvaro Hofflinger", url: "https://alvarohofflinger.com/"}
     - {name: "Emiliana Vegas", url: "https://www.emilianavegas.com/"}
   venue: "International Journal of Educational Development"
-  details: "2026, 103677."
-  # Add once the DOI is live (it returned 404 on 2026-10-16):
-  # links:
-  #   - {text: "Publisher Version", url: "https://doi.org/10.1016/j.ijedudev.2026.103677"}
+  details: "Vol. 127, Nov 2026, 103677."
+  links:
+    - {text: "Publisher Version", url: "https://doi.org/10.1016/j.ijedudev.2026.103677"}
   abstract: >-
     Most of the research on the pandemic has focused on assessing the impact of school closures on
     learning loss. Less attention has been paid to how school social dynamics changed after
