@@ -16,6 +16,7 @@ resources:
   - fonts/
   - go/
   - favicon.svg
+  - files/img/rony-back.jpg   # back of the homepage photo (shown on click)
   - favicon.ico
   - apple-touch-icon.png
   - brand/sacuanjoche-line.svg

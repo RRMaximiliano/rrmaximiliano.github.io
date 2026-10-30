@@ -37,9 +37,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6c2f8decbff261f0e5f98c842c6e7de5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-40e460c7a604dca2fe126b8d44398ba1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6c2f8decbff261f0e5f98c842c6e7de5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-62c30cf438c61bc1119cd37d71e207a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -100,6 +100,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preload" href="../fonts/site/IBMPlexMono-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <style>
 /* Self-hosted fonts (files in fonts/site). Inlined so text never re-flows on load. */
+/* Handwritten note under the homepage photo */
+@font-face {
+  font-family: 'Gochi Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/site/GochiHand-normal-400-latin.woff2) format('woff2');
+}
 /* latin-ext */
 @font-face {
   font-family: 'IBM Plex Mono';
@@ -654,6 +662,19 @@ document.addEventListener('click', e => {
     setTimeout(step, c === ' ' ? 18 : 32);
   };
   setTimeout(step, 420);
+})();
+// Homepage photo: click to flip it over and back.
+(() => {
+  const btn = document.querySelector('.home-photo-btn');
+  if (!btn) return;
+  const [front, back] = btn.querySelectorAll('img');
+  btn.addEventListener('click', () => {
+    const flipped = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(flipped));
+    front.setAttribute('aria-hidden', String(flipped));
+    back.setAttribute('aria-hidden', String(!flipped));
+    document.querySelector('.photo-note')?.classList.toggle('is-shown', flipped);
+  });
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

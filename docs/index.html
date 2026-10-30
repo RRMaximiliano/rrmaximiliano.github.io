@@ -39,9 +39,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6c2f8decbff261f0e5f98c842c6e7de5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-40e460c7a604dca2fe126b8d44398ba1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6c2f8decbff261f0e5f98c842c6e7de5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-62c30cf438c61bc1119cd37d71e207a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -159,6 +159,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preload" href="./fonts/site/IBMPlexMono-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <style>
 /* Self-hosted fonts (files in fonts/site). Inlined so text never re-flows on load. */
+/* Handwritten note under the homepage photo */
+@font-face {
+  font-family: 'Gochi Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/site/GochiHand-normal-400-latin.woff2) format('woff2');
+}
 /* latin-ext */
 @font-face {
   font-family: 'IBM Plex Mono';
@@ -501,7 +509,17 @@ ul.task-list li input[type="checkbox"] {
 <div class="home-side">
 <div class="home-name" role="heading" aria-level="1">Rony Rodrigo Maximiliano<br>Rodríguez-Ramírez</div>
 <div class="home-affil">Harvard University</div>
-<img class="home-photo" src="files/img/rony.jpg" alt="Rony Rodríguez-Ramírez">
+<div class="home-photo-wrap">
+<button type="button" class="home-photo-btn" aria-pressed="false" aria-label="Flip the photo">
+  <span class="home-photo-flip">
+    <img class="home-photo home-photo-front" src="files/img/rony.jpg" alt="Rony Rodríguez-Ramírez" aria-hidden="false">
+    <img class="home-photo home-photo-back" src="files/img/rony-back.jpg" alt="Rony Rodríguez-Ramírez outdoors on campus, in a navy polo shirt" aria-hidden="true">
+  </span>
+</button>
+<div class="photo-note">
+  <p>me now, in my 4th year!<span class="photo-note-tail" aria-hidden="true"><svg viewbox="0 0 40 52"><path d="M2 44 C 22 47, 37 37, 32 6 M 24 13 L 32 4 L 38 14"></path></svg></span><small>the other one: starting the Ph.D.</small></p>
+</div>
+</div>
 <div class="home-contact">
 <p><strong>Email:</strong> rrodriguezramirez [at] g [dot] harvard [dot] edu</p>
 <!-- Icon links under the email on the homepage. Change a URL here to update it. -->
@@ -515,9 +533,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="home-main">
-<p>Hi! I’m a fourth year Ph.D.&nbsp;<del>student</del> candidate in Education Policy and Program Evaluation (Economics of Education Field Course). My research is driven by a central question: <strong>How can education systems be adapted to protect and rebuild human capital when faced with large-scale shocks like conflict, displacement, and political crises?</strong> My academic and personal journey, which started in Nicaragua, has given me a strong motivation to address learning inequalities caused by political instability and forced migration.</p>
-<p>I focus on designing and evaluating scalable interventions that can reduce these inequalities. A core part of my approach is to integrate robust psychosocial support within educational settings to ensure all children can learn effectively. The centerpiece of my current work is a large-scale randomized controlled trial (RCT) in Armenia that I co-lead across 450 public schools. This project is designed to meet the educational and psychosocial needs of children displaced by the Nagorno-Karabakh conflict. I also recently co-led another RCT in Ukraine with over 10,000 students, where we embedded mental health components into an online tutoring program and saw positive impacts on learning outcomes and student well-being.</p>
-<p>I am affiliated with the <a href="https://www.hks.harvard.edu/centers/cid/about-cid/people/phd-affiliates/rony-rodrigo-maximiliano-rodriguez-ramirez">Center for International Development (CID)</a>, the <a href="https://www.iq.harvard.edu/people/rony-rodrigo-maximiliano-rodriguez-ramirez">Institute for Quantitative Social Science (IQSS)</a>, and the <a href="https://ella.gse.harvard.edu/">Education Lab for Latin America (ELLA)</a> at the Harvard Graduate School of Education, which I co-founded. My ultimate goal is to produce rigorous research that can inform social policies and create effective pathways toward more just societies.</p>
+<p>Hi! I’m a fourth-year Ph.D.&nbsp;<del>student</del> candidate in Education Policy and Program Evaluation, and my field course is in the Economics of Education. I’m originally from Nicaragua, where I grew up and lived until I finished my bachelor’s degree. As of today, my research is on how education can protect and rebuild children’s human capital after armed conflict, forced displacement, and political crises.</p>
+<p>I am currently co-leading a randomized controlled trial in 450 public schools in Armenia, which tests an education and psychosocial program for children displaced by the Nagorno-Karabakh conflict. I also recently co-led another RCT in Ukraine with more than 10,000 students, where we added mental health components to an online tutoring program.</p>
+<p>I am affiliated with the <a href="https://www.hks.harvard.edu/centers/cid/about-cid/people/phd-affiliates/rony-rodrigo-maximiliano-rodriguez-ramirez">Center for International Development (CID)</a> and the <a href="https://www.iq.harvard.edu/people/rony-rodrigo-maximiliano-rodriguez-ramirez">Institute for Quantitative Social Science (IQSS)</a>, and I co-founded the <a href="https://ella.gse.harvard.edu/">Education Lab for Latin America (ELLA)</a> at the Harvard Graduate School of Education.</p>
 <!-- Homepage research: current work only. The full list (with published and
      pre-doctoral work) is research/_sections.qmd, shown on /research. -->
 <section id="working-papers" class="level2">
@@ -756,6 +774,19 @@ document.addEventListener('click', e => {
     setTimeout(step, c === ' ' ? 18 : 32);
   };
   setTimeout(step, 420);
+})();
+// Homepage photo: click to flip it over and back.
+(() => {
+  const btn = document.querySelector('.home-photo-btn');
+  if (!btn) return;
+  const [front, back] = btn.querySelectorAll('img');
+  btn.addEventListener('click', () => {
+    const flipped = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(flipped));
+    front.setAttribute('aria-hidden', String(flipped));
+    back.setAttribute('aria-hidden', String(!flipped));
+    document.querySelector('.photo-note')?.classList.toggle('is-shown', flipped);
+  });
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

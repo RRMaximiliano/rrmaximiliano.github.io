@@ -63,4 +63,17 @@ document.addEventListener('click', e => {
   };
   setTimeout(step, 420);
 })();
+// Homepage photo: click to flip it over and back.
+(() => {
+  const btn = document.querySelector('.home-photo-btn');
+  if (!btn) return;
+  const [front, back] = btn.querySelectorAll('img');
+  btn.addEventListener('click', () => {
+    const flipped = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', String(flipped));
+    front.setAttribute('aria-hidden', String(flipped));
+    back.setAttribute('aria-hidden', String(!flipped));
+    document.querySelector('.photo-note')?.classList.toggle('is-shown', flipped);
+  });
+})();
 </script>
