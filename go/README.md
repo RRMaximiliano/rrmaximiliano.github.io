@@ -4,7 +4,8 @@ This folder contains redirect pages for creating short "go links" - a common pat
 
 ## Current Go Links
 
-- `/go/meet/` → Notion calendar booking page
+- `/go/github/` → GitHub profile
+- `/go/oh/` → office hours page
 
 ## Adding a New Go Link
 
@@ -26,7 +27,7 @@ quarto render
 
 ## Usage
 
-- Local: `http://localhost:5555/go/meet/`
-- Production: `https://rrmaximiliano.github.io/go/meet/`
+- Local: `http://localhost:5555/go/oh/`
+- Production: `https://www.rrmaximiliano.com/go/oh/`
 
 Note: These work with your existing GitHub Pages setup and don't require any additional configuration.

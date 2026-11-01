@@ -81,14 +81,14 @@
     "href": "office-hours/index.html",
     "title": "Office Hours",
     "section": "",
-    "text": "For students only. These booking pages are for students enrolled in the courses below. If you are not a student in one of them, please don’t book a slot. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n\n\n  \n    \n      Advanced Quantitative Methods (API 209)\n      Fall 2026\n    \n    Harvard Kennedy School · 10-minute slots · online or in person\n    Book API 209 office hours →\n  \n  \n    \n      Education Policy Analysis (EPA 101)\n      Fall 2026\n    \n    Harvard University · 15-minute slots · Gutman Library\n    Book EPA 101 office hours →"
+    "text": "Course office hours are for enrolled students. If you are not in API 209 or EPA 101, please book open office hours instead, or email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n\n\n  \n    \n      Advanced Quantitative Methods (API 209)\n      Fall 2026\n    \n    Harvard Kennedy School · 15-minute slots · Wednesdays on Zoom, Thursdays in person\n    Book API 209 office hours →\n  \n  \n    \n      Education Policy Analysis (EPA 101)\n      Fall 2026\n    \n    Harvard University · 15-minute slots · Thursdays at Gutman Library\n    Book EPA 101 office hours →\n  \n  \n    \n      Open Office Hours\n      Anyone\n    \n    15-minute slots · Wednesdays, 10–11 am, on Zoom\n    Book open office hours →"
   },
   {
     "objectID": "office-hours/api-209/index.html",
     "href": "office-hours/api-209/index.html",
     "title": "API 209 Office Hours",
     "section": "",
-    "text": "← All office hours · API 209 · EPA 101\n\n\nAPI 209 students only. Not in API 209? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n\n\nChoose online or in person, then pick a 10-minute slot. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.\n\n\n\n\n\n  \n\n\n\n  The booking calendar is not connected yet.\n  Paste a Google Calendar appointment link into SCHEDULES in office-hours/api-209/index.qmd.\n\n\n\n  Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.\n  Calendar not loading? Open the booking page in a new tab."
+    "text": "← All office hours · API 209 · EPA 101 · Open\n\n\nAPI 209 students only. Not in API 209? Please book open office hours instead, or email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n\n\nChoose online (Wednesdays) or in person (Thursdays), then pick a 15-minute slot. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.\n\n\n\n\n\n\n\n  Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.\n  Calendar not loading? Open the booking page in a new tab."
   },
   {
     "objectID": "cv/index.html",
@@ -200,7 +200,7 @@
     "href": "office-hours/epa-101/index.html",
     "title": "EPA 101 Office Hours",
     "section": "",
-    "text": "← All office hours · API 209 · EPA 101\n\n\nEPA 101 students only. Not in EPA 101? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n\n\nChoose an available 15-minute slot below to meet at Gutman Library. After you book, you will receive a calendar invite with the appointment details.\n\n\n  \n\n\n\n  Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.\n  Calendar not loading? Open the EPA 101 booking page in a new tab."
+    "text": "← All office hours · API 209 · EPA 101 · Open\n\n\nEPA 101 students only. Not in EPA 101? Please book open office hours instead, or email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n\n\nChoose an available 15-minute slot below. Office hours are on Thursdays, 3:15–4:15 pm, at Gutman Library. After you book, you will receive a calendar invite with the appointment details.\n\n\n\n\n\n\n\n  Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.\n  Calendar not loading? Open the EPA 101 booking page in a new tab."
   },
   {
     "objectID": "projects/index.html",
@@ -264,5 +264,12 @@
     "title": "",
     "section": "Graduate School Resources (for Latin American Students)",
     "text": "Graduate School Resources (for Latin American Students)\n\nGuía EconThaki\nDescription: A comprehensive, step-by-step guide to applying to PhD programs in economics from Latin America, created by EconThaki.\nLink: econthaki.github.io/Guia-PhD-EconThaki\n\n\nAplicar Desde Argentina\nDescription: Detailed advice and country-specific resources for students in Argentina interested in applying to graduate programs abroad.\nLink: AplicarDesdeArgentina\n\n\nAplicar Desde México\nDescription: Twitter account sharing application tips, deadlines, and peer support for Mexican students applying to grad school.\nLink: @AplicarDesdeMx on Twitter"
+  },
+  {
+    "objectID": "office-hours/open/index.html",
+    "href": "office-hours/open/index.html",
+    "title": "Open Office Hours",
+    "section": "",
+    "text": "← All office hours · API 209 · EPA 101 · Open\n\n\nOpen to anyone, not only students in my courses. Office hours are on Wednesdays, 10–11 am, on Zoom, in 15-minute slots. When you book, tell me briefly what you would like to talk about. You will receive a calendar invite with the Zoom link.\n\n\n\n\n\n\n\n  Nothing open? I sometimes give these slots to other meetings. Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.\n  Calendar not loading? Open the booking page in a new tab."
   }
 ]

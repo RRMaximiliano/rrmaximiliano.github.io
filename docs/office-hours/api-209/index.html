@@ -37,9 +37,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-62c30cf438c61bc1119cd37d71e207a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4aa13c76c456bdb77ea0dd17e6d6f47f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b2af2d36941512a21fabe754bee04748.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4aa13c76c456bdb77ea0dd17e6d6f47f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -464,98 +464,42 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="oh-switch">
-<p><a href="../../office-hours/index.html">← All office hours</a> · <strong>API 209</strong> · <a href="../../office-hours/epa-101/index.html">EPA 101</a></p>
+<p><a href="../../office-hours/index.html">← All office hours</a> · <strong>API 209</strong> · <a href="../../office-hours/epa-101/index.html">EPA 101</a> · <a href="../../office-hours/open/index.html">Open</a></p>
 </div>
 <div class="oh-notice">
-<p><strong>API 209 students only.</strong> Not in API 209? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
+<p><strong>API 209 students only.</strong> Not in API 209? Please book <a href="../../office-hours/open/index.html">open office hours</a> instead, or email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
 </div>
 <div class="oh-intro">
-<p>Choose online or in person, then pick a <strong>10-minute slot</strong>. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.</p>
+<p>Choose online (Wednesdays) or in person (Thursdays), then pick a <strong>15-minute slot</strong>. The times you see come straight from my calendar, so anything open is genuinely open. After you book, you will receive a calendar invite with the Zoom link or the room. Accept it and it lands on your calendar.</p>
 </div>
 <div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden=""></div>
 <p class="oh-where" id="oh-where"></p>
 
-<div class="oh-embed" id="oh-embed" hidden="">
-  <iframe id="oh-frame" title="Book an office hours slot" loading="lazy"></iframe>
-</div>
-
-<div class="oh-setup" id="oh-setup" hidden="">
-  The booking calendar is not connected yet.<br>
-  Paste a Google Calendar appointment link into <code>SCHEDULES</code> in <code>office-hours/api-209/index.qmd</code>.
-</div>
+<div id="oh-booking"></div>
 
 <p class="oh-fallback" id="oh-fallback" hidden="">
   Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.<br>
-  Calendar not loading? <a id="oh-link" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
+  Calendar not loading? <a id="oh-link" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
 </p>
 
 <script>
-  // ── Configuration ────────────────────────────────────────────────
-  // One entry per Google Calendar appointment schedule.
-  // Google Calendar → the schedule → Share → copy the booking page link.
-  // Leave `url` empty to hide an option until its schedule exists.
-  const SCHEDULES = [
+  // One entry per booking option. See office-hours/booking.js for the fields.
+  window.OH_SCHEDULES = [
     {
       id: "online",
       label: "Online",
-      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2iK-ZkttOSsjk1kIOUaA2VbZPyQScB3Tl45_B6mzf7708VShD7iI-0HgoKR7CI7Nr0NagIrVhO",
-      where: "On Zoom. The link is in the calendar invite you receive after booking."
+      where: "Wednesdays, 3:15–4:15 pm, on Zoom. The link is in the calendar invite you receive after booking.",
+      calLink: "rrmaximiliano/api-209-zoom"
     },
     {
       id: "in-person",
       label: "In person",
-      url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3sF473bpox4eaITxAhcP1do24PWNwAzs6Ca9z3zm56uFnNTpoTAdsdjIXniU0pJiO33CSZ1OZK",
-      where: "In person on Fridays at the Winter Garden, Kennedy School. Details are in the calendar invite."
+      where: "Thursdays, 2–3 pm, in person at the Winter Garden, Kennedy School. Details are in the calendar invite.",
+      calLink: "rrmaximiliano/api-209-in-person"
     }
   ];
-  // ─────────────────────────────────────────────────────────────────
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs     = document.getElementById("oh-tabs");
-    const embed    = document.getElementById("oh-embed");
-    const setup    = document.getElementById("oh-setup");
-    const fallback = document.getElementById("oh-fallback");
-    const frame    = document.getElementById("oh-frame");
-    const link     = document.getElementById("oh-link");
-
-    const active = SCHEDULES.filter(s => s.url);
-    if (!active.length) { setup.hidden = false; return; }
-
-    // Google booking pages accept ?gv=true to render the embeddable view.
-    const embedUrl = u => u.includes("gv=true") ? u : u + (u.includes("?") ? "&" : "?") + "gv=true";
-
-    function select(s, pushHash) {
-      frame.src = embedUrl(s.url);
-      link.href = s.url;
-      const where = document.getElementById("oh-where");
-      if (where) where.textContent = s.where;
-      tabs.querySelectorAll(".oh-tab").forEach(b =>
-        b.setAttribute("aria-selected", b.dataset.id === s.id ? "true" : "false"));
-      if (pushHash) history.replaceState(null, "", "#" + s.id);
-    }
-
-    if (active.length > 1) {
-      active.forEach(s => {
-        const b = document.createElement("button");
-        b.className = "oh-tab";
-        b.type = "button";
-        b.role = "tab";
-        b.dataset.id = s.id;
-        b.innerHTML = s.label + (s.detail ? "<small>" + s.detail + "</small>" : "");
-        b.addEventListener("click", () => select(s, true));
-        tabs.appendChild(b);
-      });
-      tabs.hidden = false;
-    }
-
-    // Deep link: /office-hours/api-209/#in-person opens that option directly.
-    const fromHash = active.find(s => "#" + s.id === location.hash);
-    select(fromHash || active[0], false);
-
-    embed.hidden = false;
-    fallback.hidden = false;
-  });
 </script>
+<script src="../../office-hours/booking.js"></script>
 
 
 

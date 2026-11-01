@@ -1,0 +1,40 @@
+---
+pagetitle: "Rony Rodriguez-Ramirez | Open Office Hours"
+title: "Open Office Hours"
+subtitle: "Fall 2026"
+toc: false
+page-layout: article
+---
+
+::: {.oh-switch}
+[← All office hours](/office-hours/index.qmd) · [API 209](/office-hours/api-209/index.qmd) · [EPA 101](/office-hours/epa-101/index.qmd) · **Open**
+:::
+
+::: {.oh-intro}
+Open to anyone, not only students in my courses. Office hours are on **Wednesdays, 10–11 am, on Zoom**, in **15-minute slots**. When you book, tell me briefly what you would like to talk about. You will receive a calendar invite with the Zoom link.
+:::
+
+```{=html}
+<div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden></div>
+<p class="oh-where" id="oh-where"></p>
+
+<div id="oh-booking"></div>
+
+<p class="oh-fallback" id="oh-fallback" hidden>
+  Nothing open? I sometimes give these slots to other meetings. Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.<br>
+  Calendar not loading? <a id="oh-link" target="_blank" rel="noopener">Open the booking page in a new tab</a>.
+</p>
+
+<script>
+  // See office-hours/booking.js for the fields.
+  window.OH_SCHEDULES = [
+    {
+      id: "zoom",
+      label: "Zoom",
+      where: "",
+      calLink: "rrmaximiliano/open-office-hours"
+    }
+  ];
+</script>
+<script src="/office-hours/booking.js"></script>
+```

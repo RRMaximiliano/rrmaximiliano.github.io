@@ -15,6 +15,7 @@ project:
 resources:
   - fonts/
   - go/
+  - office-hours/booking.js   # booking widget for the office-hours pages
   - favicon.svg
   - files/img/rony-back.jpg   # back of the homepage photo (shown on click)
   - favicon.ico

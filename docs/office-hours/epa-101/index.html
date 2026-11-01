@@ -37,9 +37,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-62c30cf438c61bc1119cd37d71e207a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ae683dff599d2056babfdaf6760a0a12.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4aa13c76c456bdb77ea0dd17e6d6f47f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b2af2d36941512a21fabe754bee04748.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4aa13c76c456bdb77ea0dd17e6d6f47f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -464,22 +464,36 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="oh-switch">
-<p><a href="../../office-hours/index.html">← All office hours</a> · <a href="../../office-hours/api-209/index.html">API 209</a> · <strong>EPA 101</strong></p>
+<p><a href="../../office-hours/index.html">← All office hours</a> · <a href="../../office-hours/api-209/index.html">API 209</a> · <strong>EPA 101</strong> · <a href="../../office-hours/open/index.html">Open</a></p>
 </div>
 <div class="oh-notice">
-<p><strong>EPA 101 students only.</strong> Not in EPA 101? Please don’t book a slot here. Email me instead at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
+<p><strong>EPA 101 students only.</strong> Not in EPA 101? Please book <a href="../../office-hours/open/index.html">open office hours</a> instead, or email me at rrodriguezramirez [at] g [dot] harvard [dot] edu.</p>
 </div>
 <div class="oh-intro">
-<p>Choose an available <strong>15-minute slot</strong> below to meet at <strong>Gutman Library</strong>. After you book, you will receive a calendar invite with the appointment details.</p>
+<p>Choose an available <strong>15-minute slot</strong> below. Office hours are on <strong>Thursdays, 3:15–4:15 pm, at Gutman Library</strong>. After you book, you will receive a calendar invite with the appointment details.</p>
 </div>
-<div class="oh-embed">
-  <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3ZL8fFGiXVfN9HgicNeHOh8kFx4qlrBFq2d3dsil726HGEQjyGI-tI6v7GjpjNl19v2TKYHHmb?gv=true" title="Book an EPA 101 office hours appointment"></iframe>
-</div>
+<div class="oh-tabs" id="oh-tabs" role="tablist" aria-label="Office hours format" hidden=""></div>
+<p class="oh-where" id="oh-where"></p>
 
-<p class="oh-fallback">
+<div id="oh-booking"></div>
+
+<p class="oh-fallback" id="oh-fallback" hidden="">
   Nothing open? Email me at rrodriguezramirez [at] g [dot] harvard [dot] edu and we will find a time.<br>
-  Calendar not loading? <a href="https://calendar.app.google/8CZJw1ymD3ut9XGPA" target="_blank" rel="noopener">Open the EPA 101 booking page in a new tab</a>.
+  Calendar not loading? <a id="oh-link" target="_blank" rel="noopener">Open the EPA 101 booking page in a new tab</a>.
 </p>
+
+<script>
+  // See office-hours/booking.js for the fields.
+  window.OH_SCHEDULES = [
+    {
+      id: "gutman",
+      label: "Gutman Library",
+      where: "",
+      calLink: "rrmaximiliano/epa-101"
+    }
+  ];
+</script>
+<script src="../../office-hours/booking.js"></script>
 
 
 

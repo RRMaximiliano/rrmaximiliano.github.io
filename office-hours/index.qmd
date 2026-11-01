@@ -16,7 +16,7 @@ page-layout: article
 ```
 
 ::: {.oh-notice}
-**For students only.** These booking pages are for students enrolled in the courses below. If you are not a student in one of them, please don't book a slot. Email me instead at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
+**Course office hours are for enrolled students.** If you are not in API 209 or EPA 101, please book [open office hours](/office-hours/open/index.qmd) instead, or email me at rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
 :::
 
 ```{=html}
@@ -26,7 +26,7 @@ page-layout: article
       <span class="oh-course-title">Advanced Quantitative Methods (API 209)</span>
       <span class="oh-course-term">Fall 2026</span>
     </span>
-    <span class="oh-course-meta">Harvard Kennedy School · 10-minute slots · online or in person</span>
+    <span class="oh-course-meta">Harvard Kennedy School · 15-minute slots · Wednesdays on Zoom, Thursdays in person</span>
     <span class="oh-course-cta">Book API 209 office hours →</span>
   </a>
   <a class="oh-course" href="epa-101/">
@@ -34,8 +34,16 @@ page-layout: article
       <span class="oh-course-title">Education Policy Analysis (EPA 101)</span>
       <span class="oh-course-term">Fall 2026</span>
     </span>
-    <span class="oh-course-meta">Harvard University · 15-minute slots · Gutman Library</span>
+    <span class="oh-course-meta">Harvard University · 15-minute slots · Thursdays at Gutman Library</span>
     <span class="oh-course-cta">Book EPA 101 office hours →</span>
+  </a>
+  <a class="oh-course" href="open/">
+    <span class="oh-course-head">
+      <span class="oh-course-title">Open Office Hours</span>
+      <span class="oh-course-term">Anyone</span>
+    </span>
+    <span class="oh-course-meta">15-minute slots · Wednesdays, 10–11 am, on Zoom</span>
+    <span class="oh-course-cta">Book open office hours →</span>
   </a>
 </div>
 ```
