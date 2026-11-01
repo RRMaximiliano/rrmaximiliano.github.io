@@ -433,24 +433,40 @@ section.level3:has(.pub-list) > h3 {
 }
 .oh-fallback { @extend %label; font-size: .78rem; line-height: 1.7; margin: .9rem 0 0; }
 .oh-fallback a { color: $accent; }
-// Hub: one card per course
-.oh-courses { display: grid; gap: .75rem; }
-a.oh-course {
-  display: block; text-decoration: none; color: inherit;
-  border: 1px solid $rule; border-radius: 8px; padding: .95rem 1.15rem;
-  transition: border-color .15s ease, background-color .15s ease;
+// Hub: the week as a timetable, one row per office-hours block
+.oh-week { margin-top: 2rem; }
+.oh-day { margin: 0 0 1.75rem; }
+.oh-day-name {
+  @extend %label; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em;
+  margin: 0; padding: 0 0 .5rem; border-bottom: 1px solid $ink;
 }
-a.oh-course:hover, a.oh-course:focus-visible { border-color: $accent; color: inherit; }
-.oh-course-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.oh-course-title { color: $ink; font-weight: 500; }
-.oh-course-term { @extend %label; font-size: .78rem; color: $accent; white-space: nowrap; }
-.oh-course-meta { display: block; color: $ink-2; font-size: 1rem; }
-.oh-course-cta { display: block; font-family: $mono; font-size: .8rem; font-weight: 500; color: $accent; margin-top: .3rem; }
+a.oh-slot {
+  display: grid; grid-template-columns: 7.5rem 1fr 10.5rem auto; column-gap: 1.5rem; align-items: baseline;
+  padding: .8rem 0; border-bottom: 1px solid $rule; line-height: 1.45;
+  color: inherit; text-decoration: none;
+}
+.oh-time { font-family: $mono; font-size: .85rem; white-space: nowrap; color: $ink-2; font-variant-numeric: tabular-nums; }
+.oh-name { color: $ink; font-weight: 500; transition: color .15s ease; }
+.oh-sub { display: block; color: $muted; font-size: .95rem; }
+.oh-place { color: $ink-2; }
+.oh-book {
+  color: $ink; white-space: nowrap;
+  text-decoration: underline; text-decoration-color: rgba($accent, .45);
+  text-decoration-thickness: 1px; text-underline-offset: 3px;
+  transition: color .15s ease, text-decoration-color .15s ease;
+}
+a.oh-slot:hover .oh-name, a.oh-slot:focus-visible .oh-name,
+a.oh-slot:hover .oh-book, a.oh-slot:focus-visible .oh-book { color: $accent; text-decoration-color: $accent; }
+a.oh-slot:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+.oh-week-note { @extend %label; font-size: .78rem; margin: 0; }
 @media (max-width: 600px) {
   .oh-embed iframe { height: 1000px; } // Google stacks the calendar above the times on phones
   .oh-tabs { display: flex; }
   .oh-tab { flex: 1; }
-  .oh-course-head { flex-direction: column; gap: 0; }
+  a.oh-slot { grid-template-columns: 6.6rem 1fr; column-gap: .75rem; row-gap: .1rem; }
+  .oh-time { font-size: .78rem; }
+  .oh-place { grid-column: 2; text-align: left; color: $muted; }
+  .oh-book { grid-column: 2; margin-top: .3rem; }
 }
 
 // ── Inner pages ──

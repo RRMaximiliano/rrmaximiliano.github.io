@@ -11,7 +11,7 @@ page-layout: article
 :::
 
 ::: {.oh-intro}
-Open to anyone, not only students in my courses. Office hours are on **Wednesdays, 10–11 am, on Zoom**, in **15-minute slots**. When you book, tell me briefly what you would like to talk about. You will receive a calendar invite with the Zoom link.
+Open to anyone, not only students enrolled in the courses I am TFing. Office hours are on **Wednesdays, 10–11 am, on Zoom**, in **15-minute slots**. When you book, tell me briefly what you would like to talk about. You will receive a calendar invite with the Zoom link.
 :::
 
 ```{=html}
