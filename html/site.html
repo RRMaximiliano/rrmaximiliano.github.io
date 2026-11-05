@@ -22,7 +22,7 @@
   const links = [...nav.querySelectorAll('a.nav-link')];
   const wide = matchMedia('(min-width: 992px)');
   const bar = document.createElement('span');
-  bar.className = 'nav-glide no-anim';
+  bar.className = 'nav-glide instant';   // first placement: no fade, so the underline never blinks on load
   bar.setAttribute('aria-hidden', 'true');
   nav.append(bar);
   let shown = null;
@@ -35,7 +35,11 @@
     const n = nav.getBoundingClientRect();
     // From hidden, appear under the link instead of sliding in from the last spot
     bar.classList.toggle('no-anim', !animate || !bar.classList.contains('is-on'));
-    bar.style.transform = `translate(${r.left - n.left}px, ${r.bottom - n.top + 2}px) scaleX(${r.width})`;
+    // Height is set with 'top' (layout snaps it to the pixel grid, unlike a transform),
+    // on the row where the CSS underline sits, so the 1px line stays crisp
+    bar.style.top = `${Math.floor(r.bottom + 2) - n.top}px`;
+    bar.style.width = `${r.width}px`;
+    bar.style.transform = `translateX(${r.left - n.left}px)`;
     bar.classList.add('is-on');
   };
   links.forEach(a => {
@@ -49,8 +53,10 @@
     if (wide.matches) place(shown && nav.matches(':hover') ? shown : current(), false);
   };
   wide.addEventListener('change', setup);
-  new ResizeObserver(setup).observe(nav);   // also runs once now
+  new ResizeObserver(setup).observe(nav);   // also runs once now, before the first paint
   document.fonts?.ready.then(setup);
+  // Animate only after the line has been drawn in place once
+  requestAnimationFrame(() => requestAnimationFrame(() => bar.classList.remove('instant')));
 })();
 
 // Glide to sections when a same-page link is clicked (not on page load).

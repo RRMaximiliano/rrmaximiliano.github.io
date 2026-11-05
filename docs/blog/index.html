@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d595954a336b3bdb698be46c9f11fbb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-b00f324673b75ea08af202d8df8bc0e1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d595954a336b3bdb698be46c9f11fbb2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-111d734e36f005cd5e54ad9c4ad7d571.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-2f34d5172dc4b91f2cb8651382a5430b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-111d734e36f005cd5e54ad9c4ad7d571.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -124,7 +124,8 @@ ul.task-list li input[type="checkbox"] {
 <script>
 // Entrance motion helpers (styles in html/custom.scss):
 // - "pre": the page is being prepared in the background; hold animations until it's shown.
-// - "intro": first homepage visit this session; hold the page while the name types out.
+// - "intro": the visit starts on the homepage; hold the page while the name types out.
+// - "seen": not the first page of this visit; skip the entrance so pages swap without a blink.
 (() => {
   const root = document.documentElement;
   try {
@@ -132,9 +133,14 @@ ul.task-list li input[type="checkbox"] {
       root.classList.add('pre');
       document.addEventListener('prerenderingchange', () => root.classList.remove('pre'), { once: true });
     }
+    // A page prepared in the background was opened from another page of the site, so it is
+    // never the first page of the visit (its session storage may not be the tab's yet).
+    const seen = document.prerendering || !!sessionStorage.getItem('entered');
+    if (seen) root.classList.add('seen');
+    sessionStorage.setItem('entered', '1');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const home = /^\/(index\.html)?$/.test(location.pathname);
-    if (home && !reduce && !sessionStorage.getItem('intro-seen')) {
+    if (home && !reduce && !seen && !sessionStorage.getItem('intro-seen')) {
       root.classList.add('intro');
       setTimeout(() => root.classList.remove('intro'), 4000); // never leave the page held
     }
@@ -261,6 +267,22 @@ ul.task-list li input[type="checkbox"] {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
+<script>
+// Pages after the first: keep the page hidden until its fonts are ready (at most 0.4s).
+// Chrome then leaves the previous page on screen instead of drawing a fallback font and
+// swapping it a moment later (a blink). Runs after the @font-face rules above so the fonts
+// are known; html/custom.scss reveals the page on its own if this script never finishes.
+(() => {
+  const root = document.documentElement;
+  if (!root.classList.contains('seen') || !document.fonts) return;
+  const faces = ['400 1em Newsreader', '500 1em Newsreader', '400 1em "IBM Plex Mono"', '500 1em "IBM Plex Mono"'];
+  if (faces.every(f => document.fonts.check(f))) return;
+  root.classList.add('font-wait');
+  const show = () => root.classList.remove('font-wait');
+  Promise.all(faces.map(f => document.fonts.load(f))).then(show, show);
+  setTimeout(show, 400);
+})();
+</script>
 
 
 <meta property="og:title" content="Rony Rodriguez-Ramirez | Blog">
@@ -511,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2019</a></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="QmFsYW5jZSUyMFRhYmxlcw==">Balance Tables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90">ggplot <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmljYXJhZ3Vh">Nicaragua <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UkNU">RCT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGE=">Stata <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dml6">viz <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QmFsYW5jZSUyMFRhYmxlcw==">Balance Tables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90">ggplot <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TmljYXJhZ3Vh">Nicaragua <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UkNU">RCT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGE=">Stata <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dml6">viz <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -590,6 +612,40 @@ One of the most common tables you tend to make in economics is a balance table. 
 <a href="../blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html" class="no-external">
 <div class="listing-date">
 May 28, 2021
+</div>
+<div class="listing-author">
+Rony Rodriguez-Ramirez
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="TmljYXJhZ3VhJTJDZ2dwbG90JTJDdml6" data-listing-date-sort="1555646400000" data-listing-file-modified-sort="1781535517376" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="715">
+<div class="thumbnail"><a href="../blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html" class="no-external">Presos y presas políticos en Nicaragua</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TmljYXJhZ3Vh'); return false;">Nicaragua</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90'); return false;">ggplot</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dml6'); return false;">viz</div>
+
+</div>
+<div class="delink listing-description"><a href="../blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html" class="no-external">
+
+</a></div>
+</div>
+<div class="metadata">
+<a href="../blog/2021/2021-02-11-presos-y-presas-politicos-en-nicaragua/index.html" class="no-external">
+<div class="listing-date">
+April 19, 2019
 </div>
 <div class="listing-author">
 Rony Rodriguez-Ramirez
@@ -811,7 +867,7 @@ Rodriguez-Ramirez, R. (2026, October 19). <em>Blog</em>. <a href="https://www.rr
   const links = [...nav.querySelectorAll('a.nav-link')];
   const wide = matchMedia('(min-width: 992px)');
   const bar = document.createElement('span');
-  bar.className = 'nav-glide no-anim';
+  bar.className = 'nav-glide instant';   // first placement: no fade, so the underline never blinks on load
   bar.setAttribute('aria-hidden', 'true');
   nav.append(bar);
   let shown = null;
@@ -824,7 +880,11 @@ Rodriguez-Ramirez, R. (2026, October 19). <em>Blog</em>. <a href="https://www.rr
     const n = nav.getBoundingClientRect();
     // From hidden, appear under the link instead of sliding in from the last spot
     bar.classList.toggle('no-anim', !animate || !bar.classList.contains('is-on'));
-    bar.style.transform = `translate(${r.left - n.left}px, ${r.bottom - n.top + 2}px) scaleX(${r.width})`;
+    // Height is set with 'top' (layout snaps it to the pixel grid, unlike a transform),
+    // on the row where the CSS underline sits, so the 1px line stays crisp
+    bar.style.top = `${Math.floor(r.bottom + 2) - n.top}px`;
+    bar.style.width = `${r.width}px`;
+    bar.style.transform = `translateX(${r.left - n.left}px)`;
     bar.classList.add('is-on');
   };
   links.forEach(a => {
@@ -838,8 +898,10 @@ Rodriguez-Ramirez, R. (2026, October 19). <em>Blog</em>. <a href="https://www.rr
     if (wide.matches) place(shown && nav.matches(':hover') ? shown : current(), false);
   };
   wide.addEventListener('change', setup);
-  new ResizeObserver(setup).observe(nav);   // also runs once now
+  new ResizeObserver(setup).observe(nav);   // also runs once now, before the first paint
   document.fonts?.ready.then(setup);
+  // Animate only after the line has been drawn in place once
+  requestAnimationFrame(() => requestAnimationFrame(() => bar.classList.remove('instant')));
 })();
 
 // Glide to sections when a same-page link is clicked (not on page load).
