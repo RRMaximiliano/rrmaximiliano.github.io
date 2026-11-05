@@ -11,7 +11,7 @@ toc: false
 <div class="cv-bar">
   <span class="cv-updated" id="cv-updated"></span>
   <span class="cv-actions">
-    <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" download>Download PDF ↓</a><span class="sep"> | </span><a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" target="_blank" rel="noopener">Open in a new tab ↗</a>
+    <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" class="cv-icon dl" download>Download PDF</a><span class="sep"> | </span><a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" class="cv-icon ext" target="_blank" rel="noopener">Open in a new tab</a>
   </span>
 </div>
 
@@ -19,7 +19,7 @@ toc: false
   <iframe src="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf#view=FitH&amp;navpanes=0" title="Curriculum vitæ (PDF)"></iframe>
 </div>
 
-<p class="cv-mobile">Phones can't show the CV inside the page. <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" target="_blank" rel="noopener">Open the CV ↗</a></p>
+<p class="cv-mobile">Phones can't show the CV inside the page. <a href="https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.pdf" class="cv-icon ext" target="_blank" rel="noopener">Open the CV</a></p>
 
 <script>
 fetch("https://www.rrmaximiliano.com/rrmrr-vita/rrmrr-vita.json", { cache: "no-cache" })
