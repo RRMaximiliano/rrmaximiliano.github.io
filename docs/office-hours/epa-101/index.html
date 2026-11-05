@@ -37,9 +37,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4aa13c76c456bdb77ea0dd17e6d6f47f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-b2af2d36941512a21fabe754bee04748.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-4aa13c76c456bdb77ea0dd17e6d6f47f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-76d04b691e2f535bc2281639ca133a52.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-48615a06e02ddbc02e1576e1a8911518.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-76d04b691e2f535bc2281639ca133a52.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -611,6 +611,46 @@ ul.task-list li input[type="checkbox"] {
     if (p.length > 1 && here.startsWith(p) && p.length > bestLen) { best = a; bestLen = p.length; }
   }
   if (best) { best.classList.add('active'); best.setAttribute('aria-current', 'page'); }
+})();
+
+// Navbar: the accent underline glides to the link under the pointer (or keyboard
+// focus) and settles back under the current section. Wide screens only; styles
+// in html/custom.scss.
+(() => {
+  const nav = document.querySelector('#navbarCollapse .navbar-nav.ms-auto');
+  if (!nav) return;
+  const links = [...nav.querySelectorAll('a.nav-link')];
+  const wide = matchMedia('(min-width: 992px)');
+  const bar = document.createElement('span');
+  bar.className = 'nav-glide no-anim';
+  bar.setAttribute('aria-hidden', 'true');
+  nav.append(bar);
+  let shown = null;
+  const current = () => nav.querySelector('a.nav-link.active');
+  const place = (a, animate = true) => {
+    shown = a;
+    nav.classList.toggle('glide-away', !!a && a !== current());   // dims the current link (CSS)
+    if (!a) { bar.classList.remove('is-on'); return; }   // no current section (homepage): fade out
+    const r = (a.querySelector('.menu-text') || a).getBoundingClientRect();
+    const n = nav.getBoundingClientRect();
+    // From hidden, appear under the link instead of sliding in from the last spot
+    bar.classList.toggle('no-anim', !animate || !bar.classList.contains('is-on'));
+    bar.style.transform = `translate(${r.left - n.left}px, ${r.bottom - n.top + 2}px) scaleX(${r.width})`;
+    bar.classList.add('is-on');
+  };
+  links.forEach(a => {
+    a.addEventListener('mouseenter', () => place(a));
+    a.addEventListener('focus', () => place(a));
+  });
+  nav.addEventListener('mouseleave', () => place(current()));
+  nav.addEventListener('focusout', e => { if (!nav.contains(e.relatedTarget)) place(current()); });
+  const setup = () => {
+    nav.classList.toggle('has-glide', wide.matches);
+    if (wide.matches) place(shown && nav.matches(':hover') ? shown : current(), false);
+  };
+  wide.addEventListener('change', setup);
+  new ResizeObserver(setup).observe(nav);   // also runs once now
+  document.fonts?.ready.then(setup);
 })();
 
 // Glide to sections when a same-page link is clicked (not on page load).

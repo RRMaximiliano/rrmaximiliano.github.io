@@ -133,6 +133,30 @@ a:hover, a:focus { color: $accent; text-decoration-color: $accent; }
   text-decoration-color: $accent;
   text-underline-offset: 5px;
 }
+// Gliding underline: one accent line follows the pointer (or keyboard focus)
+// across the section links and settles back under the current one. html/site.html
+// adds it on wide screens; without the script, the underline above stays.
+.navbar-nav.ms-auto { position: relative; }
+.nav-glide {
+  position: absolute; top: 0; left: 0;
+  width: 1px; height: 1px;              // stretched to the word's width with scaleX
+  background: $accent;
+  transform-origin: 0 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform .5s cubic-bezier(.3, 1.25, .5, 1), opacity .2s ease;
+  &.is-on { opacity: 1; }
+  &.no-anim { transition: opacity .2s ease; }   // jump into place, only fade
+}
+.navbar-nav:not(.has-glide) .nav-glide { display: none; }
+.navbar .navbar-nav.has-glide .nav-link.active { text-decoration: none; }
+// One link lit at a time: while the line is away, the current section dims
+.navbar .navbar-nav.glide-away .nav-link.active:not(:hover):not(:focus-visible) { color: $muted !important; }
+.navbar .navbar-nav.has-glide .nav-link:focus-visible { color: $ink !important; }
+@media (prefers-reduced-motion: reduce) {
+  .nav-glide { transition: opacity .2s ease; }
+}
+
 // The name on the left is never shown as "active"
 .navbar .me-auto .nav-link,
 .navbar .me-auto .nav-link.active { color: $ink !important; text-decoration: none; }
