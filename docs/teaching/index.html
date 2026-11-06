@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+  Hi! You're reading the source.
+  The repo is public: https://github.com/RRMaximiliano/rrmaximiliano.github.io
+  So are my Stata ados: https://github.com/RRMaximiliano
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
@@ -39,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-80a604b0e83930c0df0ca025da35c3a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-30ce81a94fb05ad369f9d417aea5b33f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-80a604b0e83930c0df0ca025da35c3a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ad5fb89396e4291cf5a2b4ac0bda7936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7b32da5d7b825987987aabbe5d8d5de2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ad5fb89396e4291cf5a2b4ac0bda7936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -202,6 +207,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>
+// The navbar flower closes slightly at night (9 p.m.–6 a.m. on the visitor's clock; shown in
+// dark mode only, see html/custom.scss). Add ?night to the address to see it at any hour.
+(() => {
+  const h = new Date().getHours();
+  if (h >= 21 || h < 6 || /[?&]night\b/.test(location.search)) document.documentElement.classList.add('flower-night');
+})();
+</script>
 <script>
 // Entrance motion helpers (styles in html/custom.scss):
 // - "pre": the page is being prepared in the background; hold animations until it's shown.
@@ -1083,6 +1096,30 @@ document.addEventListener('click', e => {
     if (++clicks % 5) return;
     for (let i = 0; i < 34; i++) fall(rand(0, innerWidth), rand(-40, 40), rand(16, 30), rand(80, 2600));
   });
+})();
+
+// Nicaraguan days, in a note just below the name in the navbar (wide screens): La Gritería on December 7
+// (click the question for the answer) and the fiestas patrias on September 14–15.
+// Add ?day=12-07 or ?day=09-15 to the address to see them on any day.
+(() => {
+  const item = document.querySelector('.navbar .me-auto .nav-item:first-child');
+  if (!item) return;
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const day = new URLSearchParams(location.search).get('day') || `${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+  let el;
+  if (day === '12-07') {
+    el = document.createElement('button');
+    el.type = 'button';
+    el.textContent = '¿Quién causa tanta alegría?';
+    el.addEventListener('click', () => { el.textContent = '¡La Concepción de María!'; }, { once: true });
+  } else if (day === '09-14' || day === '09-15') {
+    el = document.createElement('span');
+    el.textContent = '¡Felices fiestas patrias!';
+  } else return;
+  el.className = 'nav-day';
+  el.lang = 'es';
+  item.append(el);
 })();
 
 // A note for anyone who opens the browser console.

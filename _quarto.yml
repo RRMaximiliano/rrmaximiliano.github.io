@@ -9,7 +9,7 @@ project:
     
   output-dir: docs
   post-render:
-    - html/fix-404.py   # absolute font paths on the 404 page
+    - html/post-render.py   # 404 font paths; note at the top of every page source
   render:
     - "*.qmd"
     - "!about.qmd"     # old Bio page; about.html now redirects home

@@ -3,6 +3,14 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>
+// The navbar flower closes slightly at night (9 p.m.–6 a.m. on the visitor's clock; shown in
+// dark mode only, see html/custom.scss). Add ?night to the address to see it at any hour.
+(() => {
+  const h = new Date().getHours();
+  if (h >= 21 || h < 6 || /[?&]night\b/.test(location.search)) document.documentElement.classList.add('flower-night');
+})();
+</script>
+<script>
 // Entrance motion helpers (styles in html/custom.scss):
 // - "pre": the page is being prepared in the background; hold animations until it's shown.
 // - "intro": the visit starts on the homepage; hold the page while the name types out.

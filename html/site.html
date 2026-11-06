@@ -192,6 +192,30 @@ document.addEventListener('click', e => {
   });
 })();
 
+// Nicaraguan days, in a note just below the name in the navbar (wide screens): La Gritería on December 7
+// (click the question for the answer) and the fiestas patrias on September 14–15.
+// Add ?day=12-07 or ?day=09-15 to the address to see them on any day.
+(() => {
+  const item = document.querySelector('.navbar .me-auto .nav-item:first-child');
+  if (!item) return;
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const day = new URLSearchParams(location.search).get('day') || `${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+  let el;
+  if (day === '12-07') {
+    el = document.createElement('button');
+    el.type = 'button';
+    el.textContent = '¿Quién causa tanta alegría?';
+    el.addEventListener('click', () => { el.textContent = '¡La Concepción de María!'; }, { once: true });
+  } else if (day === '09-14' || day === '09-15') {
+    el = document.createElement('span');
+    el.textContent = '¡Felices fiestas patrias!';
+  } else return;
+  el.className = 'nav-day';
+  el.lang = 'es';
+  item.append(el);
+})();
+
 // A note for anyone who opens the browser console.
 (() => {
   const leaf = 'M0 0C-2.4-1.6-6.6-4.9-6.3-9.4C-6-13.4-1.2-14.9 2.3-13.4C5.6-12 6.4-7.6 4.4-4.4C3.2-2.4 1.6-1 0 0Z';

@@ -6,6 +6,8 @@ This folder contains redirect pages for creating short "go links" - a common pat
 
 - `/go/github/` → GitHub profile
 - `/go/oh/` → office hours page
+- `/go/useless/` → "A completely useless command in Stata" (the pikachu post); not linked anywhere
+- `/go/coffee/` → open office hours; not linked anywhere
 
 ## Adding a New Go Link
 
