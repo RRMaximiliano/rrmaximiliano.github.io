@@ -23,7 +23,7 @@ metadata-files:
   </span>
 </button>
 <div class="photo-note">
-  <p>me now, in my 4th year!<span class="photo-note-tail" aria-hidden="true"><svg viewBox="0 0 40 52"><path d="M2 44 C 22 47, 37 37, 32 6 M 24 13 L 32 4 L 38 14"/></svg></span><small>the other one: starting the Ph.D.</small></p>
+  <p><span class="photo-note-text">me now, in my 4th year!</span><span class="photo-note-tail" aria-hidden="true"><svg viewBox="0 0 40 52"><path d="M2 44 C 22 47, 37 37, 32 6 M 24 13 L 32 4 L 38 14"/></svg></span><small class="photo-note-sub">the other one: starting the Ph.D.</small></p>
 </div>
 </div>
 ```

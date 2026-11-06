@@ -11,6 +11,7 @@ $rule:    #e4e4e7 !default;   // hairlines
 $faint:   #b8b8bf !default;   // tree branches, empty progress
 $code-bg: #f4f4f5 !default;
 $accent:  #A51C30 !default;   // Harvard crimson; try #1b4ed8 for T3 blue
+$pen:     #c8102e !default;   // red pen: Stata errors (404 page), Reviewer 2's comments
 
 // ── Type ──
 $serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -580,4 +581,69 @@ section.level3 + section.level3 > h3 { margin-top: 1.6rem; }
 @media (prefers-reduced-motion: reduce) {
   .home-photo-flip { transition: none; }
   .photo-note { transition: none; }
+}
+
+// ── Easter eggs (scripts in html/site.html) ──
+
+// Petals from the navbar flower (homepage, wide screens)
+.petal-layer { position: fixed; inset: 0; z-index: 1040; pointer-events: none; overflow: hidden; }
+.petal {
+  position: absolute; display: block; will-change: transform, opacity;
+  svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  // White with a yellow base (the gradient fill is set in html/site.html); a faint warm edge keeps them visible on white
+  path { stroke: rgba(#b8a26a, .55); stroke-width: 1px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+}
+
+// Reviewer 2 mode (Konami code on pages with papers)
+body.r2 .pub-title, body.r2 .pub-title a {
+  text-decoration: underline wavy rgba($pen, .7); text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.r2-note {
+  margin: .15rem 0 .25rem; font-family: 'Gochi Hand', cursive; font-size: 1.1rem; line-height: 1.25; color: $pen;
+  transform: rotate(var(--tilt, 0deg)); transform-origin: 0 50%;
+  animation: r2-write .7s ease-out both;
+  .r2-tag { font-weight: 400; opacity: .75; }
+}
+@keyframes r2-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 -2% 0 0); } }
+.r2-card {
+  position: fixed; left: 50%; bottom: 1.25rem; z-index: 1050;
+  display: flex; align-items: center; gap: 1rem; max-width: calc(100vw - 2rem); width: max-content;
+  padding: .65rem .75rem .65rem 1rem; border: 1px solid $rule; border-radius: 10px;
+  background: $paper; box-shadow: 0 6px 24px rgba(0, 0, 0, .12);
+  font-family: $mono; font-size: .78rem; color: $ink-2;
+  opacity: 0; visibility: hidden; transform: translate(-50%, 8px);
+  transition: opacity .25s ease, transform .25s ease, visibility 0s linear .25s;
+  &.is-on { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition-delay: 0s; }
+  strong { color: $pen; font-weight: 500; }
+}
+.r2-resubmit {
+  flex: none; font: inherit; color: $ink; background: $code-bg; cursor: pointer;
+  border: 1px solid $rule; border-radius: 999px; padding: .3rem .8rem;
+  &:hover { color: $accent; }
+  &:focus-visible { outline: 2px solid $accent; outline-offset: 2px; }
+}
+
+// Office hours between 1 and 5 a.m.
+.oh-late { margin: 0 0 1rem; font-family: 'Gochi Hand', cursive; font-size: 1.15rem; line-height: 1.3; color: $accent; }
+
+// 404 page: Stata's Results window
+.stata-log {
+  white-space: pre; overflow-x: auto;
+  font-family: $mono; font-size: .82rem; line-height: 1.65; color: $ink;
+  background: $code-bg; border: 1px solid $rule; border-radius: 8px;
+  padding: 1.1rem 1.25rem; margin: 0 0 1.25rem;
+  a { color: $ink; }
+  a:hover, a:focus { color: $accent; }
+  .stata-err { color: $pen; }
+  .stata-note { color: $muted; }
+}
+.stata-caret {
+  display: inline-block; width: .55em; height: 1.05em; vertical-align: -.2em;
+  background: $ink; animation: caret-blink 1.1s steps(1) infinite;
+}
+.nf-help { font-size: 1rem; color: $ink-2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .r2-note, .stata-caret { animation: none; }
+  .r2-card { transition: none; }
 }

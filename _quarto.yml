@@ -8,6 +8,8 @@ project:
     navigate: true
     
   output-dir: docs
+  post-render:
+    - html/fix-404.py   # absolute font paths on the 404 page
   render:
     - "*.qmd"
     - "!about.qmd"     # old Bio page; about.html now redirects home

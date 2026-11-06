@@ -1,0 +1,38 @@
+---
+pagetitle: "Rony Rodriguez-Ramirez | Page Not Found"
+title: "Page not found"
+toc: false
+page-layout: article
+body-classes: not-found
+---
+
+<!-- GitHub Pages serves docs/404.html for any missing page. The log below reads like
+     Stata's Results window; the script fills in the path the visitor asked for. -->
+
+```{=html}
+<div class="stata-log" role="group" aria-label="Stata output: the page was not found"><span>. use "<span class="nf-path">/this-page</span>", clear</span>
+<span class="stata-err">file <span class="nf-path">/this-page</span>.dta not found</span>
+<span class="stata-err">r(601);</span>
+
+<span class="stata-note">. * Probably a moved page or a typo in the link. Try one of these:</span>
+
+<a href="/">. view browse "/"</a>            <span class="stata-note">// home</span>
+<a href="/research/">. view browse "/research"</a>    <span class="stata-note">// papers</span>
+<a href="/teaching/">. view browse "/teaching"</a>    <span class="stata-note">// courses</span>
+<a href="/cv/">. view browse "/cv"</a>
+<a href="/blog/">. view browse "/blog"</a>
+
+. <span class="stata-caret" aria-hidden="true"></span></div>
+<script>
+(() => {
+  let p = location.pathname;
+  try { p = decodeURI(p); } catch (e) {}
+  p = p.replace(/(\/index)?\.html$/, '').replace(/\/+$/, '') || '/';
+  document.querySelectorAll('.nf-path').forEach(el => { el.textContent = p; });
+})();
+</script>
+```
+
+::: {.nf-help}
+If a link on this site brought you here, please tell me so I can fix it: rrodriguezramirez \[at\] g \[dot\] harvard \[dot\] edu.
+:::
