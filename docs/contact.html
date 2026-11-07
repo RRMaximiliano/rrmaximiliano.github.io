@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ad5fb89396e4291cf5a2b4ac0bda7936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-7b32da5d7b825987987aabbe5d8d5de2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-ad5fb89396e4291cf5a2b4ac0bda7936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-64f6a5953398010462aea90cf0bc2938.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-a792910cf52f51a9abfc24743e250b49.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-64f6a5953398010462aea90cf0bc2938.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -67,8 +67,8 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <script>
-// The navbar flower closes slightly at night (9 p.m.–6 a.m. on the visitor's clock; shown in
-// dark mode only, see html/custom.scss). Add ?night to the address to see it at any hour.
+// The navbar flower closes at night (9 p.m.–6 a.m. on the visitor's clock; styles in
+// html/custom.scss). Add ?night to the address to see it at any hour.
 (() => {
   const h = new Date().getHours();
   if (h >= 21 || h < 6 || /[?&]night\b/.test(location.search)) document.documentElement.classList.add('flower-night');
@@ -831,7 +831,8 @@ document.addEventListener('click', e => {
     "%cHi! You're reading the source.%c\n" +
     "It's all public: https://github.com/RRMaximiliano/rrmaximiliano.github.io\n" +
     'Pull requests get reviewed faster than journal submissions.\n\n' +
-    'A few other things are hidden around here. One hint: ↑ ↑ ↓ ↓ ← → ← → B A on the Research page.',
+    'A few other things are hidden around here. Two hints: ↑ ↑ ↓ ↓ ← → ← → B A on the Research page,\n' +
+    'and ` (backtick) on any page.',
     `${body} font-size: 15px; color: #A51C30;`, body
   );
 })();
@@ -906,6 +907,182 @@ document.addEventListener('click', e => {
     if (!/^(Arrow(Up|Down|Left|Right)|[a-z])$/.test(k)) return;
     keys = [...keys, k].slice(-10);
     if (keys.join(' ') === code) { keys = []; on ? exit() : enter(); }
+  });
+})();
+
+// Stata console. One engine for three places: the prompt on the 404 page, the /stata page,
+// and a panel that slides up on any page when you press ` (backtick) or type "stata".
+// Everything typed is shown with textContent, never as HTML. Styles in html/custom.scss.
+(() => {
+  const reg = [
+    '',
+    'Linear regression                               Number of obs     =      1,461',
+    '                                                (nights since the Ph.D. began)',
+    '',
+    '------------------------------------------------------------------------------',
+    '       sleep | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]',
+    '-------------+----------------------------------------------------------------',
+    '         phd |  -2.713044   .0857661   -31.63   0.000    -2.881282   -2.544806',
+    '       _cons |   7.902114   .1203348    65.67   0.000     7.666066    8.138162',
+    '------------------------------------------------------------------------------',
+  ];
+  const help = [
+    'Things to try:',
+    '  help rrmaximiliano     who wrote this site',
+    '  sysuse cv              open the CV',
+    '  reg sleep phd          a well-identified result',
+    '  view browse "/"        go to a page (also: cd research, cd ~)',
+    '  di 2+2                 display',
+    '  cls                    clear the screen',
+  ];
+  const fine = matchMedia('(pointer: fine)');
+
+  // Wire one prompt: `out` collects the log, `form`/`input` take commands.
+  // onExit runs on "exit, clear" (the panel closes; elsewhere it goes home).
+  const attach = (out, form, input, { onExit, scroller } = {}) => {
+    const add = (text, cls, href) => {
+      const el = document.createElement(href ? 'a' : 'span');
+      el.textContent = text;
+      if (cls) el.className = cls;
+      if (href) el.href = href;
+      out.append(el, '\n');
+    };
+    const err = (msg, code) => { add(msg, 'stata-err'); add(`r(${code});`, 'stata-err'); };
+    const go = path => { add(`(opening ${path})`, 'stata-note'); setTimeout(() => { location.href = path; }, 500); };
+    const run = raw => {
+      const cmd = raw.trim();
+      // The command name ends at a space or a comma, as in Stata ("exit, clear")
+      const [, verb = '', args = ''] = cmd.match(/^([^\s,]+)\s*(.*)$/) || [];
+      const v = verb.toLowerCase();
+      if (!cmd) return;
+      if (v === 'cls') { out.textContent = ''; return; }
+      if (v === 'clear') return;
+      if (v === 'help' || v === 'h') {
+        if (/^rrmaximiliano$/i.test(args)) {
+          add('rrmaximiliano -- Rony Rodríguez-Ramírez');
+          add('    Ph.D. candidate in Education Policy and Program Evaluation');
+          add('    at Harvard University.');
+          add('    Studies how education can protect and rebuild children\'s human capital');
+          add('    after armed conflict, forced displacement, and political crises.');
+          add('    From Nicaragua.');
+          add('    See also: view browse "/research"', '', '/research/');
+          return;
+        }
+        if (args) { err(`help for ${args} not found`, 111); return; }
+        help.forEach(l => add(l));
+        return;
+      }
+      if (v === 'sysuse' || v === 'use') {
+        if (/^"?cv"?(,\s*clear)?$/i.test(args)) { add('(Rony Rodríguez-Ramírez, curriculum vitae)'); go('/cv/'); return; }
+        const f = args.replace(/,.*$/, '').replace(/"/g, '').trim() || 'nothing';
+        err(`file ${f}${/\.dta$/i.test(f) ? '' : '.dta'} not found`, 601);
+        return;
+      }
+      if (/^reg(r(e(ss?)?)?)?$/.test(v)) {
+        if (/^sleep\s+phd\b/i.test(args)) { reg.forEach(l => add(l)); return; }
+        const missing = args.split(/[\s,]+/).find(x => x && !/^(sleep|phd)$/i.test(x)) || 'varlist';
+        err(`variable ${missing} not found`, 111);
+        return;
+      }
+      if (v === 'ssc' || v === 'net') { add('nice try. this is a website.', 'stata-note'); return; }
+      if (v === 'pikachu') {
+        err('command pikachu is unrecognized', 199);
+        add('. * it is a real command, though. read about it here', 'stata-note', '/go/useless/');
+        return;
+      }
+      if (v === 'exit' || v === 'q' || v === 'quit') {
+        if (/clear/i.test(args)) { onExit ? onExit() : go('/'); return; }
+        err('no; dataset in memory has changed since last saved', 4);
+        return;
+      }
+      if (v === 'di' || v === 'dis' || v === 'disp' || v === 'display') {
+        const q = args.match(/^"(.*)"$/);
+        if (q) { add(q[1]); return; }
+        if (/^[\d\s+\-*/().]+$/.test(args)) {   // numbers and operators only, so this can't run code
+          try { const n = Function(`"use strict"; return (${args})`)(); if (Number.isFinite(n)) { add(String(n)); return; } } catch (e) {}
+        }
+        err('invalid syntax', 198);
+        return;
+      }
+      if (v === 'cd' || (v === 'view' && /^browse\b/i.test(args))) {
+        let path = (v === 'cd' ? args : args.replace(/^browse\s*/i, '')).replace(/"/g, '').trim();
+        if (!path || path === '~' || path === '/') { go('/'); return; }
+        if (/^[a-z]+:/i.test(path) || path.startsWith('//')) { add('only pages on this site, sorry.', 'stata-note'); return; }
+        if (!path.startsWith('/')) path = '/' + path;
+        if (!/^\/[\w\-./]*$/.test(path)) { err('invalid syntax', 198); return; }
+        go(path.endsWith('/') || /\.\w+$/.test(path) ? path : path + '/');
+        return;
+      }
+      err(`command ${verb} is unrecognized`, 199);
+    };
+    const history = [];
+    let at = 0;
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const cmd = input.value;
+      add(`. ${cmd}`);
+      if (cmd.trim()) { history.push(cmd); at = history.length; }
+      input.value = '';
+      run(cmd);
+      if (scroller) scroller.scrollTop = scroller.scrollHeight;
+      else input.scrollIntoView({ block: 'nearest' });
+    });
+    input.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
+      e.preventDefault();
+      at = Math.max(0, Math.min(history.length, at + (e.key === 'ArrowUp' ? -1 : 1)));
+      input.value = history[at] ?? '';
+    });
+  };
+
+  // A prompt that is part of the page (404, /stata): ready to type on computers
+  // (phones would pop the keyboard open, so not there)
+  const pageForm = document.querySelector('.stata-log .stata-prompt');
+  if (pageForm) {
+    const input = pageForm.querySelector('input');
+    attach(pageForm.closest('.stata-log').querySelector('.stata-out'), pageForm, input);
+    if (fine.matches) input.focus({ preventScroll: true });
+  }
+
+  // The panel, built on first use
+  let panel = null, panelInput = null, returnTo = null;
+  const close = () => {
+    if (!panel?.classList.contains('is-open')) return;
+    panel.classList.remove('is-open');
+    if (returnTo?.isConnected) returnTo.focus({ preventScroll: true });
+  };
+  const open = () => {
+    if (pageForm) { pageForm.querySelector('input').focus(); return; }
+    if (!panel) {
+      panel = document.createElement('section');
+      panel.className = 'stata-panel';
+      panel.setAttribute('aria-label', 'Stata console');
+      panel.innerHTML =
+        '<div class="stata-panel-bar"><span>Stata</span><button type="button" class="stata-close">Esc to close</button></div>' +
+        '<div class="stata-log stata-panel-log"><span class="stata-note">. * Stata, for this site. Type help to start.</span>\n' +
+        '<div class="stata-out" aria-live="polite"></div><form class="stata-prompt" autocomplete="off"><label for="stata-panel-cmd">.</label> ' +
+        '<input id="stata-panel-cmd" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="go" aria-label="Stata command"></form></div>';
+      document.body.append(panel);
+      const log = panel.querySelector('.stata-panel-log');
+      panelInput = panel.querySelector('input');
+      attach(log.querySelector('.stata-out'), panel.querySelector('form'), panelInput, { onExit: close, scroller: log });
+      panel.querySelector('.stata-close').addEventListener('click', close);
+      panel.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); close(); } });
+      panel.getBoundingClientRect();   // lay it out closed first, so opening animates
+    }
+    returnTo = document.activeElement;
+    panel.classList.add('is-open');
+    panelInput.focus({ preventScroll: true });
+  };
+  let typed = '';
+  document.addEventListener('keydown', e => {
+    if (e.target.closest?.('input, textarea, select, [contenteditable]')) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === '`') { e.preventDefault(); open(); return; }
+    // Typing "stata" works too (keyboards where ` is awkward to reach)
+    if (e.key.length !== 1) return;
+    typed = (typed + e.key.toLowerCase()).slice(-5);
+    if (typed === 'stata') { typed = ''; e.preventDefault(); open(); }   // keep the last "a" out of the prompt
   });
 })();
 

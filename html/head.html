@@ -3,8 +3,8 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>
-// The navbar flower closes slightly at night (9 p.m.–6 a.m. on the visitor's clock; shown in
-// dark mode only, see html/custom.scss). Add ?night to the address to see it at any hour.
+// The navbar flower closes at night (9 p.m.–6 a.m. on the visitor's clock; styles in
+// html/custom.scss). Add ?night to the address to see it at any hour.
 (() => {
   const h = new Date().getHours();
   if (h >= 21 || h < 6 || /[?&]night\b/.test(location.search)) document.documentElement.classList.add('flower-night');

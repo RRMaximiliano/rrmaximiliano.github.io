@@ -1,0 +1,16 @@
+---
+pagetitle: "Rony Rodriguez-Ramirez | Stata"
+title: "Stata"
+toc: false
+page-layout: article
+---
+
+<!-- A hidden page: not in the navbar. The prompt runs on the Stata console in html/site.html;
+     on a computer, ` (backtick) or typing "stata" opens the same console on any page. -->
+
+```{=html}
+<div class="stata-log" role="group" aria-label="Stata console"><span class="stata-note">. * A small Stata for this site. Type help to start.</span>
+<span class="stata-note">. * On a computer, press ` on any page to open it there.</span>
+
+<div class="stata-out" aria-live="polite"></div><form class="stata-prompt" autocomplete="off"><label for="stata-cmd">.</label> <input id="stata-cmd" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="go" aria-label="Stata command"></form></div>
+```

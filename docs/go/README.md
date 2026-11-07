@@ -8,6 +8,7 @@ This folder contains redirect pages for creating short "go links" - a common pat
 - `/go/oh/` → office hours page
 - `/go/useless/` → "A completely useless command in Stata" (the pikachu post); not linked anywhere
 - `/go/coffee/` → open office hours; not linked anywhere
+- `/go/stata/` → the Stata console page (/stata/); not linked anywhere
 
 ## Adding a New Go Link
 
