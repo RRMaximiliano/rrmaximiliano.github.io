@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-64f6a5953398010462aea90cf0bc2938.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a792910cf52f51a9abfc24743e250b49.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-64f6a5953398010462aea90cf0bc2938.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-28e9cad2c4529a37166a139955a7bea0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b0e5be08d59ee06b635b0c65349aabd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-28e9cad2c4529a37166a139955a7bea0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -976,17 +976,18 @@ document.addEventListener('click', e => {
     "%cHi! You're reading the source.%c\n" +
     "It's all public: https://github.com/RRMaximiliano/rrmaximiliano.github.io\n" +
     'Pull requests get reviewed faster than journal submissions.\n\n' +
-    'A few other things are hidden around here. Two hints: ↑ ↑ ↓ ↓ ← → ← → B A on the Research page,\n' +
+    'A few other things are hidden around here. Two hints: ↑ ↑ ↓ ↓ ← → ← → B A on the Research or Teaching page,\n' +
     'and ` (backtick) on any page.',
     `${body} font-size: 15px; color: #A51C30;`, body
   );
 })();
 
-// Reviewer 2 mode: the Konami code (↑ ↑ ↓ ↓ ← → ← → B A) on a page that lists papers
-// brings in Reviewer 2, who comments on each one. Esc, the button or the code again
-// resubmits. Styles in html/custom.scss.
+// The Konami code (↑ ↑ ↓ ↓ ← → ← → B A). On a page that lists papers it brings in
+// Reviewer 2, who comments on each one; on the Teaching page it posts a grade for each
+// course. Esc, the button or the code again undoes it. Styles in html/custom.scss.
 (() => {
-  if (!document.querySelector('.pub')) return;
+  const mode = document.querySelector('.pub') ? 'review' : document.querySelector('.course') ? 'grade' : null;
+  if (!mode) return;
   const code = 'ArrowUp ArrowUp ArrowDown ArrowDown ArrowLeft ArrowRight ArrowLeft ArrowRight b a';
   const comments = [
     'Have the authors considered clustering at a different level?',
@@ -1004,6 +1005,32 @@ document.addEventListener('click', e => {
     'Why not a synthetic control?',
     'Have the authors considered writing a different paper?',
   ];
+  const grades = [
+    'A−. See me after class.',
+    'B+. Show your work.',
+    'A. But the font is too small.',
+    'Incomplete. Where is the problem set?',
+    'A+. Bonus point for the pun.',
+    'B. Good effort; cite your sources.',
+    'A−. Late, but worth it.',
+    'A. Would take again.',
+    'Check plus.',
+    'A−. Too many robustness checks.',
+    'B+. Interesting, but is it causal?',
+    'A. Regrade denied.',
+    'A. Office hours paid off.',
+    'B+. Standard errors, please.',
+  ];
+  const text = {
+    review: {
+      on: '<span><strong>Decision: major revisions.</strong> Reviewer 2 has left comments.</span><button type="button" class="r2-resubmit">Resubmit</button>',
+      off: 'Resubmitted. Expected decision: 14 months.',
+    },
+    grade: {
+      on: '<span><strong>Grades are posted.</strong> Final, unless you ask nicely.</span><button type="button" class="r2-resubmit">Request a regrade</button>',
+      off: 'Regrade request received. Response after finals.',
+    },
+  }[mode];
   let keys = [], on = false, card = null, hideTimer = 0;
   const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const showCard = html => {
@@ -1017,31 +1044,41 @@ document.addEventListener('click', e => {
     card.innerHTML = html;
     card.classList.add('is-on');
   };
+  const note = (tag, words, i) => {
+    const el = document.createElement('p');
+    el.className = 'r2-note';
+    el.style.setProperty('--tilt', `${(Math.random() * 2.4 - 1.2).toFixed(2)}deg`);
+    el.style.animationDelay = `${i * 90}ms`;
+    if (tag) el.innerHTML = `<span class="r2-tag">${tag}</span> `;
+    el.append(words);
+    return el;
+  };
   const enter = () => {
     on = true;
-    document.body.classList.add('r2');
-    const list = shuffle(comments.slice());
-    let asked = false;
-    document.querySelectorAll('.pub').forEach((pub, i) => {
-      const registered = [...pub.querySelectorAll('.pub-links a')].some(a => /registry/i.test(a.textContent));
-      let text = list[i % list.length];
-      if (registered && !asked) { text = 'Was this pre-registered? (Never mind, it is linked below.)'; asked = true; }
-      const note = document.createElement('p');
-      note.className = 'r2-note';
-      note.style.setProperty('--tilt', `${(Math.random() * 2.4 - 1.2).toFixed(2)}deg`);
-      note.style.animationDelay = `${i * 90}ms`;
-      note.innerHTML = '<span class="r2-tag">R2:</span> ';
-      note.append(text);
-      pub.querySelector('.pub-title')?.after(note);
-    });
-    showCard('<span><strong>Decision: major revisions.</strong> Reviewer 2 has left comments.</span><button type="button" class="r2-resubmit">Resubmit</button>');
+    if (mode === 'review') {
+      document.body.classList.add('r2');
+      const list = shuffle(comments.slice());
+      let asked = false;
+      document.querySelectorAll('.pub').forEach((pub, i) => {
+        const registered = [...pub.querySelectorAll('.pub-links a')].some(a => /registry/i.test(a.textContent));
+        let words = list[i % list.length];
+        if (registered && !asked) { words = 'Was this pre-registered? (Never mind, it is linked below.)'; asked = true; }
+        pub.querySelector('.pub-title')?.after(note('R2:', words, i));
+      });
+    } else {
+      const list = shuffle(grades.slice());
+      document.querySelectorAll('.course').forEach((course, i) => {
+        (course.querySelector('.course-head') || course.firstElementChild)?.after(note('', list[i % list.length], i));
+      });
+    }
+    showCard(text.on);
     card.querySelector('.r2-resubmit').addEventListener('click', exit);
   };
   const exit = () => {
     on = false;
     document.body.classList.remove('r2');
     document.querySelectorAll('.r2-note').forEach(n => n.remove());
-    showCard('<span>Resubmitted. Expected decision: 14 months.</span>');
+    showCard(`<span>${text.off}</span>`);
     hideTimer = setTimeout(() => card.classList.remove('is-on'), 3500);
   };
   document.addEventListener('keydown', e => {
@@ -1075,12 +1112,43 @@ document.addEventListener('click', e => {
     'Things to try:',
     '  help rrmaximiliano     who wrote this site',
     '  sysuse cv              open the CV',
+    '  tab papers             what I am working on',
     '  reg sleep phd          a well-identified result',
+    '  which rrmaximiliano    version information',
     '  view browse "/"        go to a page (also: cd research, cd ~)',
     '  di 2+2                 display',
     '  cls                    clear the screen',
   ];
   const fine = matchMedia('(pointer: fine)');
+  const groups = [
+    ['working', 'Working paper'], ['published-chapters', 'Book chapter'], ['published-papers', 'Published paper'],
+    ['progress', 'In progress'], ['predoc-books', 'Pre-doc book'], ['predoc-papers', 'Pre-doc paper'], ['predoc-reports', 'Pre-doc report'],
+  ];
+  const paperCounts = async () => {
+    let doc = document;
+    // The homepage has some of the same sections, so check the address, not the page
+    if (!/^\/research\/?(index\.html)?$/.test(location.pathname)) {
+      const r = await fetch('/research/');
+      if (!r.ok) throw new Error(r.status);
+      doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+    }
+    return groups.map(([id, label]) => [label, doc.querySelectorAll(`#listing-${id} .pub`).length]).filter(([, n]) => n);
+  };
+  // A one-way table the way -tabulate- prints it
+  const tabulate = (name, rows) => {
+    const total = rows.reduce((t, [, n]) => t + n, 0);
+    const w = Math.max(name.length, 'Total'.length, ...rows.map(([l]) => l.length)) + 2;
+    const pad = (x, n) => String(x).padStart(n);
+    const rule = '-'.repeat(w + 1) + '+' + '-'.repeat(35);
+    let cum = 0;
+    return [
+      `${pad(name, w)} |      Freq.     Percent        Cum.`,
+      rule,
+      ...rows.map(([l, n]) => { cum += n; return `${pad(l, w)} | ${pad(n, 10)} ${pad((100 * n / total).toFixed(2), 11)} ${pad((100 * cum / total).toFixed(2), 11)}`; }),
+      rule,
+      `${pad('Total', w)} | ${pad(total, 10)} ${pad('100.00', 11)}`,
+    ];
+  };
 
   // Wire one prompt: `out` collects the log, `form`/`input` take commands.
   // onExit runs on "exit, clear" (the panel closes; elsewhere it goes home).
@@ -1093,6 +1161,7 @@ document.addEventListener('click', e => {
       out.append(el, '\n');
     };
     const err = (msg, code) => { add(msg, 'stata-err'); add(`r(${code});`, 'stata-err'); };
+    const bottom = () => { if (scroller) scroller.scrollTop = scroller.scrollHeight; else input.scrollIntoView({ block: 'nearest' }); };
     const go = path => { add(`(opening ${path})`, 'stata-note'); setTimeout(() => { location.href = path; }, 500); };
     const run = raw => {
       const cmd = raw.trim();
@@ -1119,8 +1188,32 @@ document.addEventListener('click', e => {
       }
       if (v === 'sysuse' || v === 'use') {
         if (/^"?cv"?(,\s*clear)?$/i.test(args)) { add('(Rony Rodríguez-Ramírez, curriculum vitae)'); go('/cv/'); return; }
+        if (v === 'sysuse' && /^auto(,\s*clear)?$/i.test(args)) {
+          add('(1978 automobile data)');
+          add('(wrong website, but here are 74 cars anyway)', 'stata-note');
+          return;
+        }
         const f = args.replace(/,.*$/, '').replace(/"/g, '').trim() || 'nothing';
         err(`file ${f}${/\.dta$/i.test(f) ? '' : '.dta'} not found`, 601);
+        return;
+      }
+      if (v === 'which') {
+        if (/^rrmaximiliano$/i.test(args)) {
+          add('~/ado/plus/r/rrmaximiliano.ado');
+          add('*! version 4.0.0  fourth year  Rony Rodríguez-Ramírez');
+          return;
+        }
+        err(`command ${args || 'which'} not found as either built-in or ado-file`, 111);
+        return;
+      }
+      if (/^ta(b(u(l(a(te?)?)?)?)?)?$/.test(v)) {
+        if (/^(papers|status)$/i.test(args)) {
+          paperCounts()
+            .then(rows => { tabulate(args.toLowerCase(), rows).forEach(l => add(l)); bottom(); })
+            .catch(() => { err('file /research.dta not found', 601); bottom(); });
+          return;
+        }
+        err(`variable ${args.split(/[\s,]+/)[0] || 'varlist'} not found`, 111);
         return;
       }
       if (/^reg(r(e(ss?)?)?)?$/.test(v)) {
@@ -1169,8 +1262,7 @@ document.addEventListener('click', e => {
       if (cmd.trim()) { history.push(cmd); at = history.length; }
       input.value = '';
       run(cmd);
-      if (scroller) scroller.scrollTop = scroller.scrollHeight;
-      else input.scrollIntoView({ block: 'nearest' });
+      bottom();
     });
     input.addEventListener('keydown', e => {
       if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
@@ -1229,6 +1321,84 @@ document.addEventListener('click', e => {
     typed = (typed + e.key.toLowerCase()).slice(-5);
     if (typed === 'stata') { typed = ''; e.preventDefault(); open(); }   // keep the last "a" out of the prompt
   });
+})();
+
+// A small message at the bottom of the screen (copying the email, and the like)
+const siteToast = (() => {
+  let el = null, timer = 0;
+  return text => {
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'site-toast';
+      el.setAttribute('role', 'status');
+      document.body.append(el);
+    }
+    el.textContent = text;
+    el.classList.add('is-on');
+    clearTimeout(timer);
+    timer = setTimeout(() => el.classList.remove('is-on'), 2600);
+  };
+})();
+
+// The email is written "name [at] g [dot] harvard [dot] edu" to keep spam bots out.
+// When someone copies it, put the @ and dots back so it pastes as a working address.
+document.addEventListener('copy', e => {
+  const text = getSelection()?.toString() || '';
+  if (!/\[\s*at\s*\]/i.test(text) || !e.clipboardData) return;
+  const fixed = text.replace(/\s*\[\s*at\s*\]\s*/gi, '@').replace(/\s*\[\s*dot\s*\]\s*/gi, '.');
+  e.clipboardData.setData('text/plain', fixed);
+  e.preventDefault();
+  siteToast('Copied, with the @ restored');
+});
+
+// Contact form: send it from the page so the thank-you can be ours. If that fails for
+// any reason, submit the normal way and let Formspree show its own page.
+(() => {
+  const form = document.querySelector('form[action^="https://formspree.io/"]');
+  if (!form) return;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const button = form.querySelector('[type="submit"]');
+    if (button) button.disabled = true;
+    try {
+      const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!r.ok) throw new Error(r.status);
+      const thanks = document.createElement('p');
+      thanks.className = 'contact-thanks';
+      thanks.setAttribute('role', 'status');
+      thanks.textContent = "Thanks! Your message is on its way. I'll reply faster than Reviewer 2.";
+      form.replaceWith(thanks);
+    } catch (err) {
+      if (button) button.disabled = false;
+      form.submit();
+    }
+  });
+})();
+
+// The navbar flower dozes off: after 5 minutes with no mouse, keyboard, touch or scrolling
+// it closes into the night bud, and opens again with the next movement.
+// Add ?doze to the address to make it 5 seconds (or ?doze=2 for 2 seconds).
+(() => {
+  const root = document.documentElement;
+  const q = new URLSearchParams(location.search).get('doze');
+  const wait = q === null ? 5 * 60 * 1000 : (/^\d+$/.test(q) ? +q : 5) * 1000;
+  let timer = 0, last = 0;
+  const wake = () => {
+    const now = Date.now();
+    if (now - last < 250 && !root.classList.contains('flower-dozing')) return;   // pointermove fires often
+    last = now;
+    root.classList.remove('flower-dozing');
+    clearTimeout(timer);
+    timer = setTimeout(() => root.classList.add('flower-dozing'), wait);
+  };
+  ['pointermove', 'pointerdown', 'keydown', 'wheel', 'touchstart', 'scroll'].forEach(type => addEventListener(type, wake, { passive: true }));
+  wake();
+})();
+
+// CV page: hovering the "Updated with commit…" line shows the warning every LaTeX CV has.
+(() => {
+  const el = document.getElementById('cv-updated');
+  if (el) el.dataset.latex = 'Overfull \\hbox (badness 10000) in paragraph at lines 214--219';
 })();
 
 // Office hours, late at night (the visitor's time, 1–5 a.m.): a note to go to sleep.

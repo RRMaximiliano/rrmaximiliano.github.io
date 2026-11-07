@@ -189,8 +189,9 @@ $icon-sacuanjoche-night: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
   }
   // One turn when hovering the name; it unwinds when the pointer leaves
   .navbar .me-auto .nav-item:first-child .nav-link:hover::before { transform: rotate(360deg); }
-  // At night (visitor's clock) the flower closes
-  html.flower-night .navbar .me-auto .nav-item:first-child .nav-link::before {
+  // At night (visitor's clock), or after 5 idle minutes, the flower closes
+  html.flower-night .navbar .me-auto .nav-item:first-child .nav-link::before,
+  html.flower-dozing .navbar .me-auto .nav-item:first-child .nav-link::before {
     -webkit-mask-image: $icon-sacuanjoche-night; mask-image: $icon-sacuanjoche-night;
   }
 }
@@ -628,7 +629,7 @@ body.r2 .pub-title, body.r2 .pub-title a {
   .r2-tag { font-weight: 400; opacity: .75; }
 }
 @keyframes r2-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 -2% 0 0); } }
-.r2-card {
+.r2-card, .site-toast {
   position: fixed; left: 50%; bottom: 1.25rem; z-index: 1050;
   display: flex; align-items: center; gap: 1rem; max-width: calc(100vw - 2rem); width: max-content;
   padding: .65rem .75rem .65rem 1rem; border: 1px solid $rule; border-radius: 10px;
@@ -700,7 +701,7 @@ body.r2 .pub-title, body.r2 .pub-title a {
 
 @media (prefers-reduced-motion: reduce) {
   .r2-note { animation: none; }
-  .r2-card, .stata-panel { transition: none; }
+  .r2-card, .site-toast, .stata-panel { transition: none; }
 }
 
 // Printed pages end with a note
@@ -711,3 +712,20 @@ body.r2 .pub-title, body.r2 .pub-title a {
     font-family: $mono; font-size: 8pt; color: #666;
   }
 }
+
+.site-toast { padding: .65rem 1rem; }
+
+// Contact form, after sending
+.contact-thanks { margin: 1.5rem 0 0; font-family: 'Gochi Hand', cursive; font-size: 1.35rem; color: $accent; }
+
+// CV page: a LaTeX warning on hover over the "Updated with commit…" line
+.cv-updated[data-latex] { position: relative; }
+.cv-updated[data-latex]:not(:empty)::after {
+  content: attr(data-latex);
+  position: absolute; left: 0; top: calc(100% + .35rem); z-index: 5;
+  white-space: nowrap; padding: .3rem .55rem; border-radius: 6px;
+  background: $code-bg; border: 1px solid $rule; color: $pen; font-size: .72rem;
+  opacity: 0; visibility: hidden; transition: opacity .2s ease .4s, visibility 0s linear .6s;
+  pointer-events: none;
+}
+.cv-updated[data-latex]:not(:empty):hover::after { opacity: 1; visibility: visible; transition-delay: .4s, .4s; }
