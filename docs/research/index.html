@@ -1478,13 +1478,16 @@ document.addEventListener('click', e => {
 })();
 
 // Office hours, late at night (the visitor's time, 1–5 a.m.): a note to go to sleep.
-// Add ?late to the address to see it at any hour.
+// Add ?late to the address to see it at any hour, or ?late=2:47 to also show that time.
 (() => {
   if (!location.pathname.startsWith('/office-hours/')) return;
   const notice = document.querySelector('.oh-notice');
   const now = new Date();
   const late = now.getHours() >= 1 && now.getHours() < 5;
-  if (!notice || !(late || new URLSearchParams(location.search).has('late'))) return;
+  const param = new URLSearchParams(location.search).get('late');
+  if (!notice || !(late || param !== null)) return;
+  const set = (param || '').match(/^(\d{1,2})(?::(\d{2}))?$/);
+  if (set && +set[1] < 24 && +(set[2] || 0) < 60) now.setHours(+set[1], +(set[2] || 0));
   const time = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
   const p = document.createElement('p');
   p.className = 'oh-late';
