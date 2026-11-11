@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-28e9cad2c4529a37166a139955a7bea0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b0e5be08d59ee06b635b0c65349aabd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-28e9cad2c4529a37166a139955a7bea0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9042fd2dabdb1ee79f6720f79393cc10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1cfb568201439968e745a6e4b69cd4d1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9042fd2dabdb1ee79f6720f79393cc10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -172,12 +172,22 @@ ul.task-list li input[type="checkbox"] {
   }]
 }
 </script>
+<link rel="preload" href="./fonts/site/CedarvilleCursive-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="preload" href="./fonts/site/Newsreader-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="preload" href="./fonts/site/Newsreader-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="preload" href="./fonts/site/IBMPlexMono-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="preload" href="./fonts/site/IBMPlexMono-normal-500-latin.woff2" as="font" type="font/woff2" crossorigin="">
 <style>
 /* Self-hosted fonts (files in fonts/site). Inlined so text never re-flows on load. */
+/* Name at the top of the homepage */
+@font-face {
+  font-family: 'Cedarville Cursive';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/site/CedarvilleCursive-normal-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* Handwritten note under the homepage photo */
 @font-face {
   font-family: 'Gochi Hand';
@@ -542,7 +552,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="home-grid">
 <div class="home-side">
-<div class="home-name" role="heading" aria-level="1">Rony Rodrigo Maximiliano<br>Rodríguez-Ramírez</div>
+<div class="home-name" role="heading" aria-level="1">Rony Rodrigo<br>Maximiliano<br>Rodríguez-Ramírez</div>
 <div class="home-affil">Harvard University</div>
 <div class="home-photo-wrap">
 <button type="button" class="home-photo-btn" aria-pressed="false" aria-label="Flip the photo">
@@ -832,30 +842,35 @@ document.addEventListener('click', e => {
     if (n.nodeType === 3) chars.push(...n.textContent);
     else if (n.nodeName === 'BR') chars.push('\n');
   });
-  el.style.minHeight = el.getBoundingClientRect().height + 'px';
-  el.setAttribute('aria-label', el.textContent);
-  const typed = document.createElement('span');
-  typed.setAttribute('aria-hidden', 'true');
-  const caret = document.createElement('span');
-  caret.className = 'type-caret';
-  caret.setAttribute('aria-hidden', 'true');
-  el.replaceChildren(typed, caret);
-  el.style.visibility = 'visible';
-  let i = 0;
-  const finish = () => {
-    el.style.animation = 'none'; // already on screen; don't replay the entrance
-    el.innerHTML = original;
-    el.removeAttribute('aria-label');
-    el.style.minHeight = '';
-    root.classList.remove('intro');
+  // Measure and type only once the cursive name font is in, so the height and letters match.
+  const ready = document.fonts?.load ? document.fonts.load('1em "Cedarville Cursive"') : Promise.resolve();
+  const begin = () => {
+    el.style.minHeight = el.getBoundingClientRect().height + 'px';
+    el.setAttribute('aria-label', el.textContent);
+    const typed = document.createElement('span');
+    typed.setAttribute('aria-hidden', 'true');
+    const caret = document.createElement('span');
+    caret.className = 'type-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    el.replaceChildren(typed, caret);
+    el.style.visibility = 'visible';
+    let i = 0;
+    const finish = () => {
+      el.style.animation = 'none'; // already on screen; don't replay the entrance
+      el.innerHTML = original;
+      el.removeAttribute('aria-label');
+      el.style.minHeight = '';
+      root.classList.remove('intro');
+    };
+    const step = () => {
+      if (i >= chars.length) { setTimeout(finish, 260); return; }
+      const c = chars[i++];
+      if (c === '\n') typed.appendChild(document.createElement('br')); else typed.append(c);
+      setTimeout(step, c === ' ' ? 18 : 32);
+    };
+    setTimeout(step, 420);
   };
-  const step = () => {
-    if (i >= chars.length) { setTimeout(finish, 260); return; }
-    const c = chars[i++];
-    if (c === '\n') typed.appendChild(document.createElement('br')); else typed.append(c);
-    setTimeout(step, c === ' ' ? 18 : 32);
-  };
-  setTimeout(step, 420);
+  Promise.race([ready, new Promise(r => setTimeout(r, 1200))]).catch(() => {}).then(begin);
 })();
 // Homepage photo: click to flip it over and back. The handwritten note changes each
 // time the back comes up, four versions in all; the last one stays (per page load).
@@ -1835,7 +1850,7 @@ document.addEventListener('copy', e => {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-© <span id="copy-year"></span> Rony Rodríguez-Ramírez
+© <span id="copy-year"></span> Rony Rodríguez-Ramírez · Made with <a href="https://quarto.org">Quarto</a> in <svg class="footer-r" viewbox="0 0 24 24" aria-hidden="true"><path d="M12 2.746c-6.627 0-12 3.599-12 8.037 0 3.897 4.144 7.144 9.64 7.880V16.26c-2.924-.915-4.925-2.755-4.925-4.877 0-3.035 4.084-5.494 9.120-5.494 5.038 0 8.757 1.683 8.757 5.494 0 1.976-.999 3.379-2.662 4.272.090.066.174.128.258.216.169.149.250.363.372.544 2.128-1.450 3.440-3.437 3.440-5.631 0-4.440-5.373-8.038-12-8.038zm-2.111 4.990v13.516l4.093-.002-.002-5.291h1.100c.225 0 .321.066.549.250.272.220.715.982.715.982l2.164 4.063 4.627-.002-2.864-4.826s-.086-.193-.265-.383a2.220 2.220 0 00-.582-.416c-.422-.214-1.149-.434-1.149-.434s3.578-.264 3.578-3.826c0-3.562-3.744-3.630-3.744-3.630zm4.127 2.930l2.478.002s1.149-.062 1.149 1.127c0 1.165-1.149 1.170-1.149 1.170h-2.478zm1.754 6.119c-.494.049-1.012.079-1.540.088v1.807a16.622 16.622 0 002.370-.473l-.471-.891s-.108-.183-.248-.394c-.039-.054-.080-.098-.111-.137z"></path></svg> R
 <script>
   document.addEventListener('DOMContentLoaded', () =>
     document.getElementById('copy-year').textContent = new Date().getFullYear()

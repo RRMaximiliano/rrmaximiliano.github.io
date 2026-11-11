@@ -13,7 +13,7 @@ metadata-files:
 ::: {.home-side}
 
 ```{=html}
-<div class="home-name" role="heading" aria-level="1">Rony Rodrigo Maximiliano<br>Rodríguez-Ramírez</div>
+<div class="home-name" role="heading" aria-level="1">Rony Rodrigo<br>Maximiliano<br>Rodríguez-Ramírez</div>
 <div class="home-affil">Harvard University</div>
 <div class="home-photo-wrap">
 <button type="button" class="home-photo-btn" aria-pressed="false" aria-label="Flip the photo">

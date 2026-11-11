@@ -11,6 +11,7 @@ $rule:    #e4e4e7 !default;   // hairlines
 $faint:   #b8b8bf !default;   // tree branches, empty progress
 $code-bg: #f4f4f5 !default;
 $accent:  #A51C30 !default;   // Harvard crimson; try #1b4ed8 for T3 blue
+$crimson: #A51C30 !default;   // Harvard crimson, kept even if $accent changes (homepage affiliation)
 $pen:     #c8102e !default;   // red pen: Stata errors (404 page), Reviewer 2's comments
 
 // ── Type ──
@@ -309,7 +310,8 @@ nav#TOC.toc-tree.tree-init .rail-title { transition: none; }
 // ── Footer ──
 .nav-footer {
   @extend %label;
-  .footer-gh { width: 12px; height: 12px; vertical-align: -1px; fill: currentColor; }
+  .footer-gh, .footer-r { width: 12px; height: 12px; vertical-align: -1px; fill: currentColor; }
+  .footer-r { margin-right: .1em; }
   border-top: 1px solid $rule;
   a { color: $muted; }
   a:hover { color: $accent; }
@@ -326,11 +328,11 @@ nav#TOC.toc-tree.tree-init .rail-title { transition: none; }
   }
   .home-side { align-self: start; position: sticky; top: 5rem; }
   .home-name {
-    font-family: $serif; font-weight: 500; color: $ink;
-    font-size: 1.75rem; line-height: 1.15; letter-spacing: -.01em;
+    font-family: "Cedarville Cursive", $serif; font-weight: 400; color: $ink;
+    font-size: 1.9rem; line-height: 1.3; letter-spacing: 0; // three set lines (see index.qmd); the last fits the 290px column
   }
   .home-affil {
-    @extend %label; font-size: .78rem;
+    @extend %label; font-size: .78rem; color: $crimson;
     margin: .5rem 0 1rem; padding-bottom: 1rem; border-bottom: 1px solid $rule;
   }
   .home-photo { display: block; width: 100%; max-width: 240px; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
@@ -729,3 +731,142 @@ body.r2 .pub-title, body.r2 .pub-title a {
   pointer-events: none;
 }
 .cv-updated[data-latex]:not(:empty):hover::after { opacity: 1; visibility: visible; transition-delay: .4s, .4s; }
+
+// ── Blog figures ──
+// HTML diagrams for posts (first used in blog/2026/…-reviewing-research-code).
+// Box kinds: .auto (a check runs), .person (someone decides), .recovery (after it's out).
+.bf { margin: 2rem 0 2.25rem; font-family: $serif; }
+.bf figcaption { margin-top: 1rem; font-size: .9rem; line-height: 1.4; color: $muted; }
+.bf-tag {
+  display: block; margin-bottom: .15rem;
+  font-family: $mono; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: $ink;
+}
+.bf-box {
+  display: flex; flex-direction: column; gap: .2rem;
+  padding: .6rem .7rem; border-radius: .4rem; border: 1px solid $rule;
+  strong { font-weight: 500; font-size: .95rem; line-height: 1.25; color: $ink; }
+  span { font-size: .84rem; line-height: 1.35; color: $muted; }
+  &.auto { background: $code-bg; }
+  &.person { background: $paper; border-color: $accent; }
+  &.recovery { background: transparent; border-style: dashed; border-color: $faint; }
+}
+.bf-shot img { display: block; width: 100%; height: auto; border: 1px solid $rule; border-radius: .5rem; }
+.bf-who {
+  font-family: $mono; font-style: normal; font-size: .66rem; letter-spacing: .02em; color: $muted;
+}
+.bf-legend {
+  display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; margin-top: 1rem; padding-top: .75rem;
+  border-top: 1px solid $rule; font-family: $mono; font-size: .7rem; color: $muted;
+  span { display: inline-flex; align-items: center; gap: .45rem; }
+  span::before { content: ""; width: .85rem; height: .6rem; border-radius: .15rem; border: 1px solid $rule; }
+  .auto::before { background: $code-bg; }
+  .person::before { border-color: $accent; }
+  .recovery::before { border-style: dashed; border-color: $faint; }
+}
+
+// Fig: phases on a rail, like a timeline
+.bf-phase {
+  position: relative; display: grid; grid-template-columns: 7.75rem 1fr; gap: .75rem;
+  padding-bottom: 1.1rem;
+  &:has(+ .bf-phase)::before {
+    content: ""; position: absolute; left: .3rem; top: .9rem; bottom: -.15rem;
+    border-left: 1px solid $faint;
+  }
+}
+.bf-phase-label {
+  position: relative; padding: .55rem 0 0 1.25rem;
+  font-family: $mono; font-size: .68rem; line-height: 1.35; letter-spacing: .06em; text-transform: uppercase; color: $muted;
+  &::before {
+    content: ""; position: absolute; left: 0; top: .62rem; width: .62rem; height: .62rem;
+    border-radius: 50%; background: $paper; border: 1px solid $muted;
+  }
+}
+.bf-boxes { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: .5rem; }
+.bf-box code { padding: .05em .25em; font-size: .74rem; }
+
+// Fig: layers with holes; bugs fall through some and stop at others
+.bf-stack {
+  --lab: 11rem; --row: 1.9rem; --gap: .6rem; --top: 1.9rem;
+  position: relative; display: grid; grid-template-columns: var(--lab) 1fr; column-gap: .75rem; row-gap: var(--gap);
+  padding-top: var(--top);
+}
+.bf-stack-head {
+  position: absolute; top: 0; left: calc(var(--lab) + .75rem);
+  font-family: $mono; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: $pen;
+}
+.bf-layer-name {
+  display: flex; align-items: center; height: var(--row);
+  font-family: $mono; font-size: .72rem; line-height: 1.15; color: $ink-2;
+}
+.bf-bar {
+  position: relative; height: var(--row); border-radius: .3rem;
+  background: $code-bg; border: 1px solid $rule;
+  i { position: absolute; top: -1px; bottom: -1px; width: 5%; margin-left: -2.5%; background: $paper; }
+  &.floor { background: transparent; border-style: dashed; border-color: $faint;
+    display: flex; align-items: center; padding-left: .6rem;
+    font-family: $mono; font-size: .7rem; color: $muted; }
+}
+.bf-bugs { position: absolute; z-index: 1; top: 0; bottom: 0; left: calc(var(--lab) + .75rem); right: 0; pointer-events: none; }
+.bf-bug {
+  position: absolute; top: .9rem; width: 0; border-left: 2px solid $pen; margin-left: -1px;
+  height: calc(var(--top) - .9rem + (var(--stop) - 1) * (var(--row) + var(--gap)) - 2px);
+  &::after { // the × where a layer stops it
+    content: "×"; position: absolute; bottom: -.62rem; left: -.42rem;
+    font-family: $mono; font-size: 1rem; line-height: 1; color: $pen; font-weight: 600;
+  }
+  &.escapes { height: calc(var(--top) - .9rem + var(--layers) * (var(--row) + var(--gap)) + var(--row) / 2);
+    border-left-style: dashed;
+    &::after { content: "↓"; bottom: -.5rem; left: -.36rem; }
+  }
+}
+
+// Fig: a loop on a 3×3 grid (1 2 3 / ↑ center ↓ / 6 5 4)
+.bf-loop {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem 1.6rem;
+  grid-template-areas: "s1 s2 s3" "mid mid mid" "s6 s5 s4";
+  .bf-box { position: relative; }
+  .s1 { grid-area: s1; } .s2 { grid-area: s2; } .s3 { grid-area: s3; }
+  .s4 { grid-area: s4; } .s5 { grid-area: s5; } .s6 { grid-area: s6; }
+  .bf-box b { font-family: $mono; font-weight: 400; font-size: .66rem; color: $muted; }
+  .s1::after, .s2::after { content: "→"; right: -1.3rem; top: 50%; transform: translateY(-50%); }
+  .s5::after, .s4::after { content: "←"; left: -1.3rem; top: 50%; transform: translateY(-50%); }
+  .s3::before { content: "↓"; left: 50%; bottom: -1.5rem; transform: translateX(-50%); }
+  .s6::before { content: "↑"; left: 50%; top: -1.5rem; transform: translateX(-50%); }
+  .bf-box::after, .bf-box::before { position: absolute; font-family: $mono; font-size: .9rem; color: $muted; }
+}
+.bf-loop-mid {
+  grid-area: mid; align-self: center; text-align: center; margin: 0 auto; max-width: 22rem;
+  font-family: 'Gochi Hand', cursive; font-size: 1.1rem; line-height: 1.25; color: $accent;
+}
+
+// Fig: before and after bars
+.bf-ba { display: grid; gap: 1rem; }
+.bf-ba-row {
+  display: grid; grid-template-columns: 12rem 1fr; gap: .25rem .9rem; align-items: center;
+  > strong { grid-row: span 2; font-weight: 500; font-size: .92rem; line-height: 1.25; color: $ink; }
+  > strong small { display: block; font-family: $mono; font-weight: 400; font-size: .66rem; color: $muted; }
+}
+.bf-ba-bar {
+  display: flex; align-items: center; gap: .5rem; font-family: $mono; font-size: .72rem; color: $muted;
+  i { display: block; flex: none; height: .7rem; width: calc(var(--w) * .8); border-radius: .15rem; background: $faint; }
+  &.after { color: $ink; }
+  &.after i { background: $accent; }
+}
+
+@media (max-width: 576px) {
+  .bf-phase { grid-template-columns: 1fr; gap: .4rem; }
+  .bf-phase .bf-boxes { padding-left: 1.25rem; }
+  .bf-phase-label { padding-top: 0; }
+  .bf-phase-label::before { top: .05rem; }
+  .bf-phase:has(+ .bf-phase)::before { top: .4rem; }
+  .bf-stack { --lab: 6.75rem; --row: 2.2rem; }
+  .bf-layer-name { font-size: .64rem; }
+  .bf-loop {
+    grid-template-columns: 1fr; grid-template-areas: "s1" "s2" "s3" "s4" "s5" "s6" "mid"; gap: 1.4rem;
+    .bf-box::after, .bf-box::before { content: none; }
+    .s1::after, .s2::after, .s3::after, .s4::after, .s5::after {
+      content: "↓"; left: 50%; bottom: -1.3rem; right: auto; top: auto; transform: translateX(-50%);
+    }
+  }
+  .bf-ba-row { grid-template-columns: 1fr; > strong { grid-row: auto; } }
+}
