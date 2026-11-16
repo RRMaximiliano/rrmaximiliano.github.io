@@ -16,7 +16,11 @@
 (() => {
   const root = document.documentElement;
   try {
-    if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
+    // Paper is a light-mode look: skip it when the page will open dark (Quarto saves "alternate"
+    // for dark; with nothing saved it follows the device setting)
+    const scheme = localStorage.getItem('quarto-color-scheme');
+    const dark = scheme === 'alternate' || (scheme === null && matchMedia('(prefers-color-scheme: dark)').matches);
+    if (localStorage.getItem('site-theme') === 'paper' && !dark) root.classList.add('theme-paper');
     const g = localStorage.getItem('site-grain');
     if (g !== null && /^\d+$/.test(g) && +g > 0) {   // grain is off unless the visitor turned it on
       root.style.setProperty('--grain', Math.min(100, +g) / 100);

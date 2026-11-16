@@ -115,7 +115,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 (() => {
   const root = document.documentElement;
   try {
-    if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
+    // Paper is a light-mode look: skip it when the page will open dark (Quarto saves "alternate"
+    // for dark; with nothing saved it follows the device setting)
+    const scheme = localStorage.getItem('quarto-color-scheme');
+    const dark = scheme === 'alternate' || (scheme === null && matchMedia('(prefers-color-scheme: dark)').matches);
+    if (localStorage.getItem('site-theme') === 'paper' && !dark) root.classList.add('theme-paper');
     const g = localStorage.getItem('site-grain');
     if (g !== null && /^\d+$/.test(g) && +g > 0) {   // grain is off unless the visitor turned it on
       root.style.setProperty('--grain', Math.min(100, +g) / 100);
@@ -1537,19 +1541,24 @@ document.addEventListener('copy', e => {
 // light mode (html.theme-paper); light and dark go through Quarto's own toggle, so the moon in
 // the navbar keeps working and stays in sync. Saved in localStorage under site-theme and
 // site-grain, and applied before the page draws by html/head.html. Styles in html/custom.scss.
+// Paper only shows in light mode: in dark mode Quarto keeps the light stylesheet on under the
+// dark one, so the class has to come off or paper's colors would cover the dark theme.
 window.siteAppearance = (() => {
   const root = document.documentElement;
   const store = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
   const isDark = () => document.body.classList.contains('quarto-dark');
-  const theme = () => isDark() ? 'dark' : root.classList.contains('theme-paper') ? 'paper' : 'light';
+  let wantPaper = (() => { try { return localStorage.getItem('site-theme') === 'paper'; } catch (e) { return false; } })();
+  const applyPaper = () => root.classList.toggle('theme-paper', wantPaper && !isDark());
+  const theme = () => isDark() ? 'dark' : wantPaper ? 'paper' : 'light';
   const grainNow = () => Math.round(100 * (parseFloat(getComputedStyle(root).getPropertyValue('--grain')) || 0));
   let sync = () => {};
   const set = t => {
     if (t !== 'dark') {
-      root.classList.toggle('theme-paper', t === 'paper');
-      store('site-theme', t === 'paper' ? 'paper' : null);
+      wantPaper = t === 'paper';
+      store('site-theme', wantPaper ? 'paper' : null);
     }
     if ((t === 'dark') !== isDark() && window.quartoToggleColorScheme) window.quartoToggleColorScheme();
+    applyPaper();
     sync();
   };
   const grain = pct => {
@@ -1582,10 +1591,11 @@ window.siteAppearance = (() => {
     };
     buttons.forEach(b => b.addEventListener('click', () => set(b.dataset.theme)));
     range.addEventListener('input', () => grain(+range.value));
-    // The navbar moon switches light/dark too; follow it
-    new MutationObserver(() => sync()).observe(document.body, { attributes: true, attributeFilter: ['class'] });
     sync();
   };
+  // Light/dark can also change from the navbar moon: follow it (paper off in dark, back on in light)
+  new MutationObserver(() => { applyPaper(); sync(); }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  applyPaper();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
   else build();
   return { set, grain, theme };
