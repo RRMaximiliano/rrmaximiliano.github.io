@@ -30,3 +30,9 @@ listing:
     include:
       group: ta
     sort: false
+  - id: tools
+    contents: ../projects/projects.yml
+    template: ../html/tools.ejs
+    include:
+      also: teaching
+    sort: false

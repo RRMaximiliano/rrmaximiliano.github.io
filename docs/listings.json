@@ -4,6 +4,10 @@
     "items": []
   },
   {
+    "listing": "/projects/index.html",
+    "items": []
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/2021/2021-05-28-tvsc-stata-command-for-tables/index.html",

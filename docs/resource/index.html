@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9042fd2dabdb1ee79f6720f79393cc10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1cfb568201439968e745a6e4b69cd4d1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9042fd2dabdb1ee79f6720f79393cc10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-faf90329cf656585dd83a56b06bbefdd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3af4b96bd8fea551a8f2fcbff7242764.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-faf90329cf656585dd83a56b06bbefdd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -70,6 +70,21 @@ ul.task-list li input[type="checkbox"] {
 (() => {
   const h = new Date().getHours();
   if (h >= 21 || h < 6 || /[?&]night\b/.test(location.search)) document.documentElement.classList.add('flower-night');
+})();
+</script>
+<script>
+// Appearance saved from the footer control (html/site.html): the paper theme and the grain
+// strength. Applied here, before anything draws, so the page never flashes the default.
+(() => {
+  const root = document.documentElement;
+  try {
+    if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
+    const g = localStorage.getItem('site-grain');
+    if (g !== null && /^\d+$/.test(g)) {
+      root.style.setProperty('--grain', Math.min(100, +g) / 100);
+      if (+g === 0) root.classList.add('no-grain');
+    }
+  } catch (e) {}
 })();
 </script>
 <script>
@@ -1084,6 +1099,7 @@ document.addEventListener('click', e => {
     '  reg sleep phd          a well-identified result',
     '  which rrmaximiliano    version information',
     '  view browse "/"        go to a page (also: cd research, cd ~)',
+    '  set scheme paper       change the look (light, dark, paper)',
     '  di 2+2                 display',
     '  cls                    clear the screen',
   ];
@@ -1188,6 +1204,15 @@ document.addEventListener('click', e => {
         if (/^sleep\s+phd\b/i.test(args)) { reg.forEach(l => add(l)); return; }
         const missing = args.split(/[\s,]+/).find(x => x && !/^(sleep|phd)$/i.test(x)) || 'varlist';
         err(`variable ${missing} not found`, 111);
+        return;
+      }
+      if (v === 'set' && /^scheme\b/i.test(args)) {   // the site's appearance (footer control)
+        const s = args.replace(/^scheme\s*/i, '').replace(/,.*$/, '').trim().toLowerCase();
+        const as = { light: 'light', s2color: 'light', dark: 'dark', s1rcolor: 'dark', paper: 'paper', s1mono: 'paper' }[s];
+        if (!s) { add(`scheme is ${window.siteAppearance?.theme() || 'light'}`); add('. * try: set scheme light | dark | paper', 'stata-note'); return; }
+        if (!as || !window.siteAppearance) { err(`scheme ${s} not found`, 111); return; }
+        window.siteAppearance.set(as);
+        add(`(scheme set to ${as})`, 'stata-note');
         return;
       }
       if (v === 'ssc' || v === 'net') { add('nice try. this is a website.', 'stata-note'); return; }
@@ -1385,6 +1410,123 @@ document.addEventListener('copy', e => {
   p.className = 'oh-late';
   p.textContent = `It's ${time} where you are. Office hours aren't right now. Go to sleep; the problem set will still be there in the morning.`;
   notice.before(p);
+})();
+
+// Appearance, in the footer: light / dark / paper, and how much grain. Paper is a variant of
+// light mode (html.theme-paper); light and dark go through Quarto's own toggle, so the moon in
+// the navbar keeps working and stays in sync. Saved in localStorage under site-theme and
+// site-grain, and applied before the page draws by html/head.html. Styles in html/custom.scss.
+window.siteAppearance = (() => {
+  const root = document.documentElement;
+  const store = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
+  const isDark = () => document.body.classList.contains('quarto-dark');
+  const theme = () => isDark() ? 'dark' : root.classList.contains('theme-paper') ? 'paper' : 'light';
+  const grainNow = () => Math.round(100 * (parseFloat(getComputedStyle(root).getPropertyValue('--grain')) || 0));
+  let sync = () => {};
+  const set = t => {
+    if (t !== 'dark') {
+      root.classList.toggle('theme-paper', t === 'paper');
+      store('site-theme', t === 'paper' ? 'paper' : null);
+    }
+    if ((t === 'dark') !== isDark() && window.quartoToggleColorScheme) window.quartoToggleColorScheme();
+    sync();
+  };
+  const grain = pct => {
+    pct = Math.max(0, Math.min(100, Math.round(pct)));
+    root.style.setProperty('--grain', pct / 100);
+    root.classList.toggle('no-grain', pct === 0);
+    store('site-grain', pct);
+    sync();
+  };
+
+  // The footer comes after this script in the page, so build the control once it exists
+  const build = () => {
+    const slot = document.querySelector('.nav-footer-center');
+    if (!slot) return;
+    const box = document.createElement('div');
+    box.className = 'appearance';
+    box.innerHTML = `
+      <span class="ap-group" role="group" aria-label="Appearance">
+        ${['light', 'dark', 'paper'].map(t => `<button type="button" data-theme="${t}">${t}</button>`).join('<span aria-hidden="true">·</span>')}
+      </span>
+      <label class="ap-grain">grain <input type="range" min="0" max="100" step="5"><output></output></label>`;
+    slot.replaceChildren(box);
+    const buttons = [...box.querySelectorAll('button')];
+    const range = box.querySelector('input'), out = box.querySelector('output');
+    sync = () => {
+      const t = theme();
+      buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.theme === t)));
+      const g = grainNow();
+      range.value = g; out.textContent = `${g}%`;
+    };
+    buttons.forEach(b => b.addEventListener('click', () => set(b.dataset.theme)));
+    range.addEventListener('input', () => grain(+range.value));
+    // The navbar moon switches light/dark too; follow it
+    new MutationObserver(() => sync()).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    sync();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+  return { set, grain, theme };
+})();
+
+// Software and Data: filter the list by type (all · stata · r · …), and copy an install line
+// with one click. The chosen filter goes in the address (?type=stata) so it can be shared.
+(() => {
+  const bar = document.querySelector('.proj-filters');
+  if (!bar) return;
+  const rows = [...document.querySelectorAll('.proj')];
+  const types = ['stata', 'r', 'latex', 'apps', 'teaching', 'data'];
+  const has = (row, t) => t === 'all' || row.dataset.types.split(' ').includes(t);
+  const shown = ['all', ...types.filter(t => rows.some(r => has(r, t)))];
+  bar.innerHTML = shown.map(t =>
+    `<button type="button" data-type="${t}">${t}<span class="count">${rows.filter(r => has(r, t)).length}</span></button>`).join('');
+  const buttons = [...bar.querySelectorAll('button')];
+  const pick = (t, save) => {
+    if (!shown.includes(t)) t = 'all';
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.type === t)));
+    rows.forEach(r => { r.hidden = !has(r, t); });
+    if (save) {
+      const url = new URL(location.href);
+      t === 'all' ? url.searchParams.delete('type') : url.searchParams.set('type', t);
+      history.replaceState(null, '', url);
+    }
+  };
+  buttons.forEach(b => b.addEventListener('click', () => pick(b.dataset.type, true)));
+  pick(new URLSearchParams(location.search).get('type') || 'all', false);
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.proj-install');
+    if (!btn) return;
+    const text = btn.dataset.copy;
+    const done = () => siteToast('Copied. Paste it into ' + (/^net install/.test(text) ? 'Stata.' : 'R.'));
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
+  });
+})();
+
+// Homepage: the time in Cambridge, next to the location ("Cambridge, MA · 3:12 p.m."),
+// and how far that is from the visitor's own clock. Late at night it says I'm probably asleep.
+(() => {
+  const el = document.querySelector('.home-where-time');
+  if (!el) return;
+  const tz = 'America/New_York';
+  const draw = () => {
+    const now = new Date();
+    const time = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' })
+      .replace('AM', 'a.m.').replace('PM', 'p.m.');
+    // Offset between Cambridge and the visitor, in hours (from the two clocks' readings)
+    const there = new Date(now.toLocaleString('en-US', { timeZone: tz }));
+    const here = new Date(now.toLocaleString('en-US'));
+    const diff = Math.round((there - here) / 36e5 * 2) / 2;
+    const hour = there.getHours();
+    let note = '';
+    if (hour >= 1 && hour < 6) note = 'probably asleep';
+    else if (diff) note = `${Math.abs(diff)}h ${diff < 0 ? 'behind' : 'ahead of'} you`;
+    el.textContent = time + (note ? ` · ${note}` : '');
+    el.closest('.home-where').title = `Time zone: ${tz}`;
+  };
+  draw();
+  setInterval(draw, 30000);
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

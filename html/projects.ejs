@@ -1,0 +1,32 @@
+<%
+// Renders projects/projects.yml on /projects: one numbered list, newest first.
+// Edit the YAML, not this file. Filters and copy buttons: html/site.html.
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+let n = 0;
+const row = item => {
+  n += 1;
+  const num = String(n).padStart(2, '0');
+  const href = item.live || item.repo;
+  const title = href ? `<a href="${esc(href)}">${esc(item.title)}</a>` : esc(item.title);
+  const links = [];
+  if (item.live) links.push(`<a href="${esc(item.live)}">Live site</a>`);
+  if (item.repo) links.push(`<a href="${esc(item.repo)}">GitHub</a>`);
+  if (item.release) links.push(`<a href="${esc(item.release)}">Releases</a>`);
+  return `<li class="proj" data-types="${esc((item.types || []).join(' '))}">
+<span class="proj-num" aria-hidden="true">${num}</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">${esc(item.years)}</span>${item.kind ? `<span class="proj-kind">${esc(item.kind)}</span>` : ''}</div>
+<div class="proj-title">${title}${item.status ? ` <span class="proj-status">${esc(item.status)}</span>` : ''}</div>
+<p class="proj-desc">${esc(item.description)}</p>
+${item.install ? `<button type="button" class="proj-install" data-copy="${esc(item.install)}" aria-label="Copy the install command"><code>${esc(item.install)}</code><span class="proj-copy" aria-hidden="true">copy</span></button>` : ''}
+${links.length ? `<div class="proj-links">${links.join('<span class="sep"> | </span>')}</div>` : ''}
+</div>
+</li>`;
+};
+%>
+```{=html}
+<div class="proj-filters" role="group" aria-label="Show projects by type"></div>
+<ol class="proj-list">
+<%= items.map(row).join('\n') %>
+</ol>
+```

@@ -33,3 +33,10 @@ toc-location: right
 
 ::: {#ta}
 :::
+
+## Teaching Tools
+
+<!-- Apps I've built for teaching. They live in projects/projects.yml (marked "also: teaching") and also show on Software and Data. -->
+
+::: {#tools}
+:::

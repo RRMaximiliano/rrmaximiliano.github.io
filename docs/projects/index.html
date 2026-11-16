@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -42,10 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9042fd2dabdb1ee79f6720f79393cc10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-1cfb568201439968e745a6e4b69cd4d1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9042fd2dabdb1ee79f6720f79393cc10.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-faf90329cf656585dd83a56b06bbefdd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3af4b96bd8fea551a8f2fcbff7242764.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-faf90329cf656585dd83a56b06bbefdd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -61,6 +62,36 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-projects .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-years','listing-types','listing-kind','listing-description','listing-repo','listing-release','listing-status','listing-live','listing-also','listing-install',{ data: ['index'] },{ data: ['categories'] }],
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-years","listing-types","listing-kind","listing-description","listing-repo","listing-release","listing-status","listing-live","listing-also","listing-install"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-projects'] = new List('listing-projects', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <!-- Favicon: sacuanjoche, always the white version (#dce8e8); the iPhone icon sits on the dark-mode background. Line version kept in brand/. -->
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -71,6 +102,21 @@ ul.task-list li input[type="checkbox"] {
 (() => {
   const h = new Date().getHours();
   if (h >= 21 || h < 6 || /[?&]night\b/.test(location.search)) document.documentElement.classList.add('flower-night');
+})();
+</script>
+<script>
+// Appearance saved from the footer control (html/site.html): the paper theme and the grain
+// strength. Applied here, before anything draws, so the page never flashes the default.
+(() => {
+  const root = document.documentElement;
+  try {
+    if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
+    const g = localStorage.getItem('site-grain');
+    if (g !== null && /^\d+$/.test(g)) {
+      root.style.setProperty('--grain', Math.min(100, +g) / 100);
+      if (+g === 0) root.classList.add('no-grain');
+    }
+  } catch (e) {}
 })();
 </script>
 <script>
@@ -256,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -484,32 +530,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Tree</h2>
-   
-  <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a>
-  <ul class="collapse">
-  <li><a href="#tvsc" id="toc-tvsc" class="nav-link" data-scroll-target="#tvsc">tvsc</a></li>
-  <li><a href="#eleccionesnic" id="toc-eleccionesnic" class="nav-link" data-scroll-target="#eleccionesnic">eleccionesNic</a></li>
-  </ul></li>
-  <li><a href="#data-repositories" id="toc-data-repositories" class="nav-link" data-scroll-target="#data-repositories">Data Repositories</a>
-  <ul class="collapse">
-  <li><a href="#national-police-of-nicaragua" id="toc-national-police-of-nicaragua" class="nav-link" data-scroll-target="#national-police-of-nicaragua">National Police of Nicaragua</a></li>
-  <li><a href="#instituto-de-medicina-legal" id="toc-instituto-de-medicina-legal" class="nav-link" data-scroll-target="#instituto-de-medicina-legal">Instituto de Medicina Legal</a></li>
-  <li><a href="#instituto-nicaragüense-de-seguridad-social" id="toc-instituto-nicaragüense-de-seguridad-social" class="nav-link" data-scroll-target="#instituto-nicaragüense-de-seguridad-social">Instituto Nicaragüense de Seguridad Social</a></li>
-  <li><a href="#covid-19-nicaragua-observatorio-ciudadano" id="toc-covid-19-nicaragua-observatorio-ciudadano" class="nav-link" data-scroll-target="#covid-19-nicaragua-observatorio-ciudadano">COVID-19 Nicaragua (Observatorio Ciudadano)</a></li>
-  <li><a href="#nicaraguan-rulers" id="toc-nicaraguan-rulers" class="nav-link" data-scroll-target="#nicaraguan-rulers">Nicaraguan Rulers</a></li>
-  <li><a href="#nicaraguan-population-18th-and-19th-century" id="toc-nicaraguan-population-18th-and-19th-century" class="nav-link" data-scroll-target="#nicaraguan-population-18th-and-19th-century">Nicaraguan Population — 18th and 19th Century</a></li>
-  </ul></li>
-  <li><a href="#extra-translated-documents" id="toc-extra-translated-documents" class="nav-link" data-scroll-target="#extra-translated-documents">Extra: Translated Documents</a>
-  <ul class="collapse">
-  <li><a href="#best-practices-for-data-and-code-management" id="toc-best-practices-for-data-and-code-management" class="nav-link" data-scroll-target="#best-practices-for-data-and-code-management">Best Practices for Data and Code Management</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -517,66 +538,330 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>I share here some software and datasets I’ve created or cleaned that may be useful to other researchers.</p>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<section id="tvsc" class="level3">
-<h3 class="anchored" data-anchor-id="tvsc">tvsc</h3>
-<p><strong>Language</strong>: Stata<br>
-<strong>Description</strong>: Stata command to generate covariate balance tables in a publication-ready format.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/tvsc"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-<section id="eleccionesnic" class="level3">
-<h3 class="anchored" data-anchor-id="eleccionesnic">eleccionesNic</h3>
-<p><strong>Language</strong>: R<br>
-<strong>Description</strong>: R package to access presidential election results in Nicaragua from 1990 to 2006.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/eleccionesNic"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-</section>
-<section id="data-repositories" class="level2">
-<h2 class="anchored" data-anchor-id="data-repositories">Data Repositories</h2>
-<section id="national-police-of-nicaragua" class="level3">
-<h3 class="anchored" data-anchor-id="national-police-of-nicaragua">National Police of Nicaragua</h3>
-<p><strong>Description</strong>: Scraped official reports with information on crime types, complaints, and solved cases (1980–2019) at the department level. First publicly available tidy dataset on Nicaraguan crime.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/policia-nacional-nic-stats"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-<section id="instituto-de-medicina-legal" class="level3">
-<h3 class="anchored" data-anchor-id="instituto-de-medicina-legal">Instituto de Medicina Legal</h3>
-<p><strong>Description</strong>: Scraped official reports on violence typologies and total cases by medical jurisdiction.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/iml_nicaragua"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-<section id="instituto-nicaragüense-de-seguridad-social" class="level3">
-<h3 class="anchored" data-anchor-id="instituto-nicaragüense-de-seguridad-social">Instituto Nicaragüense de Seguridad Social</h3>
-<p><strong>Description</strong>: Scraped official reports with annual totals of insured individuals by gender.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/inss_nicaragua"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-<section id="covid-19-nicaragua-observatorio-ciudadano" class="level3">
-<h3 class="anchored" data-anchor-id="covid-19-nicaragua-observatorio-ciudadano">COVID-19 Nicaragua (Observatorio Ciudadano)</h3>
-<p><strong>Description</strong>: Scraped non-official COVID-19 reports from Observatorio Ciudadano with case counts and deaths at national and department level.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/observatorio-covid-nicaragua"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-<section id="nicaraguan-rulers" class="level3">
-<h3 class="anchored" data-anchor-id="nicaraguan-rulers">Nicaraguan Rulers</h3>
-<p><strong>Description</strong>: Hand-coded dataset of Nicaraguan rulers from 1508 to 2020. <strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/nicaraguan-rulers"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-<section id="nicaraguan-population-18th-and-19th-century" class="level3">
-<h3 class="anchored" data-anchor-id="nicaraguan-population-18th-and-19th-century">Nicaraguan Population — 18th and 19th Century</h3>
-<p><strong>Description</strong>: Digitized historical population data from archival sources for the 1700s and 1800s.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/poblacion-nicaragua-siglo-18-19"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
-</section>
-</section>
-<section id="extra-translated-documents" class="level2">
-<h2 class="anchored" data-anchor-id="extra-translated-documents">Extra: Translated Documents</h2>
-<section id="best-practices-for-data-and-code-management" class="level3">
-<h3 class="anchored" data-anchor-id="best-practices-for-data-and-code-management">Best Practices for Data and Code Management</h3>
-<p><strong>Description</strong>: Spanish translation of IPA’s “Best Practices for Data and Code Management”.<br>
-<strong>Repository</strong>: <a href="https://github.com/RRMaximiliano/practicas-datos-codigos"><iconify-icon inline="" icon="bi:github" aria-label="Icon github from bi Iconify.design set." title="Icon github from bi Iconify.design set."></iconify-icon></a></p>
+<!-- To add or edit a project, change projects/projects.yml. -->
+<p>Software, datasets, and apps I’ve built or cleaned that may be useful to other researchers.</p>
+<div id="listing-projects" class="quarto-listing quarto-listing-container-custom">
+<div class="proj-filters" role="group" aria-label="Show projects by type"></div>
+<ol class="proj-list">
+<li class="proj" data-types="stata apps">
+<span class="proj-num" aria-hidden="true">01</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026 — ongoing</span><span class="proj-kind">Stata · VS Code extension</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/stata-console">Stata Console for VS Code</a></div>
+<p class="proj-desc">An interactive Stata session inside VS Code: console, data viewer, variables panel, plots, and help viewer, in the spirit of what Positron does for R.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/stata-console">GitHub</a><span class="sep"> | </span><a href="https://github.com/RRMaximiliano/stata-console/releases">Releases</a></div>
+</div>
+</li>
+<li class="proj" data-types="stata">
+<span class="proj-num" aria-hidden="true">02</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026 — ongoing</span><span class="proj-kind">Stata · benchmark</span></div>
+<div class="proj-title">StataBench <span class="proj-status">in progress</span></div>
+<p class="proj-desc">A benchmark that tests whether AI models can do the work of a pre-doctoral RA in real Stata: cleaning messy data, merging and reshaping, and estimating treatment effects with the right inference, all graded automatically.</p>
+
+</div>
+</li>
+<li class="proj" data-types="latex">
+<span class="proj-num" aria-hidden="true">03</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026</span><span class="proj-kind">LaTeX package</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/highlightex">highlightex</a></div>
+<p class="proj-desc">Hand-drawn highlighters and mood stickers for LaTeX documents.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/highlightex">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="apps">
+<span class="proj-num" aria-hidden="true">04</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026 — ongoing</span><span class="proj-kind">web app</span></div>
+<div class="proj-title"><a href="https://econ-papers-terminal.vercel.app">Econ Papers Terminal</a> <span class="proj-status">prototype</span></div>
+<p class="proj-desc">A daily feed of new papers in labor, public, and education economics from NBER, CEPR, World Bank working papers, and the top journals.</p>
+
+<div class="proj-links"><a href="https://econ-papers-terminal.vercel.app">Live site</a></div>
+</div>
+</li>
+<li class="proj" data-types="teaching apps">
+<span class="proj-num" aria-hidden="true">05</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026 — ongoing</span><span class="proj-kind">teaching app</span></div>
+<div class="proj-title">Teachvatory <span class="proj-status">invite only</span></div>
+<p class="proj-desc">A workspace for course teaching teams. It brings in the class roster and quiz responses, shows how each question went, flags students who may need a check-in, summarizes open-ended answers with AI, and pulls it together into a short brief before each class.</p>
+
+</div>
+</li>
+<li class="proj" data-types="apps latex">
+<span class="proj-num" aria-hidden="true">06</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026</span><span class="proj-kind">desktop app</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/leafbridge">LeafBridge</a></div>
+<p class="proj-desc">Keeps a local paper folder in sync with Overleaf, for when one coauthor works locally with Git and the other works only in Overleaf.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/leafbridge">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">07</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2026</span><span class="proj-kind">database · website</span></div>
+<div class="proj-title"><a href="https://www.rrmaximiliano.com/ed-policies/">Latin America Education Policy Database</a></div>
+<p class="proj-desc">A catalog of 100+ education policies across Latin America and the Caribbean, evaluated or not, with their mechanisms, coverage, and the quality of the evidence behind them.</p>
+
+<div class="proj-links"><a href="https://www.rrmaximiliano.com/ed-policies/">Live site</a><span class="sep"> | </span><a href="https://github.com/RRMaximiliano/ed-policies">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">08</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2025</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/nicaraguan-public-schools">Nicaraguan Public Schools</a></div>
+<p class="proj-desc">All 10,252 schools in Nicaragua's 17 departments and 153 municipalities, scraped from the Ministry of Education's school map.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/nicaraguan-public-schools">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="stata apps">
+<span class="proj-num" aria-hidden="true">09</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2025</span><span class="proj-kind">Raycast extension</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/stata-raycast-extension">Stata for Raycast</a></div>
+<p class="proj-desc">Open recent do-files and datasets, start do-files from templates, and look up Stata documentation from Raycast.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/stata-raycast-extension">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="r apps">
+<span class="proj-num" aria-hidden="true">10</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2025</span><span class="proj-kind">Raycast extension</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/rstudio-raycast-extension">RStudio for Raycast</a></div>
+<p class="proj-desc">Open recent RStudio projects and create new ones from Raycast.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/rstudio-raycast-extension">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="apps">
+<span class="proj-num" aria-hidden="true">11</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2025 — 2026</span><span class="proj-kind">Chrome extension</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/harvard-ezproxy-extension">Harvard Library Redirect</a></div>
+<p class="proj-desc">Reopens the current page through the Harvard Library login, so paywalled articles load with one click.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/harvard-ezproxy-extension">GitHub</a><span class="sep"> | </span><a href="https://github.com/RRMaximiliano/harvard-ezproxy-extension/releases">Releases</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">12</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2024</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/international-students">International Students in the U.S.</a></div>
+<p class="proj-desc">Data and figures on international students in the United States.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/international-students">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="stata">
+<span class="proj-num" aria-hidden="true">13</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2023</span><span class="proj-kind">Stata command</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/awf">awf</a> <span class="proj-status">alpha</span></div>
+<p class="proj-desc">A Stata implementation of the distribution-sensitive index of welfare, poverty, and inequality proposed by Kraay et al. (2023).</p>
+<button type="button" class="proj-install" data-copy="net install awf, from(&quot;https://raw.githubusercontent.com/rrmaximiliano/awf/main&quot;) replace" aria-label="Copy the install command"><code>net install awf, from("https://raw.githubusercontent.com/rrmaximiliano/awf/main") replace</code><span class="proj-copy" aria-hidden="true">copy</span></button>
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/awf">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data r">
+<span class="proj-num" aria-hidden="true">14</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2022 — ongoing</span><span class="proj-kind">dataset · Shiny app</span></div>
+<div class="proj-title"><a href="https://rrmaximiliano.shinyapps.io/inide-canasta-basica/">Canasta Básica de Nicaragua</a></div>
+<p class="proj-desc">Nicaragua's basic food basket prices from INIDE, collected automatically, with real (inflation-adjusted) prices and an app to explore them.</p>
+
+<div class="proj-links"><a href="https://rrmaximiliano.shinyapps.io/inide-canasta-basica/">Live site</a><span class="sep"> | </span><a href="https://github.com/RRMaximiliano/inide-canasta-basica">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">15</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2022 — 2024</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/migrants_usbp">Migrant Encounters at the U.S. Border</a></div>
+<p class="proj-desc">U.S. Border Patrol encounters by country of origin, region, and border sector since 2007, with figures for Nicaragua.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/migrants_usbp">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="r latex">
+<span class="proj-num" aria-hidden="true">16</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2022</span><span class="proj-kind">R · guide</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/r-latex-tables-sum-stats">Summary Statistics Tables in R</a></div>
+<p class="proj-desc">Examples of summary-statistics and balance tables with modelsummary and gtsummary, for people coming to R from Stata.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/r-latex-tables-sum-stats">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="stata latex">
+<span class="proj-num" aria-hidden="true">17</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">Stata command</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/send_est">send_est</a></div>
+<p class="proj-desc">Writes a stored estimate to a LaTeX or text file, so the numbers in a paper update with the code.</p>
+<button type="button" class="proj-install" data-copy="net install send_est, from(&quot;https://raw.githubusercontent.com/rrmaximiliano/send_est/main&quot;) replace" aria-label="Copy the install command"><code>net install send_est, from("https://raw.githubusercontent.com/rrmaximiliano/send_est/main") replace</code><span class="proj-copy" aria-hidden="true">copy</span></button>
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/send_est">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="stata">
+<span class="proj-num" aria-hidden="true">18</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">Stata command</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/tvsc">tvsc</a></div>
+<p class="proj-desc">Covariate balance tables (treatment vs. control means and differences) in a publication-ready format.</p>
+<button type="button" class="proj-install" data-copy="net install tvsc, from(&quot;https://raw.githubusercontent.com/rrmaximiliano/tvsc/main&quot;) replace" aria-label="Copy the install command"><code>net install tvsc, from("https://raw.githubusercontent.com/rrmaximiliano/tvsc/main") replace</code><span class="proj-copy" aria-hidden="true">copy</span></button>
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/tvsc">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="r data">
+<span class="proj-num" aria-hidden="true">19</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">R package</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/constitucionesNic">constitucionesNic</a></div>
+<p class="proj-desc">Nicaragua's political constitutions as data, ready for text analysis.</p>
+<button type="button" class="proj-install" data-copy="remotes::install_github(&quot;RRMaximiliano/constitucionesNic&quot;)" aria-label="Copy the install command"><code>remotes::install_github("RRMaximiliano/constitucionesNic")</code><span class="proj-copy" aria-hidden="true">copy</span></button>
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/constitucionesNic">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">20</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/excess-mortality-data">Excess Mortality</a></div>
+<p class="proj-desc">Excess mortality data and charts, in Spanish and English.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/excess-mortality-data">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data r">
+<span class="proj-num" aria-hidden="true">21</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">Shiny app</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/covid-shiny-app">COVID-19 Nicaragua Shiny App</a></div>
+<p class="proj-desc">Suspected cases and deaths from the Observatorio Ciudadano and confirmed ones from the Ministry of Health, in one app.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/covid-shiny-app">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">22</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/iml_nicaragua">Instituto de Medicina Legal</a></div>
+<p class="proj-desc">Scraped official reports on violence typologies and total cases by medical jurisdiction.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/iml_nicaragua">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">23</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2021</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/inss_nicaragua">Instituto Nicaragüense de Seguridad Social</a></div>
+<p class="proj-desc">Scraped official reports with annual totals of insured individuals by gender.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/inss_nicaragua">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="r data">
+<span class="proj-num" aria-hidden="true">24</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020 — 2022</span><span class="proj-kind">R package</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/eleccionesNic">eleccionesNic</a></div>
+<p class="proj-desc">Presidential election results in Nicaragua from 1990 to 2006.</p>
+<button type="button" class="proj-install" data-copy="remotes::install_github(&quot;RRMaximiliano/eleccionesNic&quot;)" aria-label="Copy the install command"><code>remotes::install_github("RRMaximiliano/eleccionesNic")</code><span class="proj-copy" aria-hidden="true">copy</span></button>
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/eleccionesNic">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="stata latex">
+<span class="proj-num" aria-hidden="true">25</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020 — 2022</span><span class="proj-kind">Stata · guide</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/stata-latex-tables">Stata Tables to LaTeX</a></div>
+<p class="proj-desc">A workaround to export Stata tables to LaTeX with threeparttable, adapted from DIME's "Nice and fast tables in Stata?" post.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/stata-latex-tables">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">26</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020 — 2021</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/policia-nacional-nic-stats">National Police of Nicaragua</a></div>
+<p class="proj-desc">Scraped official reports on crime types, complaints, and solved cases (1980–2019) at the department level. The first publicly available tidy dataset on Nicaraguan crime.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/policia-nacional-nic-stats">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">27</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/observatorio-covid-nicaragua">COVID-19 Observatorio Ciudadano</a></div>
+<p class="proj-desc">Scraped non-official COVID-19 reports from the Observatorio Ciudadano, with case counts and deaths at the national and department level.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/observatorio-covid-nicaragua">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">28</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/covid-19-mobility-tracker-nicaragua">COVID-19 Mobility Tracker for Nicaragua</a></div>
+<p class="proj-desc">Google's community mobility data for Nicaragua in the first months of the pandemic.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/covid-19-mobility-tracker-nicaragua">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">29</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/nicaraguan-rulers">Nicaraguan Rulers</a></div>
+<p class="proj-desc">Hand-coded dataset of Nicaraguan rulers from 1508 to 2020.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/nicaraguan-rulers">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="data">
+<span class="proj-num" aria-hidden="true">30</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2020</span><span class="proj-kind">dataset</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/poblacion-nicaragua-siglo-18-19">Nicaraguan Population, 18th and 19th Centuries</a></div>
+<p class="proj-desc">Population data for the 1700s and 1800s, digitized from archival sources.</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/poblacion-nicaragua-siglo-18-19">GitHub</a></div>
+</div>
+</li>
+<li class="proj" data-types="">
+<span class="proj-num" aria-hidden="true">31</span>
+<div class="proj-body">
+<div class="proj-meta"><span class="proj-years">2019</span><span class="proj-kind">translation</span></div>
+<div class="proj-title"><a href="https://github.com/RRMaximiliano/practicas-datos-codigos">Best Practices for Data and Code Management</a></div>
+<p class="proj-desc">Spanish translation of IPA's "Best Practices for Data and Code Management".</p>
+
+<div class="proj-links"><a href="https://github.com/RRMaximiliano/practicas-datos-codigos">GitHub</a></div>
+</div>
+</li>
+</ol>
+<div class="listing-no-matching d-none">No matching items</div>
+<nav id="projects-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
 <hr>
 <p>If you find errors or improvements, feel free to reach out. Collaboration and correction benefit us both.</p>
 
 
-</section>
-</section>
+
 
 </main> <!-- /main -->
 <script>
@@ -1055,6 +1340,7 @@ document.addEventListener('click', e => {
     '  reg sleep phd          a well-identified result',
     '  which rrmaximiliano    version information',
     '  view browse "/"        go to a page (also: cd research, cd ~)',
+    '  set scheme paper       change the look (light, dark, paper)',
     '  di 2+2                 display',
     '  cls                    clear the screen',
   ];
@@ -1159,6 +1445,15 @@ document.addEventListener('click', e => {
         if (/^sleep\s+phd\b/i.test(args)) { reg.forEach(l => add(l)); return; }
         const missing = args.split(/[\s,]+/).find(x => x && !/^(sleep|phd)$/i.test(x)) || 'varlist';
         err(`variable ${missing} not found`, 111);
+        return;
+      }
+      if (v === 'set' && /^scheme\b/i.test(args)) {   // the site's appearance (footer control)
+        const s = args.replace(/^scheme\s*/i, '').replace(/,.*$/, '').trim().toLowerCase();
+        const as = { light: 'light', s2color: 'light', dark: 'dark', s1rcolor: 'dark', paper: 'paper', s1mono: 'paper' }[s];
+        if (!s) { add(`scheme is ${window.siteAppearance?.theme() || 'light'}`); add('. * try: set scheme light | dark | paper', 'stata-note'); return; }
+        if (!as || !window.siteAppearance) { err(`scheme ${s} not found`, 111); return; }
+        window.siteAppearance.set(as);
+        add(`(scheme set to ${as})`, 'stata-note');
         return;
       }
       if (v === 'ssc' || v === 'net') { add('nice try. this is a website.', 'stata-note'); return; }
@@ -1356,6 +1651,123 @@ document.addEventListener('copy', e => {
   p.className = 'oh-late';
   p.textContent = `It's ${time} where you are. Office hours aren't right now. Go to sleep; the problem set will still be there in the morning.`;
   notice.before(p);
+})();
+
+// Appearance, in the footer: light / dark / paper, and how much grain. Paper is a variant of
+// light mode (html.theme-paper); light and dark go through Quarto's own toggle, so the moon in
+// the navbar keeps working and stays in sync. Saved in localStorage under site-theme and
+// site-grain, and applied before the page draws by html/head.html. Styles in html/custom.scss.
+window.siteAppearance = (() => {
+  const root = document.documentElement;
+  const store = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
+  const isDark = () => document.body.classList.contains('quarto-dark');
+  const theme = () => isDark() ? 'dark' : root.classList.contains('theme-paper') ? 'paper' : 'light';
+  const grainNow = () => Math.round(100 * (parseFloat(getComputedStyle(root).getPropertyValue('--grain')) || 0));
+  let sync = () => {};
+  const set = t => {
+    if (t !== 'dark') {
+      root.classList.toggle('theme-paper', t === 'paper');
+      store('site-theme', t === 'paper' ? 'paper' : null);
+    }
+    if ((t === 'dark') !== isDark() && window.quartoToggleColorScheme) window.quartoToggleColorScheme();
+    sync();
+  };
+  const grain = pct => {
+    pct = Math.max(0, Math.min(100, Math.round(pct)));
+    root.style.setProperty('--grain', pct / 100);
+    root.classList.toggle('no-grain', pct === 0);
+    store('site-grain', pct);
+    sync();
+  };
+
+  // The footer comes after this script in the page, so build the control once it exists
+  const build = () => {
+    const slot = document.querySelector('.nav-footer-center');
+    if (!slot) return;
+    const box = document.createElement('div');
+    box.className = 'appearance';
+    box.innerHTML = `
+      <span class="ap-group" role="group" aria-label="Appearance">
+        ${['light', 'dark', 'paper'].map(t => `<button type="button" data-theme="${t}">${t}</button>`).join('<span aria-hidden="true">·</span>')}
+      </span>
+      <label class="ap-grain">grain <input type="range" min="0" max="100" step="5"><output></output></label>`;
+    slot.replaceChildren(box);
+    const buttons = [...box.querySelectorAll('button')];
+    const range = box.querySelector('input'), out = box.querySelector('output');
+    sync = () => {
+      const t = theme();
+      buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.theme === t)));
+      const g = grainNow();
+      range.value = g; out.textContent = `${g}%`;
+    };
+    buttons.forEach(b => b.addEventListener('click', () => set(b.dataset.theme)));
+    range.addEventListener('input', () => grain(+range.value));
+    // The navbar moon switches light/dark too; follow it
+    new MutationObserver(() => sync()).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    sync();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+  return { set, grain, theme };
+})();
+
+// Software and Data: filter the list by type (all · stata · r · …), and copy an install line
+// with one click. The chosen filter goes in the address (?type=stata) so it can be shared.
+(() => {
+  const bar = document.querySelector('.proj-filters');
+  if (!bar) return;
+  const rows = [...document.querySelectorAll('.proj')];
+  const types = ['stata', 'r', 'latex', 'apps', 'teaching', 'data'];
+  const has = (row, t) => t === 'all' || row.dataset.types.split(' ').includes(t);
+  const shown = ['all', ...types.filter(t => rows.some(r => has(r, t)))];
+  bar.innerHTML = shown.map(t =>
+    `<button type="button" data-type="${t}">${t}<span class="count">${rows.filter(r => has(r, t)).length}</span></button>`).join('');
+  const buttons = [...bar.querySelectorAll('button')];
+  const pick = (t, save) => {
+    if (!shown.includes(t)) t = 'all';
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.type === t)));
+    rows.forEach(r => { r.hidden = !has(r, t); });
+    if (save) {
+      const url = new URL(location.href);
+      t === 'all' ? url.searchParams.delete('type') : url.searchParams.set('type', t);
+      history.replaceState(null, '', url);
+    }
+  };
+  buttons.forEach(b => b.addEventListener('click', () => pick(b.dataset.type, true)));
+  pick(new URLSearchParams(location.search).get('type') || 'all', false);
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.proj-install');
+    if (!btn) return;
+    const text = btn.dataset.copy;
+    const done = () => siteToast('Copied. Paste it into ' + (/^net install/.test(text) ? 'Stata.' : 'R.'));
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
+  });
+})();
+
+// Homepage: the time in Cambridge, next to the location ("Cambridge, MA · 3:12 p.m."),
+// and how far that is from the visitor's own clock. Late at night it says I'm probably asleep.
+(() => {
+  const el = document.querySelector('.home-where-time');
+  if (!el) return;
+  const tz = 'America/New_York';
+  const draw = () => {
+    const now = new Date();
+    const time = now.toLocaleTimeString('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' })
+      .replace('AM', 'a.m.').replace('PM', 'p.m.');
+    // Offset between Cambridge and the visitor, in hours (from the two clocks' readings)
+    const there = new Date(now.toLocaleString('en-US', { timeZone: tz }));
+    const here = new Date(now.toLocaleString('en-US'));
+    const diff = Math.round((there - here) / 36e5 * 2) / 2;
+    const hour = there.getHours();
+    let note = '';
+    if (hour >= 1 && hour < 6) note = 'probably asleep';
+    else if (diff) note = `${Math.abs(diff)}h ${diff < 0 ? 'behind' : 'ahead of'} you`;
+    el.textContent = time + (note ? ` · ${note}` : '');
+    el.closest('.home-where').title = `Time zone: ${tz}`;
+  };
+  draw();
+  setInterval(draw, 30000);
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

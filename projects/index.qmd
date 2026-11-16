@@ -1,53 +1,19 @@
 ---
 pagetitle: "Rony Rodriguez-Ramirez | Software and Data"
-toc-location: right
+toc: false
+listing:
+  - id: projects
+    contents: projects.yml
+    template: ../html/projects.ejs
+    sort: false
 ---
 
-I share here some software and datasets I’ve created or cleaned that may be useful to other researchers.
+<!-- To add or edit a project, change projects/projects.yml. -->
 
-## Packages
+Software, datasets, and apps I've built or cleaned that may be useful to other researchers.
 
-### tvsc  
-**Language**: Stata  
-**Description**: Stata command to generate covariate balance tables in a publication-ready format.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/tvsc)
-
-### eleccionesNic  
-**Language**: R  
-**Description**: R package to access presidential election results in Nicaragua from 1990 to 2006.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/eleccionesNic)
-
-## Data Repositories
-
-### National Police of Nicaragua  
-**Description**: Scraped official reports with information on crime types, complaints, and solved cases (1980–2019) at the department level. First publicly available tidy dataset on Nicaraguan crime.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/policia-nacional-nic-stats)
-
-### Instituto de Medicina Legal  
-**Description**: Scraped official reports on violence typologies and total cases by medical jurisdiction.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/iml_nicaragua)
-
-### Instituto Nicaragüense de Seguridad Social  
-**Description**: Scraped official reports with annual totals of insured individuals by gender.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/inss_nicaragua)
-
-### COVID-19 Nicaragua (Observatorio Ciudadano)  
-**Description**: Scraped non-official COVID-19 reports from Observatorio Ciudadano with case counts and deaths at national and department level.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/observatorio-covid-nicaragua)
-
-### Nicaraguan Rulers  
-**Description**: Hand-coded dataset of Nicaraguan rulers from 1508 to 2020.
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/nicaraguan-rulers)
-
-### Nicaraguan Population — 18th and 19th Century  
-**Description**: Digitized historical population data from archival sources for the 1700s and 1800s.  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/poblacion-nicaragua-siglo-18-19)
-
-## Extra: Translated Documents
-
-### Best Practices for Data and Code Management  
-**Description**: Spanish translation of IPA’s "Best Practices for Data and Code Management".  
-**Repository**: [{{< iconify bi:github >}}](https://github.com/RRMaximiliano/practicas-datos-codigos)
+::: {#projects}
+:::
 
 ---
 

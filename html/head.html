@@ -11,6 +11,21 @@
 })();
 </script>
 <script>
+// Appearance saved from the footer control (html/site.html): the paper theme and the grain
+// strength. Applied here, before anything draws, so the page never flashes the default.
+(() => {
+  const root = document.documentElement;
+  try {
+    if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
+    const g = localStorage.getItem('site-grain');
+    if (g !== null && /^\d+$/.test(g)) {
+      root.style.setProperty('--grain', Math.min(100, +g) / 100);
+      if (+g === 0) root.classList.add('no-grain');
+    }
+  } catch (e) {}
+})();
+</script>
+<script>
 // Entrance motion helpers (styles in html/custom.scss):
 // - "pre": the page is being prepared in the background; hold animations until it's shown.
 // - "intro": the visit starts on the homepage; hold the page while the name types out.

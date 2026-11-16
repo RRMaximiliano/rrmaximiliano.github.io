@@ -1,0 +1,19 @@
+<%
+// Teaching tools on /teaching: entries in projects/projects.yml marked "also: teaching".
+// Drawn like the courses above them. Edit the YAML, not this file.
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+%>
+```{=html}
+<div class="course-list">
+<% for (const item of items) { %>
+<article class="course">
+<div class="course-head"><span class="course-title"><%- esc(item.title) %><% if (item.status) { %> <span class="proj-status"><%- esc(item.status) %></span><% } %></span><% if (item.years) { %><span class="course-years"><%- esc(item.years) %></span><% } %></div>
+<div class="course-meta"><%- esc(item.description) %></div>
+<% const bits = []; %>
+<% if (item.live) bits.push(`<a href="${esc(item.live)}">Live site</a>`); %>
+<% if (item.repo) bits.push(`<a href="${esc(item.repo)}">GitHub</a>`); %>
+<% if (bits.length) { %><div class="course-links"><%= bits.join('<span class="sep"> | </span>') %></div><% } %>
+</article>
+<% } %>
+</div>
+```
