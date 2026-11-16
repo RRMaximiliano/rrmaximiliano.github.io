@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="/site_libs/quarto-html/quarto-syntax-highlighting-82ae440819af363b2f6c858782de6416.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="/site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/site_libs/bootstrap/bootstrap-faf90329cf656585dd83a56b06bbefdd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="/site_libs/bootstrap/bootstrap-dark-3af4b96bd8fea551a8f2fcbff7242764.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="/site_libs/bootstrap/bootstrap-faf90329cf656585dd83a56b06bbefdd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="/site_libs/bootstrap/bootstrap-46fb8c4d5ece604c9ab45ac822e5beb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="/site_libs/bootstrap/bootstrap-dark-789a0b86ab07b4b3f5e9a679f3d6b829.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="/site_libs/bootstrap/bootstrap-46fb8c4d5ece604c9ab45ac822e5beb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
   try {
     if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
     const g = localStorage.getItem('site-grain');
-    if (g !== null && /^\d+$/.test(g)) {
+    if (g !== null && /^\d+$/.test(g) && +g > 0) {   // grain is off unless the visitor turned it on
       root.style.setProperty('--grain', Math.min(100, +g) / 100);
-      if (+g === 0) root.classList.add('no-grain');
+      root.classList.add('grain-on');
     }
   } catch (e) {}
 })();
@@ -1366,7 +1366,7 @@ window.siteAppearance = (() => {
   const grain = pct => {
     pct = Math.max(0, Math.min(100, Math.round(pct)));
     root.style.setProperty('--grain', pct / 100);
-    root.classList.toggle('no-grain', pct === 0);
+    root.classList.toggle('grain-on', pct > 0);
     store('site-grain', pct);
     sync();
   };

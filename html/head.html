@@ -18,9 +18,9 @@
   try {
     if (localStorage.getItem('site-theme') === 'paper') root.classList.add('theme-paper');
     const g = localStorage.getItem('site-grain');
-    if (g !== null && /^\d+$/.test(g)) {
+    if (g !== null && /^\d+$/.test(g) && +g > 0) {   // grain is off unless the visitor turned it on
       root.style.setProperty('--grain', Math.min(100, +g) / 100);
-      if (+g === 0) root.classList.add('no-grain');
+      root.classList.add('grain-on');
     }
   } catch (e) {}
 })();

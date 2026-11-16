@@ -45,7 +45,7 @@ $headings-font-weight: 500;
 :root {
   --paper: #{$paper}; --ink: #{$ink}; --ink-2: #{$ink-2}; --muted: #{$muted};
   --rule: #{$rule}; --faint: #{$faint}; --code-bg: #{$code-bg};
-  --grain: .3; // 0–1, set from the footer control (html/site.html)
+  --grain: 0; // 0–1, set from the footer control (html/site.html); off unless a visitor turns it on
 }
 
 // ── Paper: a third appearance, warm off-white like an old notebook ──
@@ -65,17 +65,17 @@ $headings-font-weight: 500;
   }
 }
 
-// ── Grain: a fine noise over the whole page, like paper or film ──
-// Strength comes from --grain (the footer slider); 0 turns it off.
-$grain-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
-body::after {
+// ── Grain: a fine speckle over the whole page, like Arc's grain ──
+// Noise from an SVG filter, turned into specks: dark ones on light pages, light ones on dark.
+// Off by default. Moving the footer slider above 0 adds html.grain-on and sets --grain (0–1).
+$grain-dark-specks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5 0 0 0 -.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
+$grain-light-specks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 2.5 0 0 0 -.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
+html.grain-on body::after {
   content: ""; position: fixed; inset: 0; z-index: 2147483000; pointer-events: none;
-  background: $grain-svg repeat;
-  opacity: calc(var(--grain) * #{if($site-dark, .1, .16)});
-  mix-blend-mode: if($site-dark, screen, multiply);
+  background: if($site-dark, $grain-light-specks, $grain-dark-specks) repeat;
+  opacity: calc(var(--grain) * #{if($site-dark, .3, .4)});
 }
-html.no-grain body::after { display: none; }
-@media print { body::after { display: none; } }
+@media print { html.grain-on body::after { display: none; } }
 
 // Footer control for the two (script in html/site.html)
 .nav-footer .appearance {

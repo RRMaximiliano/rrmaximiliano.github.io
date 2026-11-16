@@ -709,7 +709,7 @@ window.siteAppearance = (() => {
   const grain = pct => {
     pct = Math.max(0, Math.min(100, Math.round(pct)));
     root.style.setProperty('--grain', pct / 100);
-    root.classList.toggle('no-grain', pct === 0);
+    root.classList.toggle('grain-on', pct > 0);
     store('site-grain', pct);
     sync();
   };
